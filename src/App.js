@@ -18,6 +18,7 @@ const App = ({ contract, currentUser, nearConfig, wallet }) => {
                         <Route path='/' element={<Home/>} />
                         <Route path='*' element={<NotFound/>} />
                         <Route path='/profile' element={<PleaseLogin/>} />
+                        <Route path='/content' element={<Content/>} />
                     </Routes>
                 </Router>
             </div>
