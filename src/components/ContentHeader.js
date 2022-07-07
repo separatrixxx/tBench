@@ -13,7 +13,7 @@ function ContentHeader() {
                     className="block shadow-inner md:w-52 h-8 w-44 rounded-full pl-8 p-3 focus:outline-none focus:border-blue-500 focus:ring-blue-5000 focus:ring-1"
                     placeholder="" type="text" name="search"/>
             </label>
-            <button onClick={reload} className="">
+            <button onClick={reload}>
                 <div id="content_profile_icon" className="w-8 h-8 bg-black rounded-full cursor-pointer bg-cover bg-center bg-no-repeat select-none">
 
                 </div>
