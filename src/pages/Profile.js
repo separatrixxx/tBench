@@ -8,6 +8,11 @@ import ProfileContent from "../components/ProfileContent";
 
 
 function Profile () {
+
+    let username1 = window.location.pathname
+    let username2 = username1.substr(username1.indexOf("/") + 1);
+    document.title = username2.substr(username2.indexOf("/") + 1);
+
     return (
         <div className="scroll-smooth bg-white">
             <ProfileHeader />
