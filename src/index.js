@@ -49,28 +49,12 @@ window.nearInitPromise = initContract().then(
             />,
             document.getElementById('root')
         );
-        //window.location.href = '/profile';
 
 
         if (walletConnection.isSignedIn()) {
             isSignedIn(walletConnection, currentUser)
-
-            if (document.location.pathname === '/') {
-                document.title = 'Content';
-            } else if (document.location.pathname === '/profile') {
-                document.title = walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), '');
-            } else {
-                document.title = '404';
-            }
-
         } else {
             isSignedOut()
-
-            if (document.location.pathname === '/') {
-                document.title = 'tBench';
-            } else {
-                document.title = '404';
-            }
         }
 
         if (document.querySelector('#sign_in_btn') != null) {
@@ -107,7 +91,7 @@ window.nearInitPromise = initContract().then(
             const firstTouch = getTouches(evt)[0];
             xDown = firstTouch.clientX;
             yDown = firstTouch.clientY;
-        };
+        }
 
         function handleTouchMove(evt) {
             if ( ! xDown || ! yDown ) {
@@ -128,7 +112,7 @@ window.nearInitPromise = initContract().then(
             /* свайп был, обнуляем координаты */
             xDown = null;
             yDown = null;
-        };
+        }
 
 
     }
@@ -136,8 +120,12 @@ window.nearInitPromise = initContract().then(
 );
 
 function isSignedIn(walletConnection, currentUser) {
-    document.querySelector('#landing_page').classList.add('hidden');
-    document.querySelector('#home_page').classList.remove('hidden');
+
+    if (document.querySelector('#content_profile_icon_btn') != null) {
+        document.querySelector('#content_profile_icon_btn').addEventListener('click', () => {
+            window.location.href = '/id/' + walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), '');
+        })
+    }
 
     if (document.querySelector('#username') != null && document.querySelector('#balance') != null) {
         document.querySelector('#username').innerHTML = walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), '');
@@ -167,8 +155,6 @@ function isSignedIn(walletConnection, currentUser) {
 }
 
 function isSignedOut() {
-    document.querySelector('#landing_page').classList.remove('hidden');
-    document.querySelector('#home_page').classList.add('hidden');
 
     if (document.querySelector('.link') != null) {
         document.querySelector('.link').addEventListener('click', () => {

@@ -10,30 +10,50 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 const App = ({ contract, currentUser, nearConfig, wallet }) => {
 
-    return (
-        <div className="scroll-smooth bg-black">
-            <div id="landing_page" className="scroll-smooth bg-black">
+    if (wallet.isSignedIn()) {
+
+        if (document.location.pathname === '/') {
+            document.title = 'Content';
+        } else {
+            document.title = '404';
+        }
+
+        return (
+            <div className="scroll-smooth bg-black">
+                <Router>
+                    <Routes>
+                        <Route path='/' element={<Content/>} />
+                        <Route path='*' element={<NotFound/>} />
+                        <Route path='/id'>
+                            <Route index element={<NotFound />} />
+                            <Route path=":id" element={<Profile />} />
+                        </Route>
+                    </Routes>
+                </Router>
+            </div>
+        );
+    } else {
+
+        if (document.location.pathname === '/') {
+            document.title = 'tBench';
+        } else {
+            document.title = '404';
+        }
+
+        return (
+            <div className="scroll-smooth bg-black">
                 <Router>
                     <Routes>
                         <Route path='/' element={<Home/>} />
                         <Route path='*' element={<NotFound/>} />
                         <Route path='/profile' element={<PleaseLogin/>} />
-                        <Route path='/content' element={<Content/>} />
                     </Routes>
                 </Router>
             </div>
-            <div id="home_page" className="scroll-smooth bg-black">
-                <Router>
-                    <Routes>
-                        <Route path='/' element={<Content/>} />
-                        <Route path='*' element={<NotFound/>} />
-                        <Route path='/profile' element={<Profile/>} />
-                    </Routes>
-                </Router>
-            </div>
-        </div>
+        );
+    }
 
-    );
+
 }
 
 export default App;
