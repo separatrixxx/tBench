@@ -13,7 +13,7 @@ ReactDOM.render(
 );
 
 const web3auth = new Web3Auth({
-    clientId: "BBHiEEFMSHMSIs471vNcsCD03P12w1Tf5q6z2rApL0ffKaszdi6w5Ls0HgAX7biVBdBqMdREjCrC6AjTCOSXFh4",
+    clientId: "BPDBG6BFuXapbc1XsMdHidsam3whUiP0oyySTKMBKzP8iMKZSKIU5S97KvBvN8oVFqYnaDPsfeRY4imG1051eJQ",
     chainConfig: {
         chainNamespace: "solana",
         chainId: "0x1",
