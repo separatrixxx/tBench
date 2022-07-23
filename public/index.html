@@ -1,75 +1,116 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/logo_icon_circle.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Social network tBench"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo_icon_circle.svg" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+<head>
+  <title>tBench</title>
+  <meta charset="utf-8" />
+  <link rel="icon" href="./logo_icon_circle.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta
+          name="description"
+          content="Social network tBench"
+  />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
-    <title>tBench</title>
+  <style>
+    body::-webkit-scrollbar {
+      width: 9px;
+    }
 
-    <style>
+    body::-webkit-scrollbar-track {
+      background-color: black;
+    }
 
-      body::-webkit-scrollbar {
-        width: 9px;
-      }
+    body::-webkit-scrollbar-thumb {
+      background-color: white;
+      border-radius: 30px;
+    }
 
-      body::-webkit-scrollbar-track {
-        background-color: black;
-      }
+    body {
+      font-family: "SF UI Display", sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-      body::-webkit-scrollbar-thumb {
-        background-color: white;
-        border-radius: 30px;
-      }
+    #vk:hover {
+      color: #0077FF;
+    }
 
-      body {
-        font-family: "SF UI Display", sans-serif;
-        -webkit-tap-highlight-color: transparent;
-      }
+    #telegram:hover {
+      color: #2AABEE;
+    }
 
-      #nav_div {
-        left: 0;
-        top: 0;
-        width: 100%;
-        transition: transform .3s linear;
-      }
+    #discord:hover {
+      color: #5865F2;
+    }
 
-      #nav_div.hide {
-        transform: translateY(-50px);
-      }
+    #youtube:hover {
+      color: #FF0000;
+    }
 
-      #vk:hover {
-        color: #0077FF;
-      }
+    #twitter:hover {
+      color: #1DA1F2;
+    }
 
-      #telegram:hover {
-        color: #2AABEE;
-      }
+    #nav_div {
+      left: 0;
+      top: 0;
+      width: 100%;
+      transition: transform .3s linear;
+    }
 
-      #discord:hover {
-        color: #5865F2;
-      }
+    #nav_div.hide {
+      transform: translateY(-50px);
+    }
 
-      #youtube:hover {
-        color: #FF0000;
-      }
+    #content_nav_div {
+      left: 0;
+      top: 0;
+      width: 100%;
+      transition: transform .3s linear;
+    }
 
-      #twitter:hover {
-        color: #1DA1F2;
-      }
+    #content_nav_div.hide {
+      transform: translateY(-50px);
+    }
 
-    </style>
+    #spr_img {
+      background-image: url(img/team_img/1.jpg);
+    }
 
-  </head>
-  <body>
-    <div id="root"></div>
+    #bigg_img {
+      background-image: url(img/team_img/2.jpg);
+    }
 
-  </body>
+    #elnd_img {
+      background-image: url(img/team_img/3.jpg);
+    }
+
+    #content_profile_icon {
+      background-image: url(img/team_img/1.jpg);
+    }
+
+    #profile_icon {
+      background-image: url(img/team_img/1.jpg);
+    }
+
+    ::selection {
+      background: #3b83f6; /* Цвет фона */
+      color: white;
+    }
+
+  </style>
+
+</head>
+<body>
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<div id="root"></div>
+<!--
+  This HTML file is a template.
+  If you open it directly in the browser, you will see an empty page.
+  You can add webfonts, meta tags, or analytics to this file.
+  The build step will place the bundled scripts into the <body> tag.
+  To begin the development, run `npm start` or `yarn start`.
+  To create a production bundle, use `npm run build` or `yarn build`.
+-->
+</body>
 </html>
