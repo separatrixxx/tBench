@@ -35,7 +35,7 @@ function Footer() {
                 </div>
                 <p className="text-white text-sm font-medium mt-12 block lg:hidden">© 2022 <span className="font-semibold">tBench</span></p>
             </div>
-            <p className="text-white text-xs m-5">by <span className="font-bold">@separatrix</span></p>
+            <p className="text-white text-xs m-5">by <span className="font-bold">separatrix</span></p>
         </div>
     );
 
