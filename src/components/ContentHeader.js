@@ -14,7 +14,8 @@ function ContentHeader() {
                     placeholder="" type="text" name="search"/>
             </label>
             <a href="/profile">
-                <div id="content_profile_icon" className="w-8 h-8 bg-black rounded-full cursor-pointer bg-cover bg-center bg-no-repeat select-none">
+                <div id="content_profile_icon" className="w-8 h-8 bg-black rounded-full cursor-pointer bg-cover bg-center
+                bg-no-repeat select-none hover:scale-105 duration-300 easy-in-out transition-transform">
 
                 </div>
             </a>
