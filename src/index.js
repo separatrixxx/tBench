@@ -120,15 +120,15 @@ window.nearInitPromise = initContract().then(
 
 function isSignedIn(walletConnection, currentUser) {
 
-    let currentUser = {
+    let user = {
         name: walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), ''),
         info: `Hi there, I'm ${walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), '')}`
     };
 
     if (document.querySelector('#username') != null && document.querySelector('#balance') != null) {
-        document.querySelector('#username').innerHTML = currentUser.name;
+        document.querySelector('#username').innerHTML = user.name;
         document.querySelector('#balance').innerHTML = (currentUser.balance / 10**24).toFixed(5) + ' NEAR';
-        document.querySelector('#userInfo').innerHTML = currentUser.info;
+        document.querySelector('#userInfo').innerHTML = user.info;
     }
 
     let lastScroll = 0;
