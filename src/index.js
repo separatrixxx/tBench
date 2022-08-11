@@ -56,28 +56,23 @@ window.nearInitPromise = initContract().then(
             isSignedOut()
         }
 
-        if (document.querySelector('#sign_in_btn') != null) {
-            document.querySelector('#sign_in_btn').addEventListener('click', () => {
-                walletConnection.requestSignIn(
-                    {contractId: nearConfig.contractName, methodNames: [contract.addMessage.name]}, //contract requesting access
-                    'tBench', //optional name
-                    null, //optional URL to redirect to if the sign in was successful
-                    null //optional URL to redirect to if the sign in was NOT successful
-                );
-            })
-        }
+        document.querySelector('#sign_in_btn')?.addEventListener('click', () => {
+            walletConnection.requestSignIn(
+                {contractId: nearConfig.contractName, methodNames: [contract.addMessage.name]}, //contract requesting access
+                'tBench', //optional name
+                null, //optional URL to redirect to if the sign in was successful
+                null //optional URL to redirect to if the sign in was NOT successful
+            );
+        })
 
-        if (document.querySelector('#sign_out_btn') != null) {
-            document.querySelector('#sign_out_btn').addEventListener('click', () => {
-                window.location.href = '/';
-                walletConnection.signOut();
-            })
-        }
+        document.querySelector('#sign_out_btn')?.addEventListener('click', () => {
+            window.location.href = '/';
+            walletConnection.signOut();
+        })
 
-        if (document.querySelector('#back_btn') != null) {
-            document.querySelector('#back_btn').addEventListener('touchstart', handleTouchStart, false);
-            document.querySelector('#back_btn').addEventListener('touchmove', handleTouchMove, false);
-        }
+        document.querySelector('#back_btn')?.addEventListener('touchstart', handleTouchStart, false);
+        document.querySelector('#back_btn')?.addEventListener('touchmove', handleTouchMove, false);
+
         let xDown = null;
         let yDown = null;
 
@@ -125,41 +120,36 @@ function isSignedIn(walletConnection, currentUser) {
         info: `Hi there, I'm ${walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), '')}`
     };
 
-    if (document.querySelector('#username') != null && document.querySelector('#balance') != null) {
-        document.querySelector('#username').innerHTML = user.name;
-        document.querySelector('#balance').innerHTML = (currentUser.balance / 10**24).toFixed(5) + ' NEAR';
-        document.querySelector('#userInfo').innerHTML = user.info;
-    }
+    document.querySelector('#username').innerHTML = user.name;
+    document.querySelector('#balance').innerHTML = (currentUser.balance / 10**24).toFixed(5) + ' NEAR';
+    document.querySelector('#userInfo').innerHTML = user.info;
 
     let lastScroll = 0;
     const defaultOffset = 200;
     const header = document.querySelector('#content_nav_div');
 
     const scrollPosition = () => window.pageYOffset || document.documentElement.scrollTop;
-    if (header != null) {
-        const containHide = () => header.classList.contains('hide');
 
-        window.addEventListener('scroll', () => {
-            if(scrollPosition() > lastScroll && !containHide() && scrollPosition() > defaultOffset) {
-                header.classList.add('hide');
-            }
-            else if(scrollPosition() < lastScroll && containHide()){
-                header.classList.remove('hide');
-            }
+    const containHide = () => header?.classList.contains('hide');
 
-            lastScroll = scrollPosition();
-        })
-    }
+    window.addEventListener('scroll', () => {
+        if(scrollPosition() > lastScroll && !containHide() && scrollPosition() > defaultOffset) {
+            header?.classList.add('hide');
+        }
+        else if(scrollPosition() < lastScroll && containHide()){
+            header?.classList.remove('hide');
+        }
+
+        lastScroll = scrollPosition();
+    })
 
 }
 
 function isSignedOut() {
 
-    if (document.querySelector('.link') != null) {
-        document.querySelector('.link').addEventListener('click', () => {
-            window.location.reload();
-        })
-    }
+    document.querySelector('.link')?.addEventListener('click', () => {
+        window.location.reload();
+    })
 
     let lastScroll = 0;
     const defaultOffset = 200;
