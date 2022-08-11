@@ -125,59 +125,6 @@ function isSignedIn(walletConnection, currentUser) {
         info: `Hi there, I'm ${walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), '')}`
     };
 
-    let editUsername = document.querySelector('#editUsername');
-    let usernameStorage = localStorage.getItem('username');
-
-    if (editUsername !== null) {
-        editUsername.addEventListener('keypress', function(e){
-            if(e.which === 13){
-                e.preventDefault();
-
-                let usernameVal = document.getElementById('editUsername').value;
-
-                if (Number(usernameVal) !== 0) {
-                    localStorage.removeItem('username');
-                    localStorage.setItem('username', usernameVal);
-
-                    window.location.reload()
-
-                    alert('Извините за такие убогие формы, скоро я сделаю нормальное модальное окно 😜');
-                } else {
-                    editUsername.classList.add('bg-red-200');
-                    editUsername.classList.add('hover:bg-red-200');
-                    editUsername.classList.add('focus:bg-red-200');
-                    editUsername.classList.remove('bg-neutral-200');
-                    editUsername.classList.remove('hover:bg-neutral-300');
-                    editUsername.classList.remove('focus:bg-neutral-300');
-                }
-            }
-        });
-    }
-
-    let editUserInfo = document.querySelector('#editUserInfo');
-    let userInfoStorage = localStorage.getItem('userInfo');
-
-    if (editUserInfo !== null) {
-        editUserInfo.addEventListener('keypress', function (e) {
-            if (e.which === 13) {
-                e.preventDefault();
-
-                let userInfoVal = document.getElementById('editUserInfo').value;
-
-                localStorage.removeItem('userInfo');
-                localStorage.setItem('userInfo', userInfoVal);
-
-                window.location.reload()
-
-                alert('Извините за такие убогие формы, скоро я сделаю нормальное модальное окно 😜');
-            }
-        });
-    }
-
-    user.name = usernameStorage;
-    user.info = userInfoStorage;
-
-
     if (document.querySelector('#username') != null && document.querySelector('#balance') != null) {
         document.querySelector('#username').innerHTML = user.name;
         document.querySelector('#balance').innerHTML = (currentUser.balance / 10**24).toFixed(5) + ' NEAR';
