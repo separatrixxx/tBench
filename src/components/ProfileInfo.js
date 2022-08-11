@@ -12,13 +12,7 @@ function ProfileInfo() {
                     <div className="flex flex-col items-center">
                         <h1 id="username" className="mt-7 text-black text-xl md:text-3xl font-bold text-center">Username</h1>
                         <p id="balance" className="text-black text-sm md:text-lg text-center">Balance</p>
-                        <input id="editUsername" type="text" name="name" className="w-72 h-8 rounded-lg mt-1 bg-neutral-200
-                        text-neutral-800 px-3 focus:outline-none hover:bg-neutral-300 focus:bg-neutral-300 transition-colors
-                        duration-300 ease-in-out" />
-                        <p id="userInfo" className="w-60 mt-10 text-black text-xs md:text-sm text-center break-words"></p>
-                        <input id="editUserInfo" type="text" name="info" className="w-72 h-8 rounded-lg mt-1 bg-neutral-200
-                        text-neutral-800 px-3 focus:outline-none hover:bg-neutral-300 focus:bg-neutral-300 transition-colors
-                        duration-300 ease-in-out" />
+                        <p id="userInfo" className="w-60 mt-10 text-black text-xs md:text-sm text-center break-words">Info</p>
                     </div>
                 </div>
             </div>
