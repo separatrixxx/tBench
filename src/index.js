@@ -120,9 +120,11 @@ function isSignedIn(walletConnection, currentUser) {
         info: `Hi there, I'm ${walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), '')}`
     };
 
-    document.querySelector('#username').innerHTML = user.name;
-    document.querySelector('#balance').innerHTML = (currentUser.balance / 10**24).toFixed(5) + ' NEAR';
-    document.querySelector('#userInfo').innerHTML = user.info;
+    if (document.querySelector('#username') !== null) {
+        document.querySelector('#username').innerHTML = user.name;
+        document.querySelector('#balance').innerHTML = (currentUser.balance / 10**24).toFixed(5) + ' NEAR';
+        document.querySelector('#userInfo').innerHTML = user.info;
+    }
 
     let lastScroll = 0;
     const defaultOffset = 200;
