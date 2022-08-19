@@ -12,10 +12,10 @@ function ContentForm () {
                 bg-no-repeat select-none hover:scale-105 duration-300 easy-in-out transition-transform"></div>
                 </a>
                 <div className="flex flex-col items-start ml-2">
-                    <h1 id="content_form_username" className="text-sm md:text-base text-blue-tb font-extrabold text-center
+                    <a href="/profile" id="content_form_username" className="text-sm md:text-base text-blue-tb font-extrabold text-center
                         cursor-pointer hover:text-blue-600 duration-300 easy-in-out transition-colors">
                         Username
-                    </h1>
+                    </a>
                     <p id="content_form_time" className="text-xs text-gray-600 text-center">
                         Time
                     </p>
