@@ -126,6 +126,38 @@ function isSignedIn(walletConnection, currentUser) {
         document.querySelector('#userInfo').innerHTML = user.info;
     }
 
+    if (document.querySelector('#content_form_username') !== null) {
+
+        let now = new Date();
+
+        let year = now.getFullYear();
+        let month = now.getMonth();
+        let day = now.getDate();
+        let hours = now.getHours();
+        let minutes = String(now.getMinutes());
+
+        if  (minutes.length === 1) {
+            minutes = '0' + minutes;
+        }
+
+        month = ['Янв.', 'Фев.', 'Мар.', 'Апр.', 'Мая.', 'Июн.', 'Июл.', 'Авг.', 'Сен.', 'Окт.', 'Ноя.', 'Дек.'][month]
+
+        document.querySelector('#content_form_username').innerHTML = user.name;
+        document.querySelector('#content_form_time').innerHTML = `${day} ${month} ${year} в ${hours}:${minutes}`;
+    }
+
+    if (document.querySelector('#like') !== null && document.querySelector('#dislike') !== null) {
+        document.querySelector('#like').addEventListener('click', () => {
+            document.querySelector('#like').classList.add('hidden');
+            document.querySelector('#dislike').classList.remove('hidden');
+        })
+
+        document.querySelector('#dislike').addEventListener('click', () => {
+            document.querySelector('#like').classList.remove('hidden');
+            document.querySelector('#dislike').classList.add('hidden');
+        })
+    }
+
     let lastScroll = 0;
     const defaultOffset = 200;
     const header = document.querySelector('#content_nav_div');
@@ -176,14 +208,14 @@ function isSignedOut() {
 
         if (scrollPosition() > height - 1) {
             div1.classList.add("bg-black");
-            div1.classList.remove("bg-blue-600");
+            div1.classList.remove("bg-blue-tb");
             div2.classList.add("bg-black");
-            div2.classList.remove("bg-blue-600");
+            div2.classList.remove("bg-blue-tb");
         } else {
             div1.classList.remove("bg-black");
-            div1.classList.add("bg-blue-600");
+            div1.classList.add("bg-blue-tb");
             div2.classList.remove("bg-black");
-            div2.classList.add("bg-blue-600");
+            div2.classList.add("bg-blue-tb");
         }
     })
 }
