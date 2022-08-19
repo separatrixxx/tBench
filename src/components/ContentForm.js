@@ -1,6 +1,6 @@
 import React from 'react';
 import {IoMdHeartEmpty, IoMdHeart} from "react-icons/io";
-import {BiComment} from "react-icons/bi";
+import {IoChatboxOutline} from "react-icons/io5";
 
 function ContentForm () {
 
@@ -44,11 +44,11 @@ function ContentForm () {
             <div className="flex flex-row justify-start items-center w-full p-5">
                 <div className="flex flex-row items-center">
                     <h1 id="like" className="text-xl md:text-2xl text-gray-600 font-extrabold text-center
-                        cursor-pointer hover:scale-105 duration-300 easy-in-out transition-transform">
+                        cursor-pointer hover:scale-110 duration-500 easy-in-out transition-transform">
                         <IoMdHeartEmpty />
                     </h1>
                     <h1 id="dislike" className="text-xl md:text-2xl text-red-600 font-extrabold text-center
-                        cursor-pointer hover:scale-105 duration-300 easy-in-out transition-transform hidden">
+                        cursor-pointer hover:scale-110 duration-500 easy-in-out transition-transform hidden">
                         <IoMdHeart />
                     </h1>
                     <h1 className="text-xs md:text-sm text-gray-600 text-center ml-2 cursor-pointer">228</h1>
@@ -56,10 +56,10 @@ function ContentForm () {
 
                 <div className="flex flex-row items-center ml-5">
                     <h1 className="text-xl md:text-2xl text-gray-600 font-extrabold text-center
-                        cursor-pointer hover:scale-105 duration-300 easy-in-out transition-transform">
-                        <BiComment />
+                        cursor-pointer hover:scale-110 duration-500 easy-in-out transition-transform">
+                        <IoChatboxOutline />
                     </h1>
-                    <h1 className="text-xs md:text-sm text-gray-600 text-center ml-2">13</h1>
+                    <h1 className="text-xs md:text-sm text-gray-600 text-center ml-2 cursor-pointer">13</h1>
                 </div>
             </div>
         </div>
