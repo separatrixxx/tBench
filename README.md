@@ -9,4 +9,4 @@
 - `near deploy [accountId] [wasmFile] [initFunction] [initArgs] [initGas] [initDeposit]` - первым аргументов укажите свой адрес, вторым файл `./out/main.wasm`
 - Ну и `yarn start`
 
-**В принципе, этого можно не делать, а просто запустить проект командой `yarn start`
+**В принципе, этого можно не делать, а просто запустить проект командой `yarn start`**
