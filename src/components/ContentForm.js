@@ -32,8 +32,8 @@ function ContentForm () {
                     И ещё водички
                 </p>
                 <div className="w-72 md:w-144 h-48 md:h-96 bg-gray-600 mt-3 rounded-3xl overflow-hidden shadow-lg">
-                    <div id="content_form_img" className="w-72 md:w-144 h-48 md:h-96 rounded-3xl cursor-pointer
-                        bg-cover bg-center bg-no-repeat select-none hover:scale-105 duration-500 easy-in-out transition-transform">
+                    <div id="content_form_img" className="w-72 md:w-144 h-48 md:h-96 rounded-3xl cursor-pointer bg-cover
+                    bg-center bg-no-repeat select-none hover:scale-100 md:hover:scale-105 duration-500 easy-in-out transition-transform">
 
                     </div>
                 </div>
