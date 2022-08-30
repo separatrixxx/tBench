@@ -6,7 +6,7 @@ function ContentForm () {
 
     return (
         <div className="bg-white w-5/6 lg:w-2/3 mt-10 rounded-3xl shadow-lg">
-            <div className="flex flex-row justify-start items-center w-full p-5">
+            <div className="flex flex-row justify-start items-center w-full p-3 md:p-5">
                 <a href="/profile">
                     <div id="content_form_icon" className="w-10 md:w-11 h-10 md:h-11 bg-black rounded-full cursor-pointer bg-cover bg-center
                 bg-no-repeat select-none hover:scale-105 duration-300 easy-in-out transition-transform"></div>
@@ -24,7 +24,7 @@ function ContentForm () {
 
             <div className="w-full h-px bg-slate-200"></div>
 
-            <div className="flex flex-col items-center justify-start w-full p-5">
+            <div className="flex flex-col items-center justify-start w-full p-3 md:p-5">
 
                 <p id="content_form_text" className="w-72 md:w-144 text-sm md:text-base text-black break-words">
                     Это очень красивая картинка, кстати. Я её сам нарисовал когда-то :))
@@ -41,7 +41,7 @@ function ContentForm () {
 
             <div className="w-full h-px bg-slate-200"></div>
 
-            <div className="flex flex-row justify-start items-center w-full p-5">
+            <div className="flex flex-row justify-start items-center w-full p-3 md:p-5">
                 <div className="flex flex-row items-center">
                     <h1 id="like" className="text-xl md:text-2xl text-gray-600 font-extrabold text-center
                         cursor-pointer hover:scale-110 duration-500 easy-in-out transition-transform">
