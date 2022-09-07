@@ -114,7 +114,6 @@ window.nearInitPromise = initContract().then(
 );
 
 function isSignedIn(walletConnection, currentUser) {
-
     let user = {
         name: walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), ''),
         info: `Hi there, I'm ${walletConnection.getAccountId().replace(new RegExp('.testnet', 'g'), '')}`
@@ -127,7 +126,6 @@ function isSignedIn(walletConnection, currentUser) {
     }
 
     if (document.querySelector('#content_form_username') !== null) {
-
         let now = new Date();
 
         let year = now.getFullYear();
@@ -180,7 +178,6 @@ function isSignedIn(walletConnection, currentUser) {
 }
 
 function isSignedOut() {
-
     document.querySelector('.link')?.addEventListener('click', () => {
         window.location.reload();
     })
