@@ -8,7 +8,7 @@ function Footer() {
     return(
         <div className="flex flex-col items-center w-full bg-black mt-10">
             <div className="flex flex-col lg:flex-row lg:flex-row justify-between items-center w-full lg:w-2/3 pb-0 lg:pb-10 pt-10 px-10 border-t">
-                <div className="flex justify-center">
+                <div className="flex items-center">
                     <ScrollIntoView selector="#first_div">
                         <h1 className="cursor-pointer mb-10 lg:mb-0">
                             <img className="w-6 select-none" draggable="false" src={logo} alt="logo_icon" />
