@@ -1,6 +1,6 @@
 module.exports = {
 	images: {
-		domains: ['xd-cinema.vercel.app'],
+		domains: ['tbench.vercel.app/'],
 	},
 	webpack(config, options) {
 		config.module.rules.push({
