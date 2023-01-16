@@ -1,0 +1,18 @@
+export interface User {
+	_id: number,
+	username: string,
+    email: string,
+    firstName: string,
+    lastName: string,
+    password: number,
+    profileImage: File,
+    registrationDate: string,
+    profileInfo: string,
+    city: string,
+    birthday: string,
+    education: string,
+    speciality: string,
+    verify: boolean,
+    team: boolean,
+    online: boolean,
+}
