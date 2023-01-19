@@ -1,4 +1,8 @@
 module.exports = {
+	i18n: {
+		locales: ['en', 'ru'],
+		defaultLocale: 'en',
+	},
 	images: {
 		domains: ['tbench.vercel.app/'],
 	},
