@@ -7,10 +7,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return <>
     <Head>
       <title>tBench</title>
-      <meta name='description' content='Децентрализованная социальная сеть tBench.' />
+      <meta name='description' content='Decentralized social network tBench.' />
       <meta property='og:title' content='tBecnh' />
-      <meta property='og:description' content='Децентрализованная социальная сеть tBench.' />
-      <meta property='og:locale' content='ru_RU' />
+      <meta property='og:description' content='Decentralized social network tBench.' />
+      <meta property='og:locale' content='en_EN' />
       <link rel="icon" href="/logo_icon_circle.svg" />
     </Head>
     <Component {...pageProps} />
