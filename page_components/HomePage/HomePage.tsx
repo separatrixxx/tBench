@@ -1,14 +1,17 @@
 import styles from './HomePage.module.css';
+import { Header } from "components/Header/Header";
+import { AuthForm } from 'components/AuthForm/AuthForm';
 
 export const HomePage = (): JSX.Element => {
 	return (
-        <div className={styles.wrapper}>
-            <div className={styles.block1}>
+        <>
+            <Header />
+            <div className={styles.wrapper}>
+                <div className={styles.startBlock}>
 
+                </div>
+                <AuthForm />
             </div>
-            <div className={styles.block2}>
-
-            </div>
-        </div>
+        </>
     );
 };

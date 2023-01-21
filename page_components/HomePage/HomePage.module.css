@@ -3,12 +3,13 @@
     grid-template-columns: 50% 50%;
 }
 
-.block1 {
+.startBlock {
     height: 100vh;
     background: var(--primary);
 }
 
-.block2 {
-    height: 100vh;
-    background: black;
+@media (max-width: 1024px) {
+    .wrapper {
+        grid-template-columns: 100%;
+    }
 }
