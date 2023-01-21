@@ -1,0 +1,14 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.block1 {
+    height: 100vh;
+    background: var(--primary);
+}
+
+.block2 {
+    height: 100vh;
+    background: black;
+}

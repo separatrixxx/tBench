@@ -1,12 +1,10 @@
-import { Header } from "layout/Header/Header";
-import { withLayout } from "layout/Layout";
+import { HomePage } from "page_components/HomePage/HomePage";
 
 function Home(): JSX.Element {
   return (
-    <>
-    </>
+    <HomePage />
   );
 }
 
-export default withLayout(Home);
+export default Home;
 
