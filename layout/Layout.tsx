@@ -3,7 +3,7 @@ import { ru } from "locales/ru.locale";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FunctionComponent } from "react";
-import { Header } from "./Header/Header";
+import { Header } from "../components/Header/Header";
 import { LayoutProps } from "./Layout.props";
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
