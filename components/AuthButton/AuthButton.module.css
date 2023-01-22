@@ -1,0 +1,20 @@
+.button {
+	width: 100%;
+	background: var(--primary);
+	color: var(--white);
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	border: none;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 9999px;
+	transition-duration: 300ms;
+}
+
+.button:hover {
+	background: var(--white);
+	color: var(--primary);
+	outline: 1px solid var(--primary);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
