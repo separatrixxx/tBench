@@ -19,11 +19,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background-color: rgb(23, 23, 23);
+  background-color: var(--dark);
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: white;
+  background-color: var(--white);
   border-radius: 30px;
 }
 

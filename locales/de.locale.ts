@@ -11,4 +11,8 @@ export const de = {
     sign_in: "Einloggen",
     sign_up: "Registrieren",
     home_image: "Das Hauptbild",
+    error_email: "Ungültiges Email-Format",
+    error_password: "Das Passwort darf nicht kürzer als 8 Zeichen sein",
+    error_name: "Gib deinen Namen ein",
+    error_confirm: "Passwörter stimmen nicht überein",
 };

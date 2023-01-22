@@ -1,0 +1,19 @@
+.footer {
+    display: grid;
+    background: var(--primary);
+    padding: 10px;
+}
+
+.link {
+    width: fit-content;
+    margin: 0;
+    padding: 5px;
+    font-size: 20px;
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+.link:hover {
+    color: var(--white);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
