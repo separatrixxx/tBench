@@ -1,4 +1,49 @@
 .authForm {
-    height: 100vh;
+    display: grid;
     background: var(--white);
+    gap: 10px;
+    justify-content: center;
+    align-content: center;
+}
+
+.button {
+	width: 100%;
+	color: var(--white);
+	background: var(--primary);
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	border: none;
+	cursor: pointer;
+	padding: 5px;
+	border-radius: 9999px;
+	transition-duration: 300ms;
+}
+
+.button:hover {
+	background: var(--primary);
+	transform: scale(1.05);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.label {
+	position: relative;
+}
+
+.icon {
+	color: var(--dark);
+	cursor: pointer;
+	position: absolute;
+	top: auto;
+	bottom: 0px;
+	right: 0;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	margin-right: 8px;
+	transition-duration: 300ms;
+}
+
+.icon:hover {
+	color: var(--primary);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
