@@ -9,11 +9,12 @@ export const HomePage = (): JSX.Element => {
             <Header />
             <div className={styles.wrapper}>
                 <Image className={styles.startBlock}
-					loader={() => '/home_image.jpeg'}
-					src='/home_image.jpeg'
+					loader={() => '/home_image.png'}
+					src='/home_image.png'
 					alt='home image'
 					width={1}
 					height={1}
+                    unoptimized={true}
 				/>
                 <AuthForm />
             </div>
