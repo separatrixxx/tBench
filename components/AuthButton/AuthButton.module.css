@@ -18,3 +18,21 @@
 	outline: 1px solid var(--primary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+.button_loading {
+	align-items: center;
+	align-content: center;
+	align-self: center;
+	width: 100%;
+	background: var(--white);
+	color: var(--primary);
+	outline: 1px solid var(--primary);
+	font-weight: 700;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	border: none;
+	cursor: not-allowed;
+	padding: 5px;
+	border-radius: 9999px;
+	transition-duration: 300ms;
+}

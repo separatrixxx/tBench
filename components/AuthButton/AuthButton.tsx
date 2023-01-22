@@ -2,6 +2,7 @@ import { setLocale } from 'helpers/helpers_locale';
 import { useRouter } from 'next/router';
 import { AuthButtonProps } from './AuthButton.props';
 import styles from './AuthButton.module.css';
+import { LoadingDots } from 'components/LoadingDots/LoadingDots';
 
 export const AuthButton = ({ loading, type, onClick }: AuthButtonProps): JSX.Element => {
     const router = useRouter();
@@ -18,7 +19,9 @@ export const AuthButton = ({ loading, type, onClick }: AuthButtonProps): JSX.Ele
         }
     } else {
         return (
-            <button className={styles.button} onClick={onClick}>Loading</button>
+            <button className={styles.button_loading}>
+                <LoadingDots />
+            </button>
         );
     }
 };
