@@ -6,26 +6,6 @@
     align-content: center;
 }
 
-.button {
-	width: 100%;
-	color: var(--white);
-	background: var(--primary);
-	font-weight: 700;
-	font-size: 1rem;
-	line-height: 1.5rem;
-	border: none;
-	cursor: pointer;
-	padding: 5px;
-	border-radius: 9999px;
-	transition-duration: 300ms;
-}
-
-.button:hover {
-	background: var(--primary);
-	transform: scale(1.05);
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .label {
 	position: relative;
 }

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { BsEyeFill } from "react-icons/bs";
 import { setLocale } from 'helpers/helpers_locale';
 import { useRouter } from 'next/router';
+import { AuthButton } from 'components/AuthButton/AuthButton';
 
 export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Element => {
 	const router = useRouter();
@@ -20,15 +21,21 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
     const [pswdType, setPswdType] = useState<string>('password');
 	const [confPswdType, setConfPswdType] = useState<string>('password');
 
+	const [loading, setLoading] = useState<boolean>(false);
+
     const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
 	const LoginUser = () => {
 		if (!EMAIL_REGEXP.test(email)) {
-			alert(setLocale(String(router.locale)).error_email);
+			alert(setLocale(router.locale).error_email);
 		} else if (password.length < 8) {
-			alert(setLocale(String(router.locale)).error_password);
+			alert(setLocale(router.locale).error_password);
 		} else {
-			alert('E-mail: ' + email + ', password: ' + password);
+			setLoading(true);
+			setTimeout(() => {
+				alert('E-mail: ' + email + ', password: ' + password);
+				setLoading(false);
+			}, 2000);
 		}
 	};
 
@@ -42,8 +49,12 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
 		} else if (password !== confirmPassword) {
 			alert(setLocale(router.locale).error_confirm);
 		} else {
-			alert('E-mail: ' + email + ', password: ' + password 
-            + ', username: ' + username + ', first name: ' + firstName + ', last name: ' + lastName);
+			setLoading(true);
+			setTimeout(() => {
+				alert('E-mail: ' + email + ', password: ' + password 
+            	+ ', username: ' + username + ', first name: ' + firstName + ', last name: ' + lastName)
+				setLoading(false);
+			}, 2000);
 		}
 	};
     
@@ -62,7 +73,7 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
 					<Input type={pswdType} text={setLocale(router.locale).password} value={password}
 						onChange={(e) => setPassword(e.target.value)} />
 				</label>
-                <button className={styles.button} onClick={LoginUser}>{setLocale(router.locale).sign_in}</button>
+                <AuthButton loading={loading} type='login' onClick={LoginUser} />
             </div>
         );
     } else {
@@ -96,7 +107,7 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
 					<Input type={confPswdType} text={setLocale(router.locale).confirm_password} value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)} />
 				</label>
-                <button className={styles.button} onClick={RegisterUser}>{setLocale(router.locale).sign_up}</button>
+                <AuthButton loading={loading} type='registration' onClick={RegisterUser} />
             </div>
         );
     }
