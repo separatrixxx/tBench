@@ -33,6 +33,7 @@ a {
 
 :root {
   --primary: #0080ff;
+  --dark: #1f1f1f;
   --white: white;
   --font-family: 'Roboto', sans-serif;
 }
