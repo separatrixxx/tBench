@@ -11,4 +11,8 @@ export const zh = {
     sign_in: "登入",
     sign_up: "登记",
     home_image: "主图",
+    error_email: "电子邮件格式无效",
+    error_password: "密码不得少于8个字符",
+    error_name: "输入你的名字",
+    error_confirm: "密码不匹配",
 };
