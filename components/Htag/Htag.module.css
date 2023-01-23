@@ -8,14 +8,25 @@
 	transition-duration: 300ms;
 }
 
-.lang:hover {
-	color: var(--primary);
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
 .m {
 	font-weight: 400;
 	font-size: 0.875rem;
 	line-height: 1.25rem;
 	color: var(--dark);
+}
+
+@media (max-width: 1024px) {
+	.lang {
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+}
+
+@media (min-width: 1024px) {
+	.lang:hover {
+		color: var(--primary);
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
 }
