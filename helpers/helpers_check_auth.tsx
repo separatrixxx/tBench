@@ -1,8 +1,11 @@
+import { ToastError } from "components/Toast/Toast";
 import { checkAuthInterface } from "interfaces/check_auth.interface";
+import toast from "react-hot-toast";
+import { setLocale } from "./helpers_locale";
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
-export function checkAuth(authData: string[], si: boolean): checkAuthInterface {
+export function checkAuth(authData: string[], si: boolean, locale: string | undefined): checkAuthInterface {
     let checkAuth = {
         ok: false,
         errEmail: false,
@@ -16,15 +19,6 @@ export function checkAuth(authData: string[], si: boolean): checkAuthInterface {
     if (!EMAIL_REGEXP.test(authData[0]) || authData[1].length < 8
         || authData[1] !== authData[2] || authData[3].length === 0 
         || authData[4].length === 0 || authData[5].length === 0) {
-        if (!EMAIL_REGEXP.test(authData[0])) {
-            checkAuth.errEmail = true;
-        } 
-        if (authData[1].length < 8) {
-            checkAuth.errPassword = true;
-        }
-        if (authData[1] !== authData[2]) {
-            checkAuth.errConfirmPassword = true;
-        }
         if (authData[3].length === 0) {
             checkAuth.errFirstName = true;
         }
@@ -34,9 +28,28 @@ export function checkAuth(authData: string[], si: boolean): checkAuthInterface {
         if (authData[5].length === 0) {
             checkAuth.errUsername = true;
         }
+        if ((authData[3].length === 0 || authData[4].length === 0 || authData[5].length === 0) && !si) {
+            {ToastError(setLocale(locale).error_name)}
+        }
+        if (!EMAIL_REGEXP.test(authData[0])) {
+            checkAuth.errEmail = true;
+            {ToastError(setLocale(locale).error_email)}
+        } 
+        if (authData[1].length < 8) {
+            checkAuth.errPassword = true;
+            {ToastError(setLocale(locale).error_password)}
+        }
+        if (authData[1] !== authData[2]) {
+            checkAuth.errConfirmPassword = true;
+            if (!si) {
+                {ToastError(setLocale(locale).error_confirm)}
+            }
+        }
         if (si && EMAIL_REGEXP.test(authData[0]) && authData[1].length >= 8) {
             checkAuth.ok = true;
         }
+
+        
     } else {
         checkAuth.ok = true;
     }
