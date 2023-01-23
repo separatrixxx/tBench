@@ -15,8 +15,8 @@ import { ToastSuccess } from 'components/Toast/Toast';
 export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Element => {
 	const router = useRouter();	
 
-    const [username, setUsername] = useState<string>('')
-    const [firstName, setFirstName] = useState<string>('')
+    const [username, setUsername] = useState<string>('');
+    const [firstName, setFirstName] = useState<string>('');
     const [lastName, setLastName] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
