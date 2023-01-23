@@ -17,7 +17,7 @@ export const HomePage = (): JSX.Element => {
         <>
             <Header />
             <div className={styles.wrapper}>
-                <Image className={styles.startBlock}
+                <Image className={styles.startBlock} draggable='false'
 					loader={() => '/home_image.png'}
 					src='/home_image.png'
 					alt={setLocale(router.locale).home_image}
