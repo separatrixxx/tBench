@@ -33,7 +33,7 @@ export const LocaleChange = (): JSX.Element => {
 						[styles.blockLanguages]: !hidden,
 					})}>
                 {languages.map(m => (
-                    <Link href={router.asPath} locale={m.locale} className={styles.linkLang} 
+                    <Link key={m.locale} href={router.asPath} locale={m.locale} className={styles.linkLang} 
                         onClick={() => setHidden(true)}>
                         <Htag tag='lang'>{m.language}</Htag>
                     </Link>
