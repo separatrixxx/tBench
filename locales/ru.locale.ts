@@ -12,7 +12,7 @@ export const ru = {
     sign_in: "Войти",
     sign_up: "Зарегистрироваться",
     home_image: "Главная картинка",
-    error_email: "Неверный формат E-mail",
+    error_email: "Неверный формат адреса электронной почты",
     error_password: "Пароль не должен быть короче 8 символов",
     error_name: "Введите имя",
     error_confirm: "Пароли не совпадают",

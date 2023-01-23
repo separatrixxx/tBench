@@ -4,13 +4,15 @@ import { useRouter } from "next/router";
 import { ErrorPageProps } from "./ErrorPage.props";
 
 export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {    
+    const router = useRouter();
+    
 	if (error === 404) {
         return (
-            <Link href='/'><p>{setLocale().error404}</p></Link>
+            <Link href='/'><p>{setLocale(router.locale).error404}</p></Link>
         );
     } else {
         return (
-            <Link href='/'><p>{setLocale().error500}</p></Link>
+            <Link href='/'><p>{setLocale(router.locale).error500}</p></Link>
 	    );
     }
 };

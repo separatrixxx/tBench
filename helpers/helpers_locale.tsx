@@ -7,10 +7,8 @@ import { useRouter } from "next/router";
 
 type localeType = typeof en | typeof ru  | typeof fr | typeof de | typeof zh;
 
-export function setLocale(): localeType {
-    const router = useRouter();
-
-    switch (router.locale) {
+export function setLocale(locale: string | undefined): localeType {
+    switch (locale) {
         case 'ru':
 			return ru;
             case 'fr':
