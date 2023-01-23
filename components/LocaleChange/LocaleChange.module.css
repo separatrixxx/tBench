@@ -5,3 +5,13 @@
 .blockLanguages {
     display: block;
 }
+
+.spanLang {
+    display: flex;
+    width: fit-content;
+}
+
+.linkLang {
+    display: flex;
+    width: fit-content;
+}

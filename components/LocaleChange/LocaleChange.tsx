@@ -25,13 +25,16 @@ export const LocaleChange = (): JSX.Element => {
 
 	return (
         <>
-            <span onClick={() => setHidden(!hidden)}><Htag tag='lang'>{setLocale(router.locale).language}</Htag></span>
+            <span className={styles.spanLang} onClick={() => setHidden(!hidden)}>
+                <Htag tag='lang'>{setLocale(router.locale).language}</Htag>
+            </span>
             <div className={cn({
 						[styles.hiddenLanguages]: hidden,
 						[styles.blockLanguages]: !hidden,
 					})}>
                 {languages.map(m => (
-                    <Link href={router.asPath} locale={m.locale} onClick={() => setHidden(true)}>
+                    <Link href={router.asPath} locale={m.locale} className={styles.linkLang} 
+                        onClick={() => setHidden(true)}>
                         <Htag tag='lang'>{m.language}</Htag>
                     </Link>
                 ))}
