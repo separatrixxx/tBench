@@ -7,7 +7,7 @@ export const Input = ({ type, text, value, error, onChange }: InputProps): JSX.E
 		case 'email':
 			return <input className={cn({
 						[styles.input]: !error,
-						[styles.error_input]: error === true,
+						[styles.error_input]: error,
 					})}
                         placeholder={text}
 						value={value}

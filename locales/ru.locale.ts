@@ -1,4 +1,5 @@
 export const ru = {
+    locale: "ru",
     language: "Русский",
     title: "Добро пожаловать на ",
     error404: "Страница не найдена, ошибка 404",

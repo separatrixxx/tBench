@@ -1,4 +1,5 @@
 export const fr = {
+    locale: "fr",
     language: "Français",
     title: "Bienvenue à ",
     error404: "Page introuvable, erreur 404",
