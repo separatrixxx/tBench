@@ -15,4 +15,6 @@ export const de = {
     error_password: "Das Passwort darf nicht kürzer als 8 Zeichen sein",
     error_name: "Gib deinen Namen ein",
     error_confirm: "Passwörter stimmen nicht überein",
+    have_account: "Sie haben bereits ein Konto?",
+    dont_have_account: "Sie haben noch kein Konto?",
 };

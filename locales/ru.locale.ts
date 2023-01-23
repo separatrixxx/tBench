@@ -15,5 +15,6 @@ export const ru = {
     error_password: "Пароль не должен быть короче 8 символов",
     error_name: "Введите имя",
     error_confirm: "Пароли не совпадают",
-    
+    have_account: "У вас уже есть аккаунт?",
+    dont_have_account: "У вас ещё нет аккаунта?",
 };

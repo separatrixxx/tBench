@@ -1,9 +1,8 @@
 .authForm {
     display: grid;
-    background: var(--white);
+	height: fit-content;
     gap: 10px;
     justify-content: center;
-    align-content: center;
 }
 
 .label {
