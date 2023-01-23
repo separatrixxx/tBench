@@ -40,6 +40,8 @@ a {
 :root {
   --primary: #0080ff;
   --dark: #1f1f1f;
+  --light: #dddddd;
   --white: white;
+  --error: #ff1500;
   --font-family: 'Roboto', sans-serif;
 }

@@ -1,4 +1,5 @@
 export const zh = {
+    language: "中国人",
     title: "欢迎来到 ",
     error404: "找不到页面，404 错误",
     error500: "服务器故障，错误500",
