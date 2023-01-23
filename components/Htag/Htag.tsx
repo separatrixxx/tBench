@@ -3,6 +3,8 @@ import styles from './Htag.module.css';
 
 export const Htag = ({ tag, children }: HtagProps): JSX.Element => {
 	switch (tag) {
+		case 'lang':
+			return <h1 className={styles.lang}>{children}</h1>;
 		case 'l':
 			return <h1 className={styles.l}>{children}</h1>;
 		case 'm':

@@ -4,5 +4,6 @@ export interface InputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputEl
 	type: string,
 	text: string,
 	value: string,
+	error: boolean,
 	onChange: (e: any) => void,
 }

@@ -3,7 +3,6 @@ import { en } from "locales/en.locale";
 import { fr } from "locales/fr.locale";
 import { ru } from "locales/ru.locale";
 import { zh } from "locales/zh.locale";
-import { useRouter } from "next/router";
 
 type localeType = typeof en | typeof ru  | typeof fr | typeof de | typeof zh;
 

@@ -1,5 +1,6 @@
 export const fr = {
-    title: "ЫBienvenue à ",
+    language: "Français",
+    title: "Bienvenue à ",
     error404: "Page introuvable, erreur 404",
     error500: "Défaillance du serveur, erreur 500",
     email: "E-mail",

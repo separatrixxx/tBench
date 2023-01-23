@@ -1,4 +1,5 @@
 export const de = {
+    language: "Deutsch",
     title: "Willkommen zu ",
     error404: "Seite nicht gefunden, Fehler 404",
     error500: "Serverausfall, Fehler 500",
