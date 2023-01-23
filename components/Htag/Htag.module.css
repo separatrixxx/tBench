@@ -8,6 +8,11 @@
 	transition-duration: 300ms;
 }
 
+.lang:active {
+	color: var(--primary);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .m {
 	font-weight: 400;
 	font-size: 0.875rem;
