@@ -15,23 +15,10 @@
 
 .authBlock {
     display: grid;
-    grid-template-rows: 1fr auto auto;
-    width: 100%;
+    grid-template-rows: 1fr auto;
+    justify-items: center;
+    align-items: center;
     height: 100vh;
-}
-
-.h {
-    width: fit-content;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-    cursor: pointer;
-    transition-duration: 300ms;
-}
-
-.h:hover {
-    color: var(--primary);
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (max-width: 1024px) {

@@ -15,4 +15,6 @@ export const fr = {
     error_password: "Le mot de passe ne doit pas être inférieur à 8 caractères",
     error_name: "Entrez votre nom",
     error_confirm: "Les mots de passe ne correspondent pas",
+    have_account: "Vous avez déjà un compte?",
+    dont_have_account: "Vous n'avez pas encore de compte?",
 };

@@ -6,6 +6,7 @@ import { setLocale } from 'helpers/helpers_locale';
 import { useState } from 'react';
 import { Footer } from 'components/Footer/Footer';
 import { useRouter } from 'next/router';
+import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
 
 export const HomePage = (): JSX.Element => {
     const router = useRouter();
@@ -26,8 +27,13 @@ export const HomePage = (): JSX.Element => {
 				/>
                 <div className={styles.authBlock}>
                     <AuthForm type={authState} />
-                    <h1 className={styles.h} onClick={() => setAuthState('login')}>{setLocale(router.locale).sign_in}</h1>
-                    <h1 className={styles.h} onClick={() => setAuthState('registration')}>{setLocale(router.locale).sign_up}</h1>
+                    <AuthFormChange type={authState} onClick={() => {
+                        if (authState === 'login') {
+                            setAuthState('registration');
+                        } else {
+                            setAuthState('login')
+                        }
+                    }} />
                 </div>
             </div>
             <Footer />
