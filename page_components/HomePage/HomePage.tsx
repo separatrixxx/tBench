@@ -20,7 +20,7 @@ export const HomePage = (): JSX.Element => {
                 <Image className={styles.startBlock} draggable='false'
 					loader={() => '/home_image.png'}
 					src='/home_image.png'
-					alt={setLocale(router.locale).home_image}
+					alt={setLocale().home_image}
 					width={1}
 					height={1}
                     unoptimized={true}
