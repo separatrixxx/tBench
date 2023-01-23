@@ -4,15 +4,12 @@ import cn from 'classnames';
 import { Input } from 'components/Input/Input';
 import { useState } from 'react';
 import { setLocale } from 'helpers/helpers_locale';
-import { useRouter } from 'next/router';
 import { AuthButton } from 'components/AuthButton/AuthButton';
 import { checkAuth } from 'helpers/helpers_check_auth';
 import { checkAuthInterface } from 'interfaces/check_auth.interface';
 import { InputWithEye } from 'components/InputWithEye/InputWithEye';
 
-export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Element => {
-	const router = useRouter();
-	
+export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Element => {	
     const [username, setUsername] = useState<string>('')
     const [firstName, setFirstName] = useState<string>('')
     const [lastName, setLastName] = useState<string>('');
@@ -25,7 +22,7 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
 
 	const [loading, setLoading] = useState<boolean>(false);
 
-	const [error, setError] = useState<checkAuthInterface>({
+	const errType = {
 		ok: false,
 		errEmail: false,
 		errPassword: false,
@@ -33,14 +30,18 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
 		errFirstName: false,
 		errLastName: false,
 		errUsername: false,
-	});
+	}
+
+	const [error, setError] = useState<checkAuthInterface>(errType);
 
 	let authData = [email, password, confirmPassword, firstName, lastName, username];
 
 	const LoginUser = () => {
-		if (!checkAuth(authData).ok) {
-			setError(checkAuth(authData));
+		console.log()
+		if (!checkAuth(authData, true).ok) {
+			setError(checkAuth(authData, true));
 		} else {
+			setError(errType);
 			setLoading(true);
 			setTimeout(() => {
 				alert('E-mail: ' + email + ', password: ' + password);
@@ -50,9 +51,10 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
 	};
 
     const RegisterUser = () => {
-		if (!checkAuth(authData).ok) {
-			setError(checkAuth(authData));
+		if (!checkAuth(authData, false).ok) {
+			setError(checkAuth(authData, false));
 		} else {
+			setError(errType);
 			setLoading(true);
 			setTimeout(() => {
 				alert('E-mail: ' + email + ', password: ' + password 
@@ -73,7 +75,7 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
 	if (type === 'login') {
         return (
             <div className={cn(className, styles.authForm)} {...props}>
-				<Input type='email' text={setLocale(router.locale).email}
+				<Input type='email' text={setLocale().email}
 					value={email} error={error.errEmail}
 					onChange={(e) => setEmail(e.target.value)} />
 				<InputWithEye onMouseEnter={() => setPswdType('text')}
@@ -85,7 +87,7 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
                             setPswdType('password');
                         }
                     }}>
-					<Input type={pswdType} text={setLocale(router.locale).password}
+					<Input type={pswdType} text={setLocale().password}
 							value={password} error={error.errPassword}
 							onChange={(e) => setPassword(e.target.value)} />
 				</InputWithEye>
@@ -95,29 +97,29 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
     } else {
         return (
             <div className={cn(className, styles.authForm)} {...props}>
-                <Input type='text' text={setLocale(router.locale).first_name}
+                <Input type='text' text={setLocale().first_name}
 					value={firstName} error={error.errFirstName}
 					onChange={(e) => setFirstName(e.target.value)} />
-                <Input type='text' text={setLocale(router.locale).last_name}
+                <Input type='text' text={setLocale().last_name}
 					value={lastName} error={error.errLastName}
 					onChange={(e) => setLastName(e.target.value)} />
-				<Input type='text' text={setLocale(router.locale).username}
+				<Input type='text' text={setLocale().username}
 					value={username} error={error.errUsername}
 					onChange={(e) => setUsername(e.target.value)} />
-				<Input type='email' text={setLocale(router.locale).email}
+				<Input type='email' text={setLocale().email}
 					value={email} error={error.errEmail}
 					onChange={(e) => setEmail(e.target.value)} />
 				<InputWithEye onMouseEnter={() => setPswdType('text')}
                     onMouseLeave={() => setPswdType('password')}
                     onClick={() => changeInputType}>
-					<Input type={pswdType} text={setLocale(router.locale).password}
+					<Input type={pswdType} text={setLocale().password}
 							value={password} error={error.errPassword}
 							onChange={(e) => setPassword(e.target.value)} />
 				</InputWithEye>
 				<InputWithEye onMouseEnter={() => setConfPswdType('text')}
                     onMouseLeave={() => setConfPswdType('password')}
                     onClick={() => changeInputType}>
-					<Input type={confPswdType} text={setLocale(router.locale).confirm_password}
+					<Input type={confPswdType} text={setLocale().confirm_password}
 						value={confirmPassword} error={error.errConfirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)} />
 				</InputWithEye>

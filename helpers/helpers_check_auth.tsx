@@ -2,7 +2,7 @@ import { checkAuthInterface } from "interfaces/check_auth.interface";
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
-export function checkAuth(authData: string[]): checkAuthInterface {
+export function checkAuth(authData: string[], si: boolean): checkAuthInterface {
     let checkAuth = {
         ok: false,
         errEmail: false,
@@ -33,6 +33,9 @@ export function checkAuth(authData: string[]): checkAuthInterface {
         }
         if (authData[5].length === 0) {
             checkAuth.errUsername = true;
+        }
+        if (si && EMAIL_REGEXP.test(authData[0]) && authData[1].length >= 8) {
+            checkAuth.ok = true;
         }
     } else {
         checkAuth.ok = true;
