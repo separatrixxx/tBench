@@ -12,7 +12,6 @@ export const en = {
     username: "Username",
     sign_in: "Sign In",
     sign_up: "Sign Up",
-    home_image: "Home image",
     error_email: "Invalid E-mail format",
     error_password: "Password must not be shorter than 8 characters",
     error_name: "Enter your name",

@@ -11,7 +11,14 @@
 	transition-duration: 300ms;
 }
 
-.signSpan:hover {
+.signSpan:active {
 	color: var(--primary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 1024px) {
+	.signSpan:hover {
+		color: var(--primary);
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
 }
