@@ -1,6 +1,7 @@
 .textBlock {
     width: 100%;
     height: 80vh;
+    margin-bottom: 20px;
 }
 
 .imageBlock {
@@ -9,7 +10,7 @@
     background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
-
+    margin-bottom: 20px;
 }
 
 .authBlock {
@@ -18,6 +19,7 @@
     height: 80vh;
     justify-items: center;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .duoBlock {
@@ -53,6 +55,7 @@
     .textBlock {
         width: 100%;
         height: 70vh;
+        margin-bottom: 10px;
     }
     
     .imageBlock {
@@ -61,7 +64,7 @@
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-    
+        margin-bottom: 10px;    
     }
     
     .authBlock {
@@ -70,6 +73,7 @@
         height: 70vh;
         justify-items: center;
         align-items: center;
+        margin-bottom: 10px;
     }
 
     .duoBlock {

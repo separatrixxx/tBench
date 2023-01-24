@@ -2,7 +2,6 @@
     display: grid;
     background: var(--white);
     border-top: 1px solid var(--light);
-    margin: 20px 20px 0 20px;
     padding: 10px;
 }
 

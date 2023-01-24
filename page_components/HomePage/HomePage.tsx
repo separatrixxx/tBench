@@ -12,25 +12,27 @@ export const HomePage = (): JSX.Element => {
 	return (
         <>
             <Header />
-            <Block type='duo'>
-                <Block type='auth'>
-                    <AuthForm type={authState} />
-                    <AuthFormChange type={authState} onClick={() => {
-                        if (authState === 'login') {
-                            setAuthState('registration');
-                        } else {
-                            setAuthState('login')
-                        }
-                    }} />
+            <div className={styles.wrapper}>
+                <Block type='duo'>
+                    <Block type='auth'>
+                        <AuthForm type={authState} />
+                        <AuthFormChange type={authState} onClick={() => {
+                            if (authState === 'login') {
+                                setAuthState('registration');
+                            } else {
+                                setAuthState('login')
+                            }
+                        }} />
+                    </Block>
+                    <Block type='image' image='/home_image.png' />
                 </Block>
-                <Block type='image' image='/home_image.png' />
-            </Block>
-            <Block type='text' color='var(--primary)' />
-            <Block type='duo'>
-                <Block type='text' color='#000' />
-                <Block type='text' color='#ff0000' />
-            </Block>
-            <Footer />
+                <Block type='text' color='var(--primary)' />
+                <Block type='duo'>
+                    <Block type='text' color='#000' />
+                    <Block type='text' color='#ff0000' />
+                </Block>
+                <Footer />
+            </div>
         </>
     );
 };
