@@ -1,0 +1,23 @@
+.modal {
+    display: none;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(31, 31, 31, 0.2);
+	backdrop-filter: blur(1px);
+}
+
+.active {
+    display: grid;
+}
+
+.modalContent {
+    padding: 20px;
+    background: var(--white);
+    border-radius: 10px;
+    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+}

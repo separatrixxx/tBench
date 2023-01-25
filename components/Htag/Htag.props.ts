@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 
-export interface HtagProps {
-	tag: 'lang' | 'l' | 'm' | 's',
+export interface HtagProps extends DetailedHTMLProps<HTMLAttributes<HTMLBaseElement>, HTMLBaseElement> {
+	tag: 'l' | 'm' | 's' | 'xs',
 	children: ReactNode,
 }
