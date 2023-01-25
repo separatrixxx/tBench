@@ -2,19 +2,23 @@
     display: grid;
     background: var(--white);
     border-top: 1px solid var(--light);
-    padding: 10px;
+    padding: 20px 20px 20px 20px;
 }
 
-.link {
-    width: fit-content;
-    margin: 0;
-    padding: 5px;
-    font-size: 20px;
-    cursor: pointer;
-    transition-duration: 300ms;
+.footerCopyright {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
 }
 
-.link:hover {
-    color: var(--white);
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.footerBy {
+    display: grid;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+@media (max-width: 580px) {
+	.footer {
+        padding: 20px 10px 0 10px;
+    }
 }

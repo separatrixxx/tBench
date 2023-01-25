@@ -1,8 +1,9 @@
 .lang {
 	width: fit-content;
-	font-weight: 500;
+	font-weight: 400;
 	font-size: 0.875rem;
 	line-height: 1.25rem;
+	margin: 0;
 	color: var(--dark);
 	cursor: pointer;
 	transition-duration: 300ms;
@@ -14,10 +15,20 @@
 }
 
 .m {
+	width: fit-content;
 	font-weight: 400;
 	font-size: 0.875rem;
 	line-height: 1.25rem;
+	margin: 0;
 	color: var(--dark);
+}
+
+.s {
+	width: fit-content;
+	font-weight: 400;
+	font-size: 0.75rem;
+	line-height: 1rem;
+	margin: 0;
 }
 
 @media (min-width: 1024px) {
