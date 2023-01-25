@@ -2,12 +2,13 @@ import { InputProps } from './Input.props';
 import styles from './Input.module.css';
 import cn from 'classnames';
 
-export const Input = ({ type, text, value, error, onChange }: InputProps): JSX.Element => {
+export const Input = ({ type, text, value, error, eye, onChange }: InputProps): JSX.Element => {
 	switch (type) {
 		case 'email':
 			return <input className={cn({
 						[styles.input]: !error,
 						[styles.error_input]: error,
+						[styles.eye_input]: eye,
 					})}
                         placeholder={text}
 						value={value}
@@ -18,6 +19,7 @@ export const Input = ({ type, text, value, error, onChange }: InputProps): JSX.E
 			return <input className={cn({
 						[styles.input]: !error,
 						[styles.error_input]: error,
+						[styles.eye_input]: eye,
 					})}
                         placeholder={text}
 						value={value}
@@ -28,6 +30,7 @@ export const Input = ({ type, text, value, error, onChange }: InputProps): JSX.E
 			return <input className={cn({
 						[styles.input]: !error,
 						[styles.error_input]: error,
+						[styles.eye_input]: eye,
 					})}
                         placeholder={text}
 						value={value}

@@ -1,6 +1,6 @@
 .formChange {
 	width: fit-content;
-	margin-bottom: 20px;
+	margin-top: 80px;
 }
 
 .signSpan {
@@ -14,6 +14,10 @@
 .signSpan:active {
 	color: var(--primary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.authChange {
+	text-align: center;
 }
 
 @media (min-width: 1024px) {

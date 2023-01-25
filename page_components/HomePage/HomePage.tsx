@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { Footer } from 'components/Footer/Footer';
 import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
 import { Block } from 'components/Block/Block';
+import { AuthBlock } from 'components/AuthBlock/AuthBlock';
 
 export const HomePage = (): JSX.Element => {  
     const [authState, setAuthState] = useState<'login' | 'registration'>('login')
@@ -13,22 +14,12 @@ export const HomePage = (): JSX.Element => {
         <>
             <Header />
             <div className={styles.wrapper}>
-                <Block type='duo'>
-                    <Block type='auth'>
-                        <AuthForm type={authState} />
-                        <AuthFormChange type={authState} onClick={() => {
-                            if (authState === 'login') {
-                                setAuthState('registration');
-                            } else {
-                                setAuthState('login')
-                            }
-                        }} />
-                    </Block>
-                    <Block type='image' image='/home_image.png' />
-                </Block>
+                <AuthBlock>
+                    <AuthForm type={authState} setAuthState={setAuthState} />
+                </AuthBlock>
                 <Block type='text' color='var(--primary)' />
                 <Block type='duo'>
-                    <Block type='text' color='#000' />
+                    <Block type='text' color='#000000' />
                     <Block type='text' color='#ff0000' />
                 </Block>
                 <Footer />
