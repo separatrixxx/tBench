@@ -1,46 +1,40 @@
-.lang {
+.l, .m, .s, .xs {
 	width: fit-content;
-	font-weight: 400;
-	font-size: 0.875rem;
-	line-height: 1.25rem;
 	margin: 0;
 	color: var(--dark);
-	cursor: pointer;
-	transition-duration: 300ms;
 }
 
-.lang:active {
-	color: var(--primary);
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.l {
+	font-weight: 400;
+	font-size: 1.125rem;
+	line-height: 1.75rem;
 }
 
 .m {
-	width: fit-content;
 	font-weight: 400;
-	font-size: 0.875rem;
-	line-height: 1.25rem;
-	margin: 0;
-	color: var(--dark);
+	font-size: 1rem;
+	line-height: 1.5rem;
 }
 
 .s {
-	width: fit-content;
+	font-weight: 400;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+}
+
+.xs {
 	font-weight: 400;
 	font-size: 0.75rem;
 	line-height: 1rem;
-	margin: 0;
-}
-
-@media (min-width: 1024px) {
-	.lang:hover {
-		color: var(--primary);
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	}
 }
 
 @media (max-width: 300px) {
-	.m, 
-	.lang {
+	.m {
+		font-size: 0.875rem;
+		line-height: 1.25rem;
+	}
+
+	.s {
 		font-size: 0.75rem;
 		line-height: 1rem;
 	}

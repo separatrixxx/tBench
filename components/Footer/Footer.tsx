@@ -11,13 +11,13 @@ export const Footer = (): JSX.Element => {
     return (
         <footer className={styles.footer}>
             <div className={styles.footerCopyright}>
-                <Htag tag='m'>
+                <Htag tag='s'>
                     {'© ' + setFooterYear() + ' tBench. ' + setLocale(router.locale).rights_reserved + '.'}
                 </Htag>
                 <LocaleChange />
             </div>
             <div className={styles.footerBy}>
-                <Htag tag='s'>by separatrix</Htag>
+                <Htag tag='xs'>by separatrix</Htag>
             </div>
         </footer>
     );

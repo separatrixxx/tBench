@@ -10,11 +10,12 @@ import { de } from 'locales/de.locale';
 import { zh } from 'locales/zh.locale';
 import Link from 'next/link';
 import { useState } from 'react';
+import { Modal } from 'components/Modal/Modal';
 
 export const LocaleChange = (): JSX.Element => {
     const router = useRouter();
 
-    const [hidden, setHidden] = useState<boolean>(true);
+    const [active, setActive] = useState<boolean>(false);
 
     const languages = [en, ru, fr, de, zh];
     let langIndex = languages.indexOf(setLocale(router.locale));
@@ -25,20 +26,21 @@ export const LocaleChange = (): JSX.Element => {
 
 	return (
         <>
-            <span className={styles.spanLang} onClick={() => setHidden(!hidden)}>
-                <Htag tag='lang'>{setLocale(router.locale).language}</Htag>
+            <span onClick={() => setActive(true)}>
+                <Htag tag='s' className={styles.lang} onClick={() => setActive(true)}>
+                    {setLocale(router.locale).language}
+                </Htag>
             </span>
-            <div className={cn({
-						[styles.hiddenLanguages]: hidden,
-						[styles.blockLanguages]: !hidden,
-					})}>
-                {languages.map(m => (
-                    <Link key={m.locale} href={router.asPath} locale={m.locale} className={styles.linkLang} 
-                        onClick={() => setHidden(true)}>
-                        <Htag tag='lang'>{m.language}</Htag>
-                    </Link>
-                ))}
-            </div>
+            <Modal active={active} setActive={setActive}>
+                <div className={styles.blockLanguages}>
+                    {languages.map(m => (
+                        <Link key={m.locale} href={router.asPath} locale={m.locale} 
+                            onClick={() => setActive(false)}>
+                            <Htag tag='l' className={styles.langLink}>{m.language}</Htag>
+                        </Link>
+                    ))}
+                </div>
+            </Modal>
         </>
     );
 };
