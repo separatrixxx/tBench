@@ -21,9 +21,16 @@
     transition-duration: 300ms;
 }
 
-.logo svg:hover {
+.logo svg:active {
     fill: var(--primary);
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 1024px) {
+    .logo svg:hover {
+        fill: var(--primary);
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
 }
 
 @media (max-width: 580px) {
