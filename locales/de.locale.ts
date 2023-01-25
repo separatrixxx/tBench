@@ -18,4 +18,5 @@ export const de = {
     error_confirm: "Passwörter stimmen nicht überein",
     have_account: "Sie haben bereits ein Konto?",
     dont_have_account: "Sie haben noch kein Konto?",
+    rights_reserved: "Alle Rechte vorbehalten",
 };

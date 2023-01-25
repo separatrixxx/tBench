@@ -18,4 +18,5 @@ export const fr = {
     error_confirm: "Les mots de passe ne correspondent pas",
     have_account: "Vous avez déjà un compte?",
     dont_have_account: "Vous n'avez pas encore de compte?",
+    rights_reserved: "Tous les droits sont réservés",
 };
