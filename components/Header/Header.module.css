@@ -4,4 +4,5 @@
     height: 40px;
 	background: rgba(31, 31, 31, 0.95);
 	backdrop-filter: blur(4px);
+    z-index: 9999;
 }

@@ -11,8 +11,9 @@ import { InputWithEye } from 'components/InputWithEye/InputWithEye';
 import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/router';
 import { ToastSuccess } from 'components/Toast/Toast';
+import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
 
-export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Element => {
+export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormProps): JSX.Element => {
 	const router = useRouter();	
 
     const [username, setUsername] = useState<string>('');
@@ -87,7 +88,7 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
 					reverseOrder={true}
 				/>
 				<Input type='email' text={setLocale(router.locale).email}
-					value={email} error={error.errEmail}
+					value={email} error={error.errEmail} eye={false}
 					onChange={(e) => setEmail(e.target.value)} />
 				<InputWithEye onMouseEnter={() => setPswdType('text')}
                     onMouseLeave={() => setPswdType('password')}
@@ -99,10 +100,11 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
                         }
                     }}>
 					<Input type={pswdType} text={setLocale(router.locale).password}
-							value={password} error={error.errPassword}
+							value={password} error={error.errPassword} eye={true}
 							onChange={(e) => setPassword(e.target.value)} />
 				</InputWithEye>
                 <AuthButton loading={loading} type='login' onClick={LoginUser} />
+				<AuthFormChange type={'login'} onClick={() => setAuthState('registration')}/>
             </div>
         );
     } else {
@@ -113,32 +115,33 @@ export const AuthForm = ({ type, className, ...props }: AuthFormProps): JSX.Elem
 					reverseOrder={true}
 				/>
                 <Input type='text' text={setLocale(router.locale).first_name}
-					value={firstName} error={error.errFirstName}
+					value={firstName} error={error.errFirstName} eye={false}
 					onChange={(e) => setFirstName(e.target.value)} />
                 <Input type='text' text={setLocale(router.locale).last_name}
-					value={lastName} error={error.errLastName}
+					value={lastName} error={error.errLastName} eye={false}
 					onChange={(e) => setLastName(e.target.value)} />
 				<Input type='text' text={setLocale(router.locale).username}
-					value={username} error={error.errUsername}
+					value={username} error={error.errUsername} eye={false}
 					onChange={(e) => setUsername(e.target.value)} />
 				<Input type='email' text={setLocale(router.locale).email}
-					value={email} error={error.errEmail}
+					value={email} error={error.errEmail} eye={false}
 					onChange={(e) => setEmail(e.target.value)} />
 				<InputWithEye onMouseEnter={() => setPswdType('text')}
                     onMouseLeave={() => setPswdType('password')}
                     onClick={() => changeInputType}>
 					<Input type={pswdType} text={setLocale(router.locale).password}
-							value={password} error={error.errPassword}
+							value={password} error={error.errPassword} eye={true}
 							onChange={(e) => setPassword(e.target.value)} />
 				</InputWithEye>
 				<InputWithEye onMouseEnter={() => setConfPswdType('text')}
                     onMouseLeave={() => setConfPswdType('password')}
                     onClick={() => changeInputType}>
 					<Input type={confPswdType} text={setLocale(router.locale).confirm_password}
-						value={confirmPassword} error={error.errConfirmPassword}
+						value={confirmPassword} error={error.errConfirmPassword} eye={true}
 						onChange={(e) => setConfirmPassword(e.target.value)} />
 				</InputWithEye>
                 <AuthButton loading={loading} type='registration' onClick={RegisterUser} />
+				<AuthFormChange type={'registration'} onClick={() => setAuthState('login')}/>
             </div>
         );
     }

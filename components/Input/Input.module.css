@@ -1,5 +1,5 @@
 .input {
-	width: 256px;
+	width: 90%;
 	background: var(--white);
 	color: var(--primary);
 	font-weight: 500;
@@ -26,7 +26,7 @@
 }
 
 .error_input {
-	width: 256px;
+	width: 300px;
 	background: var(--white);
 	color: var(--primary);
 	font-weight: 500;
@@ -41,12 +41,6 @@
 	transition-duration: 300ms;
 }
 
-@media (max-width: 300px) {
-	.input {
-		width: 200px;
-	}
-
-	.error_input {
-		width: 200px;
-	}
+.eye_input {
+	width: 100%;
 }

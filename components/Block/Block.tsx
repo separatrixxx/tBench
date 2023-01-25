@@ -21,12 +21,6 @@ export const Block = ({ type, color, image, children }: BlockProps): JSX.Element
                 priority={true}
             />
         );
-    } else if (type === 'auth') {
-        return (
-            <div className={styles.authBlock}>
-                {children}
-            </div>
-        );
     } else {
         return (
             <div className={styles.duoBlock}>
