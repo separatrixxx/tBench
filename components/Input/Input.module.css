@@ -16,13 +16,11 @@
 .input:hover {
 	border-color: var(--primary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 300ms;
 }
 
 .input:focus {
 	outline-color: var(--primary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transition-duration: 300ms;
 }
 
 .error_input {

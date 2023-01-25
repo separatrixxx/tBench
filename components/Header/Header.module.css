@@ -1,8 +1,33 @@
 .header {
+    display: grid;
     position: fixed;
     width: 100%;
     height: 40px;
+    align-content: center;
+    justify-content: left;
 	background: rgba(31, 31, 31, 0.95);
 	backdrop-filter: blur(4px);
     z-index: 9999;
+}
+
+.logo {
+    width: 20px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.logo svg {
+    fill: var(--white);
+    transition-duration: 300ms;
+}
+
+.logo svg:hover {
+    fill: var(--primary);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (max-width: 580px) {
+    .logo {
+        margin-left: 20px;
+    }
 }
