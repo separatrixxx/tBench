@@ -13,6 +13,15 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
         }
 	};
 
+    const variantsModal = {
+		visible: {
+			scale: 1,
+		},
+		hidden: { 
+            scale: 0,
+        }
+	};
+
 	return (
         <motion.div className={cn(styles.modal, {
             [styles.active]: active,
@@ -21,9 +30,13 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
             initial={active ? 'visible' : 'hidden'}
             transition={{ duration: 0.3 }}
 			animate={active ? 'visible' : 'hidden'}>
-            <div className={styles.modalContent} onClick={e => e.stopPropagation()}>
+            <motion.div className={styles.modalContent} onClick={e => e.stopPropagation()}
+                variants={variantsModal}
+                initial={active ? 'visible' : 'hidden'}
+                transition={{ duration: 0.3 }}
+                animate={active ? 'visible' : 'hidden'}>
                 {children}
-            </div>
+            </motion.div>
         </motion.div>
     );
 };

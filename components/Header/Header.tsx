@@ -1,13 +1,13 @@
 import { Htag } from 'components/Htag/Htag';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './Header.module.css';
 import Logo from './logo_icon.svg';
-import cn from 'classnames';
-import { HeaderButton } from 'components/HeaderButton/HeaderButton';
 import { useScrollY } from 'hooks/useScrollY';
-import { motion } from 'framer-motion';
 import { useResize } from 'hooks/useResize';
+import { motion } from 'framer-motion';
+import { BurgerMenu } from 'components/BurgerMenu/BurgenMenu';
+
 
 export const Header = (): JSX.Element => {
     const [open, setOpen] = useState<boolean>(false);
@@ -34,7 +34,7 @@ export const Header = (): JSX.Element => {
         }
 	};
 
-    let variantsBlock = {
+    const variantsBlock = {
 		visible: {
             height: 'fit-content',
             opacity: 1,
@@ -55,6 +55,8 @@ export const Header = (): JSX.Element => {
         variantsBlock.visible.transition.duration = 0;
         variantsBlock.hidden.transition.duration = 0;
     }
+
+    const [burger, setBurger] = useState<boolean>(false);
     
     return (
         <motion.header className={styles.header}
@@ -71,7 +73,7 @@ export const Header = (): JSX.Element => {
                 <Htag tag='xs' className={styles.text}>Ecosystem</Htag>
                 <Htag tag='xs' className={styles.text}>Explore</Htag>
             </motion.div>
-            <HeaderButton open={open} setOpen={setOpen} />
+            <BurgerMenu open={open} setOpen={setOpen} />
         </motion.header>
     );
 };

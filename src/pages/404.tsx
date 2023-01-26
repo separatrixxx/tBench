@@ -10,6 +10,6 @@ export const PageNotFound = () => {
             <ErrorPage error={404} />
 		</>
 	);
-}
+};
 
 export default PageNotFound;

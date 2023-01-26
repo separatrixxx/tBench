@@ -1,23 +1,29 @@
 .label {
+	position: relative;
+
 	width: 90%;
 	margin-left: -25px;
-	position: relative;
 }
 
 .icon {
-	color: var(--dark);
-	cursor: pointer;
 	position: absolute;
 	top: auto;
-	bottom: 0px;
 	right: 0;
+	bottom: 0;
+
+	margin-right: -10px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	color: var(--dark);
+
 	font-size: 1.25rem;
 	line-height: 1.75rem;
-	margin-right: -10px;
-	transition-duration: 300ms;
 }
 
 .icon:hover {
-	color: var(--primary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--primary);
 }

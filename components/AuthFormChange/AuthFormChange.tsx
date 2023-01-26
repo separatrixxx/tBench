@@ -1,8 +1,8 @@
 import { AuthFormChangeProps } from './AuthFormChange.props';
 import styles from './AuthFormChange.module.css';
 import { Htag } from 'components/Htag/Htag';
-import { setLocale } from 'helpers/helpers_locale';
 import { useRouter } from 'next/router';
+import { setLocale } from 'helpers/helpers_locale';
 
 export const AuthFormChange = ({ type, onClick }: AuthFormChangeProps): JSX.Element => {	
 	const router = useRouter();

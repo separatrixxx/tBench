@@ -1,6 +1,6 @@
 import { AuthBlockProps } from './AuthBlock.props';
 import styles from './AuthBlock.module.css';
-import Image from 'next/image'
+import Image from 'next/image';
 
 export const AuthBlock = ({ children }: AuthBlockProps): JSX.Element => {
 	return (

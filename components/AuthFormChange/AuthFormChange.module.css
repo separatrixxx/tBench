@@ -4,16 +4,19 @@
 }
 
 .signSpan {
-	color: var(--dark);
 	cursor: pointer;
-	font-weight: 600;
 	user-select: none;
 	transition-duration: 300ms;
+
+	color: var(--dark);
+
+	font-weight: 600;
 }
 
 .signSpan:active {
-	color: var(--primary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--primary);
 }
 
 .authChange {
@@ -22,7 +25,8 @@
 
 @media (min-width: 1024px) {
 	.signSpan:hover {
-		color: var(--primary);
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		color: var(--primary);
 	}
 }
