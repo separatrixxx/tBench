@@ -17,6 +17,9 @@ export const HomePage = (): JSX.Element => {
             <Toaster
 					position="top-center"
 					reverseOrder={true}
+                    toastOptions={{
+                        duration: 2000,
+                      }}
 				/>
             <div className={styles.wrapper}>
                 <AuthBlock>
