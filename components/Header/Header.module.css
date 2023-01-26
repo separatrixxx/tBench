@@ -1,22 +1,36 @@
 .header {
     display: grid;
+    grid-template-columns: auto auto auto;
     position: fixed;
     width: 100%;
-    height: 40px;
-    align-content: center;
-    justify-content: left;
+    padding: 10px 0 10px 0;
+    align-items: center;
+    justify-items: center;
 	background: rgba(31, 31, 31, 0.95);
 	backdrop-filter: blur(4px);
     z-index: 9999;
+    grid-template-areas: ". headerBlock .";
 }
 
 .logo {
     width: 20px;
-    margin-left: 40px;
+    height: 20px;
     cursor: pointer;
+    justify-self: right;
 }
 
-.logo svg {
+.burger,
+.close {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    justify-self: left;
+    display: none;
+}
+
+.logo svg,
+.burger svg,
+.close svg  {
     fill: var(--white);
     transition-duration: 300ms;
 }
@@ -26,15 +40,79 @@
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.burger svg:active,
+.close svg:active {
+    fill: var(--light);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.headerBlock {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 40px;
+    align-items: center;
+    justify-items: center;
+    grid-area: headerBlock;
+}
+
+.text {
+    color: var(--white);
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+.text:hover {
+    color: var(--light);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 @media (min-width: 1024px) {
     .logo svg:hover {
         fill: var(--primary);
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     }
+
+    .burger svg:hover,
+    .close svg:hover {
+        fill: var(--light);
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    }
 }
 
-@media (max-width: 580px) {
+@media (max-width: 1024px) {
+    .header {
+        grid-template-columns: auto auto;
+        grid-template-areas: 
+        ". ."
+        "headerBlock headerBlock";
+    }
+
+    .headerBlock {
+        grid-template-columns: auto;
+        grid-template-rows: auto auto auto;
+        gap: 20px;
+        margin: 20px;
+        justify-self: left;
+        justify-items: left;
+        display: none;
+    }
+
+    .openBlock {
+        display: grid;
+    }
+    
+    .closeBlock {
+        display: none;
+    }
+
     .logo {
-        margin-left: 20px;
+        justify-self: left;
+        margin-left: 20px
+    }
+    
+    .burger,
+    .close {
+        justify-self: right;
+        margin-right: 20px;
     }
 }
