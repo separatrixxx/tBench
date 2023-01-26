@@ -1,11 +1,12 @@
 .blockLanguages {
-    display: block;
+	display: block;
 }
 
 .langLink {
-    margin: 5px 20px 5px 20px;
-    cursor: pointer;
-    transition-duration: 300ms;
+	margin: 5px 20px 5px 20px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
 }
 
 .lang {
@@ -15,14 +16,16 @@
 
 .lang:active,
 .langLink:active {
-	color: var(--primary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--primary);
 }
 
 @media (min-width: 1024px) {
 	.lang:hover,
-    .langLink:hover {
-		color: var(--primary);
+	.langLink:hover {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		color: var(--primary);
 	}
 }

@@ -35,11 +35,11 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 		errFirstName: false,
 		errLastName: false,
 		errUsername: false,
-	}
+	};
 
 	const [error, setError] = useState<checkAuthInterface>(errType);
 
-	let authData = [email, password, confirmPassword, firstName, lastName, username];
+	const authData = [email, password, confirmPassword, firstName, lastName, username];
 
 	const LoginUser = () => {
 		const checkResult = checkAuth(authData, true, router.locale);
@@ -50,7 +50,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 			setError(errType);
 			setLoading(true);
 			setTimeout(() => {
-				{ToastSuccess('Cool!')}
+				{ ToastSuccess('Cool!'); }
 				setLoading(false);
 			}, 2000);
 		}
@@ -65,7 +65,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 			setError(errType);
 			setLoading(true);
 			setTimeout(() => {
-				{ToastSuccess('Cool!')}
+				{ ToastSuccess('Cool!'); }
 				setLoading(false);
 			}, 2000);
 		}
@@ -77,7 +77,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 		} else {
 			setPswdType('password');
 		}
-	}
+	};
     
 	if (type === 'login') {
         return (

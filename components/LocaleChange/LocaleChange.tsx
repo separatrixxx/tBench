@@ -1,6 +1,4 @@
 import styles from './LocaleChange.module.css';
-import cn from 'classnames';
-import { setLocale } from 'helpers/helpers_locale';
 import { Htag } from 'components/Htag/Htag';
 import { useRouter } from 'next/router';
 import { en } from 'locales/en.locale';
@@ -11,6 +9,7 @@ import { zh } from 'locales/zh.locale';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';
+import { setLocale } from 'helpers/helpers_locale';
 
 export const LocaleChange = (): JSX.Element => {
     const router = useRouter();
@@ -18,7 +17,7 @@ export const LocaleChange = (): JSX.Element => {
     const [active, setActive] = useState<boolean>(false);
 
     const languages = [en, ru, fr, de, zh];
-    let langIndex = languages.indexOf(setLocale(router.locale));
+    const langIndex = languages.indexOf(setLocale(router.locale));
 
     if (langIndex !== -1) {
         languages.splice(langIndex, 1);
