@@ -2,7 +2,7 @@ import { BlockProps } from './Block.props';
 import styles from './Block.module.css';
 import Image from 'next/image'
 
-export const Block = ({ type, color, image, children }: BlockProps): JSX.Element => {
+export const Block = ({ type, color, image, children }: BlockProps): JSX.Element => {    
 	if (type === 'text' && color) {
         return (
             <div className={styles.textBlock} style={{ background: color }}>
