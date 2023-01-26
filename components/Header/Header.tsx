@@ -1,37 +1,77 @@
 import { Htag } from 'components/Htag/Htag';
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Header.module.css';
 import Logo from './logo_icon.svg';
-import Burger from './burger.svg';
-import Close from './close.svg';
 import cn from 'classnames';
+import { HeaderButton } from 'components/HeaderButton/HeaderButton';
+import { useScrollY } from 'hooks/useScrollY';
+import { motion } from 'framer-motion';
+import { useResize } from 'hooks/useResize';
 
 export const Header = (): JSX.Element => {
     const [open, setOpen] = useState<boolean>(false);
+    const [lastScroll, setLastScroll] = useState<number>(0);
+    const [flag, setFlag] = useState<boolean>(false);
+
+    const scrollPosition = useScrollY();
+    const width = useResize();
+
+    if (scrollPosition - lastScroll >= 200 && scrollPosition > lastScroll) {
+        setFlag(true);
+        setLastScroll(scrollPosition);
+    } else if (scrollPosition < lastScroll) {
+        setFlag(false);
+        setLastScroll(scrollPosition);
+    }
+
+    const variants = {
+		visible: {
+			transform: 'translate(0%, 0%)',
+		},
+		hidden: { 
+            transform: 'translate(0%, -100%)',
+        }
+	};
+
+    let variantsBlock = {
+		visible: {
+            height: 'fit-content',
+            opacity: 1,
+            transition: {
+                duration: 0.3,
+            }
+		},
+		hidden: {
+            height: 0,
+            opacity: 0,
+            transition: {
+                duration: 0.3,
+            }
+        }
+	};
+
+    if (width > 1024) {
+        variantsBlock.visible.transition.duration = 0;
+        variantsBlock.hidden.transition.duration = 0;
+    }
     
     return (
-        <header className={styles.header}>
+        <motion.header className={styles.header}
+            variants={variants}
+            initial={flag ? 'hidden' : 'visible'}
+            transition={{ duration: 0.3 }}
+			animate={flag ? 'hidden' : 'visible'}>
             <Link href='/' className={styles.logo}><Logo /></Link>
-            <div className={cn(styles.headerBlock, {
-						[styles.openBlock]: open,
-					})}>
+            <motion.div className={styles.headerBlock}
+                    variants={variantsBlock}
+                    initial={open || width > 1024 ? 'visible' : 'hidden'}
+                    animate={open || width > 1024 ? 'visible' : 'hidden'}>
                 <Htag tag='xs' className={styles.text}>About</Htag>
                 <Htag tag='xs' className={styles.text}>Ecosystem</Htag>
                 <Htag tag='xs' className={styles.text}>Explore</Htag>
-            </div>
-            <span className={cn(styles.burger, {
-						[styles.openBlock]: !open,
-                        [styles.closeBlock]: open,
-				    })} onClick={() => setOpen(!open)}>
-                      <Burger />
-            </span>
-            <span className={cn(styles.close, {
-						[styles.openBlock]: open,
-                        [styles.closeBlock]: !open,
-				    })} onClick={() => setOpen(!open)}>
-                      <Close />
-            </span>
-        </header>
+            </motion.div>
+            <HeaderButton open={open} setOpen={setOpen} />
+        </motion.header>
     );
 };

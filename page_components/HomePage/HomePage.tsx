@@ -6,6 +6,7 @@ import { Footer } from 'components/Footer/Footer';
 import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
 import { Block } from 'components/Block/Block';
 import { AuthBlock } from 'components/AuthBlock/AuthBlock';
+import { Toaster } from 'react-hot-toast';
 
 export const HomePage = (): JSX.Element => {  
     const [authState, setAuthState] = useState<'login' | 'registration'>('login')
@@ -13,6 +14,10 @@ export const HomePage = (): JSX.Element => {
 	return (
         <>
             <Header />
+            <Toaster
+					position="top-center"
+					reverseOrder={true}
+				/>
             <div className={styles.wrapper}>
                 <AuthBlock>
                     <AuthForm type={authState} setAuthState={setAuthState} />

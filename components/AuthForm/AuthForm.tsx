@@ -3,15 +3,14 @@ import styles from './AuthForm.module.css';
 import cn from 'classnames';
 import { Input } from 'components/Input/Input';
 import { useState } from 'react';
-import { setLocale } from 'helpers/helpers_locale';
 import { AuthButton } from 'components/AuthButton/AuthButton';
-import { checkAuth } from 'helpers/helpers_check_auth';
 import { checkAuthInterface } from 'interfaces/check_auth.interface';
 import { InputWithEye } from 'components/InputWithEye/InputWithEye';
-import toast, { Toaster } from 'react-hot-toast';
 import { useRouter } from 'next/router';
 import { ToastSuccess } from 'components/Toast/Toast';
 import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
+import { checkAuth } from 'helpers/helpers_check_auth';
+import { setLocale } from 'helpers/helpers_locale';
 
 export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormProps): JSX.Element => {
 	const router = useRouter();	
@@ -83,10 +82,6 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	if (type === 'login') {
         return (
             <div className={cn(className, styles.authForm)} {...props}>
-				<Toaster
-					position="top-center"
-					reverseOrder={true}
-				/>
 				<Input type='email' text={setLocale(router.locale).email}
 					value={email} error={error.errEmail} eye={false}
 					onChange={(e) => setEmail(e.target.value)} />
@@ -110,10 +105,6 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
     } else {
         return (
             <div className={cn(className, styles.authForm)} {...props}>
-				<Toaster
-					position="top-center"
-					reverseOrder={true}
-				/>
                 <Input type='text' text={setLocale(router.locale).first_name}
 					value={firstName} error={error.errFirstName} eye={false}
 					onChange={(e) => setFirstName(e.target.value)} />
