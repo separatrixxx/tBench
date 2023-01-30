@@ -28,12 +28,12 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
         })} onClick={() => setActive(false)}
             variants={variants}
             initial={active ? 'visible' : 'hidden'}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.15 }}
 			animate={active ? 'visible' : 'hidden'}>
             <motion.div className={styles.modalContent} onClick={e => e.stopPropagation()}
                 variants={variantsModal}
                 initial={active ? 'visible' : 'hidden'}
-                transition={{ duration: 0.3 }}
+                transition={{ duration: 0.15 }}
                 animate={active ? 'visible' : 'hidden'}>
                 {children}
             </motion.div>

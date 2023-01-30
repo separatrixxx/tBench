@@ -93,6 +93,9 @@
 	}
 
 	.logo {
+		width: 18px;
+		height: 18px;
+
 		justify-self: left;
 
 		margin-left: 20px;
