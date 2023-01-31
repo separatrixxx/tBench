@@ -9,7 +9,7 @@ import { zh } from 'locales/zh.locale';
 import Link from 'next/link';
 import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';
-import { setLocale } from 'helpers/helpers_locale';
+import { setLocale } from 'helpers/locale.helper';
 
 export const LocaleChange = (): JSX.Element => {
     const router = useRouter();

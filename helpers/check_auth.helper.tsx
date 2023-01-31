@@ -1,6 +1,6 @@
 import { ToastError } from "components/Toast/Toast";
 import { checkAuthInterface } from "interfaces/check_auth.interface";
-import { setLocale } from "./helpers_locale";
+import { setLocale } from "./locale.helper";
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 

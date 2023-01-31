@@ -55,8 +55,6 @@ export const Header = (): JSX.Element => {
         variantsBlock.visible.transition.duration = 0;
         variantsBlock.hidden.transition.duration = 0;
     }
-
-    const [burger, setBurger] = useState<boolean>(false);
     
     return (
         <motion.header className={styles.header}

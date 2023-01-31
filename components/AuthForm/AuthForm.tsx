@@ -8,8 +8,8 @@ import { checkAuthInterface } from 'interfaces/check_auth.interface';
 import { InputWithEye } from 'components/InputWithEye/InputWithEye';
 import { useRouter } from 'next/router';
 import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
-import { setLocale } from 'helpers/helpers_locale';
-import { checkUser } from 'helpers/helpers_auth';
+import { setLocale } from 'helpers/locale.helper';
+import { checkUser } from 'helpers/auth.helper';
 
 export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormProps): JSX.Element => {
 	const router = useRouter();

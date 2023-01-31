@@ -2,8 +2,8 @@ import { ErrorPageProps } from "./ErrorPage.props";
 import styles from './ErrorPage.module.css';
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { setLocale } from "helpers/helpers_locale";
 import { Htag } from "components/Htag/Htag";
+import { setLocale } from "helpers/locale.helper";
 
 export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {    
     const router = useRouter();

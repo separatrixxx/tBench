@@ -1,6 +1,6 @@
 import { ToastSuccess } from "components/Toast/Toast";
 import { checkAuthInterface } from "interfaces/check_auth.interface";
-import { checkAuth } from "./helpers_check_auth";
+import { checkAuth } from "./check_auth.helper";
 
 export async function checkUser(authData: Array<string>, errType: checkAuthInterface, router: any,  
     setError: (e: any) => void, setLoading: (e: any) => void, isLogin: boolean) {
