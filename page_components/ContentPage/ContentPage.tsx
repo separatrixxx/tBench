@@ -4,6 +4,7 @@ export const ContentPage = (): JSX.Element => {
 	return (
         <>
             Content
+            <br></br>
             <button onClick={() => {
                 localStorage.clear();
                 window.location.reload();
