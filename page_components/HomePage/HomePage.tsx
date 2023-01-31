@@ -3,7 +3,6 @@ import { Header } from "components/Header/Header";
 import { AuthForm } from 'components/AuthForm/AuthForm';
 import { useState } from 'react';
 import { Footer } from 'components/Footer/Footer';
-import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
 import { Block } from 'components/Block/Block';
 import { AuthBlock } from 'components/AuthBlock/AuthBlock';
 import { Toaster } from 'react-hot-toast';
