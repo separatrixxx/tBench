@@ -1,7 +1,7 @@
 import { Htag } from 'components/Htag/Htag';
 import { LocaleChange } from 'components/LocaleChange/LocaleChange';
-import { setFooterYear } from 'helpers/helpers_footer_year';
-import { setLocale } from 'helpers/helpers_locale';
+import { setFooterYear } from 'helpers/footer_year.helper';
+import { setLocale } from 'helpers/locale.helper';
 import { useRouter } from 'next/router';
 import styles from './Footer.module.css';
 
