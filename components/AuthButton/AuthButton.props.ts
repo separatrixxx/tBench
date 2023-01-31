@@ -1,5 +1,5 @@
 export interface AuthButtonProps {
 	loading: boolean,
-	type: 'login' | 'registration',
+	text: string,
 	onClick: (e: any) => void,
 }

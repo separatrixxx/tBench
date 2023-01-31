@@ -67,7 +67,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 							value={password} error={error.errPassword} eye={true}
 							onChange={(e) => setPassword(e.target.value)} />
 				</InputWithEye>
-                <AuthButton loading={loading} type='login' 
+                <AuthButton loading={loading} text={setLocale(router.locale).sign_in} 
 				onClick={() => checkUser(authData, errType, router, setError, setLoading, true)} />
 				<AuthFormChange type={'login'} onClick={() => setAuthState('registration')}/>
             </div>
@@ -101,7 +101,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 						value={confirmPassword} error={error.errConfirmPassword} eye={true}
 						onChange={(e) => setConfirmPassword(e.target.value)} />
 				</InputWithEye>
-                <AuthButton loading={loading} type='registration'
+                <AuthButton loading={loading} text={setLocale(router.locale).sign_up} 
 				onClick={() => checkUser(authData, errType, router, setError, setLoading, false)} />
 				<AuthFormChange type={'registration'} onClick={() => setAuthState('login')}/>
             </div>
