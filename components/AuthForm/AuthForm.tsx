@@ -7,13 +7,12 @@ import { AuthButton } from 'components/AuthButton/AuthButton';
 import { checkAuthInterface } from 'interfaces/check_auth.interface';
 import { InputWithEye } from 'components/InputWithEye/InputWithEye';
 import { useRouter } from 'next/router';
-import { ToastSuccess } from 'components/Toast/Toast';
 import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
-import { checkAuth } from 'helpers/helpers_check_auth';
 import { setLocale } from 'helpers/helpers_locale';
+import { checkUser } from 'helpers/helpers_auth';
 
 export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormProps): JSX.Element => {
-	const router = useRouter();	
+	const router = useRouter();
 
     const [username, setUsername] = useState<string>('');
     const [firstName, setFirstName] = useState<string>('');
@@ -40,36 +39,6 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	const [error, setError] = useState<checkAuthInterface>(errType);
 
 	const authData = [email, password, confirmPassword, firstName, lastName, username];
-
-	const LoginUser = () => {
-		const checkResult = checkAuth(authData, true, router.locale);
-
-		if (!checkResult.ok) {
-			setError(checkResult);
-		} else {
-			setError(errType);
-			setLoading(true);
-			setTimeout(() => {
-				{ ToastSuccess('Cool!'); }
-				setLoading(false);
-			}, 2000);
-		}
-	};
-
-    const RegisterUser = () => {
-		const checkResult = checkAuth(authData, false, router.locale);
-
-		if (!checkResult.ok) {
-			setError(checkResult);
-		} else {
-			setError(errType);
-			setLoading(true);
-			setTimeout(() => {
-				{ ToastSuccess('Cool!'); }
-				setLoading(false);
-			}, 2000);
-		}
-	};
 
 	const changeInputType = () => {
 		if (pswdType !== 'text') {
@@ -98,7 +67,8 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 							value={password} error={error.errPassword} eye={true}
 							onChange={(e) => setPassword(e.target.value)} />
 				</InputWithEye>
-                <AuthButton loading={loading} type='login' onClick={LoginUser} />
+                <AuthButton loading={loading} type='login' 
+				onClick={() => checkUser(authData, errType, router, setError, setLoading, true)} />
 				<AuthFormChange type={'login'} onClick={() => setAuthState('registration')}/>
             </div>
         );
@@ -131,7 +101,8 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 						value={confirmPassword} error={error.errConfirmPassword} eye={true}
 						onChange={(e) => setConfirmPassword(e.target.value)} />
 				</InputWithEye>
-                <AuthButton loading={loading} type='registration' onClick={RegisterUser} />
+                <AuthButton loading={loading} type='registration'
+				onClick={() => checkUser(authData, errType, router, setError, setLoading, false)} />
 				<AuthFormChange type={'registration'} onClick={() => setAuthState('login')}/>
             </div>
         );
