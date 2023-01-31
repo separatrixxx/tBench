@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 function Home(): JSX.Element {
   const router = useRouter();
-  
+
   useEffect(() => {
     const loggedIn = localStorage.getItem('logged_in');
 
