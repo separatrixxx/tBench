@@ -1,0 +1,41 @@
+.backButton {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 70px;
+    height: 100vh;
+    cursor: pointer;
+
+    transition-duration: 300ms;
+}
+
+.backButton:active {
+    background: rgba(31, 31, 31, 0.1);
+	backdrop-filter: blur(4px);
+
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.arrowBack {
+    color: var(--white);
+    font-size: 3rem;
+    line-height: 1;
+}
+
+@media (min-width: 1024px) {
+	.backButton:hover {
+        background: rgba(31, 31, 31, 0.1);
+	    backdrop-filter: blur(4px);
+
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
+}
+
+@media (max-width: 580px) {
+	.backButton {
+		width: 50px;
+	}
+}

@@ -1,0 +1,68 @@
+.labelContent {
+	position: relative;
+
+	width: fit-content;
+}
+
+.iconContent {
+	position: absolute;
+    display: grid;
+    align-items: center;
+    height: 100%;
+	top: auto;
+	left: 0;
+	bottom: 0;
+
+	margin-left: 12px;
+
+	transition-duration: 300ms;
+
+	color: var(--light);
+
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+}
+
+.iconContentActive {
+    color: var(--primary);
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.inputContent {
+    width: 200px;
+    height: 30px;
+    border-radius: 9999px;
+
+    padding-left: 40px;
+
+    background: var(--white);
+
+    transition-duration: 300ms;
+
+	color: var(--primary);
+	border: 1px solid var(--light);
+	box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+
+	font-size: 1rem;
+	font-weight: 500;
+	line-height: 1.5rem;
+}
+
+.inputContent:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	border-color: var(--primary);
+}
+
+.inputContent:focus {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	outline-color: var(--primary);
+}
+
+@media (max-width: 580px) {
+	.inputContent {
+        width: 150px;
+		height: 25px;
+	}
+}

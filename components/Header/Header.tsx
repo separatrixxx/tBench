@@ -1,7 +1,7 @@
+import styles from './Header.module.css';
 import { Htag } from 'components/Htag/Htag';
 import Link from 'next/link';
 import { useState } from 'react';
-import styles from './Header.module.css';
 import Logo from './logo_icon.svg';
 import { useScrollY } from 'hooks/useScrollY';
 import { useResize } from 'hooks/useResize';
