@@ -1,17 +1,10 @@
-import { useRouter } from 'next/router';
 import styles from './ContentPage.module.css';
+import { HeaderContent } from 'components/HeaderContent/HeaderContent';
 
-export const ContentPage = (): JSX.Element => { 
-    const router = useRouter();
-     
+export const ContentPage = (): JSX.Element => {    
 	return (
         <>
-            Content
-            <br></br>
-            <button onClick={() => {
-                router.push('/');
-                localStorage.clear();
-            }}>Sign Out</button>
+            <HeaderContent />
         </>
     );
 };

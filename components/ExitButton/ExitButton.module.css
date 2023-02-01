@@ -1,0 +1,36 @@
+.exitButton {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: var(--dark);
+
+    margin: 10px 10px 0 0;
+
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+
+    cursor: pointer;
+
+    transition-duration: 300ms;
+}
+
+.exitButton:active {
+    color: var(--primary);
+
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 1024px) {
+	.exitButton:hover {
+        color: var(--primary);
+
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
+}
+
+@media (max-width: 580px) {
+	.exitButton {
+        font-size: 1.5rem;
+        line-height: 2rem;
+	}
+}

@@ -1,0 +1,28 @@
+.profileInfo {
+    width: 100%;
+    display: grid;
+    justify-items: center;
+    margin-top: 50px;
+}
+
+.username {
+    margin-top: 20px;
+}
+
+.userSpecificies {
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+.userInfo {
+    text-align: center;
+    max-width: 300px;
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+@media (max-width: 580px) {
+	.userInfo {
+		max-width: 200px;
+	}
+}
