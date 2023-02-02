@@ -1,10 +1,11 @@
 .profileActionsBar {
-    display: grid;
-    grid-template-columns: 49% 49%;
-    gap: 2%;
-    justify-items: center;
-    width: 50%;
-    margin-top: 20px;
+	display: grid;
+	grid-template-columns: 49% 49%;
+	gap: 2%;
+	justify-items: center;
+
+	width: 50%;
+	margin-top: 20px;
 }
 
 @media (max-width: 1024px) {
@@ -15,6 +16,6 @@
 
 @media (max-width: 580px) {
 	.profileActionsBar {
-		width: 80%;
+		width: 85%;
 	}
 }

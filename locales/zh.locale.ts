@@ -22,4 +22,7 @@ export const zh = {
     follow: "跟隨",
     following: "下列的",
     message: "信息",
+    followers: "追隨者",
+    followings: "追隨者",
+    achievements: "成就",
 };

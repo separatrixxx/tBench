@@ -22,4 +22,7 @@ export const de = {
     follow: "Folgen",
     following: "Folgende",
     message: "Nachricht",
+    followers: "Anhänger",
+    followings: "Folgen",
+    achievements: "Erfolge",
 };

@@ -1,0 +1,14 @@
+.profileStatText {
+    font-weight: 600;
+}
+
+.stat {
+    color: var(--primary);
+}
+
+@media (max-width: 580px) {
+	.profileStatText {
+		font-size: 0.6rem;
+		line-height: 1rem;
+	}
+}

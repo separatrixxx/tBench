@@ -1,36 +1,37 @@
 .exitButton {
-    position: absolute;
-    top: 0;
-    right: 0;
-    color: var(--dark);
+	position: absolute;
+	top: 0;
+	right: 0;
 
-    margin: 10px 10px 0 0;
+	margin: 10px 10px 0 0;
 
-    font-size: 1.875rem;
-    line-height: 2.25rem;
+	cursor: pointer;
 
-    cursor: pointer;
+	transition-duration: 300ms;
 
-    transition-duration: 300ms;
+	color: var(--dark);
+
+	font-size: 1.875rem;
+	line-height: 2.25rem;
 }
 
 .exitButton:active {
-    color: var(--primary);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	color: var(--primary);
 }
 
 @media (min-width: 1024px) {
 	.exitButton:hover {
-        color: var(--primary);
-
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		color: var(--primary);
 	}
 }
 
 @media (max-width: 580px) {
 	.exitButton {
-        font-size: 1.5rem;
-        line-height: 2rem;
+		font-size: 1.5rem;
+		line-height: 2rem;
 	}
 }

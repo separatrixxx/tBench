@@ -22,4 +22,7 @@ export const en = {
     follow: "Follow",
     following: "Following",
     message: "Message",
+    followers: "Followers",
+    followings: "Followings",
+    achievements: "Achievements",
 };

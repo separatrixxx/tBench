@@ -6,12 +6,14 @@
 
 .iconContent {
 	position: absolute;
-    display: grid;
-    align-items: center;
-    height: 100%;
 	top: auto;
-	left: 0;
 	bottom: 0;
+	left: 0;
+
+	display: grid;
+	align-items: center;
+
+	height: 100%;
 
 	margin-left: 12px;
 
@@ -24,23 +26,24 @@
 }
 
 .iconContentActive {
-    color: var(--primary);
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--primary);
 }
 
 .inputContent {
-    width: 200px;
-    height: 30px;
-    border-radius: 9999px;
+	width: 200px;
+	height: 30px;
 
-    padding-left: 40px;
+	padding-left: 40px;
 
-    background: var(--white);
-
-    transition-duration: 300ms;
+	transition-duration: 300ms;
 
 	color: var(--primary);
 	border: 1px solid var(--light);
+	border-radius: 9999px;
+
+	background: var(--white);
 	box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
 
 	font-size: 1rem;
@@ -62,7 +65,7 @@
 
 @media (max-width: 580px) {
 	.inputContent {
-        width: 150px;
+		width: 150px;
 		height: 25px;
 	}
 }

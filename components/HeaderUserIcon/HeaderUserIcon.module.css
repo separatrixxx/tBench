@@ -1,29 +1,30 @@
 .userIcon {
-    width: 30px;
-    height: 30px;
+	width: 30px;
+	height: 30px;
+	margin-right: 20px;
 
-    background: var(--primary);
-    border-radius: 9999px;
-    margin-right: 20px;
-    
-    cursor: pointer;
+	cursor: pointer;
 
-    transition-duration: 300ms;
+	transition-duration: 300ms;
 
-    background-repeat: no-repeat;
+	border-radius: 9999px;
+
+	background: var(--primary);
+
+	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
 
 .userIcon:active {
-    filter: brightness(0.7);
+	filter: brightness(0.7);
 
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (min-width: 1024px) {
 	.userIcon:hover {
-        filter: brightness(0.7);
+		filter: brightness(0.7);
 
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	}
@@ -33,6 +34,6 @@
 	.userIcon {
 		width: 25px;
 		height: 25px;
-        margin-right: 15px;
+		margin-right: 15px;
 	}
 }
