@@ -1,0 +1,38 @@
+.statItems {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    gap: 10px;
+    background: aqua;
+}
+
+.items {
+    width: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 33.3%);
+}
+ 
+.item {
+    width: 20px;
+    height: 20px;
+    border-radius: 9999px;
+    border: 2px solid var(--white);
+}
+
+@media (max-width: 580px) {
+    .items {
+        width: 25px;
+    }
+
+    .item {
+        width: 10px;
+        height: 10px;
+        border: 1px solid var(--white);
+    }
+}
+
+@media (max-width: 390px) {
+    .items {
+        display: none;
+    }
+}

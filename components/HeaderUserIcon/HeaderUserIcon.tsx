@@ -8,8 +8,8 @@ export const HeaderUserIcon = (): JSX.Element => {
 
     return (
         <Image className={styles.userIcon} draggable='false'
-            loader={() => '/home_image.png'}
-            src='/home_image.png'
+            loader={() => '/rainbow.jpg'}
+            src='/rainbow.jpg'
             alt='image'
             width={1}
             height={1}

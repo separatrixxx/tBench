@@ -1,6 +1,6 @@
 .profileStatsBar {
 	display: grid;
-	grid-template-columns: repeat(3, 33.3%);
+	grid-template-columns: 1fr auto 1fr;
 	align-items: center;
 	justify-items: center;
 	width: 50%;
@@ -12,13 +12,13 @@
 	filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1150px) {
 	.profileStatsBar {
 		width: 70%;
 	}
 }
 
-@media (max-width: 580px) {
+@media (max-width: 800px) {
 	.profileStatsBar {
 		width: 85%;
 		height: 30px;
