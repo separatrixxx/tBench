@@ -13,7 +13,8 @@ export const Input = ({ type, text, value, error, eye, onChange }: InputProps): 
 						value={value}
 						onChange={onChange}
                         type="email"
-                        name="email" />;
+                        name="email"
+						aria-label="email" />;
 		case 'password':
 			return <input className={cn(styles.input, {
 						[styles.error_input]: error,
@@ -23,7 +24,8 @@ export const Input = ({ type, text, value, error, eye, onChange }: InputProps): 
 						value={value}
 						onChange={onChange}
                         type="password"
-                        name="password" />;
+                        name="password"
+						aria-label="password" />;
 		case 'text':
 			return <input className={cn(styles.input, {
 						[styles.error_input]: error,
@@ -33,7 +35,8 @@ export const Input = ({ type, text, value, error, eye, onChange }: InputProps): 
 						value={value}
 						onChange={onChange}
                         type="text"
-                        name="name" />;
+                        name="name"
+						aria-label="name" />;
 		default:
 			return <></>;
 	}
