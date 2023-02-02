@@ -19,4 +19,7 @@ export const zh = {
     have_account: "已有帐户",
     dont_have_account: "还没有帐户",
     rights_reserved: "版权所有",
+    follow: "跟隨",
+    following: "下列的",
+    message: "信息",
 };

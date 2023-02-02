@@ -19,4 +19,7 @@ export const de = {
     have_account: "Sie haben bereits ein Konto?",
     dont_have_account: "Sie haben noch kein Konto?",
     rights_reserved: "Alle Rechte vorbehalten",
+    follow: "Folgen",
+    following: "Folgende",
+    message: "Nachricht",
 };

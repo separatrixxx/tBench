@@ -19,4 +19,7 @@ export const ru = {
     have_account: "У вас уже есть аккаунт?",
     dont_have_account: "У вас ещё нет аккаунта?",
     rights_reserved: "Все права защищены",
+    follow: "Подписаться",
+    following: "Вы подписаны",
+    message: "Сообщение",
 };

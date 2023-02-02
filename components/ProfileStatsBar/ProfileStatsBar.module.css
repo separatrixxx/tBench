@@ -1,0 +1,21 @@
+.profileStatsBar {
+    width: 50%;
+    height: 40px;
+    border-radius: 9999px;
+    margin-top: 20px;
+    background: var(--white);
+    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+}
+
+@media (max-width: 1024px) {
+	.profileStatsBar {
+		width: 70%;
+	}
+}
+
+@media (max-width: 580px) {
+	.profileStatsBar {
+		width: 80%;
+        height: 30px;
+	}
+}
