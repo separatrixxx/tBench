@@ -8,8 +8,8 @@ export const ProfileImage = (): JSX.Element => {
             <div className={styles.imageRingShadow} />
             <div className={styles.imageRing} />
             <Image className={styles.profileImage} draggable='false'
-                loader={() => '/home_image.png'}
-                src='/home_image.png'
+                loader={() => '/rainbow.jpg'}
+                src='/rainbow.jpg'
                 alt='image'
                 width={1}
                 height={1}
