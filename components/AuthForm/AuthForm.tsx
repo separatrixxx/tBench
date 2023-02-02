@@ -21,8 +21,8 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	const [password, setPassword] = useState<string>('');
 	const [confirmPassword, setConfirmPassword] = useState<string>('');
 
-    const [pswdType, setPswdType] = useState<string>('password');
-	const [confPswdType, setConfPswdType] = useState<string>('password');
+    const [pswdType, setPswdType] = useState<'email' | 'password' | 'text'>('password');
+	const [confPswdType, setConfPswdType] = useState<'email' | 'password' | 'text'>('password');
 
 	const [loading, setLoading] = useState<boolean>(false);
 
