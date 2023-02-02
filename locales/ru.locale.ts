@@ -22,4 +22,7 @@ export const ru = {
     follow: "Подписаться",
     following: "Вы подписаны",
     message: "Сообщение",
+    followers: "Подписчики",
+    followings: "Подписки",
+    achievements: "Достижения",
 };

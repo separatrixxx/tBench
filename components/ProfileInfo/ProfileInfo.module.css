@@ -1,31 +1,35 @@
 .profileInfo {
-    width: 100%;
-    display: grid;
-    justify-items: center;
-    margin-top: 50px;
+	display: grid;
+
+	width: 100%;
+	margin-top: 50px;
+	justify-items: center;
 }
 
 .username {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 .userSpecificies {
-    font-weight: 500;
-    margin-top: 5px;
+	margin-top: 5px;
+
+	font-weight: 500;
 }
 
 .userSpeciality {
-    background: linear-gradient(266.81deg, #6100FF 6.74%, #8400EC 49.69%, #FF00C7 93.54%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+	background: linear-gradient(266.81deg, #6100FF 6.74%, #8400EC 49.69%, #FF00C7 93.54%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 }
 
 .userInfo {
-    text-align: center;
-    max-width: 300px;
-    font-weight: 500;
-    margin-top: 20px;
+	max-width: 300px;
+	margin-top: 20px;
+
+	text-align: center;
+
+	font-weight: 500;
 }
 
 @media (max-width: 580px) {

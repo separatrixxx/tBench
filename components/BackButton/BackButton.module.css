@@ -1,36 +1,63 @@
 .backButton {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 70px;
-    height: 100vh;
-    cursor: pointer;
+	position: fixed;
 
-    transition-duration: 300ms;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+
+	display: grid;
+	align-items: center;
+
+	width: 70px;
+	height: 100vh;
+
+	cursor: pointer;
+
+	transition-duration: 300ms;
+	transform: translate(-90%, 0%);
+	justify-items: center;
 }
 
 .backButton:active {
-    background: rgba(31, 31, 31, 0.1);
-	backdrop-filter: blur(4px);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transform: translate(0%, 0%);
+}
 
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.backButton:active > div {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	background: rgba(31, 31, 31, 0.2);
+	filter: blur(40px);
 }
 
 .arrowBack {
-    color: var(--white);
-    font-size: 3rem;
-    line-height: 1;
+	position: absolute;
+	z-index: 99999;
+
+	color: var(--white);
+
+	font-size: 3rem;
+	line-height: 1;
+}
+
+.blurBlock {
+	width: 100%;
+	height: 100%;
+
+	transition-duration: 300ms;
 }
 
 @media (min-width: 1024px) {
 	.backButton:hover {
-        background: rgba(31, 31, 31, 0.1);
-	    backdrop-filter: blur(4px);
-
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transform: translate(0%, 0%);
+	}
+
+	.backButton:hover > div {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		background: rgba(31, 31, 31, 0.2);
+		filter: blur(40px);
 	}
 }
 

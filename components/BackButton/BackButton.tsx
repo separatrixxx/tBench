@@ -10,6 +10,7 @@ export const BackButton = ({ link }: BackButtonProps): JSX.Element => {
 	return (
         <div className={styles.backButton} onClick={() => router.push(link)}>
             <span className={styles.arrowBack}><IoIosArrowBack /></span>
+            <div className={styles.blurBlock} />
         </div>
     );
 };
