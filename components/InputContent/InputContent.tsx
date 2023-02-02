@@ -17,7 +17,8 @@ export const InputContent = (): JSX.Element => {
                 onMouseOver={() => setSearchActive(true)}
                 onMouseLeave={() => setSearchActive(false)}
                 type="text"
-                name="search" />
+                name="search"
+                aria-label="search" />
         </label>
     );
 };
