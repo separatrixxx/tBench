@@ -1,21 +1,21 @@
-import { useRouter } from "next/router";
 import { ProfilePage } from "page_components/ProfilePage/ProfilePage";
+import { isAuth } from "hooks/isAuth";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-function Profile(): JSX.Element {
+function Profile(): JSX.Element | undefined {
   const router = useRouter();
-  
-  useEffect(() => {
-    const loggedIn = localStorage.getItem('logged_in');
+  const auth = isAuth();
 
-    if (!loggedIn) {
+  if (auth) {
+    return (
+      <ProfilePage />
+    );
+  } else {
+    useEffect(() => {
       router.push('/');
-    }
-  });
-  
-  return (
-    <ProfilePage />
-  );
+    }, []);
+  }
 }
 
 export default Profile;

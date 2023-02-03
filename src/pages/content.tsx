@@ -1,21 +1,21 @@
-import { useRouter } from "next/router";
 import { ContentPage } from "page_components/ContentPage/ContentPage";
+import { isAuth } from "hooks/isAuth";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-function Content(): JSX.Element {
+function Content(): JSX.Element | undefined {
   const router = useRouter();
-  
-  useEffect(() => {
-    const loggedIn = localStorage.getItem('logged_in');
+  const auth = isAuth();
 
-    if (!loggedIn) {
+  if (auth) {
+    return (
+      <ContentPage />
+    );
+  } else {
+    useEffect(() => {
       router.push('/');
-    }
-  });
-  
-  return (
-    <ContentPage />
-  );
+    }, []);
+  }
 }
 
 export default Content;
