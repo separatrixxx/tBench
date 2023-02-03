@@ -1,0 +1,48 @@
+.contentActionsBar {
+    display: grid;
+    grid-template-columns: auto auto 1fr;
+    justify-items: right;
+    align-items: center;
+    gap: 15px;
+    width: 100% - 20px;
+    height: 30px;
+    margin: 20px 20px 0 20px;
+    border-top: 1px solid var(--light);
+    padding-top: 20px;
+}
+
+.likesBlock,
+.commentsBlock {
+    width: fit-content;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 5px;
+}
+
+.like,
+.comment {
+    color: var(--light);
+    cursor: pointer;
+    transition-duration: 300ms;
+}
+
+.like:active,
+.comment:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	transform: scale(1.1);
+}
+
+.likeActive {
+    color: var(--error);
+}
+
+
+@media (min-width: 1024px) {
+	.like:hover,
+    .comment:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		transform: scale(1.1);
+	}
+}

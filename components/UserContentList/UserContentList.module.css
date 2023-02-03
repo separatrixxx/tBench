@@ -1,0 +1,17 @@
+.userContentList {
+    width: 50%;
+    margin: 40px 0 40px 0;
+    border-top: 1px solid var(--light);
+}
+
+@media (max-width: 1150px) {
+	.userContentList {
+		width: 70%;
+	}
+}
+
+@media (max-width: 800px) {
+	.userContentList {
+		width: 85%;
+	}
+}
