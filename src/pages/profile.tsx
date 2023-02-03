@@ -1,20 +1,30 @@
 import { ProfilePage } from "page_components/ProfilePage/ProfilePage";
-import { isAuth } from "hooks/isAuth";
 import { useRouter } from "next/router";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 function Profile(): JSX.Element | undefined {
   const router = useRouter();
-  const auth = isAuth();
+  const [isAuth, setIsAuth] = useState<boolean>(false);
+  
+  useEffect(() => {
+		const loggedIn = localStorage.getItem('logged_in');
 
-  if (auth) {
+    if (loggedIn) {
+      setIsAuth(true);
+    } else {
+      router.push('/');
+      setIsAuth(false);
+    }
+	}, []);
+
+  if (isAuth) {
     return (
       <ProfilePage />
     );
   } else {
-    useEffect(() => {
-      router.push('/');
-    }, []);
+    return (
+      <></>
+    );
   }
 }
 
