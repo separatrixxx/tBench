@@ -2,7 +2,7 @@ import { ContentPage } from "page_components/ContentPage/ContentPage";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-function Content(): JSX.Element | undefined {
+function Content(): JSX.Element {
   const router = useRouter();
   
   const [isAuth, setIsAuth] = useState<boolean>(false);
