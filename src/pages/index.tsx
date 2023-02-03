@@ -1,21 +1,21 @@
-import { useRouter } from "next/router";
 import { HomePage } from "page_components/HomePage/HomePage";
+import { isAuth } from "hooks/isAuth";
+import { useRouter } from "next/router";
 import { useEffect } from "react";
 
-function Home(): JSX.Element {
+function Home(): JSX.Element | undefined {
   const router = useRouter();
+  const auth = isAuth();
 
-  useEffect(() => {
-    const loggedIn = localStorage.getItem('logged_in');
-
-    if (loggedIn) {
+  if (auth) {
+    useEffect(() => {
       router.push('/content');
-    }
-  });
-
-  return (
-    <HomePage />
-  );
+    }, []);
+  } else {
+    return (
+      <HomePage />
+    );
+  }
 }
 
 export default Home;
