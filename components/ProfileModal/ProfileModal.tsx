@@ -42,6 +42,12 @@ export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInf
                         onKeyDown={changeValue} />
                 </Modal>
             );
+		case 'more_info':
+			return (
+                <Modal active={active} setActive={setActive}>
+                    
+                </Modal>
+            );
 		default:
 			return <></>;
 	}

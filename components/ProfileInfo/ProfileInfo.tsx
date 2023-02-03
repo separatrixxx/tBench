@@ -12,7 +12,7 @@ export const ProfileInfo = (): JSX.Element => {
     const [username, setUsername] = useState<string>('separatrix');
     const [userInfo, setUserInfo] = useState<string>('Я создал это говно, хз, как оно вам. Я, кстати, сепаратриса :)');
     const [active, setActive] = useState<boolean>(false);
-    const [type, setType] = useState<'username' | 'info' | 'image'>('username');
+    const [type, setType] = useState<'username' | 'info' | 'image' | 'more_info'>('username');
     
     return (
         <div className={styles.profileInfo}>
@@ -23,7 +23,7 @@ export const ProfileInfo = (): JSX.Element => {
             }}>
                 {username}
             </Htag>
-            <UserSpecificies />
+            <UserSpecificies active={active} setActive={setActive} setType={setType} />
             <Htag tag='s' className={styles.userInfo} onClick={() => {
                 setType('info');
                 setActive(!active);
