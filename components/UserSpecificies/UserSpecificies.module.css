@@ -1,0 +1,37 @@
+.userSpecificiesBlock {
+	margin-top: 5px;
+	display: grid;
+	align-items: center;
+	gap: 2px;
+	grid-template-columns: auto auto;
+}
+
+.userSpecificies {
+	font-weight: 500;
+}
+
+.userSpeciality {
+	background: linear-gradient(266.81deg, #6100FF 6.74%, #8400EC 49.69%, #FF00C7 93.54%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+}
+
+.moreInfo {
+	display: grid;
+	align-items: center;
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.moreInfo:active {
+	color: var(--promary);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 1024px) {
+	.moreInfo:hover {
+		color: var(--primary);
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
+}

@@ -1,10 +1,11 @@
+import styles from './ProfileInfo.module.css';
 import { Htag } from 'components/Htag/Htag';
 import { ProfileActionsBar } from 'components/ProfileActionsBar/ProfileActionsBar';
 import { ProfileImage } from 'components/ProfileImage/ProfileImage';
 import { ProfileModal } from 'components/ProfileModal/ProfileModal';
 import { ProfileStatsBar } from 'components/ProfileStatsBar/ProfileStatsBar';
 import { useState } from 'react';
-import styles from './ProfileInfo.module.css';
+import { UserSpecificies } from 'components/UserSpecificies/UserSpecificies';
 
 
 export const ProfileInfo = (): JSX.Element => {
@@ -22,9 +23,7 @@ export const ProfileInfo = (): JSX.Element => {
             }}>
                 {username}
             </Htag>
-            <Htag tag='xs' className={styles.userSpecificies}>
-                <span className={styles.userSpeciality}>Designer</span>, Moscow
-            </Htag>
+            <UserSpecificies />
             <Htag tag='s' className={styles.userInfo} onClick={() => {
                 setType('info');
                 setActive(!active);
