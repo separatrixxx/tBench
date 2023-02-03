@@ -11,19 +11,6 @@
 	cursor: pointer;
 }
 
-.userSpecificies {
-	margin-top: 5px;
-
-	font-weight: 500;
-}
-
-.userSpeciality {
-	background: linear-gradient(266.81deg, #6100FF 6.74%, #8400EC 49.69%, #FF00C7 93.54%);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	background-clip: text;
-}
-
 .userInfo {
 	max-width: 300px;
 	overflow: hidden;
@@ -54,11 +41,9 @@
 }
 
 @media (min-width: 1024px) {
-	.userInfo:hover {
+	.moreInfo:hover {
+		color: var(--primary);
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-		-webkit-line-clamp: 10;
-		line-clamp: 10;
 	}
 }
 
