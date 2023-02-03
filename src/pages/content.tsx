@@ -13,8 +13,8 @@ function Content(): JSX.Element {
     if (loggedIn) {
       setIsAuth(true);
     } else {
-      router.push('/');
       setIsAuth(false);
+      router.push('/');
     }
 	}, []);
 

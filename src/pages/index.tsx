@@ -11,8 +11,8 @@ function Home(): JSX.Element {
 		const loggedIn = localStorage.getItem('logged_in');
 
     if (loggedIn) {
-      router.push('/content');
       setIsAuth(true);
+      router.push('/content');
     } else {
       setIsAuth(false);
     }
