@@ -25,4 +25,5 @@ export const fr = {
     followers: "Suiveurs",
     followings: "Suivis",
     achievements: "Réalisations",
+    user_info: "Informations utilisateur",
 };

@@ -25,4 +25,5 @@ export const ru = {
     followers: "Подписчики",
     followings: "Подписки",
     achievements: "Достижения",
+    user_info: "Информация пользователя",
 };

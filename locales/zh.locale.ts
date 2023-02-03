@@ -25,4 +25,5 @@ export const zh = {
     followers: "追隨者",
     followings: "追隨者",
     achievements: "成就",
+    user_info: "用戶信息",
 };

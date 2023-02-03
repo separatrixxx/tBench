@@ -25,4 +25,5 @@ export const en = {
     followers: "Followers",
     followings: "Followings",
     achievements: "Achievements",
+    user_info: "User Info",
 };
