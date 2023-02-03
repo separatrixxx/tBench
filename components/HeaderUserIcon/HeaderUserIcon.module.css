@@ -10,10 +10,6 @@
 	border-radius: 9999px;
 
 	background: var(--primary);
-
-	background-repeat: no-repeat;
-	background-position: center;
-	background-size: cover;
 }
 
 .userIcon:active {
