@@ -37,7 +37,6 @@
     color: var(--error);
 }
 
-
 @media (min-width: 1024px) {
 	.like:hover,
     .comment:hover {
