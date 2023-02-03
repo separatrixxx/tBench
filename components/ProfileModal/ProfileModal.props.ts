@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface ProfileModalProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-	type: 'username' | 'info' | 'image',
+	type: 'username' | 'info' | 'image' | 'more_info',
 	username: string,
 	setUsername: (e: any) => void,
 	userInfo: string,

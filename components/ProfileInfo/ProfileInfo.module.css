@@ -7,7 +7,7 @@
 }
 
 .username {
-	margin-top: 20px;
+	margin-top: 20px !important;
 	cursor: pointer;
 }
 
@@ -23,7 +23,7 @@
     line-clamp: 3;
     box-orient: vertical;
 
-	margin-top: 20px;
+	margin-top: 20px !important;
 
 	text-align: center;
 
