@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 function Home(): JSX.Element {
   const router = useRouter();
+  
   const [isAuth, setIsAuth] = useState<boolean>(true);
   
   useEffect(() => {
