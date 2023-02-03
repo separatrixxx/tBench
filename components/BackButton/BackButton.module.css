@@ -13,18 +13,12 @@
 
 	cursor: pointer;
 
-	transition-duration: 300ms;
-	transform: translate(-90%, 0%);
 	justify-items: center;
-}
-
-.backButton:active {
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transform: translate(0%, 0%);
 }
 
 .backButton:active > div {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transform: translate(0%, 0%);
 
 	background: rgba(31, 31, 31, 0.2);
 	filter: blur(40px);
@@ -45,16 +39,15 @@
 	height: 100%;
 
 	transition-duration: 300ms;
+	transform: translate(-90%, 0%);
+
+	transition-duration: 300ms;
 }
 
 @media (min-width: 1024px) {
-	.backButton:hover {
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-		transform: translate(0%, 0%);
-	}
-
 	.backButton:hover > div {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		transform: translate(0%, 0%);
 
 		background: rgba(31, 31, 31, 0.2);
 		filter: blur(40px);
