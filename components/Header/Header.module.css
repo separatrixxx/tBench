@@ -49,13 +49,13 @@
 	cursor: pointer;
 	transition-duration: 300ms;
 
-	color: var(--white);
+	color: var(--white) !important;
 }
 
-.text:hover {
+.text:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	color: var(--light);
+	color: var(--light) !important;
 }
 
 @media (min-width: 1024px) {
@@ -63,6 +63,12 @@
 		fill: var(--primary);
 
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.text:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	
+		color: var(--light) !important;
 	}
 }
 

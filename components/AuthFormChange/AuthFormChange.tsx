@@ -10,7 +10,7 @@ export const AuthFormChange = ({ type, onClick }: AuthFormChangeProps): JSX.Elem
 	if (type === 'login') {
 		return (
 			<div className={styles.formChange}>
-				<Htag tag='s'>{setLocale(router.locale).have_account + ' '}
+				<Htag className={styles.qqq} tag='s'>{setLocale(router.locale).have_account + ' '}
 					<span className={styles.signSpan} onClick={onClick}>{setLocale(router.locale).sign_up}</span>
 				</Htag>
 			</div>
