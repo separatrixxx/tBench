@@ -26,6 +26,16 @@
 
 .userInfo {
 	max-width: 300px;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    box-orient: vertical;
+
 	margin-top: 20px;
 
 	text-align: center;
@@ -33,6 +43,23 @@
 	font-weight: 500;
 
 	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.userInfo:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	-webkit-line-clamp: 10;
+	line-clamp: 10;
+}
+
+@media (min-width: 1024px) {
+	.userInfo:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		-webkit-line-clamp: 10;
+		line-clamp: 10;
+	}
 }
 
 @media (max-width: 580px) {
