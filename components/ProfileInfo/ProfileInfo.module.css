@@ -8,6 +8,7 @@
 
 .username {
 	margin-top: 20px;
+	cursor: pointer;
 }
 
 .userSpecificies {
@@ -30,6 +31,8 @@
 	text-align: center;
 
 	font-weight: 500;
+
+	cursor: pointer;
 }
 
 @media (max-width: 580px) {

@@ -25,4 +25,5 @@ export const de = {
     followers: "Anhänger",
     followings: "Folgen",
     achievements: "Erfolge",
+    user_info: "Benutzerinformation",
 };

@@ -2,18 +2,18 @@ import { HtagProps } from './Htag.props';
 import styles from './Htag.module.css';
 import cn from 'classnames';
 
-export const Htag = ({ tag, children, className }: HtagProps): JSX.Element => {
+export const Htag = ({ tag, children, className, onClick }: HtagProps): JSX.Element => {
 	switch (tag) {
 		case 'xl':
-			return <h1 className={cn(className, styles.xl)}>{children}</h1>;
+			return <h1 className={cn(className, styles.xl)} onClick={onClick}>{children}</h1>;
 		case 'l':
-			return <h1 className={cn(className, styles.l)}>{children}</h1>;
+			return <h1 className={cn(className, styles.l)} onClick={onClick}>{children}</h1>;
 		case 'm':
-			return <h1 className={cn(className, styles.m)}>{children}</h1>;
+			return <h1 className={cn(className, styles.m)} onClick={onClick}>{children}</h1>;
 		case 's':
-			return <h2 className={cn(className, styles.s)}>{children}</h2>;
+			return <h2 className={cn(className, styles.s)} onClick={onClick}>{children}</h2>;
 		case 'xs':
-			return <h2 className={cn(className, styles.xs)}>{children}</h2>;
+			return <h2 className={cn(className, styles.xs)} onClick={onClick}>{children}</h2>;
 		default:
 			return <></>;
 	}
