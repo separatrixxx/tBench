@@ -19,8 +19,7 @@
 
 .verify {
 	display: grid;
-	align-items: end;
-	color: var(--primary);
+	color: var(--primary) !important;
 	cursor: pointer;
 }
 
