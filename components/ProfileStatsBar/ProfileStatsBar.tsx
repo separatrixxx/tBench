@@ -14,10 +14,10 @@ export const ProfileStatsBar = (): JSX.Element => {
                 <ProfileStat stat={setStat(344100000)} text={setLocale(router.locale).followers} />
             </ProfileStatItem>
             <ProfileStatItem>
-                <ProfileStat stat={setStat(37)} text={setLocale(router.locale).followings} />
+                <ProfileStat stat={setStat(344100000)} text={setLocale(router.locale).followings} />
             </ProfileStatItem>
             <ProfileStatItem>
-                <ProfileStat stat={setStat(1452)} text={setLocale(router.locale).achievements} />
+                <ProfileStat stat={setStat(344100000)} text={setLocale(router.locale).achievements} />
             </ProfileStatItem>
         </div>
     );

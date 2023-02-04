@@ -6,9 +6,23 @@
     color: var(--primary);
 }
 
-@media (max-width: 580px) {
+@media (max-width: 850px) {
 	.profileStatText {
 		font-size: 0.6rem;
+		line-height: 1rem;
+	}
+}
+
+@media (max-width: 580px) {
+	.profileStatText {
+		font-size: 0.55rem;
+		line-height: 1rem;
+	}
+}
+
+@media (max-width: 300px) {
+	.profileStatText {
+		font-size: 0.45rem;
 		line-height: 1rem;
 	}
 }
