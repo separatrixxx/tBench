@@ -26,4 +26,9 @@ export const fr = {
     followings: "Suivis",
     achievements: "Réalisations",
     user_info: "Informations utilisateur",
+    speciality: "Spécialité",
+    city: "Ville",
+    birthday: "Anniversaire",
+    education: "Éducation",
+    verify: "Utilisateur vérifié",
 };

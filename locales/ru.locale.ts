@@ -26,4 +26,9 @@ export const ru = {
     followings: "Подписки",
     achievements: "Достижения",
     user_info: "Информация пользователя",
+    speciality: "Специальность",
+    city: "Город",
+    birthday: "День рождения",
+    education: "Образование",
+    verify: "Пользователь подтверждён",
 };

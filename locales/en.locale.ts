@@ -26,4 +26,9 @@ export const en = {
     followings: "Followings",
     achievements: "Achievements",
     user_info: "User Info",
+    speciality: "Speciality",
+    city: "City",
+    birthday: "Birthday",
+    education: "Education",
+    verify: "User verified",
 };

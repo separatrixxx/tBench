@@ -26,4 +26,9 @@ export const de = {
     followings: "Folgen",
     achievements: "Erfolge",
     user_info: "Benutzerinformation",
+    speciality: "Spezialität",
+    city: "Stadt",
+    birthday: "Geburtstag",
+    education: "Ausbildung",
+    verify: "Benutzer verifiziert",
 };
