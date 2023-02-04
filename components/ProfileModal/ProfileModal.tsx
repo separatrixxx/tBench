@@ -6,6 +6,9 @@ import { useRouter } from 'next/router';
 import { setLocale } from 'helpers/locale.helper';
 import { useState } from 'react';
 import Plus from './plus.svg';
+import { MoreInfoBlock } from 'components/MoreInfoBlock/MoreInfoBlock';
+import { Htag } from 'components/Htag/Htag';
+import { BsCheck } from 'react-icons/bs';
 
 
 export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInfo, 
@@ -54,7 +57,14 @@ export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInf
 		case 'more_info':
 			return (
                 <Modal active={active} setActive={setActive}>
-                    
+                    <MoreInfoBlock />
+                </Modal>
+            );
+		case 'verify':
+			return (
+                <Modal active={active} setActive={setActive}>
+                    <span className={styles.verify}><BsCheck /></span>
+                    <Htag tag='m' className={styles.verifyText}>{setLocale(router.locale).verify}</Htag>
                 </Modal>
             );
 		default:

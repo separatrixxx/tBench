@@ -26,4 +26,9 @@ export const zh = {
     followings: "追隨者",
     achievements: "成就",
     user_info: "用戶信息",
+    speciality: "專業",
+    city: "城市",
+    birthday: "生日",
+    education: "教育",
+    verify: "用户验证",
 };
