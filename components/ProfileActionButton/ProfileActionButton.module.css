@@ -65,3 +65,12 @@
 		line-height: 1rem;
 	}
 }
+
+@media (max-width: 300px) {
+	.followButton,
+	.messageButton,
+	.followButtonActive {
+		font-size: 0.6rem;
+		line-height: 1rem;
+	}
+}
