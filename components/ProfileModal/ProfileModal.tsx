@@ -5,6 +5,7 @@ import { InputModal } from 'components/InputModal/InputModal';
 import { useRouter } from 'next/router';
 import { setLocale } from 'helpers/locale.helper';
 import { useState } from 'react';
+import Plus from './plus.svg';
 
 
 export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInfo, 
@@ -40,6 +41,14 @@ export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInf
                     <InputModal type='area' text={setLocale(router.locale).user_info} value={newUserInfo} 
                         onChange={(e) => setNewUserInfo(e.target.value)}
                         onKeyDown={changeValue} />
+                </Modal>
+            );
+        case 'image':
+            return (
+                <Modal active={active} setActive={setActive}>   
+                    <div className={styles.addImage}>
+                        <Plus />
+                    </div>
                 </Modal>
             );
 		case 'more_info':

@@ -1,7 +1,7 @@
 import styles from './UserContentList.module.css';
 import { UserContentItem } from 'components/UserContentItem/UserContentItem';
 
-export const UserContentList = (): JSX.Element => {
+export const UserContentList = (): JSX.Element => {    
     let content1 = {
         id: 1,
         type: 'both' as 'text' | 'image' | 'both',
@@ -28,11 +28,12 @@ export const UserContentList = (): JSX.Element => {
     let content = [content1, content2, content3];
 
 	return (
-        <div className={styles.userContentList}>
-            {content.map(c => (
-                <UserContentItem key={c.id} type={c.type} image={c.image} text={c.text} />
-            ))}
-        
-        </div>
+        <>
+            <div className={styles.userContentList}>
+                {content.map(c => (
+                    <UserContentItem key={c.id} type={c.type} image={c.image} text={c.text} />
+                ))}
+            </div>
+        </>
     );
 };

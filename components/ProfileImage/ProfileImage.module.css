@@ -12,6 +12,8 @@
 .profileImage {
 	position: absolute;
 
+	cursor: pointer;
+
 	width: 150px;
 	height: 150px;
 

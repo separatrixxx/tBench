@@ -17,8 +17,19 @@
     overflow: clip;
 }
 
-.userContentImage {
+.userContentImage,
+.userContentImageFull {
     cursor: pointer;
+}
+
+.imageBlockFull {
+    position: relative;
+    display: grid;
+    align-content: center;
+    width: 80vw;
+    height: 80vh;
+    border-radius: 10px;
+    overflow: clip;
 }
 
 .userContentText,
