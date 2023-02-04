@@ -16,7 +16,7 @@ export const ProfileInfo = (): JSX.Element => {
     
     return (
         <div className={styles.profileInfo}>
-            <ProfileImage />
+            <ProfileImage active={active} setActive={setActive} setType={setType} />
             <Htag tag='xl' className={styles.username} onClick={() => {
                 setType('username');
                 setActive(!active);

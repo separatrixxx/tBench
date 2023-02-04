@@ -1,0 +1,25 @@
+.addImage {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    width: 150px;
+	height: 150px;
+    background: var(--white);
+    margin: 40px;
+    cursor: pointer;
+    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+
+	border-radius: 9999px;
+}
+
+.addImage > svg {
+    width: 70%;
+    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+}
+
+@media (max-width: 580px) {
+	.addImage {
+		width: 100px;
+		height: 100px;
+	}
+}
