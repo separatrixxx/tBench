@@ -1,6 +1,7 @@
 import { ContentPage } from "page_components/ContentPage/ContentPage";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 function Content(): JSX.Element {
   const router = useRouter();
@@ -20,7 +21,12 @@ function Content(): JSX.Element {
 
   if (isAuth) {
     return (
-      <ContentPage />
+      <>
+        <Head>
+          <title>tBench - Content</title>
+        </Head>
+        <ContentPage />
+      </>
     );
   } else {
     return (

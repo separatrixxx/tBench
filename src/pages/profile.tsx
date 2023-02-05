@@ -1,6 +1,7 @@
 import { ProfilePage } from "page_components/ProfilePage/ProfilePage";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
+import Head from "next/head";
 
 function Profile(): JSX.Element {
   const router = useRouter();
@@ -20,7 +21,12 @@ function Profile(): JSX.Element {
 
   if (isAuth) {
     return (
-      <ProfilePage />
+      <>
+        <Head>
+          <title>tBench - Profile</title>
+        </Head>
+        <ProfilePage />
+      </>
     );
   } else {
     return (

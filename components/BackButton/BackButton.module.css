@@ -14,8 +14,6 @@
 	cursor: pointer;
 
 	justify-items: center;
-
-	pointer-events: none;
 }
 
 .backButton:active > div {
@@ -90,3 +88,15 @@
 		line-height: 2.25rem;
 	}
 }
+
+@media (max-width: 400px) {
+	.backButton {
+		width: 20px;
+	}
+
+	.arrowBack {	
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+}
+
