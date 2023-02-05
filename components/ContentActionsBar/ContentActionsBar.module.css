@@ -37,11 +37,27 @@
     color: var(--error);
 }
 
+.contentActionsText {
+    font-weight: 500;
+}
+
 @media (min-width: 1024px) {
 	.like:hover,
     .comment:hover {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 		transform: scale(1.1);
+	}
+}
+
+@media (max-width: 580px) {
+    .contentActionsBar {
+        margin: 10px 10px 0 10px;
+        height: 20px;
+    }
+
+	.contentActionsText {
+		font-size: 0.6rem;
+        line-height: 1rem;
 	}
 }

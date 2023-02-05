@@ -16,15 +16,15 @@ export const ContentActionsBar = (): JSX.Element => {
                 })} onClick={() => setIsLike(!isLike)}>
                     <FaHeart />
                 </span>
-                <Htag tag='xs'>{setStat(3987)}</Htag>
+                <Htag tag='xs' className={styles.contentActionsText}>{setStat(3987)}</Htag>
             </div>
             <div className={styles.commentsBlock}>
                 <span  className={styles.comment}>
                     <FaComment />
                 </span>
-                <Htag tag='xs'>{setStat(347)}</Htag>
+                <Htag tag='xs' className={styles.contentActionsText}>{setStat(347)}</Htag>
             </div>
-            <Htag tag='xs'>07.11.22 at 23:57</Htag>
+            <Htag tag='xs' className={styles.contentActionsText}>07.11.22 at 23:57</Htag>
         </div>
     );
 };
