@@ -20,7 +20,10 @@
 }
 
 .modalContent {
-	padding: 20px;
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	padding: 15px;
 
 	border-radius: 20px;
 	background: var(--white);

@@ -13,31 +13,29 @@ export const UserContentItem = ({ type, image, text }: UserContentItemProps): JS
             return (
                 <>
                     <div className={styles.userContentItem}>
-                        <div className={styles.imageBlock}>
-                            <Image className={styles.userContentImage} draggable='false'
-                                loader={() => image ? image : ''}
-                                src={image ? image : ''}
-                                alt='image'
-                                fill={true}
-                                unoptimized={true}
-                                priority={true}
-                                onClick={() => setActive(!active)}
-                            />
-                        </div>
+                        <Image className={styles.userContentImage} draggable='false'
+                            loader={() => image ? image : ''}
+                            src={image ? image : ''}
+                            alt='image'
+                            width={1}
+                            height={1}
+                            unoptimized={true}
+                            priority={true}
+                            onClick={() => setActive(!active)}
+                        />
                         <ContentActionsBar />
                     </div>
                     <Modal active={active} setActive={setActive}>
-                        <div className={styles.imageBlockFull}>
-                            <Image className={styles.userContentImageFull} draggable='false'
-                                loader={() => image ? image : ''}
-                                src={image ? image : ''}
-                                alt='image'
-                                fill={true}
-                                unoptimized={true}
-                                priority={true}
-                                onClick={() => setActive(!active)}
-                            />
-                        </div>
+                        <Image className={styles.userContentImageFull} draggable='false'
+                            loader={() => image ? image : ''}
+                            src={image ? image : ''}
+                            alt='image'
+                            width={1}
+                            height={1}
+                            unoptimized={true}
+                            priority={true}
+                            onClick={() => setActive(!active)}
+                        />
                     </Modal>
                 </>
             );
@@ -52,32 +50,30 @@ export const UserContentItem = ({ type, image, text }: UserContentItemProps): JS
             return (
                 <>
                     <div className={styles.userContentItem}>
-                        <div className={styles.imageBlock}>
-                            <Image className={styles.userContentImage} draggable='false'
-                                loader={() => image ? image : ''}
-                                src={image ? image : ''}
-                                alt='image'
-                                fill={true}
-                                unoptimized={true}
-                                priority={true}
-                                onClick={() => setActive(!active)}
-                            />
-                        </div>
+                        <Image className={styles.userContentImage} draggable='false'
+                            loader={() => image ? image : ''}
+                            src={image ? image : ''}
+                            alt='image'
+                            width={1}
+                            height={1}
+                            unoptimized={true}
+                            priority={true}
+                            onClick={() => setActive(!active)}
+                        />
                         <p className={styles.userContentTextBoth}>{text}</p>
                         <ContentActionsBar />
                     </div>
                     <Modal active={active} setActive={setActive}>
-                        <div className={styles.imageBlockFull}>
-                            <Image className={styles.userContentImageFull} draggable='false'
-                                loader={() => image ? image : ''}
-                                src={image ? image : ''}
-                                alt='image'
-                                fill={true}
-                                unoptimized={true}
-                                priority={true}
-                                onClick={() => setActive(!active)}
-                            />
-                        </div>
+                        <Image className={styles.userContentImageFull} draggable='false'
+                            loader={() => image ? image : ''}
+                            src={image ? image : ''}
+                            alt='image'
+                            width={1}
+                            height={1}
+                            unoptimized={true}
+                            priority={true}
+                            onClick={() => setActive(!active)}
+                        />
                     </Modal>
                 </>
             );;

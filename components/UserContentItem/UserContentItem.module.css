@@ -7,29 +7,18 @@
     box-shadow: 0px 118px 47px rgba(0, 0, 0, 0.01), 0px 66px 40px rgba(0, 0, 0, 0.05), 0px 29px 29px rgba(0, 0, 0, 0.09), 0px 7px 16px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
 }
 
-.imageBlock {
-    position: relative;
-    display: grid;
-    align-content: center;
+.userContentImage {
     width: 100%;
-    height: 400px;
+    height: max-content;
     border-radius: 10px;
-    overflow: clip;
-}
-
-.userContentImage,
-.userContentImageFull {
     cursor: pointer;
 }
 
-.imageBlockFull {
-    position: relative;
-    display: grid;
-    align-content: center;
-    width: 80vw;
+.userContentImageFull {
+    width: max-content;
     height: 80vh;
     border-radius: 10px;
-    overflow: clip;
+    cursor: pointer;
 }
 
 .userContentText,
@@ -37,10 +26,20 @@
     font-size: 0.875rem;
     font-weight: 400;
     line-height: 1.25rem;
-    margin: 0 20px 0 20px;
+    margin: 0 20px;
     word-wrap: break-word;
 }
 
 .userContentTextBoth {
     margin-top: 20px;
+}
+
+@media (max-width: 580px) {
+    .userContentText {
+        margin: 0 10px;
+    }
+
+    .userContentTextBoth {
+        margin: 10px 10px 0 10px;
+    }
 }
