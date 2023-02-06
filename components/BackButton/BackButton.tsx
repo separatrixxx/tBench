@@ -2,13 +2,13 @@ import { BackButtonProps } from './BackButton.props';
 import styles from './BackButton.module.css';
 import { useRouter } from 'next/router';
 import { IoIosArrowBack } from "react-icons/io";
-import { useResize } from 'hooks/useResize';
+import { useResizeW } from 'hooks/useResize';
 
 
 export const BackButton = ({ link }: BackButtonProps): JSX.Element => {
     const router = useRouter();
 
-    let width = useResize();
+    const width = useResizeW();
 
     let xDown: any = null;
     let yDown: any = null;

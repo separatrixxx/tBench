@@ -16,7 +16,7 @@ function Home(): JSX.Element {
     } else {
       setIsAuth(false);
     }
-	}, []);
+	}, [router]);
 
   if (!isAuth) {
     return (

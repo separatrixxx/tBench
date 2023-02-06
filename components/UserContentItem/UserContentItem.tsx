@@ -4,9 +4,14 @@ import Image from 'next/image';
 import { ContentActionsBar } from 'components/ContentActionsBar/ContentActionsBar';
 import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';
+import { useResizeW, useResizeH } from 'hooks/useResize';
+import cn from "classnames";
 
 export const UserContentItem = ({ type, image, text }: UserContentItemProps): JSX.Element => {
     const [active, setActive] = useState<boolean>(false);
+
+    const width = useResizeW();
+    const height = useResizeH();
 
     switch (type) {
 		case 'image':
@@ -26,7 +31,10 @@ export const UserContentItem = ({ type, image, text }: UserContentItemProps): JS
                         <ContentActionsBar />
                     </div>
                     <Modal active={active} setActive={setActive}>
-                        <Image className={styles.userContentImageFull} draggable='false'
+                        <Image className={cn(styles.userContentImageFull, {
+                            [styles.widthFull]: width > height,
+                            [styles.heightFull]: width < height,
+                        })} draggable='false'
                             loader={() => image ? image : ''}
                             src={image ? image : ''}
                             alt='image'
@@ -64,7 +72,10 @@ export const UserContentItem = ({ type, image, text }: UserContentItemProps): JS
                         <ContentActionsBar />
                     </div>
                     <Modal active={active} setActive={setActive}>
-                        <Image className={styles.userContentImageFull} draggable='false'
+                        <Image className={cn(styles.userContentImageFull, {
+                            [styles.widthFull]: width > height,
+                            [styles.heightFull]: width < height,
+                        })} draggable='false'
                             loader={() => image ? image : ''}
                             src={image ? image : ''}
                             alt='image'
@@ -76,7 +87,7 @@ export const UserContentItem = ({ type, image, text }: UserContentItemProps): JS
                         />
                     </Modal>
                 </>
-            );;
+            );
 		default:
 			return <></>;
 	}

@@ -6,7 +6,7 @@ import { useState } from 'react';
 import cn from 'classnames';
 
 export const ContentActionsBar = (): JSX.Element => {
-    const [isLike, setIsLike] = useState<boolean>(false);;
+    const [isLike, setIsLike] = useState<boolean>(false);
 
 	return (
         <div className={styles.contentActionsBar}>
