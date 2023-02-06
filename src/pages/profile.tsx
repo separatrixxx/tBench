@@ -17,7 +17,7 @@ function Profile(): JSX.Element {
       setIsAuth(false);
       router.push('/');
     }
-	}, []);
+	}, [router]);
 
   if (isAuth) {
     return (

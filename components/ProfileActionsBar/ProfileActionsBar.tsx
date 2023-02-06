@@ -9,7 +9,7 @@ export const ProfileActionsBar = (): JSX.Element => {
     return (
         <div className={styles.profileActionsBar}>
             <ProfileActionButton type='follow' active={active} onClick={() => setActive(!active)} />
-            <ProfileActionButton type='message' onClick={() => {}} />
+            <ProfileActionButton type='message' onClick={() => {alert('message');}} />
         </div>
     );
 };

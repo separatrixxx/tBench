@@ -1,4 +1,4 @@
-import { ProfileModalProps } from './ProfileModal.props'
+import { ProfileModalProps } from './ProfileModal.props';
 import styles from './ProfileModal.module.css';
 import { Modal } from 'components/Modal/Modal';
 import { InputModal } from 'components/InputModal/InputModal';

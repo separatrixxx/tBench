@@ -1,16 +1,31 @@
 import { useEffect, useState } from 'react';
 
-export const useResize = (): number => {
-	const [resize, setResize] = useState<number>(0);
+export const useResizeW = (): number => {
+	const [resizeW, setResizeW] = useState<number>(0);
 
 	useEffect(() => {
-		setResize(window.innerWidth);
+		setResizeW(window.innerWidth);
 		
 		window.addEventListener('resize', function(){
-            setResize(window.innerWidth);
+            setResizeW(window.innerWidth);
         });
         
 	}, []);
 
-	return resize;
+	return resizeW;
+};
+
+export const useResizeH = (): number => {
+	const [resizeH, setResizeH] = useState<number>(0);
+
+	useEffect(() => {
+		setResizeH(window.innerHeight);
+		
+		window.addEventListener('resize', function(){
+            setResizeH(window.innerHeight);
+        });
+        
+	}, []);
+
+	return resizeH;
 };

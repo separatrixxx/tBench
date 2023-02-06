@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Logo from './logo_icon.svg';
 import { useScrollY } from 'hooks/useScrollY';
-import { useResize } from 'hooks/useResize';
+import { useResizeW } from 'hooks/useResize';
 import { motion } from 'framer-motion';
 import { BurgerMenu } from 'components/BurgerMenu/BurgenMenu';
 
@@ -15,7 +15,7 @@ export const Header = (): JSX.Element => {
     const [flag, setFlag] = useState<boolean>(false);
 
     const scrollPosition = useScrollY();
-    const width = useResize();
+    const width = useResizeW();
 
     if (scrollPosition - lastScroll >= 200 && scrollPosition > lastScroll) {
         setFlag(true);
