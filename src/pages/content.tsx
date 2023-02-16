@@ -5,11 +5,13 @@ import Head from "next/head";
 
 function Content(): JSX.Element {
   const router = useRouter();
-  
+
   const [isAuth, setIsAuth] = useState<boolean>(false);
-  
+  const [theme, setTheme] = useState<string>('light');
+
   useEffect(() => {
-		const loggedIn = localStorage.getItem('logged_in');
+    const loggedIn = localStorage.getItem('logged_in');
+    const currentTheme = localStorage.getItem('theme');
 
     if (loggedIn) {
       setIsAuth(true);
@@ -17,7 +19,11 @@ function Content(): JSX.Element {
       setIsAuth(false);
       router.push('/');
     }
-	}, [router]);
+
+    if (currentTheme) {
+      setTheme(currentTheme);
+    }
+  }, [router]);
 
   if (isAuth) {
     return (
@@ -25,7 +31,7 @@ function Content(): JSX.Element {
         <Head>
           <title>tBench - Content</title>
         </Head>
-        <ContentPage />
+        <ContentPage theme={theme} />
       </>
     );
   } else {

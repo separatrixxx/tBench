@@ -1,5 +1,10 @@
 .profileWrapper {
+    background: var(--white);
     width: 100%;
     display: grid;
     justify-items: center;
+}
+
+.darkThemeWrapper {
+    background: aqua;
 }

@@ -5,11 +5,13 @@ import Head from "next/head";
 
 function Profile(): JSX.Element {
   const router = useRouter();
-  
+
   const [isAuth, setIsAuth] = useState<boolean>(false);
-  
+  const [theme, setTheme] = useState<string>('light');
+
   useEffect(() => {
-		const loggedIn = localStorage.getItem('logged_in');
+    const loggedIn = localStorage.getItem('logged_in');
+    const currentTheme = localStorage.getItem('theme');
 
     if (loggedIn) {
       setIsAuth(true);
@@ -17,16 +19,20 @@ function Profile(): JSX.Element {
       setIsAuth(false);
       router.push('/');
     }
-	}, [router]);
+
+    if (currentTheme) {
+      setTheme(currentTheme);
+    }
+  }, [router]);
 
   if (isAuth) {
     return (
       <>
         <Head>
           <title>tBench - Profile</title>
-          <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+          <meta name="viewport"></meta>
         </Head>
-        <ProfilePage />
+        <ProfilePage theme={theme} />
       </>
     );
   } else {
