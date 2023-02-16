@@ -6,8 +6,9 @@ import { ExitButton } from 'components/ExitButton/ExitButton';
 import { ProfileInfo } from 'components/ProfileInfo/ProfileInfo';
 import { UserContentList } from 'components/UserContentList/UserContentList';
 import { AppContextProvider } from 'context/app.context';
-import cn from 'classnames';
 import { useState } from 'react';
+import cn from 'classnames';
+
 
 export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
     const [themeState, setThemeState] = useState<string>(theme);

@@ -2,11 +2,16 @@ import { ContentPageProps } from './ContentPage.props';
 import styles from './ContentPage.module.css';
 import { HeaderContent } from 'components/HeaderContent/HeaderContent';
 import { AppContextProvider } from 'context/app.context';
+import cn from 'classnames';
+
 
 export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
+    console.log(theme)
     return (
         <AppContextProvider theme={theme} >
-            <div className={styles.contentWrapper}>
+            <div className={cn(styles.contentWrapper, {
+                [styles.darkThemeWrapper]: theme === 'dark',
+            })}>
                 <HeaderContent />
             </div>
         </AppContextProvider>

@@ -1,14 +1,16 @@
 .userSpecificiesBlock {
-	margin-top: 5px;
 	display: grid;
 	align-items: center;
+
+	margin-top: 5px;
 	gap: 2px;
 	grid-template-columns: auto auto;
 }
 
 .userSpecificies {
-	font-weight: 500;
 	transition-duration: 300ms;
+
+	font-weight: 500;
 }
 
 .userSpeciality {
@@ -19,16 +21,19 @@
 }
 
 .moreInfo {
-	color: var(--dark);
 	display: grid;
 	align-items: center;
+
 	cursor: pointer;
 	transition-duration: 300ms;
+
+	color: var(--dark);
 }
 
 .moreInfo:active {
-	color: var(--promary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--promary);
 }
 
 .darkThemeText {
@@ -37,7 +42,8 @@
 
 @media (min-width: 1024px) {
 	.moreInfo:hover {
-		color: var(--primary);
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		color: var(--primary);
 	}
 }

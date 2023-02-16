@@ -1,34 +1,37 @@
 .addImage {
-    display: grid;
-    justify-items: center;
-    align-items: center;
-    width: 150px;
+	display: grid;
+	align-items: center;
+
+	width: 150px;
 	height: 150px;
-    background: var(--white);
-    margin: 40px;
-    cursor: pointer;
-    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+	margin: 40px;
+
+	cursor: pointer;
 
 	border-radius: 9999px;
+	background: var(--white);
+	justify-items: center;
+	filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
 .addImage > svg {
-    width: 70%;
-    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+	width: 70%;
+	filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
 .verify {
-    display: grid;
-    align-items: center;
-    justify-items: center;
+	display: grid;
+	align-items: center;
+	justify-items: center;
 
-    color: var(--primary);
-    font-size: 4.5rem;
-    line-height: 1;
+	color: var(--primary);
+
+	font-size: 4.5rem;
+	line-height: 1;
 }
 
 .verifyText {
-    font-weight: 500;
+	font-weight: 500;
 }
 
 @media (max-width: 580px) {

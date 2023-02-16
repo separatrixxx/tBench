@@ -1,76 +1,86 @@
 .userContentItem {
-    width: 100% - 15px;
-    margin-top: 40px;
-    padding: 15px;
-    background: var(--white);
-    border-radius: 20px;
-    box-shadow: 0px 118px 47px rgba(0, 0, 0, 0.01), 0px 66px 40px rgba(0, 0, 0, 0.05), 0px 29px 29px rgba(0, 0, 0, 0.09), 0px 7px 16px rgba(0, 0, 0, 0.1), 0px 0px 0px rgba(0, 0, 0, 0.1);
+	width: 100% - 15px;
+	margin-top: 40px;
+	padding: 15px;
+
+	border-radius: 20px;
+	background: var(--white);
+	box-shadow: 0 118px 47px rgba(0, 0, 0, 0.01), 0 66px 40px rgba(0, 0, 0, 0.05), 0 29px 29px rgba(0, 0, 0, 0.09), 0 7px 16px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1);
 }
 
 .userContentImage {
-    width: 100%;
-    height: max-content;
-    border-radius: 10px;
-    cursor: pointer;
+	width: 100%;
+	height: max-content;
+
+	cursor: pointer;
+
+	border-radius: 10px;
 }
 
 .userContentImageFull {
-    border-radius: 10px;
-    cursor: pointer;
+	cursor: pointer;
+
+	border-radius: 10px;
 }
 
 .widthFull {
-    width: max-content;
-    height: 80vh;
+	width: max-content;
+	height: 80vh;
 }
 
 .heightFull {
-    width: 80vw;
-    height: max-content;
+	width: 80vw;
+	height: max-content;
 }
 
 .userContentText,
 .userContentTextBoth {
-    font-size: 0.875rem;
-    font-weight: 400;
-    line-height: 1.25rem;
-    margin: 0 20px;
-    word-wrap: break-word;
+	margin: 0 20px;
+
+	word-wrap: break-word;
+
+	font-size: 0.875rem;
+	font-weight: 400;
+	line-height: 1.25rem;
 }
 
 .userContentTextBoth {
-    margin-top: 20px;
+	margin-top: 20px;
 }
 
 @media (max-width: 580px) {
-    .userContentItem {
-        padding: 10px;
-    }
+	.userContentItem {
+		padding: 10px;
+	}
 
-    .userContentText {
-        margin: 0 10px;
-    }
+	.userContentText {
+		margin: 0 10px;
+	}
 
-    .userContentTextBoth {
-        margin: 10px 10px 0 10px;
-    }
+	.userContentTextBoth {
+		margin: 10px 10px 0 10px;
+	}
 }
 
 @media (max-width: 300px) {
-    .userContentItem {
-        padding: 5px;
-        border-radius: 15px;
-    }
+	.userContentItem {
+		padding: 5px;
 
-    .userContentImage {
-        width: 100%;
-        height: max-content;
-        border-radius: 10px;
-        cursor: pointer;
-    }
-    
-    .userContentImageFull {
-        border-radius: 10px;
-        cursor: pointer;
-    }
+		border-radius: 15px;
+	}
+
+	.userContentImage {
+		width: 100%;
+		height: max-content;
+
+		cursor: pointer;
+
+		border-radius: 10px;
+	}
+
+	.userContentImageFull {
+		cursor: pointer;
+
+		border-radius: 10px;
+	}
 }
