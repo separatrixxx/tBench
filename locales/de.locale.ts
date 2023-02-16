@@ -31,4 +31,6 @@ export const de = {
     birthday: "Geburtstag",
     education: "Ausbildung",
     verify: "Benutzer verifiziert",
+    profile: "Profil",
+    content: "Inhalt",
 };

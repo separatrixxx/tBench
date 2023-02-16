@@ -15,6 +15,7 @@
 
 .username {
 	cursor: pointer;
+	transition-duration: 300ms;
 }
 
 .verify {
@@ -50,6 +51,10 @@
 
 	-webkit-line-clamp: 10;
 	line-clamp: 10;
+}
+
+.darkThemeText {
+	color: var(--white);
 }
 
 @media (min-width: 1024px) {

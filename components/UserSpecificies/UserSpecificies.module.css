@@ -8,6 +8,7 @@
 
 .userSpecificies {
 	font-weight: 500;
+	transition-duration: 300ms;
 }
 
 .userSpeciality {
@@ -18,6 +19,7 @@
 }
 
 .moreInfo {
+	color: var(--dark);
 	display: grid;
 	align-items: center;
 	cursor: pointer;
@@ -27,6 +29,10 @@
 .moreInfo:active {
 	color: var(--promary);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.darkThemeText {
+	color: var(--white);
 }
 
 @media (min-width: 1024px) {

@@ -31,4 +31,6 @@ export const zh = {
     birthday: "生日",
     education: "教育",
     verify: "用户验证",
+    profile: "轮廓",
+    content: "内容",
 };
