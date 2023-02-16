@@ -12,10 +12,10 @@
 .profileImage {
 	position: absolute;
 
-	cursor: pointer;
-
 	width: 150px;
 	height: 150px;
+
+	cursor: pointer;
 
 	border-radius: 9999px;
 	background: var(--primary);

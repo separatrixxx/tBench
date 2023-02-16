@@ -1,9 +1,9 @@
 .profileStatText {
-    font-weight: 600;
+	font-weight: 600;
 }
 
 .stat {
-    color: var(--primary);
+	color: var(--primary);
 }
 
 @media (max-width: 850px) {

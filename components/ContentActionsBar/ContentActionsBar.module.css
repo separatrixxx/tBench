@@ -1,29 +1,33 @@
 .contentActionsBar {
-    display: grid;
-    grid-template-columns: auto auto 1fr;
-    justify-items: right;
-    align-items: center;
-    gap: 15px;
-    width: 100% - 20px;
-    height: 30px;
-    margin: 20px 20px 0 20px;
-    border-top: 1px solid var(--light);
-    padding-top: 20px;
+	display: grid;
+	align-items: center;
+
+	width: 100% - 20px;
+	height: 30px;
+	margin: 20px 20px 0 20px;
+	padding-top: 20px;
+
+	border-top: 1px solid var(--light);
+	grid-template-columns: auto auto 1fr;
+	justify-items: right;
+	gap: 15px;
 }
 
 .likesBlock,
 .commentsBlock {
-    width: fit-content;
-    display: grid;
-    grid-template-columns: auto auto;
-    gap: 5px;
+	display: grid;
+
+	width: fit-content;
+	grid-template-columns: auto auto;
+	gap: 5px;
 }
 
 .like,
 .comment {
-    color: var(--light);
-    cursor: pointer;
-    transition-duration: 300ms;
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	color: var(--light);
 }
 
 .like:active,
@@ -34,16 +38,16 @@
 }
 
 .likeActive {
-    color: var(--error);
+	color: var(--error);
 }
 
 .contentActionsText {
-    font-weight: 500;
+	font-weight: 500;
 }
 
 @media (min-width: 1024px) {
 	.like:hover,
-    .comment:hover {
+	.comment:hover {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 		transform: scale(1.1);
@@ -51,13 +55,13 @@
 }
 
 @media (max-width: 580px) {
-    .contentActionsBar {
-        margin: 10px 10px 0 10px;
-        height: 20px;
-    }
+	.contentActionsBar {
+		height: 20px;
+		margin: 10px 10px 0 10px;
+	}
 
 	.contentActionsText {
 		font-size: 0.6rem;
-        line-height: 1rem;
+		line-height: 1rem;
 	}
 }

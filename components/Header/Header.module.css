@@ -67,7 +67,7 @@
 
 	.text:hover {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	
+
 		color: var(--light) !important;
 	}
 }
@@ -90,12 +90,12 @@
 		justify-items: left;
 	}
 
-	.text:first-child {
-		margin-top: 20px;
-	}
-
 	.text {
 		margin: 10px 0 10px 0;
+	}
+
+	.text:first-child {
+		margin-top: 20px;
 	}
 
 	.logo {
