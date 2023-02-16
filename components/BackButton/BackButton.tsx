@@ -3,10 +3,15 @@ import styles from './BackButton.module.css';
 import { useRouter } from 'next/router';
 import { IoIosArrowBack } from "react-icons/io";
 import { useResizeW } from 'hooks/useResize';
+import { useContext } from 'react';
+import { AppContext } from 'context/app.context';
+import cn from 'classnames';
 
 
 export const BackButton = ({ link }: BackButtonProps): JSX.Element => {
     const router = useRouter();
+
+    const context = useContext(AppContext);
 
     const width = useResizeW();
 
@@ -24,7 +29,7 @@ export const BackButton = ({ link }: BackButtonProps): JSX.Element => {
     }
 
     function handleTouchMove(evt: any) {
-        if (!xDown || ! yDown) {
+        if (!xDown || !yDown) {
             return;
         }
 
@@ -39,19 +44,23 @@ export const BackButton = ({ link }: BackButtonProps): JSX.Element => {
                 router.push(link);
             }
         }
-   
+
         xDown = null;
         yDown = null;
     }
 
-	return (
-        <div className={styles.backButton} onClick={() => {
+    return (
+        <div className={cn(styles.backButton, {
+            [styles.darkThemeBackButton]: context.theme === 'dark',
+        })} onClick={() => {
             if (width > 1024) {
                 router.push(link);
             }
         }} onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}>
-            <span className={styles.arrowBack}><IoIosArrowBack /></span>
+            <span className={cn(styles.arrowBack, {
+                [styles.darkThemeArrowBack]: context.theme === 'dark',
+            })}><IoIosArrowBack /></span>
             <div className={styles.blurBlock} />
         </div>
     );

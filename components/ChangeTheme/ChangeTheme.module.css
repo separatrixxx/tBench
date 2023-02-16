@@ -3,7 +3,7 @@
 	top: 50px;
 	right: 0;
 
-	margin: 10px 10px 0 0;
+	margin: 10px 15px 0 0;
 
 	cursor: pointer;
 
@@ -11,14 +11,18 @@
 
 	color: var(--dark);
 
-	font-size: 1.875rem;
-	line-height: 2.25rem;
+	font-size: 1.5rem;
+	line-height: 2rem;
 }
 
 .changeTheme:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	color: var(--primary);
+}
+
+.darkChangeTheme {
+	color: var(--white);
 }
 
 @media (min-width: 1024px) {

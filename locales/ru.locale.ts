@@ -31,4 +31,6 @@ export const ru = {
     birthday: "День рождения",
     education: "Образование",
     verify: "Пользователь подтверждён",
+    profile: "Профиль",
+    content: "Контент",
 };

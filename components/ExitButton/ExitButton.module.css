@@ -21,6 +21,10 @@
 	color: var(--primary);
 }
 
+.darkThemeExitButton {
+	color: var(--white);
+}
+
 @media (min-width: 1024px) {
 	.exitButton:hover {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);

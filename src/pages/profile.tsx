@@ -2,6 +2,7 @@ import { ProfilePage } from "page_components/ProfilePage/ProfilePage";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import { setLocale } from 'helpers/locale.helper';
 
 function Profile(): JSX.Element {
   const router = useRouter();
@@ -29,7 +30,7 @@ function Profile(): JSX.Element {
     return (
       <>
         <Head>
-          <title>tBench - Profile</title>
+          <title>tBench - {setLocale(router.locale).profile}</title>
           <meta name="viewport"></meta>
         </Head>
         <ProfilePage theme={theme} />

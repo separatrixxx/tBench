@@ -43,6 +43,7 @@ a {
 :root {
 	--primary: #0080FF;
 	--dark: #1F1F1F;
+	--darkTheme: #0F0F0F;
 	--light: #DDD;
 	--white: white;
 	--error: #FF1500;

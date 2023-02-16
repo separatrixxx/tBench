@@ -6,5 +6,5 @@
 }
 
 .darkThemeWrapper {
-    background: aqua;
+    background: var(--darkTheme);
 }

@@ -31,4 +31,6 @@ export const en = {
     birthday: "Birthday",
     education: "Education",
     verify: "User verified",
+    profile: "Profile",
+    content: "Content",
 };

@@ -2,6 +2,7 @@ import { ContentPage } from "page_components/ContentPage/ContentPage";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
+import { setLocale } from 'helpers/locale.helper';
 
 function Content(): JSX.Element {
   const router = useRouter();
@@ -29,7 +30,7 @@ function Content(): JSX.Element {
     return (
       <>
         <Head>
-          <title>tBench - Content</title>
+          <title>tBench - {setLocale(router.locale).content}</title>
         </Head>
         <ContentPage theme={theme} />
       </>
