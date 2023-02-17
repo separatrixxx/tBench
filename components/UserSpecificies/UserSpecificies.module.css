@@ -38,6 +38,7 @@
 
 .darkThemeText {
 	color: var(--white);
+	transition-duration: 300ms;
 }
 
 @media (min-width: 1024px) {

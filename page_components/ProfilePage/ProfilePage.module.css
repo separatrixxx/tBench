@@ -5,8 +5,10 @@
 
 	background: var(--white);
 	justify-items: center;
+	transition-duration: 300ms;
 }
 
 .darkThemeWrapper {
 	background: var(--darkTheme);
+	transition-duration: 300ms;
 }

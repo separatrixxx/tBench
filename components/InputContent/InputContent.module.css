@@ -45,22 +45,32 @@
 
 	background: var(--white);
 	box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+	outline: none;
 
 	font-size: 1rem;
 	font-weight: 500;
 	line-height: 1.5rem;
 }
 
-.inputContent:hover {
+.inputContent:hover,
+.darkThemeInputContent:hover {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	border-color: var(--primary);
 }
 
-.inputContent:focus {
+.inputContent:focus,
+.darkThemeInputContent:focus {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	outline-color: var(--primary);
+	border-color: var(--primary);
+}
+
+.darkThemeInputContent {
+	border: 1px solid var(--darkTheme_light);
+	color: var(--white);
+	background: var(--darkTheme_light);
+	transition-duration: 300ms;
 }
 
 @media (max-width: 580px) {
