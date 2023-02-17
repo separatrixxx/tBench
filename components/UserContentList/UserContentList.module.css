@@ -2,12 +2,14 @@
 	width: 50%;
 	margin: 40px 0 40px 0;
 
-	border-top: 1px solid var(--light);
 	transition-duration: 300ms;
+
+	border-top: 1px solid var(--light);
 }
 
 .darkThemeUserContentList {
 	transition-duration: 300ms;
+
 	border-top: 1px solid var(--darkTheme_light);
 }
 

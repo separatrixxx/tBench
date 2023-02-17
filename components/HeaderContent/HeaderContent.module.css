@@ -3,22 +3,24 @@
 	z-index: 9998;
 
 	display: grid;
-	grid-template-columns: 1fr auto;
-	gap: 40px;
 	align-items: center;
-	justify-items: right;
 
 	width: 100%;
 	padding: 10px 0 10px 0;
 
-	background: var(--white);
-	filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 	transition-duration: 300ms;
+
+	background: var(--white);
+	grid-template-columns: 1fr auto;
+	gap: 40px;
+	justify-items: right;
+	filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
 .darkThemeHeaderContent {
-	background: var(--dark);
 	transition-duration: 300ms;
+
+	background: var(--dark);
 }
 
 @media (max-width: 580px) {

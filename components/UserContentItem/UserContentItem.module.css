@@ -3,15 +3,17 @@
 	margin-top: 40px;
 	padding: 15px;
 
+	transition-duration: 300ms;
+
 	border-radius: 20px;
 	background: var(--white);
 	box-shadow: 0 118px 47px rgba(0, 0, 0, 0.01), 0 66px 40px rgba(0, 0, 0, 0.05), 0 29px 29px rgba(0, 0, 0, 0.09), 0 7px 16px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1);
-	transition-duration: 300ms;
 }
 
 .darkThemeUserContentItem {
-	background: var(--dark);
 	transition-duration: 300ms;
+
+	background: var(--dark);
 }
 
 .userContentImage {
@@ -43,12 +45,13 @@
 .userContentTextBoth {
 	margin: 0 20px;
 
+	transition-duration: 300ms;
+
 	word-wrap: break-word;
 
 	font-size: 0.875rem;
 	font-weight: 400;
 	line-height: 1.25rem;
-	transition-duration: 300ms;
 }
 
 .userContentTextBoth {
@@ -57,8 +60,9 @@
 
 .darkThemeUserContentText,
 .darkThemeUserContentTextBoth {
-	color: var(--white);
 	transition-duration: 300ms;
+
+	color: var(--white);
 }
 
 @media (max-width: 580px) {

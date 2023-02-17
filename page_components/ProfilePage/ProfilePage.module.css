@@ -3,12 +3,14 @@
 
 	width: 100%;
 
+	transition-duration: 300ms;
+
 	background: var(--white);
 	justify-items: center;
-	transition-duration: 300ms;
 }
 
 .darkThemeWrapper {
-	background: var(--darkTheme);
 	transition-duration: 300ms;
+
+	background: var(--darkTheme);
 }

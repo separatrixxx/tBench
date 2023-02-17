@@ -29,14 +29,16 @@
 	width: 20px;
 	height: 20px;
 
+	transition-duration: 300ms;
+
 	border: 3px solid var(--white);
 	border-radius: 9999px;
-	transition-duration: 300ms;
 }
 
 .darkThemeItem {
-	border: 3px solid var(--dark);
 	transition-duration: 300ms;
+
+	border: 3px solid var(--dark);
 }
 
 @media (max-width: 850px) {

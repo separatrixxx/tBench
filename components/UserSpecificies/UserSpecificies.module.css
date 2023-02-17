@@ -37,8 +37,9 @@
 }
 
 .darkThemeText {
-	color: var(--white);
 	transition-duration: 300ms;
+
+	color: var(--white);
 }
 
 @media (min-width: 1024px) {

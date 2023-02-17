@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { setLocale } from 'helpers/locale.helper';
+import { pageHelper } from 'helpers/pages.helper';
 
 function Profile(): JSX.Element {
   const router = useRouter();
@@ -11,19 +12,7 @@ function Profile(): JSX.Element {
   const [theme, setTheme] = useState<string>('light');
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem('logged_in');
-    const currentTheme = localStorage.getItem('theme');
-
-    if (loggedIn) {
-      setIsAuth(true);
-    } else {
-      setIsAuth(false);
-      router.push('/');
-    }
-
-    if (currentTheme) {
-      setTheme(currentTheme);
-    }
+    pageHelper(router, setIsAuth, setTheme);
   }, [router]);
 
   if (isAuth) {
@@ -31,7 +20,6 @@ function Profile(): JSX.Element {
       <>
         <Head>
           <title>tBench - {setLocale(router.locale).profile}</title>
-          <meta name="viewport"></meta>
         </Head>
         <ProfilePage theme={theme} />
       </>

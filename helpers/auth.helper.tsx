@@ -2,7 +2,7 @@ import { ToastSuccess } from "components/Toast/Toast";
 import { checkAuthInterface } from "interfaces/check_auth.interface";
 import { checkAuth } from "./check_auth.helper";
 
-export async function checkUser(authData: Array<string>, errType: checkAuthInterface, router: any,  
+export async function checkUser(authData: Array<string>, errType: checkAuthInterface, router: any,
     setError: (e: any) => void, setLoading: (e: any) => void, isLogin: boolean) {
     const checkResult = checkAuth(authData, isLogin, router.locale);
 
@@ -30,5 +30,5 @@ export async function loginUser(authData: Array<string>, router: any) {
 }
 
 export async function registerUser(authData: Array<string>, router: any) {
-    alert('register')
+    alert('register');
 }
