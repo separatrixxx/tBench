@@ -31,13 +31,13 @@
 	display: -moz-box;
 	display: -webkit-box;
 	overflow: hidden;
+	transition-duration: 300ms;
 
 	max-width: 300px;
 
 	margin-top: 20px !important;
 
 	cursor: pointer;
-	transition-duration: 300ms;
 
 	text-align: center;
 	text-overflow: ellipsis;
@@ -58,6 +58,7 @@
 
 .darkThemeText {
 	color: var(--white) !important;
+	transition-duration: 300ms;
 }
 
 @media (min-width: 1024px) {

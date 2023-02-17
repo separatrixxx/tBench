@@ -48,6 +48,7 @@
 
 .darkThemeArrowBack {
 	color: var(--darkTheme);
+	transition-duration: 300ms;
 }
 
 .blurBlock {
