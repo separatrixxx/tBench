@@ -17,3 +17,8 @@
 	-webkit-text-fill-color: transparent;
 	background-clip: text;
 }
+
+.darkThemeMoreInfoAlias,
+.darkThemeMoreInfoText {
+	color: var(--white);
+}

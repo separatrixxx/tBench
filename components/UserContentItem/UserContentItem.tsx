@@ -5,19 +5,25 @@ import { ContentActionsBar } from 'components/ContentActionsBar/ContentActionsBa
 import { useState } from 'react';
 import { Modal } from 'components/Modal/Modal';
 import { useResizeW, useResizeH } from 'hooks/useResize';
-import cn from "classnames";
+import { useContext } from 'react';
+import { AppContext } from 'context/app.context';
+import cn from 'classnames';
 
 export const UserContentItem = ({ type, image, text }: UserContentItemProps): JSX.Element => {
+    const context = useContext(AppContext);
+
     const [active, setActive] = useState<boolean>(false);
 
     const width = useResizeW();
     const height = useResizeH();
 
     switch (type) {
-		case 'image':
+        case 'image':
             return (
                 <>
-                    <div className={styles.userContentItem}>
+                    <div className={cn(styles.userContentItem, {
+                        [styles.darkThemeUserContentItem]: context.theme === 'dark',
+                    })}>
                         <Image className={styles.userContentImage} draggable='false'
                             loader={() => image ? image : ''}
                             src={image ? image : ''}
@@ -47,17 +53,23 @@ export const UserContentItem = ({ type, image, text }: UserContentItemProps): JS
                     </Modal>
                 </>
             );
-		case 'text':
+        case 'text':
             return (
-                <div className={styles.userContentItem}>
-                    <p className={styles.userContentText}>{text}</p>
+                <div className={cn(styles.userContentItem, {
+                    [styles.darkThemeUserContentItem]: context.theme === 'dark',
+                })}>
+                    <p className={cn(styles.userContentText, {
+                        [styles.darkThemeUserContentText]: context.theme === 'dark',
+                    })}>{text}</p>
                     <ContentActionsBar />
                 </div>
             );
-		case 'both':
+        case 'both':
             return (
                 <>
-                    <div className={styles.userContentItem}>
+                    <div className={cn(styles.userContentItem, {
+                        [styles.darkThemeUserContentItem]: context.theme === 'dark',
+                    })}>
                         <Image className={styles.userContentImage} draggable='false'
                             loader={() => image ? image : ''}
                             src={image ? image : ''}
@@ -68,7 +80,9 @@ export const UserContentItem = ({ type, image, text }: UserContentItemProps): JS
                             priority={true}
                             onClick={() => setActive(!active)}
                         />
-                        <p className={styles.userContentTextBoth}>{text}</p>
+                        <p className={cn(styles.userContentTextBoth, {
+                            [styles.darkThemeUserContentTextBoth]: context.theme === 'dark',
+                        })}>{text}</p>
                         <ContentActionsBar />
                     </div>
                     <Modal active={active} setActive={setActive}>
@@ -88,7 +102,7 @@ export const UserContentItem = ({ type, image, text }: UserContentItemProps): JS
                     </Modal>
                 </>
             );
-		default:
-			return <></>;
-	}
+        default:
+            return <></>;
+    }
 };

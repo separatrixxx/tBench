@@ -1,7 +1,12 @@
 import styles from './UserContentList.module.css';
 import { UserContentItem } from 'components/UserContentItem/UserContentItem';
+import { useContext } from 'react';
+import { AppContext } from 'context/app.context';
+import cn from 'classnames';
 
-export const UserContentList = (): JSX.Element => {    
+export const UserContentList = (): JSX.Element => {
+    const context = useContext(AppContext);
+
     const content1 = {
         id: 1,
         type: 'both' as 'text' | 'image' | 'both',
@@ -14,8 +19,8 @@ export const UserContentList = (): JSX.Element => {
         type: 'text' as 'text' | 'image' | 'both',
         image: '',
         text: 'Парни, ситуация - живу в Крыму, пользовался Яндекс инвестициям, потом все перешло в ВТБ, продать акции не могу ибо санкции.' +
-        'Вопрос - можете посоветовать брокеров с онлайн открытием счета(ну или крымских). Заранее спасибо!\n' +
-        'P.S. По мосту ехать 10+ часов в одну сторону пока не особо хочу',
+            'Вопрос - можете посоветовать брокеров с онлайн открытием счета(ну или крымских). Заранее спасибо!\n' +
+            'P.S. По мосту ехать 10+ часов в одну сторону пока не особо хочу',
     };
 
     const content3 = {
@@ -27,9 +32,11 @@ export const UserContentList = (): JSX.Element => {
 
     const content = [content1, content2, content3];
 
-	return (
+    return (
         <>
-            <div className={styles.userContentList}>
+            <div className={cn(styles.userContentList, {
+                [styles.darkThemeUserContentList]: context.theme === 'dark',
+            })}>
                 {content.map(c => (
                     <UserContentItem key={c.id} type={c.type} image={c.image} text={c.text} />
                 ))}
