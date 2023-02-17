@@ -32,8 +32,8 @@
 }
 
 .darkThemeModalContent {
-	background: var(--dark);
 	border: 1px solid var(--darkTheme_light);
+	background: var(--dark);
 }
 
 @media (max-width: 580px) {

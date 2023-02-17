@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { setLocale } from 'helpers/locale.helper';
+import { pageHelper } from 'helpers/pages.helper';
 
 function Content(): JSX.Element {
   const router = useRouter();
@@ -11,19 +12,7 @@ function Content(): JSX.Element {
   const [theme, setTheme] = useState<string>('light');
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem('logged_in');
-    const currentTheme = localStorage.getItem('theme');
-
-    if (loggedIn) {
-      setIsAuth(true);
-    } else {
-      setIsAuth(false);
-      router.push('/');
-    }
-
-    if (currentTheme) {
-      setTheme(currentTheme);
-    }
+    pageHelper(router, setIsAuth, setTheme);
   }, [router]);
 
   if (isAuth) {

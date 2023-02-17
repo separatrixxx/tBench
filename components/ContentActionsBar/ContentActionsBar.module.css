@@ -7,16 +7,18 @@
 	margin: 20px 20px 0 20px;
 	padding-top: 20px;
 
+	transition-duration: 300ms;
+
 	border-top: 1px solid var(--light);
 	grid-template-columns: auto auto 1fr;
 	justify-items: right;
 	gap: 15px;
-	transition-duration: 300ms;
 }
 
 .darkThemeContentActionsBar {
-	border-top: 1px solid var(--darkTheme_light);
 	transition-duration: 300ms;
+
+	border-top: 1px solid var(--darkTheme_light);
 }
 
 .likesBlock,
@@ -42,8 +44,9 @@
 
 .darkThemeLike,
 .darkThemeComment {
-	color: var(--darkTheme_light);
 	transition-duration: 300ms;
+
+	color: var(--darkTheme_light);
 }
 
 .like:active,
@@ -58,13 +61,15 @@
 }
 
 .contentActionsText {
-	font-weight: 500;
 	transition-duration: 300ms;
+
+	font-weight: 500;
 }
 
 .darkThemeContentActionsText {
-	color: var(--white);
 	transition-duration: 300ms;
+
+	color: var(--white);
 }
 
 @media (min-width: 1024px) {
