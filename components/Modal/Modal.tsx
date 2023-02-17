@@ -1,9 +1,13 @@
 import { ModalProps } from './Modal.props';
 import styles from './Modal.module.css';
-import cn from 'classnames';
 import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import { AppContext } from 'context/app.context';
+import cn from 'classnames';
 
 export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element => {
+    const context = useContext(AppContext);
+
     const variants = {
         visible: {
             opacity: 1,
@@ -30,7 +34,9 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
             initial={active ? 'visible' : 'hidden'}
             transition={{ duration: 0.15 }}
             animate={active ? 'visible' : 'hidden'}>
-            <motion.div className={styles.modalContent} onClick={e => e.stopPropagation()}
+            <motion.div className={cn(styles.modalContent, {
+                [styles.darkThemeModalContent]: context.theme === 'dark',
+            })} onClick={e => e.stopPropagation()}
                 variants={variantsModal}
                 initial={active ? 'visible' : 'hidden'}
                 transition={{ duration: 0.15 }}

@@ -9,65 +9,74 @@ import Plus from './plus.svg';
 import { MoreInfoBlock } from 'components/MoreInfoBlock/MoreInfoBlock';
 import { Htag } from 'components/Htag/Htag';
 import { BsCheck } from 'react-icons/bs';
+import { useContext } from 'react';
+import { AppContext } from 'context/app.context';
+import cn from 'classnames';
 
 
-export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInfo, 
+export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInfo,
     active, setActive }: ProfileModalProps): JSX.Element => {
     const router = useRouter();
+
+    const context = useContext(AppContext);
 
     const [newUsername, setNewUsername] = useState<string>(username);
     const [newUserInfo, setNewUserInfo] = useState<string>(userInfo);
 
     const changeValue = (e: any) => {
-		if (e.key == 'Enter') {
+        if (e.key == 'Enter') {
             if (type === 'username') {
                 setUsername(newUsername);
             } else {
                 setUserInfo(newUserInfo);
             }
-			setActive(false);
-		}
-	};
+            setActive(false);
+        }
+    };
 
     switch (type) {
-		case 'username':
-			return (
+        case 'username':
+            return (
                 <Modal active={active} setActive={setActive}>
-                    <InputModal type='input' text={setLocale(router.locale).username} value={newUsername} 
+                    <InputModal type='input' text={setLocale(router.locale).username} value={newUsername}
                         onChange={(e) => setNewUsername(e.target.value)}
                         onKeyDown={changeValue} />
                 </Modal>
             );
-		case 'info':
-			return (
+        case 'info':
+            return (
                 <Modal active={active} setActive={setActive}>
-                    <InputModal type='area' text={setLocale(router.locale).user_info} value={newUserInfo} 
+                    <InputModal type='area' text={setLocale(router.locale).user_info} value={newUserInfo}
                         onChange={(e) => setNewUserInfo(e.target.value)}
                         onKeyDown={changeValue} />
                 </Modal>
             );
         case 'image':
             return (
-                <Modal active={active} setActive={setActive}>   
-                    <div className={styles.addImage}>
+                <Modal active={active} setActive={setActive}>
+                    <div className={cn(styles.addImage, {
+                        [styles.darkThemeAddImage]: context.theme === 'dark',
+                    })}>
                         <Plus />
                     </div>
                 </Modal>
             );
-		case 'more_info':
-			return (
+        case 'more_info':
+            return (
                 <Modal active={active} setActive={setActive}>
                     <MoreInfoBlock />
                 </Modal>
             );
-		case 'verify':
-			return (
+        case 'verify':
+            return (
                 <Modal active={active} setActive={setActive}>
                     <span className={styles.verify}><BsCheck /></span>
-                    <Htag tag='m' className={styles.verifyText}>{setLocale(router.locale).verify}</Htag>
+                    <Htag tag='m' className={cn(styles.verifyText, {
+                        [styles.darkThemeVerifyText]: context.theme === 'dark',
+                    })}>{setLocale(router.locale).verify}</Htag>
                 </Modal>
             );
-		default:
-			return <></>;
-	}
+        default:
+            return <></>;
+    }
 };

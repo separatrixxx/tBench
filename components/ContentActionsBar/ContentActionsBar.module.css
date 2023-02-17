@@ -11,6 +11,12 @@
 	grid-template-columns: auto auto 1fr;
 	justify-items: right;
 	gap: 15px;
+	transition-duration: 300ms;
+}
+
+.darkThemeContentActionsBar {
+	border-top: 1px solid var(--darkTheme_light);
+	transition-duration: 300ms;
 }
 
 .likesBlock,
@@ -19,7 +25,11 @@
 
 	width: fit-content;
 	grid-template-columns: auto auto;
-	gap: 5px;
+	gap: 7px;
+}
+
+.commentsBlock {
+	margin-left: 5px;
 }
 
 .like,
@@ -30,6 +40,12 @@
 	color: var(--light);
 }
 
+.darkThemeLike,
+.darkThemeComment {
+	color: var(--darkTheme_light);
+	transition-duration: 300ms;
+}
+
 .like:active,
 .comment:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -38,11 +54,17 @@
 }
 
 .likeActive {
-	color: var(--error);
+	color: var(--like);
 }
 
 .contentActionsText {
 	font-weight: 500;
+	transition-duration: 300ms;
+}
+
+.darkThemeContentActionsText {
+	color: var(--white);
+	transition-duration: 300ms;
 }
 
 @media (min-width: 1024px) {

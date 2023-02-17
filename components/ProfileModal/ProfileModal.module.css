@@ -19,6 +19,14 @@
 	filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
+.darkThemeAddImage {
+	background: var(--darkTheme_light);
+}
+
+.darkThemeAddImage > svg {
+	fill: var(--darkTheme_light);
+}
+
 .verify {
 	display: grid;
 	align-items: center;
@@ -32,6 +40,10 @@
 
 .verifyText {
 	font-weight: 500;
+}
+
+.darkThemeVerifyText {
+	color: var(--white);
 }
 
 @media (max-width: 580px) {

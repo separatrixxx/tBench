@@ -1,5 +1,11 @@
 .profileStatText {
 	font-weight: 600;
+	transition-duration: 300ms;
+}
+
+.darkThemeProfileStatText {
+	color: var(--white);
+	transition-duration: 300ms;
 }
 
 .stat {
