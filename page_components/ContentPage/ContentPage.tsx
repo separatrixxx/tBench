@@ -6,7 +6,6 @@ import cn from 'classnames';
 
 
 export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
-    console.log(theme)
     return (
         <AppContextProvider theme={theme} >
             <div className={cn(styles.contentWrapper, {
