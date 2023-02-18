@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return <>
     <Head>
       <title>tBench</title>
+      <meta http-equiv="Content-Security-Policy" content="script-src 'none'"></meta>
       <meta name='description' content='Decentralized social network tBench.' />
       <meta property='og:title' content='tBench' />
       <meta property='og:description' content='Decentralized social network tBench.' />
