@@ -3,8 +3,22 @@
 	align-items: center;
 
 	margin-top: 5px;
+	padding: 10px 20px;
+
+	cursor: pointer;
+
+	transition-duration: 300ms;
+
+	border-radius: 9999px;
+
+	background: var(--white);
+
 	gap: 2px;
 	grid-template-columns: auto auto;
+}
+
+.darkThemeUserSpecificiesBlock {
+	background: var(--darkTheme);
 }
 
 .userSpecificies {
@@ -24,16 +38,27 @@
 	display: grid;
 	align-items: center;
 
-	cursor: pointer;
 	transition-duration: 300ms;
 
 	color: var(--dark);
 }
 
-.moreInfo:active {
+.userSpecificiesBlock:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	color: var(--promary);
+	background: var(--lighter);
+}
+
+.darkThemeUserSpecificiesBlock:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	background: var(--dark);
+}
+
+.userSpecificiesBlock:active > .moreInfo {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--primary);
 }
 
 .darkThemeText {
@@ -43,9 +68,27 @@
 }
 
 @media (min-width: 1024px) {
-	.moreInfo:hover {
+	.userSpecificiesBlock:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		background: var(--lighter);
+	}
+
+	.darkThemeUserSpecificiesBlock:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		background: var(--dark);
+	}
+
+	.userSpecificiesBlock:hover > .moreInfo {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 		color: var(--primary);
+	}
+}
+
+@media (max-width: 580px) {
+	.userSpecificiesBlock {
+		margin-top: 0;
 	}
 }
