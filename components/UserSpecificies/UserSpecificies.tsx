@@ -11,7 +11,12 @@ export const UserSpecificies = ({ active, setActive, setType }: UserSpecificiesP
     const context = useContext(AppContext);
 
     return (
-        <div className={styles.userSpecificiesBlock}>
+        <div className={cn(styles.userSpecificiesBlock, {
+            [styles.darkThemeUserSpecificiesBlock]: context.theme === 'dark',
+        })} onClick={() => {
+            setType('more_info');
+            setActive(!active);
+        }}>
             <Htag tag='xs' className={cn(styles.userSpecificies, {
                 [styles.darkThemeText]: context.theme === 'dark',
             })}>
@@ -19,10 +24,7 @@ export const UserSpecificies = ({ active, setActive, setType }: UserSpecificiesP
             </Htag>
             <span className={cn(styles.moreInfo, {
                 [styles.darkThemeText]: context.theme === 'dark',
-            })} onClick={() => {
-                setType('more_info');
-                setActive(!active);
-            }}>
+            })}>
                 <IoMdInformationCircleOutline />
             </span>
         </div>
