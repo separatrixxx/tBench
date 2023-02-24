@@ -1,8 +1,8 @@
 import { User } from "./user.interface";
 
 export interface Message {
-	_id: number,
-	isSeen: boolean,
+    _id: number,
+    isSeen: boolean,
     message: string,
     file: File,
     time: string,
