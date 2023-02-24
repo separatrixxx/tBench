@@ -1,6 +1,6 @@
 import { User } from "./user.interface";
 
 export interface Follow {
-	following: User,
+    following: User,
     follower: User,
 }
