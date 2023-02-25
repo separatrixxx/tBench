@@ -20,11 +20,11 @@ export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInf
 
     const context = useContext(AppContext);
 
-    const [newUsername, setNewUsername] = useState<string>(username);
-    const [newUserInfo, setNewUserInfo] = useState<string>(userInfo);
+    const [newUsername, setNewUsername] = useState<string>(username ? username : '');
+    const [newUserInfo, setNewUserInfo] = useState<string>(userInfo ? userInfo : '');
 
     const changeValue = (e: any) => {
-        if (e.key == 'Enter') {
+        if (e.key == 'Enter' && setUsername && setUserInfo) {
             if (type === 'username') {
                 setUsername(newUsername);
             } else {
