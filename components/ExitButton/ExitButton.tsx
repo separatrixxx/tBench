@@ -17,9 +17,9 @@ export const ExitButton = (): JSX.Element => {
     let opacity = 1;
 
     if (width < 1024) {
-        opacity = opacity - scrollPosition / 100;
+        opacity -= scrollPosition / 100;
     } else {
-        opacity = opacity - scrollPosition / 150;
+        opacity -= scrollPosition / 150;
         console.log(scrollPosition)
     }
 
