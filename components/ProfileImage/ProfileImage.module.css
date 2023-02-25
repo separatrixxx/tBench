@@ -10,9 +10,6 @@
 	z-index: 10000;
 	user-select: none;
 	margin-top: 110px;
-
-	background: var(--white);
-	padding: 7px;
 	border-radius: 9999px;
 }
 
@@ -32,8 +29,8 @@
 .imageRingShadow {
 	position: absolute;
 
-	width: 160px;
-	height: 160px;
+	width: 100%;
+	height: 100%;
 
 	border-radius: 9999px;
 	background: linear-gradient(225.38deg, #6100FF 16.13%, #8400EC 49.5%, #FF00C7 85.03%);
@@ -52,11 +49,5 @@
 	.profileImage {
 		width: 100px;
 		height: 100px;
-	}
-
-	.imageRing,
-	.imageRingShadow {
-		width: 110px;
-		height: 110px;
 	}
 }
