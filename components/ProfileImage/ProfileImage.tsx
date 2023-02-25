@@ -4,13 +4,15 @@ import Image from 'next/image';
 
 
 export const ProfileImage = ({ active, setActive, setType }: ProfileImageProps): JSX.Element => {
+    const image = '/rainbow.jpg';
+    
     return (
         <div className={styles.imageWrapper}>
             <div className={styles.imageRingShadow} />
             <div className={styles.imageRing} />
             <Image className={styles.profileImage} draggable='false'
-                loader={() => '/rainbow.jpg'}
-                src='/rainbow.jpg'
+                loader={() => image}
+                src={image}
                 alt='image'
                 width={1}
                 height={1}

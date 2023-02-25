@@ -1,7 +1,6 @@
 import styles from './ProfileInfo.module.css';
 import { Htag } from 'components/Htag/Htag';
 import { ProfileActionsBar } from 'components/ProfileActionsBar/ProfileActionsBar';
-import { ProfileImage } from 'components/ProfileImage/ProfileImage';
 import { ProfileModal } from 'components/ProfileModal/ProfileModal';
 import { ProfileStatsBar } from 'components/ProfileStatsBar/ProfileStatsBar';
 import { useContext, useState } from 'react';
@@ -21,7 +20,7 @@ export const ProfileInfo = (): JSX.Element => {
 
     return (
         <div className={styles.profileInfo}>
-            <ProfileImage active={active} setActive={setActive} setType={setType} />
+            
             <div className={styles.usernameBlock}>
                 <Htag tag='xl' className={cn(styles.username, {
                     [styles.darkThemeText]: context.theme === 'dark',

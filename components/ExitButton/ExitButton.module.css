@@ -1,9 +1,9 @@
 .exitButton {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	right: 0;
 
-	margin: 10px 10px 0 0;
+	margin: 20px 15px 0 0;
 
 	cursor: pointer;
 
@@ -11,8 +11,15 @@
 
 	color: var(--dark);
 
-	font-size: 1.875rem;
-	line-height: 2.25rem;
+	font-size: 1.5rem;
+	line-height: 2rem;
+	z-index: 10000;
+
+	display: grid;
+	align-items: center;
+	background: var(--white);
+	padding: 7px;
+	border-radius: 9999px;
 }
 
 .exitButton:active {
@@ -22,6 +29,8 @@
 }
 
 .darkThemeExitButton {
+	background: var(--darkTheme);
+
 	color: var(--white);
 }
 

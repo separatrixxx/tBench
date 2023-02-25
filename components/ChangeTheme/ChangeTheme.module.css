@@ -1,6 +1,6 @@
 .changeTheme {
-	position: absolute;
-	top: 50px;
+	position: fixed;
+	top: 60px;
 	right: 0;
 
 	margin: 10px 15px 0 0;
@@ -13,6 +13,13 @@
 
 	font-size: 1.5rem;
 	line-height: 2rem;
+	z-index: 10000;
+
+	display: grid;
+	align-items: center;
+	background: var(--white);
+	padding: 7px;
+	border-radius: 9999px;
 }
 
 .changeTheme:active {
@@ -22,6 +29,7 @@
 }
 
 .darkChangeTheme {
+	background: var(--darkTheme);
 	color: var(--white);
 }
 

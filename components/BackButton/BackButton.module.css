@@ -1,7 +1,7 @@
 .backButton {
 	position: fixed;
 
-	z-index: 9999;
+	z-index: 10000;
 	top: 0;
 	left: 0;
 
