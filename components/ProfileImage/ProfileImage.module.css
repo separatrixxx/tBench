@@ -1,5 +1,5 @@
 .imageWrapper {
-	position: relative;
+	position: absolute;
 
 	display: grid;
 	align-items: center;
@@ -7,6 +7,9 @@
 	width: 160px;
 	height: 160px;
 	justify-items: center;
+	z-index: 10000;
+	user-select: none;
+	margin-top: 110px;
 }
 
 .profileImage {

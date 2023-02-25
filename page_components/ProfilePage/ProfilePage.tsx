@@ -8,6 +8,9 @@ import { UserContentList } from 'components/UserContentList/UserContentList';
 import { AppContextProvider } from 'context/app.context';
 import { useState } from 'react';
 import cn from 'classnames';
+import { ProfileCover } from 'components/ProfileCover/ProfileCover';
+import { ProfileImage } from 'components/ProfileImage/ProfileImage';
+import { ProfileModal } from 'components/ProfileModal/ProfileModal';
 
 
 export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
@@ -16,16 +19,24 @@ export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
         setThemeState(newTheme);
     };
 
+    const [active, setActive] = useState<boolean>(false);
+    const [type, setType] = useState<'username' | 'info' | 'image' | 'more_info' | 'verify'>('username');
+
     return (
         <AppContextProvider theme={theme}>
-            <div className={cn(styles.profileWrapper, {
-                [styles.darkThemeWrapper]: themeState === 'dark',
-            })}>
+            <div className={styles.profileWrapper}>
                 <BackButton link='/content' />
                 <ExitButton />
                 <ChangeTheme setTheme={setTheme} />
-                <ProfileInfo />
-                <UserContentList />
+                <ProfileCover active={active} setActive={setActive} setType={setType}  />
+                <ProfileImage active={active} setActive={setActive} setType={setType} />
+                <div className={cn(styles.profileInfoWrapper, {
+                    [styles.darkThemeProfileInfoWrapper]: themeState === 'dark',
+                })}>
+                    <ProfileInfo />
+                    <UserContentList />
+                </div>
+                <ProfileModal type={type} active={active} setActive={setActive} />
             </div>
         </AppContextProvider>
     );
