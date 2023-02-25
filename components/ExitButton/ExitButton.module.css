@@ -7,13 +7,14 @@
 
 	cursor: pointer;
 
+	transition-property: color, background-color;
 	transition-duration: 300ms;
 
 	color: var(--dark);
 
 	font-size: 1.5rem;
 	line-height: 2rem;
-	z-index: 10000;
+	z-index: 9999;
 
 	display: grid;
 	align-items: center;
