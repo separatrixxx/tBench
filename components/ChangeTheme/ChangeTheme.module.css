@@ -1,10 +1,4 @@
 .changeTheme {
-	position: fixed;
-	top: 60px;
-	right: 0;
-
-	margin: 10px 15px 0 0;
-
 	cursor: pointer;
 
 	transition-property: color, background-color;
@@ -14,10 +8,10 @@
 
 	font-size: 1.5rem;
 	line-height: 2rem;
-	z-index: 9999;
 
 	display: grid;
 	align-items: center;
+	justify-items: center;
 	background: var(--white);
 	padding: 7px;
 	border-radius: 9999px;
@@ -32,6 +26,7 @@
 .darkChangeTheme {
 	background: var(--darkTheme);
 	color: var(--white);
+	transition-duration: 300ms;
 }
 
 @media (min-width: 1024px) {

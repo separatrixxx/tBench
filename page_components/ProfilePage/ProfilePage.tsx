@@ -11,6 +11,7 @@ import cn from 'classnames';
 import { ProfileCover } from 'components/ProfileCover/ProfileCover';
 import { ProfileImage } from 'components/ProfileImage/ProfileImage';
 import { ProfileModal } from 'components/ProfileModal/ProfileModal';
+import { ProfileOptions } from 'components/ProfileOptions/ProfileOptions';
 
 
 export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
@@ -26,8 +27,7 @@ export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
         <AppContextProvider theme={theme}>
             <div className={styles.profileWrapper}>
                 <BackButton link='/content' />
-                <ExitButton />
-                <ChangeTheme setTheme={setTheme} />
+                <ProfileOptions setTheme={setTheme} />
                 <ProfileCover active={active} setActive={setActive} setType={setType}  />
                 <ProfileImage active={active} setActive={setActive} setType={setType} />
                 <div className={cn(styles.profileInfoWrapper, {

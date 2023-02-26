@@ -1,0 +1,71 @@
+.profileOptions {
+    display: grid;
+    align-items: center;
+    margin: 15px;
+    position: fixed;
+	top: 0;
+	right: 0;
+    z-index: 10000;
+
+    background: var(--white);
+    border-radius: 9999px;
+    transition-property: color, background-color;
+    transition-duration: 300ms;
+    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+}
+
+.darkThemeProfileOptions {
+    background: var(--darkTheme);
+    transition-duration: 300ms;
+}
+
+.blockProfileOptions {
+    display: grid;
+    align-items: center;
+}
+
+.optionsButton {
+	cursor: pointer;
+
+	transition-property: color, background-color;
+	transition-duration: 300ms;
+
+	color: var(--dark);
+
+	font-size: 1.5rem;
+	line-height: 2rem;
+
+	display: grid;
+	align-items: center;
+    justify-items: center;
+	background: var(--white);
+	padding: 7px;
+	border-radius: 9999px;
+}
+
+.optionsButton:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--primary);
+}
+
+.darkThemeOptionsButton {
+	background: var(--darkTheme);
+
+	color: var(--white);
+}
+
+@media (min-width: 1024px) {
+	.optionsButton:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		color: var(--primary);
+	}
+}
+
+@media (max-width: 580px) {
+	.optionsButton {
+		font-size: 1.5rem;
+		line-height: 2rem;
+	}
+}
