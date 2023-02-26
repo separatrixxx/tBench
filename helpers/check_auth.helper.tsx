@@ -46,9 +46,7 @@ export function checkAuth(authData: string[], si: boolean, locale: string | unde
         }
         if (si && EMAIL_REGEXP.test(authData[0]) && authData[1].length >= 8) {
             checkAuth.ok = true;
-        }
-
-        
+        }        
     } else {
         checkAuth.ok = true;
     }

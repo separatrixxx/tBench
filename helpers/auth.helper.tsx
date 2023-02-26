@@ -1,6 +1,7 @@
 import { ToastSuccess } from "components/Toast/Toast";
 import { checkAuthInterface } from "interfaces/check_auth.interface";
 import { checkAuth } from "./check_auth.helper";
+import { setLocale } from "./locale.helper";
 
 export async function checkUser(authData: Array<string>, errType: checkAuthInterface, router: any,
     setError: (e: any) => void, setLoading: (e: any) => void, isLogin: boolean) {
@@ -11,7 +12,7 @@ export async function checkUser(authData: Array<string>, errType: checkAuthInter
     } else {
         setError(errType);
         setLoading(true);
-        ToastSuccess('Cool!');
+        ToastSuccess(setLocale(router.locale).cool + '!');
         setTimeout(() => {
             setLoading(false);
 
