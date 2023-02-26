@@ -16,6 +16,7 @@ export const en = {
     error_password: "Password must not be shorter than 8 characters",
     error_name: "Enter your name",
     error_confirm: "Passwords mismatch",
+    cool: "Cool",
     have_account: "Already have an account?",
     dont_have_account: "Don't have an account yet?",
     rights_reserved: "All rights reserved",
