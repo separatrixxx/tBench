@@ -13,12 +13,12 @@ export const ChangeTheme = ({ setTheme, hiddenOptions }: ChangeThemeProps): JSX.
     const variants = {
 		visible: {
             marginTop: '0',
-            pointerEvents: 'all' as 'all',
+            pointerEvents:  ("all" as React.CSSProperties["pointerEvents"]),
             opacity: 1,
 		},
 		hidden: {
             marginTop: '-40px',
-            pointerEvents: 'none' as 'none',
+            pointerEvents:  ("none" as React.CSSProperties["pointerEvents"]),
             opacity: 0,
         }
 	};
