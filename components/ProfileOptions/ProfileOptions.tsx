@@ -24,7 +24,6 @@ export const ProfileOptions = ({ setTheme }: ProfileOptionsProps): JSX.Element =
         opacity -= scrollPosition / 100;
     } else {
         opacity -= scrollPosition / 150;
-        console.log(scrollPosition)
     }
 
     const variants = {
