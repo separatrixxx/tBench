@@ -4,43 +4,49 @@ import { BsSun, BsMoon } from "react-icons/bs";
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
 import cn from 'classnames';
-import { useScrollY } from 'hooks/useScrollY';
-import { useResizeW } from 'hooks/useResize';
+import { motion } from 'framer-motion';
 
-export const ChangeTheme = ({ setTheme }: ChangeThemeProps): JSX.Element => {
+
+export const ChangeTheme = ({ setTheme, hiddenOptions }: ChangeThemeProps): JSX.Element => {
     const context = useContext(AppContext);
 
-    const scrollPosition = useScrollY();
-    const width = useResizeW();
+    const variants = {
+		visible: {
+            marginTop: '0',
+            pointerEvents: 'all' as 'all',
+            opacity: 1,
+		},
+		hidden: {
+            marginTop: '-40px',
+            pointerEvents: 'none' as 'none',
+            opacity: 0,
+        }
+	};
 
-    let opacity = 1;
-
-    if (width < 1024) {
-        opacity -= scrollPosition / 100;
-    } else {
-        opacity -= scrollPosition / 150;
-        console.log(scrollPosition)
-    }
+    let Icon;
+    let newTheme: string;
 
     if (context.theme === 'light') {
-        return (
-            <span className={styles.changeTheme} style={{opacity: opacity}} onClick={() => {
-                context.setTheme?.('dark');
-                setTheme?.('dark');
-                localStorage.setItem('theme', 'dark');
-            }}>
-                <BsSun />
-            </span>
-        );
+        Icon = BsMoon;
+        newTheme = 'dark';
     } else {
-        return (
-            <span className={cn(styles.changeTheme, styles.darkChangeTheme)} style={{opacity: opacity}} onClick={() => {
-                context.setTheme?.('light');
-                setTheme?.('light');
-                localStorage.setItem('theme', 'light');
-            }}>
-                <BsMoon />
-            </span>
-        );
+        Icon = BsSun;
+        newTheme = 'light';
     }
+
+    return (
+        <motion.span className={cn(styles.changeTheme, {
+            [styles.darkChangeTheme]: context.theme === 'dark',
+        })} onClick={() => {
+            context.setTheme?.(newTheme);
+            setTheme?.(newTheme);
+            localStorage.setItem('theme', newTheme);
+        }} 
+            variants={variants}
+            initial={!hiddenOptions ? 'visible' : 'hidden'}
+            transition={{ duration: 0.3 }}
+            animate={!hiddenOptions ? 'visible' : 'hidden'}>
+            <Icon />
+        </motion.span>
+    );
 };
