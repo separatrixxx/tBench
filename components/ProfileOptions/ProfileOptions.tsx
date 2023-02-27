@@ -22,8 +22,12 @@ export const ProfileOptions = ({ setTheme }: ProfileOptionsProps): JSX.Element =
 
     if (width < 1024 && opacity > 0) {
         opacity -= scrollPosition / 100;
-    } else {
+    } else if (width >= 1024 && opacity > 0) {
         opacity -= scrollPosition / 150;
+    }
+
+    if (opacity <= 0 && !hiddenOptions) {
+        setHiddenOptions(true);
     }
 
     const variants = {
@@ -51,6 +55,7 @@ export const ProfileOptions = ({ setTheme }: ProfileOptionsProps): JSX.Element =
     return (
         <div className={cn(styles.profileOptions, {
             [styles.darkThemeProfileOptions]: context.theme === 'dark',
+            [styles.hidden]: opacity <= 0,
         })} style={{opacity: opacity}} onMouseOver={() => {
             if (width >= 1024) {
                 setHiddenOptions(false);
