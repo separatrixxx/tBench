@@ -19,6 +19,10 @@
     transition-duration: 300ms;
 }
 
+.hidden {
+	z-index: 9999;
+}
+
 .blockProfileOptions {
     display: grid;
     align-items: center;
