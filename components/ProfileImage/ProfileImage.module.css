@@ -1,16 +1,18 @@
 .imageWrapper {
 	position: absolute;
+	z-index: 10000;
 
 	display: grid;
 	align-items: center;
 
 	width: 160px;
 	height: 160px;
-	justify-items: center;
-	z-index: 10000;
-	user-select: none;
 	margin-top: 110px;
+
+	user-select: none;
+
 	border-radius: 9999px;
+	justify-items: center;
 }
 
 .profileImage {

@@ -5,13 +5,13 @@
 
 	cursor: pointer;
 
+	user-select: none;
+
 	transition-duration: 300ms;
 
 	border-radius: 9999px;
 
 	background: var(--primary);
-
-	user-select: none;
 }
 
 .userIcon:active {

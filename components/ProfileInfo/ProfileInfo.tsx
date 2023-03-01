@@ -1,26 +1,20 @@
+import { ProfileInfoProps } from './ProfileInfo.props';
 import styles from './ProfileInfo.module.css';
 import { Htag } from 'components/Htag/Htag';
 import { ProfileActionsBar } from 'components/ProfileActionsBar/ProfileActionsBar';
-import { ProfileModal } from 'components/ProfileModal/ProfileModal';
 import { ProfileStatsBar } from 'components/ProfileStatsBar/ProfileStatsBar';
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import { UserSpecificies } from 'components/UserSpecificies/UserSpecificies';
 import { BsCheck } from 'react-icons/bs';
 import { AppContext } from 'context/app.context';
 import cn from 'classnames';
 
 
-export const ProfileInfo = (): JSX.Element => {
-    const [username, setUsername] = useState<string>('separatrix');
-    const [userInfo, setUserInfo] = useState<string>('Я создал это говно, хз, как оно вам. Я, кстати, сепаратриса :)');
-    const [active, setActive] = useState<boolean>(false);
-    const [type, setType] = useState<'username' | 'info' | 'image' | 'more_info' | 'verify'>('username');
-
+export const ProfileInfo = ({ active, setActive, setType, username, userInfo }: ProfileInfoProps): JSX.Element => {
     const context = useContext(AppContext);
 
     return (
         <div className={styles.profileInfo}>
-            
             <div className={styles.usernameBlock}>
                 <Htag tag='xl' className={cn(styles.username, {
                     [styles.darkThemeText]: context.theme === 'dark',
@@ -48,8 +42,6 @@ export const ProfileInfo = (): JSX.Element => {
             </Htag>
             <ProfileStatsBar />
             <ProfileActionsBar />
-            <ProfileModal type={type} username={username} setUsername={setUsername} userInfo={userInfo}
-                setUserInfo={setUserInfo} active={active} setActive={setActive} />
         </div>
     );
 };
