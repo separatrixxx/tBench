@@ -1,22 +1,27 @@
 .profileOptions {
-    display: grid;
-    align-items: center;
-    margin: 15px;
-    position: fixed;
+	position: fixed;
+	z-index: 10000;
 	top: 0;
 	right: 0;
-    z-index: 10000;
 
-    background: var(--white);
-    border-radius: 9999px;
-    transition-property: color, background-color;
-    transition-duration: 300ms;
-    filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+	display: grid;
+	align-items: center;
+
+	margin: 15px;
+
+	transition-duration: 300ms;
+	transition-property: color, background-color;
+
+	border-radius: 9999px;
+
+	background: var(--white);
+	filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
 .darkThemeProfileOptions {
-    background: var(--darkTheme);
-    transition-duration: 300ms;
+	transition-duration: 300ms;
+
+	background: var(--darkTheme);
 }
 
 .hidden {
@@ -24,27 +29,28 @@
 }
 
 .blockProfileOptions {
-    display: grid;
-    align-items: center;
+	display: grid;
+	align-items: center;
 }
 
 .optionsButton {
-	cursor: pointer;
+	display: grid;
+	align-items: center;
 
-	transition-property: color, background-color;
+	padding: 7px;
+
+	cursor: pointer;
 	transition-duration: 300ms;
 
+	transition-property: color, background-color;
+
 	color: var(--dark);
+	border-radius: 9999px;
+	background: var(--white);
 
 	font-size: 1.5rem;
 	line-height: 2rem;
-
-	display: grid;
-	align-items: center;
-    justify-items: center;
-	background: var(--white);
-	padding: 7px;
-	border-radius: 9999px;
+	justify-items: center;
 }
 
 .optionsButton:active {
@@ -54,9 +60,8 @@
 }
 
 .darkThemeOptionsButton {
-	background: var(--darkTheme);
-
 	color: var(--white);
+	background: var(--darkTheme);
 }
 
 @media (min-width: 1024px) {

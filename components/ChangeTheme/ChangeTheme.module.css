@@ -1,20 +1,21 @@
 .changeTheme {
-	cursor: pointer;
+	display: grid;
+	align-items: center;
 
-	transition-property: color, background-color;
+	padding: 7px;
+
+	cursor: pointer;
 	transition-duration: 300ms;
 
+	transition-property: color, background-color;
+
 	color: var(--dark);
+	border-radius: 9999px;
+	background: var(--white);
 
 	font-size: 1.5rem;
 	line-height: 2rem;
-
-	display: grid;
-	align-items: center;
 	justify-items: center;
-	background: var(--white);
-	padding: 7px;
-	border-radius: 9999px;
 }
 
 .changeTheme:active {
@@ -24,9 +25,10 @@
 }
 
 .darkChangeTheme {
-	background: var(--darkTheme);
-	color: var(--white);
 	transition-duration: 300ms;
+
+	color: var(--white);
+	background: var(--darkTheme);
 }
 
 @media (min-width: 1024px) {

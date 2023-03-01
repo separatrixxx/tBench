@@ -1,10 +1,11 @@
+import { UserContentListProps } from './UserContentList.props';
 import styles from './UserContentList.module.css';
 import { UserContentItem } from 'components/UserContentItem/UserContentItem';
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
 import cn from 'classnames';
 
-export const UserContentList = (): JSX.Element => {
+export const UserContentList = ({ setActive, setImage }: UserContentListProps): JSX.Element => {
     const context = useContext(AppContext);
 
     const content1 = {
@@ -38,7 +39,8 @@ export const UserContentList = (): JSX.Element => {
                 [styles.darkThemeUserContentList]: context.theme === 'dark',
             })}>
                 {content.map(c => (
-                    <UserContentItem key={c.id} type={c.type} image={c.image} text={c.text} />
+                    <UserContentItem key={c.id} type={c.type} image={c.image} text={c.text}
+                        setActive={setActive} setImage={setImage} />
                 ))}
             </div>
         </>

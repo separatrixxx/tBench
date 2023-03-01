@@ -1,0 +1,22 @@
+.userContentImageFull {
+	cursor: pointer;
+	user-select: none;
+
+	border-radius: 10px;
+}
+
+.widthFull {
+	width: max-content;
+	height: 80vh;
+}
+
+.heightFull {
+	width: 80vw;
+	height: max-content;
+}
+
+@media (max-width: 300px) {
+	.userContentImageFull {
+		border-radius: 10px;
+	}
+}
