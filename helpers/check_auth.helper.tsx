@@ -5,7 +5,7 @@ import { setLocale } from "./locale.helper";
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
 export function checkAuth(authData: string[], si: boolean, locale: string | undefined): checkAuthInterface {
-    let checkAuth = {
+    const checkAuth = {
         ok: false,
         errEmail: false,
         errPassword: false,
@@ -13,10 +13,10 @@ export function checkAuth(authData: string[], si: boolean, locale: string | unde
         errFirstName: false,
         errLastName: false,
         errUsername: false,
-    }
-    
+    };
+
     if (!EMAIL_REGEXP.test(authData[0]) || authData[1].length < 8
-        || authData[1] !== authData[2] || authData[3].length === 0 
+        || authData[1] !== authData[2] || authData[3].length === 0
         || authData[4].length === 0 || authData[5].length === 0) {
         if (authData[3].length === 0) {
             checkAuth.errFirstName = true;
@@ -28,28 +28,28 @@ export function checkAuth(authData: string[], si: boolean, locale: string | unde
             checkAuth.errUsername = true;
         }
         if ((authData[3].length === 0 || authData[4].length === 0 || authData[5].length === 0) && !si) {
-            {ToastError(setLocale(locale).error_name)}
+            { ToastError(setLocale(locale).error_name); }
         }
         if (!EMAIL_REGEXP.test(authData[0])) {
             checkAuth.errEmail = true;
-            {ToastError(setLocale(locale).error_email)}
-        } 
+            { ToastError(setLocale(locale).error_email); }
+        }
         if (authData[1].length < 8) {
             checkAuth.errPassword = true;
-            {ToastError(setLocale(locale).error_password)}
+            { ToastError(setLocale(locale).error_password); }
         }
         if (authData[1] !== authData[2]) {
             checkAuth.errConfirmPassword = true;
             if (!si) {
-                {ToastError(setLocale(locale).error_confirm)}
+                { ToastError(setLocale(locale).error_confirm); }
             }
         }
         if (si && EMAIL_REGEXP.test(authData[0]) && authData[1].length >= 8) {
             checkAuth.ok = true;
-        }        
+        }
     } else {
         checkAuth.ok = true;
     }
-    
+
     return checkAuth;
 }
