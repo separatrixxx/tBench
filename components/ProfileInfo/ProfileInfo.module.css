@@ -7,12 +7,13 @@
 }
 
 .usernameBlock {
+	z-index: 10000;
+
 	display: grid;
 	align-items: center;
 
 	margin-top: 20px;
 	grid-template-columns: 1fr auto;
-	z-index: 10000;
 }
 
 .username {
@@ -29,6 +30,8 @@
 }
 
 .userInfo {
+	z-index: 10000;
+
 	display: -moz-box;
 	display: -webkit-box;
 	overflow: hidden;
@@ -48,8 +51,6 @@
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
 	line-clamp: 3;
-
-	z-index: 10000;
 }
 
 .userInfo:hover {
