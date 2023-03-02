@@ -6,6 +6,8 @@
 
 	width: 50%;
 	margin-top: 20px;
+
+	z-index: 10000;
 }
 
 @media (max-width: 1150px) {

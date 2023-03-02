@@ -15,6 +15,7 @@
 
 	gap: 2px;
 	grid-template-columns: auto auto;
+	z-index: 10000;
 }
 
 .darkThemeUserSpecificiesBlock {
