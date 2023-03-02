@@ -1,4 +1,6 @@
 .profileInfo {
+	z-index: 10000;
+
 	display: grid;
 
 	width: 100%;
