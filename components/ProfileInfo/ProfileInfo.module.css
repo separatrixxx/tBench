@@ -1,6 +1,4 @@
 .profileInfo {
-	z-index: 10000;
-
 	display: grid;
 
 	width: 100%;
@@ -14,6 +12,7 @@
 
 	margin-top: 20px;
 	grid-template-columns: 1fr auto;
+	z-index: 10000;
 }
 
 .username {
@@ -49,6 +48,8 @@
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
 	line-clamp: 3;
+
+	z-index: 10000;
 }
 
 .userInfo:hover {
