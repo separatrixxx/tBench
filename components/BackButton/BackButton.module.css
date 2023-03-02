@@ -1,7 +1,7 @@
 .backButton {
 	position: fixed;
 
-	z-index: 10000;
+	z-index: 9999;
 	top: 0;
 	left: 0;
 
@@ -14,23 +14,6 @@
 	cursor: pointer;
 
 	justify-items: center;
-}
-
-.backButton:active > div {
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transform: translate(0%, 0%);
-
-	background: rgba(31, 31, 31, 0.2);
-	filter: blur(40px);
-}
-
-.darkThemeBackButton:active > div {
-	background: rgba(227, 227, 227, 0.2);
-}
-
-.backButton:active > span {
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	transform: translate(0%, 0%);
 }
 
 .arrowBack {
@@ -79,20 +62,9 @@
 	}
 }
 
-@media (max-width: 1024px) {
-	.backButton {
-		width: 50px;
-	}
-
-	.arrowBack {
-		font-size: 2.25rem;
-		line-height: 2.5rem;
-	}
-}
-
 @media (max-width: 580px) {
 	.backButton {
-		width: 30px;
+		width: 50px;
 	}
 
 	.arrowBack {
@@ -101,13 +73,8 @@
 	}
 }
 
-@media (max-width: 400px) {
+@media (max-width: 300px) {
 	.backButton {
-		width: 20px;
-	}
-
-	.arrowBack {
-		font-size: 1.5rem;
-		line-height: 2rem;
+		width: 40px;
 	}
 }

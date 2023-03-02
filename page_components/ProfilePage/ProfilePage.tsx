@@ -29,13 +29,13 @@ export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
     return (
         <AppContextProvider theme={theme}>
             <div className={styles.profileWrapper}>
-                <BackButton link='/content' />
                 <ProfileOptions setTheme={setTheme} />
                 <ProfileCover active={active} setActive={setActive} setType={setType} />
                 <ProfileImage active={active} setActive={setActive} setType={setType} />
                 <div className={cn(styles.profileInfoWrapper, {
                     [styles.darkThemeProfileInfoWrapper]: themeState === 'dark',
                 })}>
+                    <BackButton link='/content' />
                     <ProfileInfo active={active} setActive={setActive} setType={setType} username={username}
                         userInfo={userInfo} />
                     <UserContentList setActive={setActiveContent} setImage={setImage} />

@@ -1,4 +1,6 @@
 .userContentList {
+	z-index: 10000;
+
 	width: 50%;
 	margin: 40px 0 40px 0;
 
