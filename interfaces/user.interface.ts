@@ -6,6 +6,7 @@ export interface User {
     lastName: string,
     password: number,
     profileImage: File,
+    profileCover: File,
     registrationDate: string,
     profileInfo: string,
     city: string,
