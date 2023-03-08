@@ -1,59 +1,61 @@
-from motor import motor_asyncio
-from bson.objectid import ObjectId
+from pymongo import MongoClient
+from bson import ObjectId
 
 
-class Database():
+class DataBase:
     def __init__(self):
-        self.client = motor_asyncio.AsyncIOMotorClient("mongodb://mongodb:27017/")
-        self.database = self.client.social_network
-        self.user_collection = self.database.get_collection('users')
+        self.client = MongoClient('localhost', 27017)
+        self.db = self.client['test']
+        self.collection = self.db['users']
+
+    def get_user_by_id(self,id:str):
+        from schemas.query import User
+        data = dict(self.collection.find_one({"_id": ObjectId(id)}))
+        return User(**data)
+
+
+    def get_users_by_firstname(self,firstname:str):
+        from schemas.query import User
+        users = []
+
+        data = self.collection.find({"firstname":firstname})
+
+        for user in data:
+            user_dict = dict(user)
+            users.append(User(**user_dict))
+        return users
+
+    def get_users_by_lastname(self,lastname:str):
+        from schemas.query import User
+        users = []
+
+        data = self.collection.find({"lastname": lastname})
+
+        for user in data:
+            user_dict = dict(user)
+            users.append(User(**user_dict))
+        return users
+
+
+    def get_all_users(self):
+        from schemas.query import User
+        users= []
+
+        data = self.collection.find()
+
+        for user in data:
+            user_dict = dict(user)
+            users.append(User(**user_dict))
+        return users
 
 
 
-    @staticmethod
-    def user_helper(user)-> dict:
-        return {
-            'id': str(user['_id']),
-            'username': user['username'],
-            'email': user['email'],
-            'firstName': user['firstName'],
-            'lastName': user['lastName'],
-            'password': user['password'],
-            'registrationDate': user['registrationDate'],
-            'profileInfo': user['profileInfo'],
-            'city': user['city'],
-            'birthday': user['birthday'],
-            'education': user['education'],
-            'verify': user['verify'],
-            'team': user['team'],
-            'online': user['online'],
 
 
-        }
+    def get_user_by_nickname(self,nickname:str):
+        from schemas.query import User
+        data = dict(self.collection.find_one({"nickname": nickname}))
+        return User(**data)
 
 
-    async def get_user_by_id(self,user_id:str):
-
-        user = await self.user_collection.find_one({'_id': ObjectId(user_id)})
-
-        if user:
-            return self.user_helper(user)
-
-
-    async def delete_users_by_id(self,user_id:str):
-
-        user = await self.user_collection.find_one({'_id': ObjectId(user_id)})
-
-
-        if user:
-            await self.user_collection.delete_one({'_id': ObjectId(user_id)})
-            return True
-
-
-    def insert_users(self):
-        pass
-
-
-    def update_users_by_id(self):
-        pass
-
+data = DataBase()
