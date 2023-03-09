@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export const ProfileImage = ({ active, setActive, setType }: ProfileImageProps): JSX.Element => {
     const image = '/rainbow.jpg';
-    
+
     return (
         <div className={styles.imageWrapper}>
             <div className={styles.imageRingShadow} />
@@ -17,7 +17,7 @@ export const ProfileImage = ({ active, setActive, setType }: ProfileImageProps):
                 width={1}
                 height={1}
                 unoptimized={true}
-                priority={true} 
+                priority={true}
                 onClick={() => {
                     setType('image');
                     setActive(!active);
