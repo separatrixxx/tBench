@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 export const ProfileCover = ({ active, setActive, setType }: ProfileCoverProps): JSX.Element => {
     const cover = '/cover.jpg';
-    
+
     return (
         <Image className={styles.profileCover} draggable='false'
             loader={() => cover}
