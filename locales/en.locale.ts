@@ -34,4 +34,7 @@ export const en = {
     verify: "User verified",
     profile: "Profile",
     content: "Content",
+    male: "Male",
+    female: "Female",
+    unknown: "Unknown",
 };

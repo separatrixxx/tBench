@@ -34,4 +34,7 @@ export const ru = {
     verify: "Пользователь подтверждён",
     profile: "Профиль",
     content: "Контент",
+    male: "Мужчина",
+    female: "Женщина",
+    unknown: "Неизвестно",
 };

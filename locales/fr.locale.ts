@@ -34,4 +34,7 @@ export const fr = {
     verify: "Utilisateur vérifié",
     profile: "Profil",
     content: "Contenu",
+    male: "Homme",
+    female: "Femme",
+    unknown: "Inconnu",
 };

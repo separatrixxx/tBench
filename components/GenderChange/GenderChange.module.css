@@ -1,0 +1,13 @@
+.genderChangeBlock {
+	display: grid;
+	grid-template-columns: auto auto auto;
+	gap: 20px;
+}
+
+.genderChangeBlock > h1 {
+	cursor: pointer;
+}
+
+.genderActive {
+	color: var(--primary);
+}
