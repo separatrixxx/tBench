@@ -10,18 +10,20 @@ import { useRouter } from 'next/router';
 import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
 import { setLocale } from 'helpers/locale.helper';
 import { checkUser } from 'helpers/auth.helper';
+import { GenderChange } from 'components/GenderChange/GenderChange';
 
 export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormProps): JSX.Element => {
 	const router = useRouter();
 
-    const [username, setUsername] = useState<string>('');
-    const [firstName, setFirstName] = useState<string>('');
-    const [lastName, setLastName] = useState<string>('');
+	const [username, setUsername] = useState<string>('');
+	const [firstName, setFirstName] = useState<string>('');
+	const [lastName, setLastName] = useState<string>('');
 	const [email, setEmail] = useState<string>('');
 	const [password, setPassword] = useState<string>('');
 	const [confirmPassword, setConfirmPassword] = useState<string>('');
+	const [gender, setGender] = useState<'male' | 'female' | 'unknown'>('male');
 
-    const [pswdType, setPswdType] = useState<'email' | 'password' | 'text'>('password');
+	const [pswdType, setPswdType] = useState<'email' | 'password' | 'text'>('password');
 	const [confPswdType, setConfPswdType] = useState<'email' | 'password' | 'text'>('password');
 
 	const [loading, setLoading] = useState<boolean>(false);
@@ -38,7 +40,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 
 	const [error, setError] = useState<checkAuthInterface>(errType);
 
-	const authData = [email, password, confirmPassword, firstName, lastName, username];
+	const authData = [email, password, confirmPassword, firstName, lastName, username, gender];
 
 	const changeInputType = () => {
 		if (pswdType !== 'text') {
@@ -47,38 +49,38 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 			setPswdType('password');
 		}
 	};
-    
+
 	if (type === 'login') {
-        return (
-            <div className={cn(className, styles.authForm)} {...props}>
+		return (
+			<div className={cn(className, styles.authForm)} {...props}>
 				<Input type='email' text={setLocale(router.locale).email}
 					value={email} error={error.errEmail} eye={false}
 					onChange={(e) => setEmail(e.target.value)} />
 				<InputWithEye onMouseEnter={() => setPswdType('text')}
-                    onMouseLeave={() => setPswdType('password')}
-                    onClick={() => {
-                        if (pswdType !== 'text') {
-                            setPswdType('text');
-                        } else {
-                            setPswdType('password');
-                        }
-                    }}>
+					onMouseLeave={() => setPswdType('password')}
+					onClick={() => {
+						if (pswdType !== 'text') {
+							setPswdType('text');
+						} else {
+							setPswdType('password');
+						}
+					}}>
 					<Input type={pswdType} text={setLocale(router.locale).password}
-							value={password} error={error.errPassword} eye={true}
-							onChange={(e) => setPassword(e.target.value)} />
+						value={password} error={error.errPassword} eye={true}
+						onChange={(e) => setPassword(e.target.value)} />
 				</InputWithEye>
-                <AuthButton loading={loading} text={setLocale(router.locale).sign_in} 
-				onClick={() => checkUser(authData, errType, router, setError, setLoading, true)} />
-				<AuthFormChange type={'login'} onClick={() => setAuthState('registration')}/>
-            </div>
-        );
-    } else {
-        return (
-            <div className={cn(className, styles.authForm)} {...props}>
-                <Input type='text' text={setLocale(router.locale).first_name}
+				<AuthButton loading={loading} text={setLocale(router.locale).sign_in}
+					onClick={() => checkUser(authData, errType, router, setError, setLoading, true)} />
+				<AuthFormChange type={'login'} onClick={() => setAuthState('registration')} />
+			</div>
+		);
+	} else {
+		return (
+			<div className={cn(className, styles.authForm)} {...props}>
+				<Input type='text' text={setLocale(router.locale).first_name}
 					value={firstName} error={error.errFirstName} eye={false}
 					onChange={(e) => setFirstName(e.target.value)} />
-                <Input type='text' text={setLocale(router.locale).last_name}
+				<Input type='text' text={setLocale(router.locale).last_name}
 					value={lastName} error={error.errLastName} eye={false}
 					onChange={(e) => setLastName(e.target.value)} />
 				<Input type='text' text={setLocale(router.locale).username}
@@ -88,23 +90,24 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 					value={email} error={error.errEmail} eye={false}
 					onChange={(e) => setEmail(e.target.value)} />
 				<InputWithEye onMouseEnter={() => setPswdType('text')}
-                    onMouseLeave={() => setPswdType('password')}
-                    onClick={() => changeInputType}>
+					onMouseLeave={() => setPswdType('password')}
+					onClick={() => changeInputType}>
 					<Input type={pswdType} text={setLocale(router.locale).password}
-							value={password} error={error.errPassword} eye={true}
-							onChange={(e) => setPassword(e.target.value)} />
+						value={password} error={error.errPassword} eye={true}
+						onChange={(e) => setPassword(e.target.value)} />
 				</InputWithEye>
 				<InputWithEye onMouseEnter={() => setConfPswdType('text')}
-                    onMouseLeave={() => setConfPswdType('password')}
-                    onClick={() => changeInputType}>
+					onMouseLeave={() => setConfPswdType('password')}
+					onClick={() => changeInputType}>
 					<Input type={confPswdType} text={setLocale(router.locale).confirm_password}
 						value={confirmPassword} error={error.errConfirmPassword} eye={true}
 						onChange={(e) => setConfirmPassword(e.target.value)} />
 				</InputWithEye>
-                <AuthButton loading={loading} text={setLocale(router.locale).sign_up} 
-				onClick={() => checkUser(authData, errType, router, setError, setLoading, false)} />
-				<AuthFormChange type={'registration'} onClick={() => setAuthState('login')}/>
-            </div>
-        );
-    }
+				<GenderChange gender={gender} setGender={setGender} />
+				<AuthButton loading={loading} text={setLocale(router.locale).sign_up}
+					onClick={() => checkUser(authData, errType, router, setError, setLoading, false)} />
+				<AuthFormChange type={'registration'} onClick={() => setAuthState('login')} />
+			</div>
+		);
+	}
 };

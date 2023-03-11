@@ -13,6 +13,7 @@ export interface User {
     birthday: string,
     education: string,
     speciality: string,
+    gender: 'male' | 'female' | 'unknown',
     verify: boolean,
     team: boolean,
     online: boolean,
