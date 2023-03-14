@@ -4,25 +4,31 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { Htag } from "components/Htag/Htag";
 import { setLocale } from "helpers/locale.helper";
+import cn from "classnames";
 
-export const ErrorPage = ({ error }: ErrorPageProps): JSX.Element => {    
+
+export const ErrorPage = ({ error, theme }: ErrorPageProps): JSX.Element => {
     const router = useRouter();
-    
-	if (error === 404) {
-        return (
-            <div className={styles.errorPage}>
-                <Link href='/'>
-                    <Htag tag="l" className={styles.errorText}>{setLocale(router.locale).error404}</Htag>
-                </Link>
-            </div>
-        );
+
+    let errorText = "";
+
+    if (error === 404) {
+        errorText = setLocale(router.locale).error404;
     } else {
-        return (
-            <div className={styles.errorPage}>
-                <Link href='/'>
-                    <Htag tag="l" className={styles.errorText}>{setLocale(router.locale).error500}</Htag>
-                </Link>
-            </div>
-	    );
+        errorText = setLocale(router.locale).error500;
     }
+
+    return (
+        <div className={cn(styles.errorPage, {
+            [styles.darkTheme]: theme === 'dark',
+        })}>
+            <Link href='/'>
+                <Htag tag="l" className={cn(styles.errorText, {
+                    [styles.darkThemeErrorText]: theme === 'dark',
+                })}>
+                    {errorText}
+                </Htag>
+            </Link>
+        </div>
+    );
 };
