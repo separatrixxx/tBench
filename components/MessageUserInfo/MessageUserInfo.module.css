@@ -1,14 +1,15 @@
 .messageUserInfoBlock {
 	display: grid;
 	align-items: center;
+
 	height: 34px;
-	transition-duration: 300ms;
-	
-	border-radius: 9999px;
-	
-	background: var(--white);
-	cursor: pointer;
 	padding: 0 10px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border-radius: 10px;
+	background: var(--white);
 }
 
 .darkThemeMessageUserInfoBlock {
@@ -28,8 +29,9 @@
 }
 
 .username {
-	color: var(--primary);
-	font-weight: 600;
+	color: var(--primary) !important;
+
+	font-weight: 600 !important;
 }
 
 @media (min-width: 1024px) {
@@ -47,7 +49,7 @@
 }
 
 @media (max-width: 580px) {
-	.messageUserInfo {
+	.messageUserInfoBlock {
 		height: 29px;
 	}
 }

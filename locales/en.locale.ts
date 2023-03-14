@@ -37,4 +37,6 @@ export const en = {
     male: "Male",
     female: "Female",
     unknown: "Unknown",
+    last_seen: "last seen at",
+    online: "online",
 };

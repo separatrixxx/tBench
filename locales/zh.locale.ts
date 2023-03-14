@@ -37,4 +37,6 @@ export const zh = {
     male: "男人",
     female: "女士",
     unknown: "未知",
+    last_seen: "最后一次出现在",
+    online: "在线的",
 };
