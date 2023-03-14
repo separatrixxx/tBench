@@ -21,6 +21,7 @@
 
 .darkThemeUserSpecificiesBlock {
 	background: var(--darkTheme);
+	transition-duration: 300ms;
 }
 
 .userSpecificies {

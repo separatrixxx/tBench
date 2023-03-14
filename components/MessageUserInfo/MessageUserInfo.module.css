@@ -1,0 +1,53 @@
+.messageUserInfoBlock {
+	display: grid;
+	align-items: center;
+	height: 34px;
+	transition-duration: 300ms;
+	
+	border-radius: 9999px;
+	
+	background: var(--white);
+	cursor: pointer;
+	padding: 0 10px;
+}
+
+.darkThemeMessageUserInfoBlock {
+	background: var(--darkTheme);
+}
+
+.messageUserInfoBlock:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	background: var(--lighter);
+}
+
+.darkThemeMessageUserInfoBlock:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	background: var(--dark);
+}
+
+.username {
+	color: var(--primary);
+	font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+	.messageUserInfoBlock:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		background: var(--lighter);
+	}
+
+	.darkThemeMessageUserInfoBlock:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		background: var(--dark);
+	}
+}
+
+@media (max-width: 580px) {
+	.messageUserInfo {
+		height: 29px;
+	}
+}

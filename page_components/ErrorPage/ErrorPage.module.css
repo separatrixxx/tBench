@@ -6,13 +6,15 @@
 	width: 100%;
 	height: 100vh;
 
-	background: var(--white);
 	transition-duration: 300ms;
+
+	background: var(--white);
 }
 
 .darkTheme {
-	background: var(--darkTheme);
 	transition-duration: 300ms;
+
+	background: var(--darkTheme);
 }
 
 .errorText {
@@ -21,8 +23,9 @@
 }
 
 .darkThemeErrorText {
-	color: var(--white);
 	transition-duration: 300ms;
+
+	color: var(--white);
 }
 
 .errorText:active {
