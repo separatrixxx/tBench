@@ -39,7 +39,7 @@ export const InputContent = (): JSX.Element => {
 
     const handleKeyDown = (e: any) => {
         if (e.key == 'Enter') {
-            if (search !== '') {
+            if (+search !== 0) {
                 setFlag(true);
             } else {
                 setFlag(false);
@@ -67,7 +67,12 @@ export const InputContent = (): JSX.Element => {
                 aria-label="search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                onKeyDown={handleKeyDown} />
+                onKeyDown={handleKeyDown}
+                onClick={() => {
+                    if (+search !== 0) {
+                        setFlag(true);
+                    }
+                }} />
             <motion.div className={styles.searchList}
                 variants={variants}
                 initial={flag ? 'visible' : 'hidden'}
