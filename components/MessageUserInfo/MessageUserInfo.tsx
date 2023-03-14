@@ -4,6 +4,7 @@ import { Htag } from 'components/Htag/Htag';
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
 import { useRouter } from 'next/router';
+import { setLocale } from 'helpers/locale.helper';
 import cn from 'classnames';
 
 
@@ -19,10 +20,10 @@ export const MessageUserInfo = ({ user, username }: MessageUserInfoProps): JSX.E
 			<Htag tag='s' className={styles.username}>
 				{username}
 			</Htag>
-			<Htag tag='xs' className={cn(styles.lastSeen, {
+			<Htag tag='xxs' className={cn(styles.lastSeen, {
 				[styles.darkThemeText]: context.theme === 'dark',
 			})}>
-				{username}
+				{setLocale(router.locale).last_seen + " 18:33"}
 			</Htag>
 		</div>
 	);

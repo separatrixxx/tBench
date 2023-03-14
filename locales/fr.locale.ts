@@ -37,4 +37,6 @@ export const fr = {
     male: "Homme",
     female: "Femme",
     unknown: "Inconnu",
+    last_seen: "vu dernièrement à",
+    online: "en ligne",
 };

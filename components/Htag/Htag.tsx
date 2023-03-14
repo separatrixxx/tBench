@@ -14,6 +14,8 @@ export const Htag = ({ tag, children, className, onClick }: HtagProps): JSX.Elem
 			return <h2 className={cn(className, styles.s)} onClick={onClick}>{children}</h2>;
 		case 'xs':
 			return <h2 className={cn(className, styles.xs)} onClick={onClick}>{children}</h2>;
+		case 'xxs':
+			return <h3 className={cn(className, styles.xxs)} onClick={onClick}>{children}</h3>;
 		default:
 			return <></>;
 	}

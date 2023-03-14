@@ -37,4 +37,6 @@ export const ru = {
     male: "Мужчина",
     female: "Женщина",
     unknown: "Неизвестно",
+    last_seen: "был в сети в",
+    online: "в сети",
 };
