@@ -5,9 +5,14 @@ import { AppContextProvider } from 'context/app.context';
 import { InputContent } from 'components/InputContent/InputContent';
 import { HeaderUserIcon } from 'components/HeaderUserIcon/HeaderUserIcon';
 import cn from 'classnames';
+import { ContentList } from 'components/ContentList/ContentList';
+import { useState } from 'react';
 
 
 export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
+    const [activeContent, setActiveContent] = useState<boolean>(false);
+    const [image, setImage] = useState<string>('');
+
     return (
         <AppContextProvider theme={theme} >
             <div className={cn(styles.contentWrapper, {
@@ -17,6 +22,7 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
                     <InputContent />
                     <HeaderUserIcon className={styles.contentUserIcon} user='profile' userImage='/rainbow.jpg' />
                 </HeaderContent>
+                <ContentList setActive={setActiveContent} setImage={setImage} />
             </div>
         </AppContextProvider>
     );
