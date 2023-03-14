@@ -25,6 +25,9 @@ export const InputContent = (): JSX.Element => {
                 type="text"
                 name="search"
                 aria-label="search" />
+            <div className={styles.searchList}>
+
+            </div>
         </label>
     );
 };

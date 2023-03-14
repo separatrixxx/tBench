@@ -73,6 +73,14 @@
 	outline-color: var(--primary);
 }
 
+.searchList {
+	position: absolute;
+	width: 200px;
+	height: 100px;
+
+	background: red;
+}
+
 @media (max-width: 580px) {
 	.inputContent {
 		width: 150px;
