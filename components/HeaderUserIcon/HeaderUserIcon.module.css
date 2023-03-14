@@ -1,7 +1,6 @@
 .userIcon {
 	width: 30px;
 	height: 30px;
-	margin-right: 20px;
 
 	cursor: pointer;
 
@@ -32,6 +31,5 @@
 	.userIcon {
 		width: 25px;
 		height: 25px;
-		margin-right: 15px;
 	}
 }

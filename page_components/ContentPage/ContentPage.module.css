@@ -2,11 +2,31 @@
 	width: 100%;
 	height: 100vh;
 
-	background: var(--white);
 	transition-duration: 300ms;
+
+	background: var(--white);
 }
 
 .darkThemeWrapper {
-	background: var(--darkTheme);
 	transition-duration: 300ms;
+
+	background: var(--darkTheme);
+}
+
+.headerContent {
+	gap: 40px;
+}
+
+.contentUserIcon {
+	margin-right: 20px;
+}
+
+@media (max-width: 580px) {
+	.headerContent {
+		gap: 20px;
+	}
+
+	.userIcon {
+		margin-right: 15px;
+	}
 }

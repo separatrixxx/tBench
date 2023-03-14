@@ -1,20 +1,20 @@
+import { HeaderContentProps } from './HeaderContent.props';
 import styles from './HeaderContent.module.css';
-import { HeaderUserIcon } from 'components/HeaderUserIcon/HeaderUserIcon';
-import { InputContent } from 'components/InputContent/InputContent';
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
 import cn from 'classnames';
 
 
-export const HeaderContent = (): JSX.Element => {
+export const HeaderContent = ({ children, position, className }: HeaderContentProps): JSX.Element => {
     const context = useContext(AppContext);
 
     return (
-        <header className={cn(styles.headerContent, {
+        <header className={cn(className, styles.headerContent, {
             [styles.darkThemeHeaderContent]: context.theme === 'dark',
+            [styles.headerPositionRight]: position === 'right',
+            [styles.headerPositionLeft]: position === 'left',
         })}>
-            <InputContent />
-            <HeaderUserIcon />
+            {children}
         </header>
     );
 };
