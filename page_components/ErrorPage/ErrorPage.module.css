@@ -5,10 +5,23 @@
 
 	width: 100%;
 	height: 100vh;
+
+	background: var(--white);
+	transition-duration: 300ms;
+}
+
+.darkTheme {
+	background: var(--darkTheme);
+	transition-duration: 300ms;
 }
 
 .errorText {
 	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.darkThemeErrorText {
+	color: var(--white);
 	transition-duration: 300ms;
 }
 
