@@ -30,10 +30,10 @@ export const InputContent = (): JSX.Element => {
 
     const variantsInput = {
         visible: {
-            borderRadius: '20px 20px 0 0',
+            borderRadius: '10px 10px 0 0',
         },
         hidden: {
-            borderRadius: '20px 20px 20px 20px',
+            borderRadius: '10px 10px 10px 10px',
         }
     };
 
