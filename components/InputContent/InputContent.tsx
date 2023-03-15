@@ -37,13 +37,11 @@ export const InputContent = (): JSX.Element => {
         }
     };
 
-    const handleKeyDown = (e: any) => {
-        if (e.key == 'Enter') {
-            if (+search !== 0) {
-                setFlag(true);
-            } else {
-                setFlag(false);
-            }
+    const handleKeyDown = (searchValue: any) => {
+        if (searchValue) {
+            setFlag(true);
+        } else {
+            setFlag(false);
         }
     };
 
@@ -66,10 +64,12 @@ export const InputContent = (): JSX.Element => {
                 name="search"
                 aria-label="search"
                 value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                onKeyDown={handleKeyDown}
+                onChange={(e) => {
+                    setSearch(e.target.value);
+                    handleKeyDown(e.target.value);
+                }}
                 onClick={() => {
-                    if (+search !== 0) {
+                    if (search) {
                         setFlag(true);
                     }
                 }} />
