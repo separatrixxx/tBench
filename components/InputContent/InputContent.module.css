@@ -78,7 +78,7 @@
 	width: 244px;
 	height: 100px;
 
-	border-radius: 0 0 17px 17px;
+	border-radius: 0 0 16.5px 16.5px;
 
 	background: var(--white);
 }
@@ -92,6 +92,6 @@
 	.searchList {
 		width: 194px;
 
-		border-radius: 0 0 14.5px 14.5px;
+		border-radius: 0 0 14px 14px;
 	}
 }
