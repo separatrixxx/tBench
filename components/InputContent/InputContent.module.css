@@ -80,7 +80,7 @@
 
 	border-radius: 0 0 17px 17px;
 
-	background: var(--white);
+	background: var(--primary);
 }
 
 @media (max-width: 580px) {
