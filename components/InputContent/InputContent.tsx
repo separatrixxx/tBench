@@ -47,7 +47,7 @@ export const InputContent = (): JSX.Element => {
     };
 
     const handleKeyDown = (searchValue: any) => {
-        if (searchValue) {
+        if (+searchValue !== 0) {
             setFlag(true);
         } else {
             setFlag(false);
@@ -78,7 +78,7 @@ export const InputContent = (): JSX.Element => {
                     handleKeyDown(e.target.value);
                 }}
                 onClick={() => {
-                    if (search) {
+                    if (+search !== 0) {
                         setFlag(true);
                     }
                 }} />
