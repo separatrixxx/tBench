@@ -80,7 +80,7 @@
 
 	border-radius: 0 0 17px 17px;
 
-	background: var(--primary);
+	background: var(--white);
 }
 
 @media (max-width: 580px) {
@@ -91,6 +91,7 @@
 
 	.searchList {
 		width: 194px;
-        border-radius: 0 0 14.5px 14.5px; 
+
+		border-radius: 0 0 14.5px 14.5px;
 	}
 }
