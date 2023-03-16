@@ -17,7 +17,6 @@ export const InputContent = (): JSX.Element => {
     const [search, setSearch] = useState<string>('');
     const [flag, setFlag] = useState<boolean>(false);
 
-
     useEffect(() => {
         window.addEventListener('scroll', () => { setFlag(false); });
     });
