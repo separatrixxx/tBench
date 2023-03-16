@@ -31,10 +31,10 @@ export const InputContent = (): JSX.Element => {
         }
     };
 
-    let radius = '17px';
+    let radius = '16.5px';
 
     if (width <= 580) {
-        radius = '14.5px';
+        radius = '14px';
     }
 
     const variantsInput = {
