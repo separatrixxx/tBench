@@ -4,11 +4,14 @@ import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
 import { motion } from 'framer-motion';
+import { useResizeW } from 'hooks/useResize';
 import cn from 'classnames';
 
 
 export const InputContent = (): JSX.Element => {
     const context = useContext(AppContext);
+
+    const width = useResizeW();
 
     const [searchActive, setSearchActive] = useState<boolean>(false);
     const [search, setSearch] = useState<string>('');
@@ -28,12 +31,18 @@ export const InputContent = (): JSX.Element => {
         }
     };
 
+    let radius = '17px';
+
+    if (width <= 580) {
+        radius = '14.5px';
+    }
+
     const variantsInput = {
         visible: {
-            borderRadius: '10px 10px 0 0',
+            borderRadius: radius + ' ' + radius + ' 0 0',
         },
         hidden: {
-            borderRadius: '10px 10px 10px 10px',
+            borderRadius: radius + ' ' + radius + ' ' + radius + ' ' + radius,
         }
     };
 
