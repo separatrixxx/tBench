@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { ErrorPage } from 'page_components/ErrorPage/ErrorPage';
 import { useEffect, useState } from 'react';
 
-export const PageServerFailure = () => {
+function PageServerFailure(): JSX.Element {
 	const [theme, setTheme] = useState<string>('light');
 
 	useEffect(() => {
@@ -21,6 +21,6 @@ export const PageServerFailure = () => {
 			<ErrorPage error={500} theme={theme} />
 		</>
 	);
-};
+}
 
 export default PageServerFailure;
