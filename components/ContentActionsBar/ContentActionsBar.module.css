@@ -4,7 +4,7 @@
 
 	height: fit-content;
 	margin: 20px 20px 0 20px;
-	padding-top: 20px;
+	padding: 20px 0 10px 0;
 
 	transition-duration: 300ms;
 
@@ -24,6 +24,8 @@
 .commentsBlock {
 	display: grid;
 
+	align-items: center;
+
 	width: fit-content;
 	grid-template-columns: auto auto;
 	gap: 7px;
@@ -35,6 +37,8 @@
 
 .like,
 .comment {
+	display: grid;
+
 	width: 17px;
 	height: 17px;
 
@@ -92,5 +96,11 @@
 	.contentActionsText {
 		font-size: 0.6rem;
 		line-height: 1rem;
+	}
+
+	.like,
+	.comment {
+		width: 15px;
+		height: 15px;
 	}
 }
