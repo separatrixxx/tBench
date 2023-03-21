@@ -4,7 +4,7 @@
 
 
 ```javascript
-let variable: number = 10; //правильно
+let variable: number = 10; - правильно
 let anotherVariable: string = 'hello'; //правильно
 let coolvariable, wow_variable, BeautifulVariable: number = 0; //неправильно
 ```
