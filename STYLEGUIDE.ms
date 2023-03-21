@@ -1,0 +1,1 @@
+# Правила оформления кода на языках TypeScript и JavaScript
