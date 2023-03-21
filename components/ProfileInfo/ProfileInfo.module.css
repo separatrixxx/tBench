@@ -24,9 +24,13 @@
 .verify {
 	display: grid;
 
+	width: 25px;
+	height: fit-content;
+	margin: 0;
+
 	cursor: pointer;
 
-	color: var(--primary) !important;
+	fill: var(--primary);
 }
 
 .userInfo {

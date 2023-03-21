@@ -1,10 +1,10 @@
 import styles from './InputContent.module.css';
-import { BiSearch } from "react-icons/bi";
 import { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
 import { motion } from 'framer-motion';
 import { useResizeW } from 'hooks/useResize';
+import Search from './search.svg';
 import cn from 'classnames';
 
 
@@ -59,7 +59,7 @@ export const InputContent = (): JSX.Element => {
             <span className={cn(styles.iconContent, {
                 [styles.iconContentActive]: searchActive,
             })}>
-                <BiSearch />
+                <Search />
             </span>
             <motion.input className={cn(styles.inputContent, {
                 [styles.darkThemeInputContent]: context.theme === 'dark',

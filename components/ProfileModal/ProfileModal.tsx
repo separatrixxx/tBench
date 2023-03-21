@@ -8,9 +8,9 @@ import { useState } from 'react';
 import Plus from './plus.svg';
 import { MoreInfoBlock } from 'components/MoreInfoBlock/MoreInfoBlock';
 import { Htag } from 'components/Htag/Htag';
-import { BsCheck } from 'react-icons/bs';
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
+import Check from './check.svg';
 import cn from 'classnames';
 
 
@@ -70,7 +70,7 @@ export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInf
         case 'verify':
             return (
                 <Modal active={active} setActive={setActive}>
-                    <span className={styles.verify}><BsCheck /></span>
+                    <span className={styles.verify}><Check /></span>
                     <Htag tag='m' className={cn(styles.verifyText, {
                         [styles.darkThemeVerifyText]: context.theme === 'dark',
                     })}>{setLocale(router.locale).verify}</Htag>

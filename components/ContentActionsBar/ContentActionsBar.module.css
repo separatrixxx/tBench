@@ -2,8 +2,7 @@
 	display: grid;
 	align-items: center;
 
-	width: 100% - 20px;
-	height: 30px;
+	height: fit-content;
 	margin: 20px 20px 0 20px;
 	padding-top: 20px;
 
@@ -36,17 +35,20 @@
 
 .like,
 .comment {
+	width: 17px;
+	height: 17px;
+
 	cursor: pointer;
 	transition-duration: 300ms;
 
-	color: var(--light);
+	fill: var(--light);
 }
 
 .darkThemeLike,
 .darkThemeComment {
 	transition-duration: 300ms;
 
-	color: var(--darkTheme_light);
+	fill: var(--darkTheme_light);
 }
 
 .like:active,
@@ -57,7 +59,7 @@
 }
 
 .likeActive {
-	color: var(--like);
+	fill: var(--like);
 }
 
 .contentActionsText {

@@ -32,10 +32,10 @@
 	align-items: center;
 	justify-items: center;
 
-	color: var(--primary);
+	fill: var(--primary);
 
-	font-size: 4.5rem;
-	line-height: 1;
+	width: 80px;
+	height: fit-content;
 }
 
 .verifyText {

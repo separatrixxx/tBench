@@ -43,9 +43,18 @@
 	display: grid;
 	align-items: center;
 
+	width: 13px;
+	height: fit-content;
+
 	transition-duration: 300ms;
 
-	color: var(--dark);
+	fill: var(--dark);
+}
+
+.darkThemeMoreInfo {
+	transition-duration: 300ms;
+
+	fill: var(--white);
 }
 
 .userSpecificiesBlock:active {
@@ -63,7 +72,7 @@
 .userSpecificiesBlock:active > .moreInfo {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	color: var(--primary);
+	fill: var(--primary);
 }
 
 .darkThemeText {
@@ -88,7 +97,7 @@
 	.userSpecificiesBlock:hover > .moreInfo {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-		color: var(--primary);
+		fill: var(--primary);
 	}
 }
 

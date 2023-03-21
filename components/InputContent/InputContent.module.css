@@ -13,22 +13,20 @@
 	display: grid;
 	align-items: center;
 
+	width: 15px;
 	height: 100%;
 
 	margin-left: 12px;
 
 	transition-duration: 300ms;
 
-	color: var(--light);
-
-	font-size: 1.25rem;
-	line-height: 1.75rem;
+	fill: var(--light);
 }
 
 .iconContentActive {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	color: var(--primary);
+	fill: var(--primary);
 }
 
 .inputContent {

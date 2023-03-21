@@ -20,19 +20,19 @@
 	position: absolute;
 	z-index: 99999;
 
+	width: 18px;
+	height: fit-content;
+
 	transition-duration: 300ms;
 	transform: translate(-100%, 0%);
 
-	color: var(--white);
-
-	font-size: 3rem;
-	line-height: 1;
+	fill: var(--white);
 }
 
 .darkThemeArrowBack {
 	transition-duration: 300ms;
 
-	color: var(--darkTheme);
+	fill: var(--darkTheme);
 }
 
 .blurBlock {
@@ -68,8 +68,8 @@
 	}
 
 	.arrowBack {
-		font-size: 1.875rem;
-		line-height: 2.25rem;
+		width: 10px;
+		height: fit-content;
 	}
 }
 
