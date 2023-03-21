@@ -1,7 +1,7 @@
 import toast from 'react-hot-toast';
 
 export const ToastSuccess = (message: string | undefined): void => {
-	if (message) {
+    if (message) {
         toast.error(message, {
             icon: '🤩',
             style: {
@@ -13,7 +13,7 @@ export const ToastSuccess = (message: string | undefined): void => {
 };
 
 export const ToastError = (message: string | undefined): void => {
-	if (message) {
+    if (message) {
         toast.error(message, {
             icon: '🙄',
             style: {
