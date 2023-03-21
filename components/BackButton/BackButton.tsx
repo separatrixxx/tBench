@@ -1,10 +1,10 @@
 import { BackButtonProps } from './BackButton.props';
 import styles from './BackButton.module.css';
 import { useRouter } from 'next/router';
-import { IoIosArrowBack } from "react-icons/io";
 import { useResizeW } from 'hooks/useResize';
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
+import BackArrow from './back_arrow.svg';
 import cn from 'classnames';
 
 
@@ -60,7 +60,7 @@ export const BackButton = ({ link }: BackButtonProps): JSX.Element => {
             onTouchMove={handleTouchMove}>
             <span className={cn(styles.arrowBack, {
                 [styles.darkThemeArrowBack]: context.theme === 'dark',
-            })}><IoIosArrowBack /></span>
+            })}><BackArrow /></span>
             <div className={styles.blurBlock} />
         </div>
     );

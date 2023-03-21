@@ -1,10 +1,11 @@
 import styles from './ContentActionsBar.module.css';
-import { FaHeart, FaComment } from "react-icons/fa";
 import { Htag } from 'components/Htag/Htag';
 import { setStat } from 'helpers/stat.helper';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
+import Heart from './heart.svg';
+import Comment from './comment.svg';
 import cn from 'classnames';
 
 
@@ -22,7 +23,7 @@ export const ContentActionsBar = (): JSX.Element => {
                     [styles.darkThemeLike]: context.theme === 'dark',
                     [styles.likeActive]: isLike,
                 })} onClick={() => setIsLike(!isLike)}>
-                    <FaHeart />
+                    <Heart />
                 </span>
                 <Htag tag='xs' className={cn(styles.contentActionsText, {
                     [styles.darkThemeContentActionsText]: context.theme === 'dark',
@@ -32,7 +33,7 @@ export const ContentActionsBar = (): JSX.Element => {
                 <span className={cn(styles.comment, {
                     [styles.darkThemeComment]: context.theme === 'dark',
                 })}>
-                    <FaComment />
+                    <Comment />
                 </span>
                 <Htag tag='xs' className={cn(styles.contentActionsText, {
                     [styles.darkThemeContentActionsText]: context.theme === 'dark',

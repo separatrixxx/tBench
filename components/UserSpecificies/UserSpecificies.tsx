@@ -1,9 +1,9 @@
 import { UserSpecificiesProps } from './UserSpecificies.props';
 import styles from './UserSpecificies.module.css';
 import { Htag } from 'components/Htag/Htag';
-import { IoMdInformationCircleOutline } from "react-icons/io";
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
+import Info from './info.svg';
 import cn from 'classnames';
 
 
@@ -23,9 +23,9 @@ export const UserSpecificies = ({ active, setActive, setType }: UserSpecificiesP
                 <span className={styles.userSpeciality}>Designer</span>, Moscow
             </Htag>
             <span className={cn(styles.moreInfo, {
-                [styles.darkThemeText]: context.theme === 'dark',
+                [styles.darkThemeMoreInfo]: context.theme === 'dark',
             })}>
-                <IoMdInformationCircleOutline />
+                <Info />
             </span>
         </div>
     );

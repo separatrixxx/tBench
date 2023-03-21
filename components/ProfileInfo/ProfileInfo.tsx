@@ -5,8 +5,8 @@ import { ProfileActionsBar } from 'components/ProfileActionsBar/ProfileActionsBa
 import { ProfileStatsBar } from 'components/ProfileStatsBar/ProfileStatsBar';
 import { useContext } from 'react';
 import { UserSpecificies } from 'components/UserSpecificies/UserSpecificies';
-import { BsCheck } from 'react-icons/bs';
 import { AppContext } from 'context/app.context';
+import Check from './check.svg';
 import cn from 'classnames';
 
 
@@ -24,12 +24,12 @@ export const ProfileInfo = ({ active, setActive, setType, username, userInfo }: 
                 }}>
                     {username}
                 </Htag>
-                <Htag tag='xl' className={styles.verify} onClick={() => {
+                <h1 className={styles.verify} onClick={() => {
                     setType('verify');
                     setActive(!active);
                 }}>
-                    <BsCheck />
-                </Htag>
+                    <Check />
+                </h1>
             </div>
             <UserSpecificies active={active} setActive={setActive} setType={setType} />
             <Htag tag='s' className={cn(styles.userInfo, {
