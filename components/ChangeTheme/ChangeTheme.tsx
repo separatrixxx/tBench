@@ -1,36 +1,37 @@
 import { ChangeThemeProps } from './ChangeTheme.props';
 import styles from './ChangeTheme.module.css';
-import { BsSun, BsMoon } from "react-icons/bs";
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
-import cn from 'classnames';
+import Sun from './sun.svg';
+import Moon from './moon.svg';
 import { motion } from 'framer-motion';
+import cn from 'classnames';
 
 
 export const ChangeTheme = ({ setTheme, hiddenOptions }: ChangeThemeProps): JSX.Element => {
     const context = useContext(AppContext);
 
     const variants = {
-		visible: {
+        visible: {
             marginTop: '0',
-            pointerEvents:  ("all" as React.CSSProperties["pointerEvents"]),
+            pointerEvents: ("all" as React.CSSProperties["pointerEvents"]),
             opacity: 1,
-		},
-		hidden: {
+        },
+        hidden: {
             marginTop: '-40px',
-            pointerEvents:  ("none" as React.CSSProperties["pointerEvents"]),
+            pointerEvents: ("none" as React.CSSProperties["pointerEvents"]),
             opacity: 0,
         }
-	};
+    };
 
     let Icon;
     let newTheme: string;
 
     if (context.theme === 'light') {
-        Icon = BsMoon;
+        Icon = Moon;
         newTheme = 'dark';
     } else {
-        Icon = BsSun;
+        Icon = Sun;
         newTheme = 'light';
     }
 
@@ -41,7 +42,7 @@ export const ChangeTheme = ({ setTheme, hiddenOptions }: ChangeThemeProps): JSX.
             context.setTheme?.(newTheme);
             setTheme?.(newTheme);
             localStorage.setItem('theme', newTheme);
-        }} 
+        }}
             variants={variants}
             initial={!hiddenOptions ? 'visible' : 'hidden'}
             transition={{ duration: 0.3 }}

@@ -1,11 +1,11 @@
 import { ExitButtonProps } from './ExitButton.props';
 import styles from './ExitButton.module.css';
 import { useRouter } from 'next/router';
-import { IoExitOutline } from "react-icons/io5";
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
-import cn from 'classnames';
+import Exit from './exit.svg';
 import { motion } from 'framer-motion';
+import cn from 'classnames';
 
 
 export const ExitButton = ({ hiddenOptions }: ExitButtonProps): JSX.Element => {
@@ -13,17 +13,17 @@ export const ExitButton = ({ hiddenOptions }: ExitButtonProps): JSX.Element => {
     const context = useContext(AppContext);
 
     const variants = {
-		visible: {
+        visible: {
             marginTop: '0',
-            pointerEvents:  ("all" as React.CSSProperties["pointerEvents"]),
+            pointerEvents: ("all" as React.CSSProperties["pointerEvents"]),
             opacity: 1,
-		},
-		hidden: {
+        },
+        hidden: {
             marginTop: '-40px',
-            pointerEvents:  ("none" as React.CSSProperties["pointerEvents"]),
+            pointerEvents: ("none" as React.CSSProperties["pointerEvents"]),
             opacity: 0,
         }
-	};
+    };
 
     return (
         <motion.span className={cn(styles.exitButton, {
@@ -36,7 +36,7 @@ export const ExitButton = ({ hiddenOptions }: ExitButtonProps): JSX.Element => {
             initial={!hiddenOptions ? 'visible' : 'hidden'}
             transition={{ duration: 0.3 }}
             animate={!hiddenOptions ? 'visible' : 'hidden'}>
-            <IoExitOutline />
+            <Exit />
         </motion.span>
     );
 };

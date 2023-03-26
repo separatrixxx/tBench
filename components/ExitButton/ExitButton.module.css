@@ -1,47 +1,47 @@
 .exitButton {
 	display: grid;
-	align-items: center;
+		align-items: center;
+	
+		padding: 4px;
+	
+		border-radius: 9999px;
+		background: var(--white);
+		transition-duration: 300ms;
+		transition-property: color, background-color, fill;
+	
+		justify-items: center;
+}
 
-	padding: 7px;
-
+.exitButton > svg {
+	width: 30px;
+		height: 30px;
 	cursor: pointer;
 	transition-duration: 300ms;
 
-	transition-property: color, background-color;
-
-	color: var(--dark);
-	border-radius: 9999px;
-	background: var(--white);
-
-	font-size: 1.5rem;
-	line-height: 2rem;
-	justify-items: center;
+	transition-property: color, background-color, fill;
+	fill: var(--dark);
 }
 
-.exitButton:active {
+.exitButton > svg:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-	color: var(--primary);
+	
+		fill: var(--primary);
 }
 
 .darkThemeExitButton {
 	transition-duration: 300ms;
 
-	color: var(--white);
 	background: var(--darkTheme);
 }
 
-@media (min-width: 1024px) {
-	.exitButton:hover {
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-		color: var(--primary);
-	}
+.darkThemeExitButton > svg {
+	fill: var(--white);
 }
 
-@media (max-width: 580px) {
-	.exitButton {
-		font-size: 1.5rem;
-		line-height: 2rem;
+@media (min-width: 1024px) {
+	.exitButton > svg:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		fill: var(--primary);
 	}
 }
