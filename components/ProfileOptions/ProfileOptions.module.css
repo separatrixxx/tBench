@@ -10,7 +10,7 @@
 	margin: 15px;
 
 	transition-duration: 300ms;
-	transition-property: color, background-color;
+	transition-property: color, background-color, fill;
 
 	border-radius: 9999px;
 
@@ -37,44 +37,46 @@
 	display: grid;
 	align-items: center;
 
-	padding: 7px;
-
-	cursor: pointer;
+	padding: 4px;
 	transition-duration: 300ms;
-
-	transition-property: color, background-color;
-
-	color: var(--dark);
+	transition-property: color, background-color, fill;
 	border-radius: 9999px;
 	background: var(--white);
-
-	font-size: 1.5rem;
-	line-height: 2rem;
 	justify-items: center;
 }
 
-.optionsButton:active {
+.optionsButton > svg {
+	width: 30px;
+	height: 30px;
+	transition-duration: 300ms;
+	cursor: pointer;
+	
+	transition-property: color, background-color, fill;
+	
+	fill: var(--dark);
+}
+
+.optionsButton > svg:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	color: var(--primary);
+	fill: var(--primary);
 }
 
 .darkThemeOptionsButton {
-	color: var(--white);
+	transition-duration: 300ms;
 	background: var(--darkTheme);
 }
 
-@media (min-width: 1024px) {
-	.optionsButton:hover {
-		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+.darkThemeOptionsButton > svg {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-		color: var(--primary);
-	}
+	fill: var(--white);
 }
 
-@media (max-width: 580px) {
-	.optionsButton {
-		font-size: 1.5rem;
-		line-height: 2rem;
+@media (min-width: 1024px) {
+	.optionsButton > svg:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		fill: var(--primary);
 	}
 }
