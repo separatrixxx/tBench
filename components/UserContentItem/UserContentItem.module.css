@@ -7,7 +7,7 @@
 
 	border-radius: 20px;
 	background: var(--white);
-	box-shadow: 0 118px 47px rgba(0, 0, 0, 0.01), 0 66px 40px rgba(0, 0, 0, 0.05), 0 29px 29px rgba(0, 0, 0, 0.09), 0 7px 16px rgba(0, 0, 0, 0.1), 0 0 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0 29px 29px rgba(0, 0, 0, 0.09), 0 7px 16px rgba(0, 0, 0, 0.1);
 }
 
 .darkThemeUserContentItem {
