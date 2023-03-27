@@ -26,13 +26,13 @@ export function checkAuth(authData: string[], si: boolean, locale: string | unde
         if (authData[4].length === 0) {
             checkAuth.errLastName = true;
         }
-        if (authData[5].length === 0 || !routes.includes(authData[5])) {
+        if (authData[5].length === 0 || routes.includes(authData[5])) {
             checkAuth.errUsername = true;
         }
         if ((authData[3].length === 0 || authData[4].length === 0 || authData[5].length === 0) && !si) {
             { ToastError(setLocale(locale).error_name); }
         }
-        if (!routes.includes(authData[5]) && authData[5].length !== 0 && !si) {
+        if (routes.includes(authData[5]) && authData[5].length !== 0 && !si) {
             { ToastError(setLocale(locale).error_username); }
         }
         if (!EMAIL_REGEXP.test(authData[0])) {
