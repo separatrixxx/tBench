@@ -15,6 +15,7 @@ export const zh = {
     error_email: "电子邮件格式无效",
     error_password: "密码不得少于8个字符",
     error_name: "输入你的名字",
+    error_username: "用户名已存在",
     error_confirm: "密码不匹配",
     cool: "凉爽的",
     have_account: "已有帐户",
