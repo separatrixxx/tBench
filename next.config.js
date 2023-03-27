@@ -6,7 +6,7 @@ module.exports = {
 	images: {
 		domains: ['tbench.vercel.app/'],
 	},
-	webpack(config, options) {
+	webpack(config) {
 		config.module.rules.push({
 			loader: '@svgr/webpack',
 			issuer: /\.[jt]sx?$/,
