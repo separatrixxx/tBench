@@ -1,5 +1,7 @@
 .profileWrapper {
 	display: grid;
+	display: -webkit-box;
+	display: -ms-grid;
 
 	width: 100%;
 
@@ -7,6 +9,7 @@
 
 	background: var(--white);
 	justify-items: center;
+	-webkit-justify-items: center;
 }
 
 .profileInfoWrapper {
