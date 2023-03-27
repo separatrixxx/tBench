@@ -19,7 +19,8 @@ export function checkAuth(authData: string[], si: boolean, locale: string | unde
 
     if (!EMAIL_REGEXP.test(authData[0]) || authData[1].length < 8
         || authData[1] !== authData[2] || authData[3].length === 0
-        || authData[4].length === 0 || authData[5].length === 0) {
+        || authData[4].length === 0 || authData[5].length === 0
+        || routes.includes(authData[5])) {
         if (authData[3].length === 0) {
             checkAuth.errFirstName = true;
         }
