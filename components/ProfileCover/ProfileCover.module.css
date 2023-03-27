@@ -1,6 +1,7 @@
 .profileCover {
 	position: fixed;
 	z-index: 9998;
+	background: aqua;
 
 	width: 100%;
 	height: 220px;
