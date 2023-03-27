@@ -13,6 +13,7 @@
 
 	border-radius: 9999px;
 	justify-items: center;
+	justify-self: center;
 }
 
 .profileImage {
