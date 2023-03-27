@@ -4,6 +4,8 @@ import { setLocale } from "./locale.helper";
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
+const routes = ['404', '500', 'content', 'message', 'profile'];
+
 export function checkAuth(authData: string[], si: boolean, locale: string | undefined): checkAuthInterface {
     const checkAuth = {
         ok: false,
@@ -24,11 +26,14 @@ export function checkAuth(authData: string[], si: boolean, locale: string | unde
         if (authData[4].length === 0) {
             checkAuth.errLastName = true;
         }
-        if (authData[5].length === 0) {
+        if (authData[5].length === 0 || !routes.includes(authData[5])) {
             checkAuth.errUsername = true;
         }
         if ((authData[3].length === 0 || authData[4].length === 0 || authData[5].length === 0) && !si) {
             { ToastError(setLocale(locale).error_name); }
+        }
+        if (!routes.includes(authData[5]) && !si) {
+            { ToastError(setLocale(locale).error_username); }
         }
         if (!EMAIL_REGEXP.test(authData[0])) {
             checkAuth.errEmail = true;

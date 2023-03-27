@@ -15,6 +15,7 @@ export const de = {
     error_email: "Ungültiges Email-Format",
     error_password: "Das Passwort darf nicht kürzer als 8 Zeichen sein",
     error_name: "Gib deinen Namen ein",
+    error_username: "Benutzername bereits vergeben",
     error_confirm: "Passwörter stimmen nicht überein",
     cool: "Cool",
     have_account: "Sie haben bereits ein Konto?",

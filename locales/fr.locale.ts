@@ -15,6 +15,7 @@ export const fr = {
     error_email: "Format d'email invalide",
     error_password: "Le mot de passe ne doit pas être inférieur à 8 caractères",
     error_name: "Entrez votre nom",
+    error_username: "Nom d'utilisateur déjà pris",
     error_confirm: "Les mots de passe ne correspondent pas",
     cool: "Cool",
     have_account: "Vous avez déjà un compte?",

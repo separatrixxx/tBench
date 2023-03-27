@@ -15,6 +15,7 @@ export const en = {
     error_email: "Invalid E-mail format",
     error_password: "Password must not be shorter than 8 characters",
     error_name: "Enter your name",
+    error_username: "Username already taken",
     error_confirm: "Passwords mismatch",
     cool: "Cool",
     have_account: "Already have an account?",
