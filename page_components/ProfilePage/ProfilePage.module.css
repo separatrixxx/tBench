@@ -1,12 +1,12 @@
 .profileWrapper {
 	display: flex;
+	justify-content: center;
 
 	width: 100%;
 
 	transition-duration: 300ms;
 
 	background: var(--white);
-	justify-content: center;
 }
 
 .profileInfoWrapper {
