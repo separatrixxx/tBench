@@ -32,7 +32,7 @@ export function checkAuth(authData: string[], si: boolean, locale: string | unde
         if ((authData[3].length === 0 || authData[4].length === 0 || authData[5].length === 0) && !si) {
             { ToastError(setLocale(locale).error_name); }
         }
-        if (!routes.includes(authData[5]) && !si) {
+        if (!routes.includes(authData[5]) && authData[5].length !== 0 && !si) {
             { ToastError(setLocale(locale).error_username); }
         }
         if (!EMAIL_REGEXP.test(authData[0])) {
