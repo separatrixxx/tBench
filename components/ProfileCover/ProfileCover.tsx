@@ -11,8 +11,8 @@ export const ProfileCover = ({ active, setActive, setType }: ProfileCoverProps):
             loader={() => cover}
             src={cover}
             alt='image'
-            width={1000}
-            height={1000}
+            width={1}
+            height={1}
             unoptimized={true}
             priority={true}
             onClick={() => {
