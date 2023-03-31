@@ -19,10 +19,10 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
 
     const variantsModal = {
         visible: {
-            scale: 1,
+            transform: 'scale(1)',
         },
         hidden: {
-            scale: 0.5,
+            transform: 'scale(0.5)',
         }
     };
 
