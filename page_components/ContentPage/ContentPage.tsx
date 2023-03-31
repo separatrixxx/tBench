@@ -4,9 +4,10 @@ import { HeaderContent } from 'components/HeaderContent/HeaderContent';
 import { AppContextProvider } from 'context/app.context';
 import { InputContent } from 'components/InputContent/InputContent';
 import { HeaderUserIcon } from 'components/HeaderUserIcon/HeaderUserIcon';
-import cn from 'classnames';
 import { ContentList } from 'components/ContentList/ContentList';
 import { useState } from 'react';
+import { ContentModal } from 'components/ContentModal/ContentModal';
+import cn from 'classnames';
 
 
 export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
@@ -23,6 +24,7 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
                     <HeaderUserIcon className={styles.contentUserIcon} user='profile' userImage='/rainbow.jpg' />
                 </HeaderContent>
                 <ContentList setActive={setActiveContent} setImage={setImage} />
+                <ContentModal active={activeContent} setActive={setActiveContent} image={image} />
             </div>
         </AppContextProvider>
     );
