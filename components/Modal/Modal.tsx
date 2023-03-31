@@ -22,7 +22,7 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
             scale: 1,
         },
         hidden: {
-            scale: 1,
+            scale: 0.5,
         }
     };
 
