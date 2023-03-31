@@ -34,9 +34,6 @@
 }
 
 .userInfo {
-	z-index: 10000;
-
-	display: -moz-box;
 	display: -webkit-box;
 	overflow: hidden;
 
@@ -50,11 +47,10 @@
 	text-align: center;
 	text-overflow: ellipsis;
 
-	font-weight: 500;
+	font-weight: 500 !important;
 	-moz-box-orient: vertical;
 	-webkit-line-clamp: 3;
 	-webkit-box-orient: vertical;
-	line-clamp: 3;
 }
 
 .userInfo:hover {
