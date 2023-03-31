@@ -27,22 +27,14 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
     };
 
     return (
-        <motion.div className={cn(styles.modal, {
+        <div className={cn(styles.modal, {
             [styles.active]: active,
-        })} onClick={() => setActive(false)}
-            variants={variants}
-            initial={active ? 'visible' : 'hidden'}
-            transition={{ duration: 0.15 }}
-            animate={active ? 'visible' : 'hidden'}>
-            <motion.div className={cn(styles.modalContent, {
+        })} onClick={() => setActive(false)}>
+            <div className={cn(styles.modalContent, {
                 [styles.darkThemeModalContent]: context.theme === 'dark',
-            })} onClick={e => e.stopPropagation()}
-                variants={variantsModal}
-                initial={active ? 'visible' : 'hidden'}
-                transition={{ duration: 0.15 }}
-                animate={active ? 'visible' : 'hidden'}>
+            })} onClick={e => e.stopPropagation()}>
                 {children}
-            </motion.div>
-        </motion.div>
+            </div>
+        </div>
     );
 };
