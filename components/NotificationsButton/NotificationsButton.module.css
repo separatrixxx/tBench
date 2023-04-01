@@ -1,0 +1,108 @@
+.notificationsButton {
+	position: relative;
+
+	display: grid;
+	align-items: start;
+
+	padding: 4px;
+
+	transition-duration: 300ms;
+	transition-property: color, background-color, fill;
+
+	justify-items: right;
+}
+
+.notificationsButton > svg {
+	width: 20px;
+	height: 20px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	transition-property: color, background-color, fill;
+	fill: var(--dark);
+}
+
+.darkThemeNotificationsButton > svg {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	fill: var(--white);
+}
+
+.notify {
+	position: absolute;
+
+	display: none;
+
+	width: 10px;
+	height: 10px;
+	margin: 2px 2px 0 0;
+
+	border-radius: 9999px;
+	background: var(--like);
+}
+
+.visible {
+	display: grid;
+}
+
+@keyframes bell {
+	20% {
+		transform: rotate(15deg);
+	}
+
+	40% {
+		transform: rotate(-10deg);
+	}
+
+	60% {
+		transform: rotate(5deg);
+	}
+
+	70% {
+		transform: rotate(0deg);
+	}
+
+	80% {
+		transform: rotate(-5deg);
+	}
+
+	90% {
+		transform: rotate(-3deg);
+	}
+
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+.bell > svg,
+.notificationsButton > svg:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	transform-origin: top center;
+	animation-name: bell;
+	animation-duration: 2s;
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+.notificationsButton > svg:active {
+	fill: var(--primary);
+}
+
+@media (min-width: 1024px) {
+	.notificationsButton > svg:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		fill: var(--primary);
+
+		transform-origin: top center;
+		animation-name: bell;
+		animation-duration: 2s;
+		-moz-animation-iteration-count: infinite;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+	}
+}
