@@ -8,11 +8,14 @@ import { ContentList } from 'components/ContentList/ContentList';
 import { useState } from 'react';
 import { ContentModal } from 'components/ContentModal/ContentModal';
 import cn from 'classnames';
+import { NotificationsButton } from 'components/NotificationsButton/NotificationsButton';
 
 
 export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
     const [activeContent, setActiveContent] = useState<boolean>(false);
     const [image, setImage] = useState<string>('');
+
+    const isNotification = true;
 
     return (
         <AppContextProvider theme={theme} >
@@ -21,6 +24,7 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
             })}>
                 <HeaderContent className={styles.headerContent} position='right'>
                     <InputContent />
+                    <NotificationsButton isNotification={isNotification} />
                     <HeaderUserIcon className={styles.contentUserIcon} user='profile' userImage='/rainbow.jpg' />
                 </HeaderContent>
                 <ContentList setActive={setActiveContent} setImage={setImage} />
