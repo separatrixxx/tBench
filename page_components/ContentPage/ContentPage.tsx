@@ -15,8 +15,6 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
     const [activeContent, setActiveContent] = useState<boolean>(false);
     const [image, setImage] = useState<string>('');
 
-    const isNotification = true;
-
     return (
         <AppContextProvider theme={theme} >
             <div className={cn(styles.contentWrapper, {
@@ -24,7 +22,7 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
             })}>
                 <HeaderContent className={styles.headerContent} position='right'>
                     <InputContent />
-                    <NotificationsButton isNotification={isNotification} />
+                    <NotificationsButton isNotification={true} />
                     <HeaderUserIcon className={styles.contentUserIcon} user='profile' userImage='/rainbow.jpg' />
                 </HeaderContent>
                 <ContentList setActive={setActiveContent} setImage={setImage} />
