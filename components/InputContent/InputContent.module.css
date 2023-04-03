@@ -93,3 +93,13 @@
 		border-radius: 0 0 14px 14px;
 	}
 }
+
+@media (max-width: 300px) {
+	.inputContent {
+		width: 100px;
+	}
+
+	.searchList {
+		width: 144px;
+	}
+}
