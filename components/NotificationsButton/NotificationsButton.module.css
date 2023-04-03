@@ -107,3 +107,17 @@
 		animation-iteration-count: infinite;
 	}
 }
+
+@media (max-width: 580px) {
+	.notificationsButton > svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	.notify {
+		width: 8px;
+		height: 8px;
+
+		margin: 1px 1px 0 0;
+	}
+}
