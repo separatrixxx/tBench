@@ -4,7 +4,7 @@ import { setLocale } from "./locale.helper";
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
-const routes = ['404', '500', 'content', 'message', 'profile'];
+const routes = ['404', '500', 'content', 'message', 'profile', 'wow'];
 
 export function checkAuth(authData: string[], si: boolean, locale: string | undefined): checkAuthInterface {
     const checkAuth = {
