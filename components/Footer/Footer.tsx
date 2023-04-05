@@ -1,9 +1,9 @@
+import styles from './Footer.module.css';
 import { Htag } from 'components/Htag/Htag';
 import { LocaleChange } from 'components/LocaleChange/LocaleChange';
 import { setFooterYear } from 'helpers/footer_year.helper';
 import { setLocale } from 'helpers/locale.helper';
 import { useRouter } from 'next/router';
-import styles from './Footer.module.css';
 
 export const Footer = (): JSX.Element => {
     const router = useRouter();

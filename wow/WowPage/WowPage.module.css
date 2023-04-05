@@ -1,0 +1,15 @@
+.wowWrapper {
+	display: grid;
+
+	padding-top: 20px;
+
+	background: var(--white);
+	grid-template-columns: auto;
+	gap: 20px;
+}
+
+.text {
+	margin-left: 20px;
+
+	font-weight: 700;
+}
