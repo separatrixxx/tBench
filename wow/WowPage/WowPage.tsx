@@ -7,7 +7,9 @@ export const WowPage = (): JSX.Element => {
 	return (
 		<div className={styles.wowWrapper}>
 			<Htag tag='l' className={styles.text}>Dynamic Line</Htag>
-			<DynamicLine />
+			<DynamicLine type='1' direction='right' speed='medium' />
+			<DynamicLine type='2' direction='left' speed='fast' />
+			<DynamicLine type='3' direction='right' speed='slow' />
 		</div>
 	);
 };

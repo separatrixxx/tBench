@@ -5,17 +5,30 @@
 	align-items: center;
 
 	width: 100%;
+	padding: 20px 0 20px 0;
 
 	background: var(--dark);
 }
 
-@keyframes rolll {
+.lineWrapper > * {
+	grid-area: 1/1;
+}
+
+@keyframes rollRight1 {
 	0% {
-		transform: translateX(-100%);
+		transform: translateX(0);
+		animation-timing-function: cubic-bezier(1, 1, 1, 1);
 	}
 
-	50% {
-		transform: translateX(0);
+	100% {
+		transform: translateX(200%);
+	}
+}
+
+@keyframes rollRight2 {
+	0% {
+		transform: translateX(-100);
+		animation-timing-function: cubic-bezier(1, 1, 1, 1);
 	}
 
 	100% {
@@ -23,33 +36,154 @@
 	}
 }
 
+@keyframes rollRight3 {
+	0% {
+		transform: translateX(-200%);
+		animation-timing-function: cubic-bezier(1, 1, 1, 1);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
+@keyframes rollLeft1 {
+	0% {
+		transform: translateX(0);
+		animation-timing-function: cubic-bezier(1, 1, 1, 1);
+	}
+
+	100% {
+		transform: translateX(-200%);
+	}
+}
+
+@keyframes rollLeft2 {
+	0% {
+		transform: translateX(100);
+		animation-timing-function: cubic-bezier(1, 1, 1, 1);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes rollLeft3 {
+	0% {
+		transform: translateX(200%);
+		animation-timing-function: cubic-bezier(1, 1, 1, 1);
+	}
+
+	100% {
+		transform: translateX(0);
+	}
+}
+
 .line {
 	display: grid;
 
-	width: 1000px;
-	height: 50px;
+	grid-template-columns: repeat(6, 1fr);
 
-	animation-duration: 10s;
+	align-items: center;
+	justify-items: center;
+
+	width: 100%;
+
 	-moz-animation-iteration-count: infinite;
 	-webkit-animation-iteration-count: infinite;
 	animation-iteration-count: infinite;
 }
 
-.red {
-	animation-name: roll;
-
-	background: var(--like);
+.fast {
+	animation-duration: 60s;
 }
 
-.blue {
+.medium {
+	animation-duration: 65s;
+}
+
+.slow {
+	animation-duration: 80s;
+}
+
+.right {
+	animation-name: rollRight1;
+}
+
+.left {
+	animation-name: rollLeft1;
+}
+
+.line > svg {
+	height: 30px;
+	fill: var(--white);
+}
+
+.line2Right {
 	transform: translateX(-100%);
+	animation-name: rollRight2;
+}
 
-	animation-name: roll;
-	animation-delay: 5s;
+.line2Left {
+	transform: translateX(100%);
+	animation-name: rollLeft2;
+}
 
-	background: var(--primary);
+.line3Right {
+	transform: translateX(-100%);
+	animation-name: rollRight3;
+}
+
+.line3Left {
+	transform: translateX(100%);
+	animation-name: rollLeft3;
 }
 
 .button {
 	width: 50px;
+}
+
+@media (max-width: 930px) {
+	.line > svg {
+		height: 25px;
+	}
+}
+
+@media (max-width: 830px) {
+	.line > svg {
+		height: 20px;
+	}
+}
+
+@media (max-width: 660px) {
+	.line > svg {
+		height: 15px;
+	}
+}
+
+@media (max-width: 500px) {
+	.lineWrapper {
+		padding: 15px 0 15px 0;
+	}
+
+	.line > svg {
+		height: 10px;
+	}
+}
+
+@media (max-width: 330px) {
+	.line > svg {
+		height: 7px;
+	}
+}
+
+@media (max-width: 220px) {
+	.lineWrapper {
+		padding: 10px 0 10px 0;
+	}
+
+	.line > svg {
+		height: 5px;
+	}
 }
