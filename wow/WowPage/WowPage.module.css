@@ -5,11 +5,10 @@
 
 	background: var(--white);
 	grid-template-columns: auto;
-	gap: 20px;
 }
 
 .text {
-	margin-left: 20px;
+	margin: 0 0 20px 20px;
 
 	font-weight: 700;
 }
