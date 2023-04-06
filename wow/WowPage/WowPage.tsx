@@ -2,6 +2,7 @@ import { Htag } from 'components/Htag/Htag';
 import styles from './WowPage.module.css';
 import { DynamicLine } from 'wow/DynamicLine/DynamicLine';
 import { WowCursor } from 'wow/WowCursor/WowCursor';
+import { Looking3D } from 'wow/Looking3D/Looking3D';
 
 
 export const WowPage = (): JSX.Element => {
@@ -13,6 +14,8 @@ export const WowPage = (): JSX.Element => {
 			<DynamicLine type='3' direction='right' speed='slow' />
 			<Htag tag='l' className={styles.text}>Wow Cursor</Htag>
 			<WowCursor />
+			<Htag tag='l' className={styles.text}>Looking 3D</Htag>
+			<Looking3D />
 		</div>
 	);
 };

@@ -3,7 +3,7 @@ import styles from './AuthBlock.module.css';
 import Image from 'next/image';
 
 export const AuthBlock = ({ children }: AuthBlockProps): JSX.Element => {
-	return (
+    return (
         <div className={styles.authBlock}>
             {children}
             <Image className={styles.authBlockImage} draggable='false'
