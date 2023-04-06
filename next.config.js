@@ -6,6 +6,7 @@ module.exports = {
 	images: {
 		domains: ['tbench.vercel.app/'],
 	},
+	presets: ['@next/babel'],
 	webpack(config) {
 		config.module.rules.push({
 			loader: '@svgr/webpack',
