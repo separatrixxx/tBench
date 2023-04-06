@@ -1,1 +1,1 @@
-docker-compose up -d
+RUN - docker-compose up -d
