@@ -1,6 +1,6 @@
 import strawberry
-from models.user import User
-from database.data_user import data
+from ..models.user import User
+from ..database.data_user import data
 from typing import List
 
 @strawberry.type

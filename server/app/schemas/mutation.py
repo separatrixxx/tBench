@@ -1,5 +1,5 @@
 import strawberry
-from database.data_user import data
+from ..database.data_user import data
 @strawberry.type
 class Mutation:
     @strawberry.mutation
