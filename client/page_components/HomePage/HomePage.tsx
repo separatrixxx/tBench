@@ -6,13 +6,20 @@ import { Footer } from 'components/Footer/Footer';
 import { Block } from 'components/Block/Block';
 import { AuthBlock } from 'components/AuthBlock/AuthBlock';
 import { Toaster } from 'react-hot-toast';
+import { Links } from 'interfaces/components.interface';
 
 export const HomePage = (): JSX.Element => {
     const [authState, setAuthState] = useState<'login' | 'registration'>('login');
 
+    const links: Links[] = [
+        { title: 'About', link: 'about' },
+        { title: 'Ecosystem', link: 'ecosystem' },
+        { title: 'Explore', link: 'explore' },
+    ];
+
     return (
         <>
-            <Header />
+            <Header links={links} />
             <Toaster
                 position="top-center"
                 reverseOrder={true}

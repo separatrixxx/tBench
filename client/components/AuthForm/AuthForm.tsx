@@ -4,7 +4,7 @@ import cn from 'classnames';
 import { Input } from 'components/Input/Input';
 import { useState } from 'react';
 import { AuthButton } from 'components/AuthButton/AuthButton';
-import { checkAuthInterface } from 'interfaces/check_auth.interface';
+import { CheckAuthInterface } from 'interfaces/check_auth.interface';
 import { InputWithEye } from 'components/InputWithEye/InputWithEye';
 import { useRouter } from 'next/router';
 import { AuthFormChange } from 'components/AuthFormChange/AuthFormChange';
@@ -38,7 +38,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 		errUsername: false,
 	};
 
-	const [error, setError] = useState<checkAuthInterface>(errType);
+	const [error, setError] = useState<CheckAuthInterface>(errType);
 
 	const authData = [email, password, confirmPassword, firstName, lastName, username, gender];
 
