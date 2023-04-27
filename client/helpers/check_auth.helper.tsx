@@ -1,12 +1,12 @@
 import { ToastError } from "components/Toast/Toast";
-import { checkAuthInterface } from "interfaces/check_auth.interface";
+import { CheckAuthInterface } from "interfaces/check_auth.interface";
 import { setLocale } from "./locale.helper";
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
 const routes = ['404', '500', 'content', 'message', 'profile', 'wow'];
 
-export function checkAuth(authData: string[], si: boolean, locale: string | undefined): checkAuthInterface {
+export function checkAuth(authData: string[], si: boolean, locale: string | undefined): CheckAuthInterface {
     const checkAuth = {
         ok: false,
         errEmail: false,

@@ -1,3 +1,4 @@
+import { HeaderProps } from './Header.props';
 import styles from './Header.module.css';
 import { Htag } from 'components/Htag/Htag';
 import Link from 'next/link';
@@ -9,7 +10,7 @@ import { motion } from 'framer-motion';
 import { BurgerMenu } from 'components/BurgerMenu/BurgenMenu';
 
 
-export const Header = (): JSX.Element => {
+export const Header = ({ links }: HeaderProps): JSX.Element => {
     const [open, setOpen] = useState<boolean>(false);
     const [lastScroll, setLastScroll] = useState<number>(0);
     const [flag, setFlag] = useState<boolean>(false);
@@ -67,9 +68,11 @@ export const Header = (): JSX.Element => {
                 variants={variantsBlock}
                 initial={open || width > 1024 ? 'visible' : 'hidden'}
                 animate={open || width > 1024 ? 'visible' : 'hidden'}>
-                <Htag tag='xs' className={styles.text}>About</Htag>
-                <Htag tag='xs' className={styles.text}>Ecosystem</Htag>
-                <Htag tag='xs' className={styles.text}>Explore</Htag>
+                {links.map(l => (
+                    <Link href={"/" + l.link} key={l.link}>
+                        <Htag tag='xs' className={styles.text}>{l.title}</Htag>
+                    </Link>
+                ))}
             </motion.div>
             <BurgerMenu open={open} setOpen={setOpen} />
         </motion.header>

@@ -1,4 +1,4 @@
-export interface checkAuthInterface {
+export interface CheckAuthInterface {
     ok: boolean,
     errEmail: boolean,
     errPassword: boolean,
