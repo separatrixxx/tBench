@@ -67,7 +67,8 @@ export const Header = ({ links }: HeaderProps): JSX.Element => {
             <motion.div className={styles.headerBlock}
                 variants={variantsBlock}
                 initial={open || width > 1024 ? 'visible' : 'hidden'}
-                animate={open || width > 1024 ? 'visible' : 'hidden'}>
+                animate={open || width > 1024 ? 'visible' : 'hidden'}
+                style={{ gridTemplateColumns: `repeat(${links.length}, auto)` }}>
                 {links.map(l => (
                     <Link href={"/" + l.link} key={l.link}>
                         <Htag tag='xs' className={styles.text}>{l.title}</Htag>
