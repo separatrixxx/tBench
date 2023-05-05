@@ -38,3 +38,9 @@
 .eye_input {
 	width: 100%;
 }
+
+@media (max-width: 580px) {
+	.input {
+		padding-left: 15px;
+	}
+}

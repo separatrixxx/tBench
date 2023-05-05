@@ -4,6 +4,7 @@ import { Modal } from 'components/Modal/Modal';
 import Image from 'next/image';
 import { useResizeH, useResizeW } from 'hooks/useResize';
 import { CommentItem } from 'components/CommentItem/CommentItem';
+import { CommentInput } from 'components/CommentInput/CommentInput';
 import cn from 'classnames';
 
 
@@ -67,12 +68,15 @@ export const ContentModal = ({ type, active, setActive, image, postId }: Content
 		return (
 			<Modal active={active} setActive={setActive}>
 				<div className={styles.commentsList}>
-					{comments.map(c => (
-						<CommentItem key={c.id} type={c.type} image={c.image} text={c.text}
-							username={c.username} userImage={c.userImage} date={c.date} />
-					))}
+					<div className={styles.commentsBlock}>
+						{comments.map(c => (
+							<CommentItem key={c.id} type={c.type} image={c.image} text={c.text}
+								username={c.username} userImage={c.userImage} date={c.date} />
+						))}
+					</div>
+					<CommentInput />
 				</div>
-			</Modal>
+			</Modal >
 		);
 	}
 };

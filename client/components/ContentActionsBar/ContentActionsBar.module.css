@@ -75,7 +75,7 @@
 .darkThemeContentActionsText {
 	transition-duration: 300ms;
 
-	color: var(--white);
+	color: var(--white) !important;
 }
 
 @media (min-width: 1024px) {
