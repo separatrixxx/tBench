@@ -41,4 +41,8 @@ export const ru = {
     last_seen: "был в сети в",
     online: "в сети",
     at: "в",
+    about: 'О нас',
+    ecosystem: 'Экосистема',
+    explore: 'Исследовать',
+    wallet: 'Кошелек',
 };

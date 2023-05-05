@@ -41,4 +41,8 @@ export const de = {
     last_seen: "zuletzt gesehen bei",
     online: "online",
     at: "um",
+    about: 'Über uns',
+    ecosystem: 'Ökosystem',
+    explore: 'Erkunden',
+    wallet: 'Geldbörse',
 };

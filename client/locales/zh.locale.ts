@@ -41,4 +41,8 @@ export const zh = {
     last_seen: "最后一次出现在",
     online: "在线的",
     at: "在",
+    about: '关于',
+    ecosystem: '生态系统',
+    explore: '探索',
+    wallet: '钱包',
 };
