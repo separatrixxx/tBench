@@ -6,32 +6,32 @@ import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
 import cn from 'classnames';
 
-export const UserContentItem = ({ type, image, text, setActive, setImage }: UserContentItemProps): JSX.Element => {
+export const UserContentItem = ({ type, image, text, postId, date, setType, setActive, setImage, setPostId }: UserContentItemProps): JSX.Element => {
     const context = useContext(AppContext);
 
     switch (type) {
         case 'image':
             return (
-                <>
-                    <div className={cn(styles.userContentItem, {
-                        [styles.darkThemeUserContentItem]: context.theme === 'dark',
-                    })}>
-                        <Image className={styles.userContentImage} draggable='false'
-                            loader={() => image ? image : ''}
-                            src={image ? image : ''}
-                            alt='image'
-                            width={1}
-                            height={1}
-                            unoptimized={true}
-                            priority={true}
-                            onClick={() => {
-                                setActive(true);
-                                setImage(image);
-                            }}
-                        />
-                        <ContentActionsBar />
-                    </div>
-                </>
+                <div className={cn(styles.userContentItem, {
+                    [styles.darkThemeUserContentItem]: context.theme === 'dark',
+                })}>
+                    <Image className={styles.userContentImage} draggable='false'
+                        loader={() => image ? image : ''}
+                        src={image ? image : ''}
+                        alt='image'
+                        width={1}
+                        height={1}
+                        unoptimized={true}
+                        priority={true}
+                        onClick={() => {
+                            setType('post');
+                            setActive(true);
+                            setImage(image);
+                        }}
+                    />
+                    <ContentActionsBar postId={postId} date={date} setType={setType}
+                        setActive={setActive} setPostId={setPostId} />
+                </div>
             );
         case 'text':
             return (
@@ -41,34 +41,35 @@ export const UserContentItem = ({ type, image, text, setActive, setImage }: User
                     <p className={cn(styles.userContentText, {
                         [styles.darkThemeUserContentText]: context.theme === 'dark',
                     })}>{text}</p>
-                    <ContentActionsBar />
+                    <ContentActionsBar postId={postId} date={date} setType={setType}
+                        setActive={setActive} setPostId={setPostId} />
                 </div>
             );
         case 'both':
             return (
-                <>
-                    <div className={cn(styles.userContentItem, {
-                        [styles.darkThemeUserContentItem]: context.theme === 'dark',
-                    })}>
-                        <Image className={styles.userContentImage} draggable='false'
-                            loader={() => image ? image : ''}
-                            src={image ? image : ''}
-                            alt='image'
-                            width={1}
-                            height={1}
-                            unoptimized={true}
-                            priority={true}
-                            onClick={() => {
-                                setActive(true);
-                                setImage(image);
-                            }}
-                        />
-                        <p className={cn(styles.userContentTextBoth, {
-                            [styles.darkThemeUserContentTextBoth]: context.theme === 'dark',
-                        })}>{text}</p>
-                        <ContentActionsBar />
-                    </div>
-                </>
+                <div className={cn(styles.userContentItem, {
+                    [styles.darkThemeUserContentItem]: context.theme === 'dark',
+                })}>
+                    <Image className={styles.userContentImage} draggable='false'
+                        loader={() => image ? image : ''}
+                        src={image ? image : ''}
+                        alt='image'
+                        width={1}
+                        height={1}
+                        unoptimized={true}
+                        priority={true}
+                        onClick={() => {
+                            setType('post');
+                            setActive(true);
+                            setImage(image);
+                        }}
+                    />
+                    <p className={cn(styles.userContentTextBoth, {
+                        [styles.darkThemeUserContentTextBoth]: context.theme === 'dark',
+                    })}>{text}</p>
+                    <ContentActionsBar postId={postId} date={date} setType={setType}
+                        setActive={setActive} setPostId={setPostId} />
+                </div>
             );
         default:
             return <></>;

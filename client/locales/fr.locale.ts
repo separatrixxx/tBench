@@ -40,4 +40,5 @@ export const fr = {
     unknown: "Inconnu",
     last_seen: "vu dernièrement à",
     online: "en ligne",
+    at: "à",
 };

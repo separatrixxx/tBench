@@ -40,4 +40,5 @@ export const ru = {
     unknown: "Неизвестно",
     last_seen: "был в сети в",
     online: "в сети",
+    at: "в",
 };

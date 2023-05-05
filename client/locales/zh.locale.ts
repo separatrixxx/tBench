@@ -40,4 +40,5 @@ export const zh = {
     unknown: "未知",
     last_seen: "最后一次出现在",
     online: "在线的",
+    at: "在",
 };

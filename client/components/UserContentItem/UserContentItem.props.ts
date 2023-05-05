@@ -4,6 +4,10 @@ export interface UserContentItemProps extends DetailedHTMLProps<HTMLAttributes<H
     type: 'text' | 'image' | 'both',
     image: string,
     text: string,
+    postId: number,
+    date: string,
+    setType: (e: any) => void,
     setActive: (e: any) => void,
     setImage: (e: any) => void,
+    setPostId: (e: any) => void,
 }

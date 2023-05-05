@@ -40,4 +40,5 @@ export const de = {
     unknown: "Unbekannt",
     last_seen: "zuletzt gesehen bei",
     online: "online",
+    at: "um",
 };
