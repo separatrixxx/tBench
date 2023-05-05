@@ -14,6 +14,8 @@ import { NotificationsButton } from 'components/NotificationsButton/Notification
 export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
     const [activeContent, setActiveContent] = useState<boolean>(false);
     const [image, setImage] = useState<string>('');
+    const [postId, setPostId] = useState<number>(NaN);
+    const [typeContent, setTypeContent] = useState<'post' | 'comments'>('post');
 
     return (
         <AppContextProvider theme={theme} >
@@ -25,8 +27,8 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
                     <NotificationsButton isNotification={true} />
                     <HeaderUserIcon className={styles.contentUserIcon} user='profile' userImage='/rainbow.jpg' />
                 </HeaderContent>
-                <ContentList setActive={setActiveContent} setImage={setImage} />
-                <ContentModal active={activeContent} setActive={setActiveContent} image={image} />
+                <ContentList setType={setTypeContent} setActive={setActiveContent} setImage={setImage} setPostId={setPostId} />
+                <ContentModal type={typeContent} active={activeContent} setActive={setActiveContent} image={image} postId={postId} />
             </div>
         </AppContextProvider>
     );

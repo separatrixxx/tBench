@@ -1,15 +1,20 @@
+import { ContentActionsBarProps } from './ContentActionsBar.props';
 import styles from './ContentActionsBar.module.css';
 import { Htag } from 'components/Htag/Htag';
+import { useRouter } from 'next/router';
 import { setStat } from 'helpers/stat.helper';
 import { useState } from 'react';
 import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
 import Heart from './heart.svg';
 import Comment from './comment.svg';
+import { formatTime } from 'helpers/format.helper';
 import cn from 'classnames';
 
 
-export const ContentActionsBar = (): JSX.Element => {
+export const ContentActionsBar = ({ postId, date, setType, setActive, setPostId }: ContentActionsBarProps): JSX.Element => {
+    const router = useRouter();
+
     const context = useContext(AppContext);
 
     const [isLike, setIsLike] = useState<boolean>(false);
@@ -32,7 +37,11 @@ export const ContentActionsBar = (): JSX.Element => {
             <div className={styles.commentsBlock}>
                 <span className={cn(styles.comment, {
                     [styles.darkThemeComment]: context.theme === 'dark',
-                })}>
+                })} onClick={() => {
+                    setType('comments');
+                    setActive(true);
+                    setPostId(postId);
+                }}>
                     <Comment />
                 </span>
                 <Htag tag='xs' className={cn(styles.contentActionsText, {
@@ -41,7 +50,7 @@ export const ContentActionsBar = (): JSX.Element => {
             </div>
             <Htag tag='xs' className={cn(styles.contentActionsText, {
                 [styles.darkThemeContentActionsText]: context.theme === 'dark',
-            })}>07.11.22 at 23:57</Htag>
+            })}>{formatTime(date, router.locale)}</Htag>
         </div>
     );
 };

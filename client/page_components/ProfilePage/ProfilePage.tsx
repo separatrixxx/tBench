@@ -25,6 +25,8 @@ export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
     const [username, setUsername] = useState<string>('separatrix');
     const [userInfo, setUserInfo] = useState<string>('Я создал это говно, хз, как оно вам. Я, кстати, сепаратриса :)');
     const [image, setImage] = useState<string>('');
+    const [postId, setPostId] = useState<number>(NaN);
+    const [typeContent, setTypeContent] = useState<'post' | 'comments'>('post');
 
     return (
         <AppContextProvider theme={theme}>
@@ -38,11 +40,11 @@ export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
                     <BackButton link='/content' />
                     <ProfileInfo active={active} setActive={setActive} setType={setType} username={username}
                         userInfo={userInfo} />
-                    <UserContentList setActive={setActiveContent} setImage={setImage} />
+                    <UserContentList setType={setTypeContent} setActive={setActiveContent} setImage={setImage} setPostId={setPostId} />
                 </div>
                 <ProfileModal type={type} active={active} setActive={setActive} username={username} setUsername={setUsername}
                     userInfo={userInfo} setUserInfo={setUserInfo} />
-                <ContentModal active={activeContent} setActive={setActiveContent} image={image} />
+                <ContentModal type={typeContent} active={activeContent} setActive={setActiveContent} image={image} postId={postId} />
             </div>
         </AppContextProvider>
     );

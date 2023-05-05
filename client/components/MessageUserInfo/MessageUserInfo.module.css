@@ -13,7 +13,7 @@
 }
 
 .darkThemeMessageUserInfoBlock {
-	background: var(--darkTheme);
+	background: var(--dark);
 }
 
 .messageUserInfoBlock:active {
@@ -25,13 +25,19 @@
 .darkThemeMessageUserInfoBlock:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-	background: var(--dark);
+	background: var(--darkTheme);
 }
 
 .username {
 	color: var(--primary) !important;
 
 	font-weight: 600 !important;
+}
+
+.darkThemeText {
+	transition-duration: 300ms;
+
+	color: var(--white);
 }
 
 @media (min-width: 1024px) {
@@ -44,7 +50,7 @@
 	.darkThemeMessageUserInfoBlock:hover {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
-		background: var(--dark);
+		background: var(--darkTheme);
 	}
 }
 
