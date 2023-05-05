@@ -35,6 +35,7 @@ export const de = {
     verify: "Benutzer verifiziert",
     profile: "Profil",
     content: "Inhalt",
+    messages: "Mitteilungen",
     male: "Mann",
     female: "Frau",
     unknown: "Unbekannt",

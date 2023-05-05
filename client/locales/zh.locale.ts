@@ -35,6 +35,7 @@ export const zh = {
     verify: "用户验证",
     profile: "轮廓",
     content: "内容",
+    messages: "讯息",
     male: "男人",
     female: "女士",
     unknown: "未知",

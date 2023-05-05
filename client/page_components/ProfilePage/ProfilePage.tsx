@@ -5,12 +5,12 @@ import { ProfileInfo } from 'components/ProfileInfo/ProfileInfo';
 import { UserContentList } from 'components/UserContentList/UserContentList';
 import { AppContextProvider } from 'context/app.context';
 import { useState } from 'react';
-import cn from 'classnames';
 import { ProfileCover } from 'components/ProfileCover/ProfileCover';
 import { ProfileImage } from 'components/ProfileImage/ProfileImage';
 import { ProfileModal } from 'components/ProfileModal/ProfileModal';
 import { ProfileOptions } from 'components/ProfileOptions/ProfileOptions';
 import { ContentModal } from 'components/ContentModal/ContentModal';
+import cn from 'classnames';
 
 
 export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {

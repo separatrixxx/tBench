@@ -35,6 +35,7 @@ export const en = {
     verify: "User verified",
     profile: "Profile",
     content: "Content",
+    messages: "Messages",
     male: "Male",
     female: "Female",
     unknown: "Unknown",

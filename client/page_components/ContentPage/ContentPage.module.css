@@ -24,6 +24,35 @@
 	margin-right: 20px;
 }
 
+.pagesSwitch {
+	display: grid;
+
+	margin-top: 80px;
+	grid-template-columns: auto auto;
+	gap: 20px;
+}
+
+.switchText {
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.dontActiveText {
+	color: var(--light);
+}
+
+.darkThemeSwitchText {
+	transition-duration: 300ms;
+
+	color: var(--white);
+}
+
+.darkThemeDontActiveText {
+	transition-duration: 300ms;
+
+	color: var(--darkTheme_light);
+}
+
 @media (max-width: 580px) {
 	.headerContent {
 		gap: 15px;
