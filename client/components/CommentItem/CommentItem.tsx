@@ -31,7 +31,7 @@ export const CommentItem = ({ type, image, text, username, userImage, date }: Co
 						/>
 					</Link>
 					<div className={styles.commentBody}>
-						<Link href={username}>
+						<Link href={username} className={styles.link}>
 							<Htag tag='s' className={styles.username}>
 								{username}
 							</Htag>
@@ -66,7 +66,7 @@ export const CommentItem = ({ type, image, text, username, userImage, date }: Co
 						/>
 					</Link>
 					<div className={styles.commentBody}>
-						<Link href={username}>
+						<Link href={username} className={styles.link}>
 							<Htag tag='s' className={styles.username}>
 								{username}
 							</Htag>
@@ -95,7 +95,7 @@ export const CommentItem = ({ type, image, text, username, userImage, date }: Co
 						/>
 					</Link>
 					<div className={styles.commentBody}>
-						<Link href={username}>
+						<Link href={username} className={styles.link}>
 							<Htag tag='s' className={styles.username}>
 								{username}
 							</Htag>

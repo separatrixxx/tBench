@@ -18,6 +18,7 @@ export const NotificationsButton = ({ isNotification }: NotificationsButtonProps
 		})}>
 			<Bell onClick={() => setNotify(false)} />
 			<span className={cn(styles.notify, {
+				[styles.darkThemeNotify]: context.theme === 'dark',
 				[styles.visible]: notify,
 			})} />
 		</span>
