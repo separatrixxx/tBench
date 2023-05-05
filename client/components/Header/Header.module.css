@@ -45,6 +45,7 @@
 }
 
 .text {
+	cursor: pointer;
 	transition-duration: 300ms;
 
 	color: var(--white) !important;

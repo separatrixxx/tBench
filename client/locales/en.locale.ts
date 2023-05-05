@@ -41,4 +41,8 @@ export const en = {
     last_seen: "last seen at",
     online: "online",
     at: "at",
+    about: 'About',
+    ecosystem: 'Ecosystem',
+    explore: 'Explore',
+    wallet: 'Wallet',
 };
