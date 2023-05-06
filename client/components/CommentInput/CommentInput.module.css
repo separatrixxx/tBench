@@ -51,7 +51,7 @@
 	fill: var(--light);
 }
 
-.iconComment:focus {
+.iconComment:active {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	fill: var(--primary);
