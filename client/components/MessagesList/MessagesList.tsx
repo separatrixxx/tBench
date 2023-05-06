@@ -1,12 +1,7 @@
 import styles from './MessagesList.module.css';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
-import cn from 'classnames';
 import { MessageItem } from 'components/MessageItem/MessageItem';
 
 export const MessagesList = (): JSX.Element => {
-    const context = useContext(AppContext);
-
     const message1 = {
         id: 1,
         userImage: 'https://cs12.pikabu.ru/post_img/big/2022/11/08/10/1667929102152124336.jpg',
