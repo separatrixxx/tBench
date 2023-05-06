@@ -29,7 +29,7 @@ export const MessageItem = ({ messageId, userImage, username, text, date }: Mess
 					unoptimized={true}
 					priority={true}
 				/>
-		    </Link>
+			</Link>
             <div className={styles.messageBody}>
 				<Link href={username} className={styles.link}>
 					<Htag tag='s' className={styles.username}>
