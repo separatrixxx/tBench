@@ -25,6 +25,12 @@
 	font-weight: 600 !important;
 }
 
+.username:active {
+	filter: brightness(0.7);
+
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .link {
 	width: fit-content;
 }
@@ -52,12 +58,6 @@
 	border-radius: 9999px;
 
 	background: var(--primary);
-}
-
-.username:active {
-	filter: brightness(0.7);
-
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .profileImage:active {

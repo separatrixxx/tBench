@@ -53,6 +53,29 @@
 	color: var(--darkTheme_light);
 }
 
+.pagesWrapper {
+	display: grid;
+	overflow: hidden;
+	align-items: start;
+	grid-template-columns: 100% 100%;
+}
+
+.contentPage {
+	display: grid;
+
+	width: 100%;
+
+	justify-items: center;
+}
+
+.messagesPage {
+	display: grid;
+
+	width: 100%;
+
+	justify-items: center;
+}
+
 @media (max-width: 580px) {
 	.headerContent {
 		gap: 15px;

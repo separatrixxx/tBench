@@ -11,7 +11,9 @@ import { ContentModal } from 'components/ContentModal/ContentModal';
 import { NotificationsButton } from 'components/NotificationsButton/NotificationsButton';
 import { Htag } from 'components/Htag/Htag';
 import { setLocale } from 'helpers/locale.helper';
+import { motion } from 'framer-motion';
 import cn from 'classnames';
+import { MessagesList } from 'components/MessagesList/MessagesList';
 
 
 export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
@@ -22,6 +24,15 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
     const [postId, setPostId] = useState<number>(NaN);
     const [typeContent, setTypeContent] = useState<'post' | 'comments'>('post');
     const [page, setPage] = useState<'content' | 'messages'>('content');
+
+    const variants = {
+        content: {
+            transform: 'translate(0%, 0%)',
+        },
+        messages: {
+            transform: 'translate(-100%, 0%)',
+        }
+    };
 
     return (
         <AppContextProvider theme={theme} >
@@ -45,7 +56,22 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
                         [styles.darkThemeDontActiveText]: page !== 'messages' && theme === 'dark',
                     })} onClick={() => setPage('messages')}>{setLocale(router.locale).messages}</Htag>
                 </div>
-                <ContentList setType={setTypeContent} setActive={setActiveContent} setImage={setImage} setPostId={setPostId} />
+                <div className={styles.pagesWrapper}>
+                    <motion.div className={styles.contentPage}
+                        variants={variants}
+                        initial={page === 'content' ? 'content' : 'messages'}
+                        transition={{ duration: 0.3 }}
+                        animate={page === 'content' ? 'content' : 'messages'}>
+                        <ContentList setType={setTypeContent} setActive={setActiveContent} setImage={setImage} setPostId={setPostId} />
+                    </motion.div>
+                    <motion.div className={styles.messagesPage}
+                        variants={variants}
+                        initial={page === 'content' ? 'content' : 'messages'}
+                        transition={{ duration: 0.3 }}
+                        animate={page === 'content' ? 'content' : 'messages'}>
+                        <MessagesList />
+                    </motion.div>
+                </div>
                 <ContentModal type={typeContent} active={activeContent} setActive={setActiveContent} image={image} postId={postId} />
             </div>
         </AppContextProvider>
