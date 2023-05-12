@@ -47,3 +47,15 @@
 		background: var(--darkTheme_light);
 	}
 }
+
+@media (max-width: 1024px) {
+	.card {
+		width: 70%;
+	}
+}
+
+@media (max-width: 580px) {
+	.card {
+		width: 80%;
+	}
+}

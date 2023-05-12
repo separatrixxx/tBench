@@ -48,11 +48,16 @@
 }
 
 .messageText {
+	display: -webkit-box;
+	overflow: hidden;
+
 	margin: 0;
 
 	user-select: none;
 
 	transition-duration: 300ms;
+	text-align: start;
+	text-overflow: ellipsis;
 
 	word-wrap: break-word;
 
@@ -87,11 +92,5 @@
 		filter: brightness(0.7);
 
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-	}
-}
-
-@media (max-width: 1024px) {
-	.messageItemBlock {
-		width: 70%;
 	}
 }
