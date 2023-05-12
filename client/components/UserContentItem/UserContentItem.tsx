@@ -6,6 +6,7 @@ import { useContext } from 'react';
 import { AppContext } from 'context/app.context';
 import cn from 'classnames';
 
+
 export const UserContentItem = ({ type, image, text, postId, date, setType, setActive, setImage, setPostId }: UserContentItemProps): JSX.Element => {
     const context = useContext(AppContext);
 

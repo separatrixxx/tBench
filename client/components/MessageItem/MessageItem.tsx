@@ -7,19 +7,18 @@ import { AppContext } from 'context/app.context';
 import Link from 'next/link';
 import { Htag } from 'components/Htag/Htag';
 import { formatTime } from 'helpers/format.helper';
+import { Card } from 'components/Card/Card';
 import cn from 'classnames';
 
 
 export const MessageItem = ({ messageId, userImage, username, text, date }: MessageItemProps): JSX.Element => {
-    const router = useRouter();
+	const router = useRouter();
 
-    const context = useContext(AppContext);
+	const context = useContext(AppContext);
 
-    return (
-        <div className={cn(styles.messageItemBlock, {
-            [styles.darkThemeMessageItemBlock]: context.theme === 'dark',
-        })}>
-            <Link href={username}>
+	return (
+		<Card hover={true}>
+			<Link href={username}>
 				<Image className={styles.profileImage} draggable='false'
 					loader={() => userImage}
 					src={userImage}
@@ -30,7 +29,7 @@ export const MessageItem = ({ messageId, userImage, username, text, date }: Mess
 					priority={true}
 				/>
 			</Link>
-            <div className={styles.messageBody}>
+			<div className={styles.messageBody}>
 				<Link href={username} className={styles.link}>
 					<Htag tag='s' className={styles.username}>
 						{username}
@@ -43,6 +42,6 @@ export const MessageItem = ({ messageId, userImage, username, text, date }: Mess
 					[styles.darkThemeDataText]: context.theme === 'dark',
 				})}>{formatTime(date, router.locale)}</Htag>
 			</div>
-        </div>
-    );
+		</Card>
+	);
 };
