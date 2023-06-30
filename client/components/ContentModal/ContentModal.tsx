@@ -46,7 +46,7 @@ export const ContentModal = ({ type, active, setActive, image, postId }: Content
 
 	const comments = [comment1, comment2, comment3];
 
-	if (type == 'post') {
+	if (type == 'post' && image) {
 		return (
 			<Modal active={active} setActive={setActive}>
 				<Image className={cn(styles.userContentImageFull, {

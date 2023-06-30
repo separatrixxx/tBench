@@ -38,25 +38,27 @@
 }
 
 .dontActiveText {
-	color: var(--light);
+	color: var(--light) !important;
 }
 
 .darkThemeSwitchText {
 	transition-duration: 300ms;
 
-	color: var(--white);
+	color: var(--white) !important;
 }
 
 .darkThemeDontActiveText {
 	transition-duration: 300ms;
 
-	color: var(--darkTheme_light);
+	color: var(--darkTheme_light) !important;
 }
 
 .pagesWrapper {
 	display: grid;
 	overflow: hidden;
 	align-items: start;
+
+	width: 100%;
 	grid-template-columns: 100% 100%;
 }
 
