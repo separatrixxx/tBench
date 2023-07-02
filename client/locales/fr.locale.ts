@@ -42,8 +42,8 @@ export const fr = {
     last_seen: "vu dernièrement à",
     online: "en ligne",
     at: "à",
-    about: 'À propos',
-    ecosystem: 'Écosystème',
-    explore: 'Explorer',
-    wallet: 'Portefeuille',
+    about: "À propos",
+    ecosystem: "Écosystème",
+    explore: "Explorer",
+    wallet: "Portefeuille",
 };
