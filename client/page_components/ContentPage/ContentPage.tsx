@@ -35,7 +35,7 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
     };
 
     return (
-        <AppContextProvider theme={theme} >
+        <AppContextProvider theme={theme}>
             <div className={cn(styles.contentWrapper, {
                 [styles.darkThemeWrapper]: theme === 'dark',
             })}>
