@@ -12,6 +12,13 @@
 
 ### Переменные
 
+- имена переменных должны представлять из себя осмысленные слова или выражения:
+
+```javascript
+let flag: boolean = false; //правильно
+let a: boolean = false; //неправильно
+```
+
 - имена переменных следует писать в стиле `camelCase`:
 
 ```javascript
@@ -28,6 +35,18 @@ const WOW_ITS_CONST: number = 123;
 
 ### Функции
 
+- имена функци1 должны представлять из себя осмысленные слова или выражения:
+
+```javascript
+function numberIncrease(counter: number): number {
+	...
+} //правильно
+
+function func(counter: number): number {
+	...
+} //неправильно
+```
+
 - в конце функций точка с запятой не нужна (исключение составляют стрелочные функции);
 
 - имена функций следует писать в стиле `camelCase`;
@@ -39,7 +58,7 @@ const WOW_ITS_CONST: number = 123;
 ```javascript
 //вид функции
 function myCoolFunc(param1: number, param2: string): number {
-
+	...
 }
 ```
 
