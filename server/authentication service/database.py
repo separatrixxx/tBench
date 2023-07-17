@@ -56,3 +56,15 @@ class Database():
             if updated_user:
                 return True
         return False
+
+
+    async def update_user_password(self,username,old_password,user_dict:dict):
+        user = await self.user_collection.find_one({"username": username, 'password':old_password})
+        if user:
+            updated_user = await self.user_collection.update_one(
+                {"username": username}, {"$set": user_dict}
+            )
+            if updated_user:
+                return True
+        return False
+

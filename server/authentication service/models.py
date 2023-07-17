@@ -14,7 +14,8 @@ class Registration_User(BaseModel):
 
 class Login_User(BaseModel):
     username: str
-    password: str
+    old_password: str
+    new_password: str
 
 class Update_User(BaseModel):
     name: Optional[str] = None

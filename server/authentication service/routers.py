@@ -31,17 +31,34 @@ async def login_user(username:str,password:str):
 
 
 
-@router.put("/update_user/{nickname}", response_description="Update user")
+@router.put("/update_user/{username}", response_description="Update user")
 async def update_user(user:Update_User):
     username = user.username
     user = dict(user)
     del user['username']
     res = await data.update_user_information(username,user)
-    return res
+    if res:
+        return ResponseModel(res, 'Succes update user')
+    else:
+        return ErrorResponseModel('Error', 200, 'Error')
 
-@router.put("/update_user_password/{nickname}", response_description="Update user password")
-def update_password_user(user:Login_User):
-    pass
+@router.put("/update_user_password/{username}", response_description="Update user password")
+async def update_password_user(user:Login_User):
+    dict_user = {
+        'password':user.new_password
+    }
+    res = await data.update_user_password(user.username,user.old_password,dict_user)
+    if res:
+        return ResponseModel(res,'Succes change password')
+    else:
+        return ErrorResponseModel('Error', 200, 'Choose correct username/password')
+
+
+
+
+
+
+
 
 
 
