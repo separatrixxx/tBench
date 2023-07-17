@@ -19,6 +19,12 @@ class Database():
             'gender': user['gender'],
 
         }
+    @staticmethod
+    def user_login_helper(user) -> dict:
+        return {
+            'username': user['username'],
+            'password': user['password'],
+        }
     async def create_user(self,user:dict):
         try:
             user = await self.user_collection.insert_one(user)
@@ -27,6 +33,18 @@ class Database():
         except:
             print(traceback.format_exc())
             return False
+
+
+
+    async def check_password(self,user_login:dict):
+
+        user = await self.user_collection.find_one({"username": user_login['username']})
+        user = self.user_login_helper(user)
+        if user:
+            res = (lambda user,user_login: True if user['password'] == user_login['password'] else False)(user,user_login)
+        else:
+            res = False
+        return res
 
 
     # async def add_message(self,message_data: dict) -> dict:

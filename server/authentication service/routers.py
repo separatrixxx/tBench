@@ -19,8 +19,15 @@ async def create_new_user(user:Registration_User):
     else:
         return ErrorResponseModel('Username already exists',200,'Choose another nickname')
 @router.get("/login", response_description= "login user" )
-def login_user(user:Login_User):
-    pass
+async def login_user(username:str,password:str):
+    user = {
+        'username':username,
+        'password':password
+    }
+    res = await data.check_password(dict(user))
+    if res:
+        return ResponseModel(res,'Succes login')
+    return ErrorResponseModel('Error',200,'Choose correct username/password')
 
 
 
