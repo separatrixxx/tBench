@@ -4,4 +4,5 @@ export interface DynamicLineProps extends DetailedHTMLProps<HTMLAttributes<HTMLD
 	type: '1' | '2' | '3',
 	direction: 'right' | 'left',
 	speed: 'fast' | 'medium' | 'slow',
+	elements: any[];
 }

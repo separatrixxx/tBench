@@ -1,21 +1,22 @@
 import { DynamicLineProps } from './DynamicLine.props';
 import styles from './DynamicLine.module.css';
-import Cocacola from './cocacola.svg';
-import Facebook from './facebook.svg';
-import Lenta from './lenta.svg';
-import Megafon from './megafon.svg';
-import Mts from './mts.svg';
-import Netflix from './netflix.svg';
-import Perekrestok from './perekrestok.svg';
-import Rosbank from './rosbank.svg';
-import Sber from './sber.svg';
-import Visa from './visa.svg';
-import Yandex from './yandex.svg';
-import Yula from './yula.svg';
 import cn from 'classnames';
 
 
-export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.Element => {
+export const DynamicLine = ({ type, direction, speed, elements }: DynamicLineProps): JSX.Element => {
+	const E0: any = elements[0];
+	const E1: any = elements[1];
+	const E2: any = elements[2];
+	const E3: any = elements[3];
+	const E4: any = elements[4];
+	const E5: any = elements[5];
+	const E6: any = elements[6];
+	const E7: any = elements[7];
+	const E8: any = elements[8];
+	const E9: any = elements[9];
+	const E10: any = elements[10];
+	const E11: any = elements[11];
+
 	if (type === '1') {
 		return (
 			<div className={styles.lineWrapper}>
@@ -26,12 +27,12 @@ export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.E
 					[styles.medium]: speed === 'medium',
 					[styles.slow]: speed === 'slow',
 				})}>
-					<Yandex />
-					<Netflix />
-					<Sber />
-					<Visa />
-					<Rosbank />
-					<Lenta />
+					<E10 />
+					<E5 />
+					<E8 />
+					<E9 />
+					<E7 />
+					<E2 />
 				</span>
 				<span className={cn(styles.line, {
 					[styles.line2Right]: direction === 'right',
@@ -40,12 +41,12 @@ export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.E
 					[styles.medium]: speed === 'medium',
 					[styles.slow]: speed === 'slow',
 				})}>
-					<Megafon />
-					<Perekrestok />
-					<Yula />
-					<Facebook />
-					<Mts />
-					<Cocacola />
+					<E3 />
+					<E6 />
+					<E11 />
+					<E1 />
+					<E4 />
+					<E0 />
 				</span>
 				<span className={cn(styles.line, {
 					[styles.line3Right]: direction === 'right',
@@ -54,12 +55,12 @@ export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.E
 					[styles.medium]: speed === 'medium',
 					[styles.slow]: speed === 'slow',
 				})}>
-					<Yandex />
-					<Netflix />
-					<Sber />
-					<Visa />
-					<Rosbank />
-					<Lenta />
+					<E10 />
+					<E5 />
+					<E8 />
+					<E9 />
+					<E7 />
+					<E2 />
 				</span>
 			</div>
 		);
@@ -73,12 +74,12 @@ export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.E
 					[styles.medium]: speed === 'medium',
 					[styles.slow]: speed === 'slow',
 				})}>
-					<Mts />
-					<Cocacola />
-					<Yula />
-					<Facebook />
-					<Megafon />
-					<Perekrestok />
+					<E4 />
+					<E0 />
+					<E11 />
+					<E1 />
+					<E3 />
+					<E6 />
 				</span>
 				<span className={cn(styles.line, {
 					[styles.line2Right]: direction === 'right',
@@ -87,12 +88,12 @@ export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.E
 					[styles.medium]: speed === 'medium',
 					[styles.slow]: speed === 'slow',
 				})}>
-					<Sber />
-					<Netflix />
-					<Rosbank />
-					<Yandex />
-					<Lenta />
-					<Facebook />
+					<E8 />
+					<E5 />
+					<E7 />
+					<E10 />
+					<E2 />
+					<E1 />
 				</span>
 				<span className={cn(styles.line, {
 					[styles.line3Right]: direction === 'right',
@@ -101,12 +102,12 @@ export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.E
 					[styles.medium]: speed === 'medium',
 					[styles.slow]: speed === 'slow',
 				})}>
-					<Mts />
-					<Cocacola />
-					<Yula />
-					<Facebook />
-					<Megafon />
-					<Perekrestok />
+					<E4 />
+					<E0 />
+					<E11 />
+					<E1 />
+					<E3 />
+					<E6 />
 				</span>
 			</div>
 		);
@@ -120,12 +121,12 @@ export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.E
 					[styles.medium]: speed === 'medium',
 					[styles.slow]: speed === 'slow',
 				})}>
-					<Lenta />
-					<Perekrestok />
-					<Netflix />
-					<Yula />
-					<Megafon />
-					<Facebook />
+					<E2 />
+					<E6 />
+					<E5 />
+					<E11 />
+					<E3 />
+					<E1 />
 				</span>
 				<span className={cn(styles.line, {
 					[styles.line2Right]: direction === 'right',
@@ -134,12 +135,12 @@ export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.E
 					[styles.medium]: speed === 'medium',
 					[styles.slow]: speed === 'slow',
 				})}>
-					<Cocacola />
-					<Yandex />
-					<Sber />
-					<Mts />
-					<Rosbank />
-					<Visa />
+					<E0 />
+					<E10 />
+					<E8 />
+					<E4 />
+					<E7 />
+					<E9 />
 				</span>
 				<span className={cn(styles.line, {
 					[styles.line3Right]: direction === 'right',
@@ -148,12 +149,12 @@ export const DynamicLine = ({ type, direction, speed }: DynamicLineProps): JSX.E
 					[styles.medium]: speed === 'medium',
 					[styles.slow]: speed === 'slow',
 				})}>
-					<Lenta />
-					<Perekrestok />
-					<Netflix />
-					<Yula />
-					<Rosbank />
-					<Facebook />
+					<E2 />
+					<E6 />
+					<E5 />
+					<E11 />
+					<E3 />
+					<E1 />
 				</span>
 			</div>
 		);
