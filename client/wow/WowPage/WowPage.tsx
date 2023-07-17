@@ -16,6 +16,7 @@ import Sber from './DLElements/sber.svg';
 import Visa from './DLElements/visa.svg';
 import Yandex from './DLElements/yandex.svg';
 import Yula from './DLElements/yula.svg';
+import { NumberCounter } from 'wow/NumberCounter/NumberCounter';
 
 
 export const WowPage = (): JSX.Element => {
@@ -29,6 +30,8 @@ export const WowPage = (): JSX.Element => {
 			<DynamicLine type='3' direction='right' speed='slow' elements={elements} />
 			<Htag tag='l' className={styles.text}>Wow Cursor</Htag>
 			<WowCursor />
+			<Htag tag='l' className={styles.text}>Number Counter</Htag>
+			<NumberCounter number={1603} time={700} step={1} />
 			<Htag tag='l' className={styles.text}>Wow Button</Htag>
 			<WowButton />
 			{/* <Htag tag='l' className={styles.text}>Looking 3D</Htag>
