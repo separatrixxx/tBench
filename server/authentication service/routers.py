@@ -32,8 +32,12 @@ async def login_user(username:str,password:str):
 
 
 @router.put("/update_user/{nickname}", response_description="Update user")
-def update_user(user:Update_User):
-    pass
+async def update_user(user:Update_User):
+    username = user.username
+    user = dict(user)
+    del user['username']
+    res = await data.update_user_information(username,user)
+    return res
 
 @router.put("/update_user_password/{nickname}", response_description="Update user password")
 def update_password_user(user:Login_User):

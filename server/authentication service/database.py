@@ -47,14 +47,12 @@ class Database():
         return res
 
 
-    # async def add_message(self,message_data: dict) -> dict:
-    #
-    #     message = await self.user_collection.insert_one(message_data)
-    #     new_message = await self.user_collection.find_one({'_id': message.inserted_id})
-    #
-    #     return self.message_helper(new_message)
-    #
-    # async def get_all_message(self):
-    #     messages = [self.message_helper(message) async for message in self.user_collection.find()]
-    #
-    #     return messages
+    async def update_user_information(self,username,user_dict:dict):
+        user = await self.user_collection.find_one({"username": username})
+        if user:
+            updated_user = await self.user_collection.update_one(
+                {"username": username}, {"$set": user_dict}
+            )
+            if updated_user:
+                return True
+        return False

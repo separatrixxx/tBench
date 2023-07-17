@@ -17,11 +17,11 @@ class Login_User(BaseModel):
     password: str
 
 class Update_User(BaseModel):
-    name: str
-    surname: str
+    name: Optional[str] = None
+    surname: Optional[str] = None
     username: str
-    email: EmailStr
-    gender: str
+    email: Optional[EmailStr] = None
+    gender: Optional[str] = None
 
 def ResponseModel(data, message):
     return {
