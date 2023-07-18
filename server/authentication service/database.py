@@ -1,5 +1,5 @@
 from motor import motor_asyncio
-from models import *
+from .models import *
 from bson.objectid import ObjectId
 import traceback
 class Database():
