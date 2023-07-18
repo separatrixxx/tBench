@@ -1,0 +1,53 @@
+.userContentImageFull {
+	cursor: pointer;
+	user-select: none;
+
+	border-radius: 10px;
+}
+
+.widthFull {
+	width: max-content;
+	height: 80vh;
+}
+
+.heightFull {
+	width: 80vw;
+	height: max-content;
+}
+
+.commentsList {
+	display: grid;
+	overflow-y: scroll;
+	align-items: center;
+
+	width: 50vw;
+	height: 60vh;
+	gap: 20px;
+}
+
+.commentsBlock {
+	margin-bottom: 40px;
+}
+
+@media (max-width: 750px) {
+	.commentsList {
+		width: 60vw;
+	}
+}
+
+@media (max-width: 580px) {
+	.commentsList {
+		width: 80vw;
+		height: 70vh;
+	}
+
+	.commentsBlock {
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 300px) {
+	.userContentImageFull {
+		border-radius: 10px;
+	}
+}

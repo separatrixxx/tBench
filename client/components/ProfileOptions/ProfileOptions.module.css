@@ -1,0 +1,86 @@
+.profileOptions {
+	position: fixed;
+	z-index: 10000;
+	top: 0;
+	right: 0;
+
+	display: grid;
+	align-items: center;
+
+	margin: 15px;
+
+	transition-duration: 300ms;
+	transition-property: color, background-color, fill;
+
+	border-radius: 9999px;
+
+	background: var(--white);
+	filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
+}
+
+.darkThemeProfileOptions {
+	transition-duration: 300ms;
+
+	background: var(--darkTheme);
+}
+
+.hidden {
+	z-index: 9999;
+}
+
+.blockProfileOptions {
+	display: grid;
+	align-items: center;
+}
+
+.optionsButton {
+	display: grid;
+	align-items: center;
+
+	padding: 4px;
+
+	transition-duration: 300ms;
+	transition-property: color, background-color, fill;
+
+	border-radius: 9999px;
+	background: var(--white);
+	justify-items: center;
+}
+
+.optionsButton > svg {
+	width: 30px;
+	height: 30px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	transition-property: color, background-color, fill;
+
+	fill: var(--dark);
+}
+
+.darkThemeOptionsButton > svg {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	fill: var(--white);
+}
+
+.optionsButton > svg:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	fill: var(--primary);
+}
+
+.darkThemeOptionsButton {
+	transition-duration: 300ms;
+
+	background: var(--darkTheme);
+}
+
+@media (min-width: 1024px) {
+	.optionsButton > svg:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		fill: var(--primary);
+	}
+}

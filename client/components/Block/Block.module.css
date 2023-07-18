@@ -1,0 +1,47 @@
+.textBlock {
+	width: 100%;
+	height: 80vh;
+	margin-bottom: 20px;
+}
+
+.imageBlock {
+	width: 100%;
+	height: 80vh;
+	margin-bottom: 20px;
+
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.duoBlock {
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+
+@media (max-width: 1024px) {
+	.textBlock {
+		height: 40vh;
+	}
+
+	.imageBlock {
+		height: 40vh;
+	}
+}
+
+@media (max-width: 580px) {
+	.textBlock {
+		width: 100%;
+		height: 70vh;
+		margin-bottom: 10px;
+	}
+
+	.imageBlock {
+		height: 70vh;
+		margin-bottom: 10px;
+	}
+
+	.duoBlock {
+		grid-template-columns: 100%;
+	}
+}
