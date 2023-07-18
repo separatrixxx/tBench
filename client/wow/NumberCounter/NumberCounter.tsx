@@ -4,14 +4,14 @@ import { useEffect, useState } from 'react';
 import { useScrollY } from 'hooks/useScrollY';
 
 
-export const NumberCounter = ({ number, time, step }: NumberCounterProps): JSX.Element => {
+export const NumberCounter = ({ id, number, time, step }: NumberCounterProps): JSX.Element => {
 	const [e, setE] = useState<Element>();
 	const [flag, setFlag] = useState<boolean>(false);
 
 	const y = useScrollY();
 
 	useEffect(() => {
-		const e = document.querySelector("#counter");
+		const e = document.querySelector("#" + id);
 
 		if (e) {
 			setE(e);
@@ -20,7 +20,7 @@ export const NumberCounter = ({ number, time, step }: NumberCounterProps): JSX.E
 				setFlag(true);
 			}
 		}
-	}, [y]);
+	}, [y, id]);
 
 	let n = 0;
 	const t = Math.round(time / (number / step));
@@ -40,7 +40,7 @@ export const NumberCounter = ({ number, time, step }: NumberCounterProps): JSX.E
 
 	return (
 		<div className={styles.counterWrapper}>
-			<h1 id='counter' className={styles.counter}>0</h1>
+			<h1 id={id} className={styles.counter}>0</h1>
 		</div>
 	);
 };
