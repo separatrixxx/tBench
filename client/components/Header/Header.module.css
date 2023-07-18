@@ -82,19 +82,19 @@
 	.headerBlock {
 		grid-template-columns: auto;
 		grid-template-rows: auto auto auto;
-		gap: 0;
+		gap: 0 !important;
 
-		padding: 0 0 0 20px;
+		padding: 0 0 0 20px !important;
 		justify-self: left;
 		justify-items: left;
 	}
 
 	.text {
-		margin: 10px 0 10px 0;
+		margin: 10px 0 10px 0 !important;
 	}
 
 	.text:first-child {
-		margin-top: 20px;
+		margin-top: 20px !important;
 	}
 
 	.logo {

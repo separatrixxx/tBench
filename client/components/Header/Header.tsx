@@ -14,11 +14,13 @@ export const Header = ({ links }: HeaderProps): JSX.Element => {
     const [open, setOpen] = useState<boolean>(false);
     const [lastScroll, setLastScroll] = useState<number>(0);
     const [flag, setFlag] = useState<boolean>(false);
+    const [hidden, setHidden] = useState<boolean>(false);
 
     const scrollPosition = useScrollY();
     const width = useResizeW();
 
     if (scrollPosition - lastScroll >= 200 && scrollPosition > lastScroll) {
+        setOpen(false);
         setFlag(true);
         setLastScroll(scrollPosition);
     } else if (scrollPosition < lastScroll) {
@@ -70,12 +72,13 @@ export const Header = ({ links }: HeaderProps): JSX.Element => {
                 animate={open || width > 1024 ? 'visible' : 'hidden'}
                 style={width > 1024 ? { gridTemplateColumns: `repeat(${links.length}, auto)` } : { gridTemplateRows: `repeat(${links.length}, auto)` }}>
                 {links.map(l => (
-                    <Link href={"/" + l.link} key={l.link}>
+                    <Link href={"/" + l.link} key={l.link}
+                        style={hidden ? { display: 'none' } : { display: 'block' }}>
                         <Htag tag='xs' className={styles.text}>{l.title}</Htag>
                     </Link>
                 ))}
             </motion.div>
-            <BurgerMenu open={open} setOpen={setOpen} />
+            <BurgerMenu open={open} setOpen={setOpen} setHidden={setHidden} />
         </motion.header>
     );
 };
