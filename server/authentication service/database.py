@@ -4,7 +4,7 @@ from bson.objectid import ObjectId
 import traceback
 class Database():
     def __init__(self):
-        self.client = motor_asyncio.AsyncIOMotorClient("mongodb://localhost:27017")
+        self.client = motor_asyncio.AsyncIOMotorClient("mongodb://mongodb:27017/")
         self.database = self.client.users
         self.user_collection = self.database.get_collection('users_collection')
 
