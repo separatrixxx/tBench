@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from database import *
-from models import *
+from .database import *
+from .models import *
 import json
 from fastapi.encoders import jsonable_encoder
 
