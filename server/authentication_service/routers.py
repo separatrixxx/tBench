@@ -1,6 +1,6 @@
 from fastapi import APIRouter
-from .database import *
-from .models import *
+from database import *
+from models import *
 import json
 from fastapi.encoders import jsonable_encoder
 
@@ -19,15 +19,31 @@ async def create_new_user(user:Registration_User):
     else:
         return ErrorResponseModel('Username already exists',200,'Choose another nickname')
 @router.get("/login", response_description= "login user" )
-async def login_user(username:str,password:str):
+async def login_user(username:str = None,password:str = None, email:str = None):
+    res = False
     user = {
         'username':username,
-        'password':password
+        'password':password,
     }
-    res = await data.check_password(dict(user))
+    try:
+        res = await data.check_password_with_username(dict(user))
+    except:
+        pass
     if res:
-        return ResponseModel(res,'Succes login')
-    return ErrorResponseModel('Error',200,'Choose correct username/password')
+        return ResponseModel(res,'Succes login with username')
+
+    user = {
+        'email':email,
+        'password':password,
+    }
+    try:
+        res = await data.check_password_with_email(dict(user))
+    except:
+        pass
+    if res:
+        return ResponseModel(res,'Succes login with email')
+
+    return ErrorResponseModel('Error',200,'Choose correct username/password/password')
 
 
 
