@@ -56,14 +56,21 @@ async def update_user(username:str,user:Update_User):
     else:
         return ErrorResponseModel('Error', 200, 'Error')
 
-@router.put("/update_user_password/{username}", response_description="Update user password")
-async def update_password_user(username:str,user:Login_User):
+@router.put("/update_user_password", response_description="Update user password")
+async def update_password_user(user:Login_User):
     dict_user = {
         'password':user.new_password
     }
-    res = await data.update_user_password(username,user.old_password,dict_user)
+
+    res = await data.update_user_password(user.username,user.old_password,dict_user)
     if res:
-        return ResponseModel(res,'Succes change password')
+        return ResponseModel(res, 'Succes change password with username')
+    else:
+        res = await data.update_user_password_with_email(user.email,user.old_password,dict_user)
+
+    if res:
+        return ResponseModel(res, 'Succes change password with email')
+
     else:
         return ErrorResponseModel('Error', 200, 'Choose correct username/password')
 

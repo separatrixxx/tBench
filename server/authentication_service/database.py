@@ -95,3 +95,12 @@ class Database():
         return res
 
 
+    async def update_user_password_with_email(self,email,old_password,user_dict:dict):
+        user = await self.user_collection.find_one({"email": email, 'password': old_password})
+        if user:
+            updated_user = await self.user_collection.update_one(
+                {"email": email}, {"$set": user_dict}
+            )
+            if updated_user:
+                return True
+        return False

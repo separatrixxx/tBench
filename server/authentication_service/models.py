@@ -13,8 +13,11 @@ class Registration_User(BaseModel):
 
 
 class Login_User(BaseModel):
-    old_password: str
-    new_password: str
+    username:str = None
+    email:str = None
+    old_password: str = None
+    new_password: str = None
+
 
 class Update_User(BaseModel):
     name: Optional[str] = None
