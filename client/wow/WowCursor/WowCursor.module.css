@@ -1,0 +1,64 @@
+.cursorWrapper {
+	display: grid;
+	align-items: center;
+
+	width: 100%;
+	height: 500px;
+
+	cursor: none;
+
+	background: var(--dark);
+	justify-items: center;
+}
+
+.cursor,
+.aura {
+	position: absolute;
+
+	user-select: none;
+	pointer-events: none;
+
+	border-radius: 100%;
+}
+
+.cursor {
+	z-index: 20000;
+
+	width: 8px;
+	height: 8px;
+
+	background: rgba(255, 255, 255, 0.5);
+}
+
+.aura {
+	z-index: 19999;
+
+	width: 46px;
+	height: 46px;
+
+	transform: translate(5px, 5px);
+
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.text {
+	transition-duration: 300ms;
+
+	color: var(--white);
+
+	font-weight: 900;
+}
+
+.text:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--primary);
+}
+
+@media (min-width: 1024px) {
+	.text:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		color: var(--primary);
+	}
+}

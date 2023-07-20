@@ -1,0 +1,23 @@
+.profileActionsBar {
+	z-index: 10000;
+
+	display: grid;
+
+	width: 50%;
+	margin-top: 20px;
+	grid-template-columns: 49% 49%;
+	gap: 2%;
+	justify-items: center;
+}
+
+@media (max-width: 1150px) {
+	.profileActionsBar {
+		width: 70%;
+	}
+}
+
+@media (max-width: 800px) {
+	.profileActionsBar {
+		width: 85%;
+	}
+}

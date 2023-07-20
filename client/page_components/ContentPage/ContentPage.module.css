@@ -1,0 +1,89 @@
+.contentWrapper {
+	display: grid;
+
+	width: 100%;
+
+	justify-items: center;
+
+	transition-duration: 300ms;
+
+	background: var(--white);
+}
+
+.darkThemeWrapper {
+	transition-duration: 300ms;
+
+	background: var(--darkTheme);
+}
+
+.headerContent {
+	gap: 20px;
+}
+
+.contentUserIcon {
+	margin-right: 20px;
+}
+
+.pagesSwitch {
+	display: grid;
+
+	margin-top: 80px;
+	grid-template-columns: auto auto;
+	gap: 20px;
+}
+
+.switchText {
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.dontActiveText {
+	color: var(--light) !important;
+}
+
+.darkThemeSwitchText {
+	transition-duration: 300ms;
+
+	color: var(--white) !important;
+}
+
+.darkThemeDontActiveText {
+	transition-duration: 300ms;
+
+	color: var(--darkTheme_light) !important;
+}
+
+.pagesWrapper {
+	display: grid;
+	overflow: hidden;
+	align-items: start;
+
+	width: 100%;
+	grid-template-columns: 100% 100%;
+}
+
+.contentPage {
+	display: grid;
+
+	width: 100%;
+
+	justify-items: center;
+}
+
+.messagesPage {
+	display: grid;
+
+	width: 100%;
+
+	justify-items: center;
+}
+
+@media (max-width: 580px) {
+	.headerContent {
+		gap: 15px;
+	}
+
+	.userIcon {
+		margin-right: 15px;
+	}
+}
