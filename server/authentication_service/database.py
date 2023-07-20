@@ -1,10 +1,10 @@
 from motor import motor_asyncio
-from models import *
+from .models import *
 from bson.objectid import ObjectId
 import traceback
 class Database():
     def __init__(self):
-        self.client = motor_asyncio.AsyncIOMotorClient("mongodb://localhost:27017/")
+        self.client = motor_asyncio.AsyncIOMotorClient("mongodb://mongodb:27017/")
         self.database = self.client.users
         self.user_collection = self.database.get_collection('users_collection')
 
@@ -37,9 +37,8 @@ class Database():
 
 
     async def create_user(self,user:dict):
-        user = await self.user_collection.find_one({"username": user['username']})
-        user = self.user_login_helper(user)
-        if user:
+        temp_user = await self.user_collection.find_one({"username": user['username']})
+        if temp_user:
             return False
         try:
             user = await self.user_collection.insert_one(user)
@@ -107,7 +106,6 @@ class Database():
 
     async def update_user_password_with_code(self,username,password):
         user = await self.user_collection.find_one({"username": username})
-        print(password)
         if user:
             updated_user = await self.user_collection.update_one(
                 {"username": username}, {"$set": {'password':password}}
