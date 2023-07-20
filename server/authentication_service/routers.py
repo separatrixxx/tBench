@@ -3,7 +3,7 @@ from database import *
 from models import *
 import json
 from fastapi.encoders import jsonable_encoder
-
+from smtp import *
 
 router = APIRouter()
 data  = Database()
@@ -77,7 +77,14 @@ async def update_password_user(user:Login_User):
 
 
 
-
+@router.put("/send_code", response_description="Send code on email")
+async def update_password_user(email:str,code:str):
+        mail = STMP_server()
+        try:
+            mail.send_email(email,code)
+            return ResponseModel(email, 'Succes')
+        except:
+            return ErrorResponseModel('Error', 200, 'Письмо не отправилось')
 
 
 
