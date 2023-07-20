@@ -1,15 +1,15 @@
 import { ProfilePageProps } from './ProfilePage.props';
 import styles from './ProfilePage.module.css';
-import { BackButton } from 'components/BackButton/BackButton';
-import { ProfileInfo } from 'components/ProfileInfo/ProfileInfo';
-import { UserContentList } from 'components/UserContentList/UserContentList';
+import { BackButton } from 'components/Buttons/BackButton/BackButton';
+import { ProfileInfo } from 'components/Profile/ProfileInfo/ProfileInfo';
+import { UserContentList } from 'components/User/UserContentList/UserContentList';
 import { AppContextProvider } from 'context/app.context';
 import { useState } from 'react';
-import { ProfileCover } from 'components/ProfileCover/ProfileCover';
-import { ProfileImage } from 'components/ProfileImage/ProfileImage';
-import { ProfileModal } from 'components/ProfileModal/ProfileModal';
-import { ProfileOptions } from 'components/ProfileOptions/ProfileOptions';
-import { ContentModal } from 'components/ContentModal/ContentModal';
+import { ProfileCover } from 'components/Profile/ProfileCover/ProfileCover';
+import { ProfileImage } from 'components/Profile/ProfileImage/ProfileImage';
+import { ProfileModal } from 'components/Profile/ProfileModal/ProfileModal';
+import { ProfileOptions } from 'components/Profile/ProfileOptions/ProfileOptions';
+import { ContentModal } from 'components/Content/ContentModal/ContentModal';
 import cn from 'classnames';
 
 

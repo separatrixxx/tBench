@@ -1,4 +1,4 @@
-import { ToastError } from "components/Toast/Toast";
+import { ToastError } from "components/Common/Toast/Toast";
 import { CheckAuthInterface } from "interfaces/check_auth.interface";
 import { setLocale } from "./locale.helper";
 

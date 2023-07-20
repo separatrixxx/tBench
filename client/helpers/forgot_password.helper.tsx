@@ -1,4 +1,4 @@
-import { ToastError } from 'components/Toast/Toast';
+import { ToastError } from 'components/Common/Toast/Toast';
 import { setLocale } from './locale.helper';
 import { emailSend } from './confirm_email.helper';
 
