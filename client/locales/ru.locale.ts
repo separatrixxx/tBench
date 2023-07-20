@@ -45,5 +45,12 @@ export const ru = {
     about: "О нас",
     ecosystem: "Экосистема",
     explore: "Исследовать",
-    wallet: "Кошелек",
+    wallet: "Кошелёк",
+    enter_confirmation_code: "Введите код подтверждения, отправленный на почту",
+    send_email_again: "Отправить письмо ещё раз",
+    seconds: "секунд",
+    in: "через",
+    forgot_password: "Забыли пароль",
+    new_password: "Новый пароль",
+    change_password: "Сменить пароль",
 };

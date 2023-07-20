@@ -13,6 +13,33 @@
 	filter: drop-shadow(0 20px 13px rgb(0 0 0 / 0.03)) drop-shadow(0 8px 5px rgb(0 0 0 / 0.08));
 }
 
+.confirmText {
+	text-align: center;
+}
+
+.transitionText {
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.transitionText:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	color: var(--primary);
+}
+
+.emailText {
+	color: var(--primary);
+}
+
+@media (min-width: 1024px) {
+	.transitionText:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		color: var(--primary);
+	}
+}
+
 @media (max-width: 580px) {
 	.authForm {
 		padding: 30px;
@@ -22,6 +49,10 @@
 @media (max-width: 400px) {
 	.authForm {
 		padding: 10px;
+	}
+
+	.arrowBack {
+		margin: 10px 0 0 10px;
 	}
 }
 

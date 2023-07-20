@@ -24,16 +24,10 @@
 	.authBlock {
 		grid-template-columns: 100%;
 
-		height: 60vh;
+		height: 80vh;
 	}
 
 	.authBlockImage {
 		display: none;
-	}
-}
-
-@media (max-width: 580px) {
-	.authBlock {
-		height: 80vh;
 	}
 }
