@@ -25,6 +25,10 @@ class Update_User(BaseModel):
     email: Optional[EmailStr] = None
     gender: Optional[str] = None
 
+class Mail_User(BaseModel):
+    username: str = None
+    password: str = None
+
 def ResponseModel(data, message):
     return {
         "data": [data],

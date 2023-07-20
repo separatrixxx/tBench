@@ -92,6 +92,13 @@ async def update_password_user(email:str,code:str):
 
 
 
+@router.put("/update_user_password_with_code", response_description="Update user password with mail")
+async def update_password_user(user:Mail_User):
+    res = await data.update_user_password_with_code(user.username,user.password)
+    if res:
+        return ResponseModel(res, 'Succes change password with username')
+    else:
+        return ErrorResponseModel('Error', 200, 'Choose correct username/password')
 
 
 
