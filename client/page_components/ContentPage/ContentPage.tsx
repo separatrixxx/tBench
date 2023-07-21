@@ -1,19 +1,19 @@
 import { ContentPageProps } from './ContentPage.props';
 import styles from './ContentPage.module.css';
-import { HeaderContent } from 'components/HeaderContent/HeaderContent';
+import { HeaderContent } from 'components/Headers/HeaderContent/HeaderContent';
 import { AppContextProvider } from 'context/app.context';
-import { InputContent } from 'components/InputContent/InputContent';
-import { HeaderUserIcon } from 'components/HeaderUserIcon/HeaderUserIcon';
-import { ContentList } from 'components/ContentList/ContentList';
+import { InputContent } from 'components/Inputs/InputContent/InputContent';
+import { HeaderUserIcon } from 'components/Headers/HeaderUserIcon/HeaderUserIcon';
+import { ContentList } from 'components/Content/ContentList/ContentList';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { ContentModal } from 'components/ContentModal/ContentModal';
-import { NotificationsButton } from 'components/NotificationsButton/NotificationsButton';
-import { Htag } from 'components/Htag/Htag';
+import { ContentModal } from 'components/Content/ContentModal/ContentModal';
+import { NotificationsButton } from 'components/Buttons/NotificationsButton/NotificationsButton';
+import { Htag } from 'components/Common/Htag/Htag';
 import { setLocale } from 'helpers/locale.helper';
 import { motion } from 'framer-motion';
+import { MessagesList } from 'components/Messages/MessagesList/MessagesList';
 import cn from 'classnames';
-import { MessagesList } from 'components/MessagesList/MessagesList';
 
 
 export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {

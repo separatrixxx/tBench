@@ -1,4 +1,4 @@
-import { Htag } from 'components/Htag/Htag';
+import { Htag } from 'components/Common/Htag/Htag';
 import styles from './WowPage.module.css';
 import { DynamicLine } from 'wow/DynamicLine/DynamicLine';
 import { WowCursor } from 'wow/WowCursor/WowCursor';

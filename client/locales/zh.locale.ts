@@ -46,4 +46,11 @@ export const zh = {
     ecosystem: "生态系统",
     explore: "探索",
     wallet: "钱包",
+    enter_confirmation_code: "输入发送至电子邮件的确认码",
+    send_email_again: "再次发送电子邮件",
+    seconds: "秒",
+    in: "后",
+    forgot_password: "忘记密码了吗",
+    new_password: "新密码",
+    change_password: "更改密码",
 };

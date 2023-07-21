@@ -1,0 +1,25 @@
+.arrowBack {
+	width: 10px;
+	height: fit-content;
+
+	cursor: pointer;
+	justify-self: left;
+
+	transition-duration: 300ms;
+	fill: var(--primary);
+	margin-bottom: 20px;
+}
+
+.arrowBack:active {
+	filter: brightness(0.7);
+
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media (min-width: 1024px) {
+	.arrowBack:hover {
+		filter: brightness(0.7);
+
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
+}
