@@ -1,5 +1,5 @@
 import { ConfirmEmailProps } from './ConfirmEmaIl.props';
-import styles from './confirmEmail.module.css';
+import styles from './ConfirmEmail.module.css';
 import { confirmEmail } from 'helpers/confirm_email.helper';
 import { useState } from 'react';
 import cn from 'classnames';
