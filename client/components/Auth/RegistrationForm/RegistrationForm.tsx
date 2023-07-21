@@ -5,12 +5,15 @@ import { InputWithEye } from 'components/Inputs/InputWithEye/InputWithEye';
 import { GenderChange } from '../GenderChange/GenderChange';
 import { setLocale } from 'helpers/locale.helper';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 
 export const RegistrationForm = ({ firstName, setFirstName, lastName, setLastName, username, setUsername,
-	email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, gender, setGender,
-	pswdType, setPswdType, confPswdType, setConfPswdType, error }: RegistrationFormProps): JSX.Element => {
+	email, setEmail, password, setPassword, confirmPassword, setConfirmPassword, gender, setGender, error }: RegistrationFormProps): JSX.Element => {
 	const router = useRouter();
+
+	const [pswdType, setPswdType] = useState<'password' | 'text'>('password');
+	const [confPswdType, setConfPswdType] = useState<'password' | 'text'>('password');
 
 	return (
 		<div className={styles.registrationForm}>

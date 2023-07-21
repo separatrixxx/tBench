@@ -17,9 +17,5 @@ export interface RegistrationFormProps extends DetailedHTMLProps<HTMLAttributes<
 	setConfirmPassword: (e: any) => void,
 	gender: 'male' | 'female' | 'unknown',
 	setGender: (e: any) => void,
-	pswdType: 'password' | 'text',
-	setPswdType: (e: any) => void,
-	confPswdType: 'password' | 'text',
-	setConfPswdType: (e: any) => void,
 	error: CheckAuthInterface,
 }

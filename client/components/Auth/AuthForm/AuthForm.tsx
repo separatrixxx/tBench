@@ -33,10 +33,6 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	const [confirmPassword, setConfirmPassword] = useState<string>('');
 	const [gender, setGender] = useState<'male' | 'female' | 'unknown'>('male');
 
-	const [pswdType, setPswdType] = useState<'password' | 'text'>('password');
-	const [confPswdType, setConfPswdType] = useState<'password' | 'text'>('password');
-	const [newPswdType, setNewPswdType] = useState<'password' | 'text'>('password');
-
 	const [newEmail, setNewEmail] = useState<string>('');
 	const [errorNewEmail, setErrorNewEmail] = useState<boolean>(false);
 	const [newPassword, setNewPassword] = useState<string>('');
@@ -63,8 +59,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	if (type === 'login') {
 		return (
 			<div className={cn(className, styles.authForm)} {...props}>
-				<LoginForm email={email} setEmail={setEmail} password={password} setPassword={setPassword}
-					pswdType={pswdType} setPswdType={setPswdType} error={error} />
+				<LoginForm email={email} setEmail={setEmail} password={password} setPassword={setPassword} error={error} />
 				<Htag tag='s' className={styles.transitionText} onClick={() => {
 					setAuthState('forgot');
 					setFormType('forgot');
@@ -86,8 +81,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 				<RegistrationForm firstName={firstName} setFirstName={setFirstName} lastName={lastName}
 					setLastName={setLastName} username={username} setUsername={setUsername} email={email}
 					setEmail={setEmail} password={password} setPassword={setPassword} confirmPassword={confirmPassword}
-					setConfirmPassword={setConfirmPassword} gender={gender} setGender={setGender} pswdType={pswdType}
-					setPswdType={setPswdType} confPswdType={confPswdType} setConfPswdType={setConfPswdType} error={error} />
+					setConfirmPassword={setConfirmPassword} gender={gender} setGender={setGender} error={error} />
 				<AuthButton loading={loading} text={setLocale(router.locale).sign_up}
 					onClick={() => checkUser(authData, errType, router, setError, false, setAuthState,
 						setLoading, isSend, setIsSend, setSecondsCount)} />
@@ -102,7 +96,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 			<div className={cn(className, styles.authForm)} {...props}>
 				<BackAuthForm formType={formType} setAuthState={setAuthState} />
 				<ForgotForm email={newEmail} setEmail={setNewEmail} password={newPassword} setPassword={setNewPassword}
-					pswdType={newPswdType} setPswdType={setNewPswdType} errorNewEmail={errorNewEmail} errorNewPassword={errorNewPassword} />
+					errorNewEmail={errorNewEmail} errorNewPassword={errorNewPassword} />
 				<AuthButton loading={loading} text={setLocale(router.locale).change_password}
 					onClick={() => forgotPassword(router.locale, newEmail, newPassword, setErrorNewEmail, setErrorNewPassword,
 						isSend, setIsSend, setSecondsCount, setAuthState)} />

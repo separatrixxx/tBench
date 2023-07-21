@@ -6,8 +6,6 @@ export interface ForgotFormProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
 	setEmail: (e: any) => void,
 	password: string,
 	setPassword: (e: any) => void,
-	pswdType: 'password' | 'text',
-	setPswdType: (e: any) => void,
 	errorNewEmail: boolean,
 	errorNewPassword: boolean,
 }

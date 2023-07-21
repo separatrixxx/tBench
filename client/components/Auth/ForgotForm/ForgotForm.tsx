@@ -4,11 +4,13 @@ import { Input } from 'components/Inputs/Input/Input';
 import { InputWithEye } from 'components/Inputs/InputWithEye/InputWithEye';
 import { setLocale } from 'helpers/locale.helper';
 import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 
-export const ForgotForm = ({ email, setEmail, password, setPassword, pswdType, setPswdType,
-	errorNewEmail, errorNewPassword }: ForgotFormProps): JSX.Element => {
+export const ForgotForm = ({ email, setEmail, password, setPassword, errorNewEmail, errorNewPassword }: ForgotFormProps): JSX.Element => {
 	const router = useRouter();
+
+	const [pswdType, setPswdType] = useState<'password' | 'text'>('password');
 
 	return (
 		<div className={styles.forgotForm}>

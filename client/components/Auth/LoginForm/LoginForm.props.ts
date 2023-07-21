@@ -7,7 +7,5 @@ export interface LoginFormProps extends DetailedHTMLProps<HTMLAttributes<HTMLDiv
 	setEmail: (e: any) => void,
 	password: string,
 	setPassword: (e: any) => void,
-	pswdType: 'password' | 'text',
-	setPswdType: (e: any) => void,
 	error: CheckAuthInterface,
 }
