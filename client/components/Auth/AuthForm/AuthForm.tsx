@@ -1,20 +1,20 @@
 import { AuthFormProps } from './AuthForm.props';
 import styles from './AuthForm.module.css';
-import { Input } from 'components/Inputs/Input/Input';
 import { useState } from 'react';
 import { AuthButton } from '../AuthButton/AuthButton';
 import { CheckAuthInterface } from 'interfaces/check_auth.interface';
-import { InputWithEye } from 'components/Inputs/InputWithEye/InputWithEye';
 import { useRouter } from 'next/router';
 import { AuthFormChange } from '../AuthFormChange/AuthFormChange';
 import { setLocale } from 'helpers/locale.helper';
 import { checkUser } from 'helpers/auth.helper';
-import { GenderChange } from '../GenderChange/GenderChange';
 import { ConfirmEmail } from '../ConfirmEmail/ConfirmEmail';
 import { Htag } from 'components/Common/Htag/Htag';
 import { emailSend } from 'helpers/confirm_email.helper';
 import { BackAuthForm } from '../BackAuthForm/BackAuthForm';
 import { forgotPassword } from 'helpers/forgot_password.helper';
+import { LoginForm } from '../LoginForm/LoginForm';
+import { RegistrationForm } from '../RegistrationForm/RegistrationForm';
+import { ForgotForm } from '../ForgotForm/ForgotForm';
 import cn from 'classnames';
 
 
@@ -33,8 +33,9 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	const [confirmPassword, setConfirmPassword] = useState<string>('');
 	const [gender, setGender] = useState<'male' | 'female' | 'unknown'>('male');
 
-	const [pswdType, setPswdType] = useState<'email' | 'password' | 'text'>('password');
-	const [confPswdType, setConfPswdType] = useState<'email' | 'password' | 'text'>('password');
+	const [pswdType, setPswdType] = useState<'password' | 'text'>('password');
+	const [confPswdType, setConfPswdType] = useState<'password' | 'text'>('password');
+	const [newPswdType, setNewPswdType] = useState<'password' | 'text'>('password');
 
 	const [newEmail, setNewEmail] = useState<string>('');
 	const [errorNewEmail, setErrorNewEmail] = useState<boolean>(false);
@@ -59,33 +60,11 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 
 	const authData = [email, password, confirmPassword, firstName, lastName, username, gender];
 
-	const changeInputType = () => {
-		if (pswdType !== 'text') {
-			setPswdType('text');
-		} else {
-			setPswdType('password');
-		}
-	};
-
 	if (type === 'login') {
 		return (
 			<div className={cn(className, styles.authForm)} {...props}>
-				<Input type='email' text={setLocale(router.locale).email}
-					value={email} error={error.errEmail} eye={false}
-					onChange={(e) => setEmail(e.target.value)} />
-				<InputWithEye onMouseEnter={() => setPswdType('text')}
-					onMouseLeave={() => setPswdType('password')}
-					onClick={() => {
-						if (pswdType !== 'text') {
-							setPswdType('text');
-						} else {
-							setPswdType('password');
-						}
-					}}>
-					<Input type={pswdType} text={setLocale(router.locale).password}
-						value={password} error={error.errPassword} eye={true}
-						onChange={(e) => setPassword(e.target.value)} />
-				</InputWithEye>
+				<LoginForm email={email} setEmail={setEmail} password={password} setPassword={setPassword}
+					pswdType={pswdType} setPswdType={setPswdType} error={error} />
 				<Htag tag='s' className={styles.transitionText} onClick={() => {
 					setAuthState('forgot');
 					setFormType('forgot');
@@ -104,33 +83,11 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	} else if (type === 'registration') {
 		return (
 			<div className={cn(className, styles.authForm)} {...props}>
-				<Input type='text' text={setLocale(router.locale).first_name}
-					value={firstName} error={error.errFirstName} eye={false}
-					onChange={(e) => setFirstName(e.target.value)} />
-				<Input type='text' text={setLocale(router.locale).last_name}
-					value={lastName} error={error.errLastName} eye={false}
-					onChange={(e) => setLastName(e.target.value)} />
-				<Input type='text' text={setLocale(router.locale).username}
-					value={username} error={error.errUsername} eye={false}
-					onChange={(e) => setUsername(e.target.value)} />
-				<Input type='email' text={setLocale(router.locale).email}
-					value={email} error={error.errEmail} eye={false}
-					onChange={(e) => setEmail(e.target.value)} />
-				<InputWithEye onMouseEnter={() => setPswdType('text')}
-					onMouseLeave={() => setPswdType('password')}
-					onClick={() => changeInputType}>
-					<Input type={pswdType} text={setLocale(router.locale).password}
-						value={password} error={error.errPassword} eye={true}
-						onChange={(e) => setPassword(e.target.value)} />
-				</InputWithEye>
-				<InputWithEye onMouseEnter={() => setConfPswdType('text')}
-					onMouseLeave={() => setConfPswdType('password')}
-					onClick={() => changeInputType}>
-					<Input type={confPswdType} text={setLocale(router.locale).confirm_password}
-						value={confirmPassword} error={error.errConfirmPassword} eye={true}
-						onChange={(e) => setConfirmPassword(e.target.value)} />
-				</InputWithEye>
-				<GenderChange gender={gender} setGender={setGender} />
+				<RegistrationForm firstName={firstName} setFirstName={setFirstName} lastName={lastName}
+					setLastName={setLastName} username={username} setUsername={setUsername} email={email}
+					setEmail={setEmail} password={password} setPassword={setPassword} confirmPassword={confirmPassword}
+					setConfirmPassword={setConfirmPassword} gender={gender} setGender={setGender} pswdType={pswdType}
+					setPswdType={setPswdType} confPswdType={confPswdType} setConfPswdType={setConfPswdType} error={error} />
 				<AuthButton loading={loading} text={setLocale(router.locale).sign_up}
 					onClick={() => checkUser(authData, errType, router, setError, false, setAuthState,
 						setLoading, isSend, setIsSend, setSecondsCount)} />
@@ -144,16 +101,8 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 		return (
 			<div className={cn(className, styles.authForm)} {...props}>
 				<BackAuthForm formType={formType} setAuthState={setAuthState} />
-				<Input type='email' text={setLocale(router.locale).email}
-					value={newEmail} error={errorNewEmail} eye={false}
-					onChange={(e) => setNewEmail(e.target.value)} />
-				<InputWithEye onMouseEnter={() => setPswdType('text')}
-					onMouseLeave={() => setPswdType('password')}
-					onClick={() => changeInputType}>
-					<Input type={pswdType} text={setLocale(router.locale).new_password}
-						value={newPassword} error={errorNewPassword} eye={true}
-						onChange={(e) => setNewPassword(e.target.value)} />
-				</InputWithEye>
+				<ForgotForm email={newEmail} setEmail={setNewEmail} password={newPassword} setPassword={setNewPassword}
+					pswdType={newPswdType} setPswdType={setNewPswdType} errorNewEmail={errorNewEmail} errorNewPassword={errorNewPassword} />
 				<AuthButton loading={loading} text={setLocale(router.locale).change_password}
 					onClick={() => forgotPassword(router.locale, newEmail, newPassword, setErrorNewEmail, setErrorNewPassword,
 						isSend, setIsSend, setSecondsCount, setAuthState)} />
