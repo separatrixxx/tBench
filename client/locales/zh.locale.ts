@@ -53,4 +53,6 @@ export const zh = {
     forgot_password: "忘记密码了吗",
     new_password: "新密码",
     change_password: "更改密码",
+    incorrect_password: "密码错误",
+    password_changed: "密码已更改",
 };

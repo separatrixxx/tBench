@@ -7,3 +7,10 @@ export interface CheckAuthInterface {
     errLastName: boolean,
     errUsername: boolean,
 }
+
+export interface LoginResponseInterface {
+    data?: [boolean],
+    error?: string,
+    code: number,
+    message: string,
+}
