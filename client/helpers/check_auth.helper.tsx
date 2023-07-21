@@ -1,12 +1,18 @@
 import { ToastError } from "components/Common/Toast/Toast";
-import { CheckAuthInterface } from "interfaces/check_auth.interface";
+import { CheckAuthInterface, LoginResponseInterface } from "interfaces/check_auth.interface";
 import { setLocale } from "./locale.helper";
+import axios, { AxiosResponse } from 'axios';
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
 const routes = ['404', '500', 'content', 'message', 'profile', 'wow'];
 
-export function checkAuth(authData: string[], si: boolean, locale: string | undefined): CheckAuthInterface {
+export async function checkAuth(authData: string[], si: boolean, locale: string | undefined): Promise<CheckAuthInterface> {
+    const { data: response }: AxiosResponse<LoginResponseInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
+        '/login?password=' + authData[1] + '&email=' + authData[0]);
+
+    console.log(response);
+
     const checkAuth = {
         ok: false,
         errEmail: false,
@@ -20,7 +26,7 @@ export function checkAuth(authData: string[], si: boolean, locale: string | unde
     if (!EMAIL_REGEXP.test(authData[0]) || authData[1].length < 8
         || authData[1] !== authData[2] || authData[3].length === 0
         || authData[4].length === 0 || authData[5].length === 0
-        || routes.includes(authData[5])) {
+        || routes.includes(authData[5]) || response.message === 'Choose correct username/password/password') {
         if (authData[3].length === 0) {
             checkAuth.errFirstName = true;
         }
@@ -50,7 +56,11 @@ export function checkAuth(authData: string[], si: boolean, locale: string | unde
                 { ToastError(setLocale(locale).error_confirm); }
             }
         }
-        if (si && EMAIL_REGEXP.test(authData[0]) && authData[1].length >= 8) {
+        if (si && EMAIL_REGEXP.test(authData[0]) && authData[1].length >= 8 && response.error) {
+            checkAuth.errPassword = true;
+            { ToastError(setLocale(locale).incorrect_password); }
+        }
+        if (si && EMAIL_REGEXP.test(authData[0]) && authData[1].length >= 8 && !response.error) {
             checkAuth.ok = true;
         }
     } else {

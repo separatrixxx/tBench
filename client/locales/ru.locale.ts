@@ -53,4 +53,6 @@ export const ru = {
     forgot_password: "Забыли пароль",
     new_password: "Новый пароль",
     change_password: "Сменить пароль",
+    incorrect_password: "Неверный пароль",
+    password_changed: "Пароль изменён",
 };

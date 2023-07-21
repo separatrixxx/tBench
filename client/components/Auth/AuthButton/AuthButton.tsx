@@ -1,9 +1,17 @@
 import { AuthButtonProps } from './AuthButton.props';
 import styles from './AuthButton.module.css';
+import { LoadingDots } from 'components/Buttons/LoadingDots/LoadingDots';
 
-
-export const AuthButton = ({ text, onClick }: AuthButtonProps): JSX.Element => {
-    return (
-        <button className={styles.button} onClick={onClick}>{text}</button>
-    );
+export const AuthButton = ({ loading, text, onClick }: AuthButtonProps): JSX.Element => {
+    if (!loading) {
+        return (
+            <button className={styles.button} onClick={onClick}>{text}</button>
+        );
+    } else {
+        return (
+            <button className={styles.button_loading}>
+                <LoadingDots />
+            </button>
+        );
+    }
 };

@@ -53,4 +53,6 @@ export const fr = {
     forgot_password: "Mot de passe oublié",
     new_password: "Nouveau mot de Passe",
     change_password: "Changer le mot de Passe",
+    incorrect_password: "Mot de Passe incorrect",
+    password_changed: "Mot de passe changé",
 };

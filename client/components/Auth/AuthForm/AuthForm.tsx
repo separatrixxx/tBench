@@ -43,6 +43,8 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 
 	const [confCode, setConfCode] = useState<string>('');
 
+	const [loading, setLoading] = useState<boolean>(false);
+
 	const errType = {
 		ok: false,
 		errEmail: false,
@@ -90,9 +92,9 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 				}}>
 					{setLocale(router.locale).forgot_password + '?'}
 				</Htag>
-				<AuthButton text={setLocale(router.locale).sign_in}
+				<AuthButton loading={loading} text={setLocale(router.locale).sign_in}
 					onClick={() => checkUser(authData, errType, router, setError, true, setAuthState,
-						isSend, setIsSend, setSecondsCount)} />
+						setLoading, isSend, setIsSend, setSecondsCount)} />
 				<AuthFormChange type={'login'} onClick={() => {
 					setAuthState('registration');
 					setFormType('registration');
@@ -129,9 +131,9 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 						onChange={(e) => setConfirmPassword(e.target.value)} />
 				</InputWithEye>
 				<GenderChange gender={gender} setGender={setGender} />
-				<AuthButton text={setLocale(router.locale).sign_up}
+				<AuthButton loading={loading} text={setLocale(router.locale).sign_up}
 					onClick={() => checkUser(authData, errType, router, setError, false, setAuthState,
-						isSend, setIsSend, setSecondsCount)} />
+						setLoading, isSend, setIsSend, setSecondsCount)} />
 				<AuthFormChange type={'registration'} onClick={() => {
 					setAuthState('login');
 					setFormType('login');
@@ -152,7 +154,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 						value={newPassword} error={errorNewPassword} eye={true}
 						onChange={(e) => setNewPassword(e.target.value)} />
 				</InputWithEye>
-				<AuthButton text={setLocale(router.locale).change_password}
+				<AuthButton loading={loading} text={setLocale(router.locale).change_password}
 					onClick={() => forgotPassword(router.locale, newEmail, newPassword, setErrorNewEmail, setErrorNewPassword,
 						isSend, setIsSend, setSecondsCount, setAuthState)} />
 			</div>
@@ -165,13 +167,13 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 					{email}
 				</span>.
 				</Htag>
-				<ConfirmEmail formType={formType} confCode={confCode} setConfCode={setConfCode}
-					authData={authData} router={router} newEmail={newEmail} newPassword={newPassword} setAuthState={setAuthState} />
+				<ConfirmEmail formType={formType} confCode={confCode} setConfCode={setConfCode} authData={authData} router={router}
+					newEmail={newEmail} newPassword={newPassword} setAuthState={setAuthState} />
 				<Htag tag='s' className={cn(styles.confirmText, {
 					[styles.transitionText]: !isSend,
 				})} onClick={() => {
 					if (!isSend) {
-						emailSend(setIsSend, setSecondsCount);
+						emailSend(setIsSend, setSecondsCount, setAuthState, setLoading, authData[0]);
 						setIsSend(true);
 					}
 				}}>

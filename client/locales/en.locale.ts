@@ -53,4 +53,6 @@ export const en = {
     forgot_password: "Forgot your password",
     new_password: "New Password",
     change_password: "Change Password",
+    incorrect_password: "Incorrect Password",
+    password_changed: "Password changed",
 };

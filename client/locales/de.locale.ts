@@ -53,4 +53,6 @@ export const de = {
     forgot_password: "Haben Sie Ihr Passwort vergessen",
     new_password: "Neues Kennwort",
     change_password: "Kennwort ändern",
+    incorrect_password: "Falsches Passwort",
+    password_changed: "Passwort geändert",
 };
