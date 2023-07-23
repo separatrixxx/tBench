@@ -2,11 +2,10 @@ import { AuthFormProps } from './AuthForm.props';
 import styles from './AuthForm.module.css';
 import { useState } from 'react';
 import { AuthButton } from '../AuthButton/AuthButton';
-import { CheckAuthInterface } from 'interfaces/check_auth.interface';
+import { AuthDataInterface, CheckAuthInterface } from 'interfaces/check_auth.interface';
 import { useRouter } from 'next/router';
 import { AuthFormChange } from '../AuthFormChange/AuthFormChange';
 import { setLocale } from 'helpers/locale.helper';
-import { checkUser } from 'helpers/auth.helper';
 import { ConfirmEmail } from '../ConfirmEmail/ConfirmEmail';
 import { Htag } from 'components/Common/Htag/Htag';
 import { emailSend } from 'helpers/confirm_email.helper';
@@ -15,6 +14,7 @@ import { forgotPassword } from 'helpers/forgot_password.helper';
 import { LoginForm } from '../LoginForm/LoginForm';
 import { RegistrationForm } from '../RegistrationForm/RegistrationForm';
 import { ForgotForm } from '../ForgotForm/ForgotForm';
+import { checkLogin, checkRegistration } from 'helpers/check_auth.helper';
 import cn from 'classnames';
 
 
@@ -42,14 +42,13 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 
 	const [loading, setLoading] = useState<boolean>(false);
 
-	const errType = {
-		ok: false,
-		errEmail: false,
-		errPassword: false,
-		errConfirmPassword: false,
+	const errType: CheckAuthInterface = {
 		errFirstName: false,
 		errLastName: false,
 		errUsername: false,
+		errEmail: false,
+		errPassword: false,
+		errConfirmPassword: false,
 	};
 
 	const [error, setError] = useState<CheckAuthInterface>(errType);
@@ -57,6 +56,11 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	const authData = [email, password, confirmPassword, firstName, lastName, username, gender];
 
 	if (type === 'login') {
+		const loginData: AuthDataInterface = {
+			email: email,
+			password: password,
+		};
+
 		return (
 			<div className={cn(className, styles.authForm)} {...props}>
 				<LoginForm email={email} setEmail={setEmail} password={password} setPassword={setPassword} error={error} />
@@ -67,8 +71,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 					{setLocale(router.locale).forgot_password + '?'}
 				</Htag>
 				<AuthButton loading={loading} text={setLocale(router.locale).sign_in}
-					onClick={() => checkUser(authData, errType, router, setError, true, setAuthState,
-						setLoading, isSend, setIsSend, setSecondsCount)} />
+					onClick={() => checkLogin(loginData, router.locale, setError)} />
 				<AuthFormChange type={'login'} onClick={() => {
 					setAuthState('registration');
 					setFormType('registration');
@@ -76,6 +79,15 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 			</div>
 		);
 	} else if (type === 'registration') {
+		const registrationData: AuthDataInterface = {
+			firstName: firstName,
+			lastName: lastName,
+			username: username,
+			email: email,
+			password: password,
+			confirmPassword: confirmPassword,
+		};
+
 		return (
 			<div className={cn(className, styles.authForm)} {...props}>
 				<RegistrationForm firstName={firstName} setFirstName={setFirstName} lastName={lastName}
@@ -83,8 +95,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 					setEmail={setEmail} password={password} setPassword={setPassword} confirmPassword={confirmPassword}
 					setConfirmPassword={setConfirmPassword} gender={gender} setGender={setGender} error={error} />
 				<AuthButton loading={loading} text={setLocale(router.locale).sign_up}
-					onClick={() => checkUser(authData, errType, router, setError, false, setAuthState,
-						setLoading, isSend, setIsSend, setSecondsCount)} />
+					onClick={() => checkRegistration(registrationData, router.locale, setError)} />
 				<AuthFormChange type={'registration'} onClick={() => {
 					setAuthState('login');
 					setFormType('login');

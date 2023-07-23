@@ -1,11 +1,48 @@
-import { ToastError } from "components/Common/Toast/Toast";
-import { CheckAuthInterface, LoginResponseInterface } from "interfaces/check_auth.interface";
+import { ToastError, ToastSuccess } from "components/Common/Toast/Toast";
+import { AuthDataInterface, CheckAuthInterface, LoginResponseInterface } from "interfaces/check_auth.interface";
 import { setLocale } from "./locale.helper";
 import axios, { AxiosResponse } from 'axios';
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
 
 const routes = ['404', '500', 'content', 'message', 'profile', 'wow'];
+
+export function checkLogin(loginData: AuthDataInterface, locale: string | undefined, setError: (e: any) => void) {
+    const checkLogin: CheckAuthInterface = {
+        errEmail: false,
+        errPassword: false,
+    };
+
+    setError(checkLogin);
+
+    if (EMAIL_REGEXP.test(loginData.email) && loginData.password.length >= 8) {
+        { ToastSuccess(setLocale(locale).cool); }
+    } else {
+        if (!EMAIL_REGEXP.test(loginData.email)) {
+            checkLogin.errEmail = true;
+            { ToastError(setLocale(locale).error_email); }
+        }
+        if (loginData.password.length < 8) {
+            checkLogin.errPassword = true;
+            { ToastError(setLocale(locale).error_password); }
+        }
+    }
+}
+
+export function checkRegistration(registrationData: AuthDataInterface, locale: string | undefined, setError: (e: any) => void) {
+    const chackRegistration: CheckAuthInterface = {
+        errFirstName: false,
+        errLastName: false,
+        errUsername: false,
+        errEmail: false,
+        errPassword: false,
+        errConfirmPassword: false,
+    };
+
+    setError(checkLogin);
+
+
+}
 
 export async function checkAuth(authData: string[], si: boolean, locale: string | undefined): Promise<CheckAuthInterface> {
     const { data: response }: AxiosResponse<LoginResponseInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +

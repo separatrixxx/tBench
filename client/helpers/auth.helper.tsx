@@ -6,24 +6,24 @@ import axios from "axios";
 import { emailSend } from './confirm_email.helper';
 
 
-export async function checkUser(authData: Array<string>, errType: CheckAuthInterface, router: any,
-    setError: (e: any) => void, isLogin: boolean, setAuthState: (e: any) => void, setLoading: (e: any) => void,
-    isSend: boolean, setIsSend: (e: any) => void, setSecondsCount: (e: any) => void) {
-    const checkResult = await checkAuth(authData, isLogin, router.locale)
+// export async function checkUser(authData: Array<string>, errType: CheckAuthInterface, router: any,
+//     setError: (e: any) => void, isLogin: boolean, setAuthState: (e: any) => void, setLoading: (e: any) => void,
+//     isSend: boolean, setIsSend: (e: any) => void, setSecondsCount: (e: any) => void) {
+//     const checkResult = await checkAuth(authData, isLogin, router.locale)
 
-    if (!checkResult.ok) {
-        setError(checkResult);
-    } else {
-        if (!isSend) {
-            emailSend(setIsSend, setSecondsCount, setAuthState, setLoading, authData[0]);
-            setIsSend(true);
-        } else {
-            setAuthState('confirm');
-        }
+//     if (!checkResult.ok) {
+//         setError(checkResult);
+//     } else {
+//         if (!isSend) {
+//             emailSend(setIsSend, setSecondsCount, setAuthState, setLoading, authData[0]);
+//             setIsSend(true);
+//         } else {
+//             setAuthState('confirm');
+//         }
 
-        setError(errType);
-    }
-}
+//         setError(errType);
+//     }
+// }
 
 export async function forgotPassword(newEmail: string, newPassword: string, router: any) {
     //нужно получение юзернейма
