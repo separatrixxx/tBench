@@ -1,3 +1,4 @@
+import { CheckAuthInterface } from 'interfaces/check_auth.interface';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
 
@@ -6,6 +7,5 @@ export interface ForgotFormProps extends DetailedHTMLProps<HTMLAttributes<HTMLDi
 	setEmail: (e: any) => void,
 	password: string,
 	setPassword: (e: any) => void,
-	errorNewEmail: boolean,
-	errorNewPassword: boolean,
+	error: CheckAuthInterface,
 }

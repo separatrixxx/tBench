@@ -8,13 +8,12 @@ import { AuthFormChange } from '../AuthFormChange/AuthFormChange';
 import { setLocale } from 'helpers/locale.helper';
 import { ConfirmEmail } from '../ConfirmEmail/ConfirmEmail';
 import { Htag } from 'components/Common/Htag/Htag';
-import { emailSend } from 'helpers/confirm_email.helper';
+import { emailSend, timerStart } from 'helpers/confirm_email.helper';
 import { BackAuthForm } from '../BackAuthForm/BackAuthForm';
-import { forgotPassword } from 'helpers/forgot_password.helper';
 import { LoginForm } from '../LoginForm/LoginForm';
 import { RegistrationForm } from '../RegistrationForm/RegistrationForm';
 import { ForgotForm } from '../ForgotForm/ForgotForm';
-import { checkLogin, checkRegistration } from 'helpers/check_auth.helper';
+import { checkAuth, checkForgot, checkLogin, checkRegistration } from 'helpers/check_auth.helper';
 import cn from 'classnames';
 
 
@@ -22,7 +21,6 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	const router = useRouter();
 
 	const [formType, setFormType] = useState<'login' | 'registration' | 'forgot'>('login');
-	const [isSend, setIsSend] = useState<boolean>(false);
 	const [secondsCount, setSecondsCount] = useState<number>(10);
 
 	const [username, setUsername] = useState<string>('');
@@ -33,10 +31,8 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 	const [confirmPassword, setConfirmPassword] = useState<string>('');
 	const [gender, setGender] = useState<'male' | 'female' | 'unknown'>('male');
 
-	const [newEmail, setNewEmail] = useState<string>('');
-	const [errorNewEmail, setErrorNewEmail] = useState<boolean>(false);
+	
 	const [newPassword, setNewPassword] = useState<string>('');
-	const [errorNewPassword, setErrorNewPassword] = useState<boolean>(false);
 
 	const [confCode, setConfCode] = useState<string>('');
 
@@ -67,14 +63,17 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 				<Htag tag='s' className={styles.transitionText} onClick={() => {
 					setAuthState('forgot');
 					setFormType('forgot');
+					setError(errType);
 				}}>
 					{setLocale(router.locale).forgot_password + '?'}
 				</Htag>
 				<AuthButton loading={loading} text={setLocale(router.locale).sign_in}
-					onClick={() => checkLogin(loginData, router.locale, setError)} />
+					onClick={() => checkAuth(loginData, router.locale, setError, type, setLoading, setSecondsCount,
+						setAuthState, setConfCode)} />
 				<AuthFormChange type={'login'} onClick={() => {
 					setAuthState('registration');
 					setFormType('registration');
+					setError(errType);
 				}} />
 			</div>
 		);
@@ -95,43 +94,60 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 					setEmail={setEmail} password={password} setPassword={setPassword} confirmPassword={confirmPassword}
 					setConfirmPassword={setConfirmPassword} gender={gender} setGender={setGender} error={error} />
 				<AuthButton loading={loading} text={setLocale(router.locale).sign_up}
-					onClick={() => checkRegistration(registrationData, router.locale, setError)} />
+					onClick={() => checkAuth(registrationData, router.locale, setError, type, setLoading, setSecondsCount,
+						setAuthState, setConfCode)} />
 				<AuthFormChange type={'registration'} onClick={() => {
 					setAuthState('login');
 					setFormType('login');
+					setError(errType);
 				}} />
 			</div>
 		);
 	} else if (type === 'forgot') {
+		const forgotData: AuthDataInterface = {
+			email: email,
+			password: newPassword,
+		};
+
 		return (
 			<div className={cn(className, styles.authForm)} {...props}>
-				<BackAuthForm formType={formType} setAuthState={setAuthState} />
-				<ForgotForm email={newEmail} setEmail={setNewEmail} password={newPassword} setPassword={setNewPassword}
-					errorNewEmail={errorNewEmail} errorNewPassword={errorNewPassword} />
+				<BackAuthForm formType={formType} setAuthState={setAuthState} errType={errType} setError={setError} />
+				<ForgotForm email={email} setEmail={setEmail} password={newPassword} setPassword={setNewPassword}
+					error={error} />
 				<AuthButton loading={loading} text={setLocale(router.locale).change_password}
-					onClick={() => forgotPassword(router.locale, newEmail, newPassword, setErrorNewEmail, setErrorNewPassword,
-						isSend, setIsSend, setSecondsCount, setAuthState)} />
+					onClick={() => checkAuth(forgotData, router.locale, setError, type, setLoading, setSecondsCount,
+						setAuthState, setConfCode)} />
 			</div>
 		);
 	} else {
+		const data: AuthDataInterface = {
+			firstName: firstName,
+			lastName: lastName,
+			username: username,
+			email: email,
+			password: password,
+			confirmPassword: confirmPassword,
+			gender: gender,
+		};
+
 		return (
 			<div className={cn(className, styles.authForm)} {...props}>
-				<BackAuthForm formType={formType} setAuthState={setAuthState} />
+				{/* <BackAuthForm formType={formType} setAuthState={setAuthState} /> */}
 				<Htag tag='s' className={styles.confirmText}>{setLocale(router.locale).enter_confirmation_code} <span className={styles.emailText}>
 					{email}
 				</span>.
 				</Htag>
-				<ConfirmEmail formType={formType} confCode={confCode} setConfCode={setConfCode} authData={authData} router={router}
-					newEmail={newEmail} newPassword={newPassword} setAuthState={setAuthState} />
+				<ConfirmEmail formType={formType} code={confCode} setAuthState={setAuthState} router={router} data={data}
+					newPassword={newPassword}  />
 				<Htag tag='s' className={cn(styles.confirmText, {
-					[styles.transitionText]: !isSend,
+					[styles.transitionText]: secondsCount === 0,
 				})} onClick={() => {
-					if (!isSend) {
-						emailSend(setIsSend, setSecondsCount, setAuthState, setLoading, authData[0]);
-						setIsSend(true);
+					if (secondsCount === 0) {
+						timerStart(setSecondsCount);
+						emailSend(setAuthState, setLoading, setConfCode, email);
 					}
 				}}>
-					{isSend
+					{secondsCount !== 0
 						? setLocale(router.locale).send_email_again + ' ' + setLocale(router.locale).in + ' '
 						+ secondsCount + ' ' + setLocale(router.locale).seconds
 						: setLocale(router.locale).send_email_again}

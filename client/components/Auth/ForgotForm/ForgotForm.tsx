@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import { useState } from 'react';
 
 
-export const ForgotForm = ({ email, setEmail, password, setPassword, errorNewEmail, errorNewPassword }: ForgotFormProps): JSX.Element => {
+export const ForgotForm = ({ email, setEmail, password, setPassword, error }: ForgotFormProps): JSX.Element => {
 	const router = useRouter();
 
 	const [pswdType, setPswdType] = useState<'password' | 'text'>('password');
@@ -15,12 +15,12 @@ export const ForgotForm = ({ email, setEmail, password, setPassword, errorNewEma
 	return (
 		<div className={styles.forgotForm}>
 			<Input type='email' text={setLocale(router.locale).email}
-				value={email} error={errorNewEmail} eye={false}
+				value={email} error={error.errEmail} eye={false}
 				onChange={(e) => setEmail(e.target.value)} />
 			<InputWithEye onMouseEnter={() => setPswdType('text')}
 				onMouseLeave={() => setPswdType('password')}>
 				<Input type={pswdType} text={setLocale(router.locale).new_password}
-					value={password} error={errorNewPassword} eye={true}
+					value={password} error={error.errPassword} eye={true}
 					onChange={(e) => setPassword(e.target.value)} />
 			</InputWithEye>
 		</div>

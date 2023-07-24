@@ -4,7 +4,7 @@ export interface InputProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputEl
 	type: 'email' | 'password' | 'text',
 	text: string,
 	value: string,
-	error: boolean,
+	error: boolean | undefined,
 	eye: boolean,
 	onChange: (e: any) => void,
 }

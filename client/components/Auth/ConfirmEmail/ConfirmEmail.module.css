@@ -31,13 +31,6 @@
 	outline-color: var(--primary);
 }
 
-.errorConfirmEmail,
-.errorConfirmEmail:hover,
-.errorConfirmEmail:focus {
-	border: 1px solid var(--error) !important;
-	outline: 1.5px solid var(--error) !important;
-}
-
 @media (max-width: 400px) {
 	.confirmEmail {
 		margin-bottom: 10px;
