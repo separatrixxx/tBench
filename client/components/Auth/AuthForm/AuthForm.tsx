@@ -13,7 +13,7 @@ import { BackAuthForm } from '../BackAuthForm/BackAuthForm';
 import { LoginForm } from '../LoginForm/LoginForm';
 import { RegistrationForm } from '../RegistrationForm/RegistrationForm';
 import { ForgotForm } from '../ForgotForm/ForgotForm';
-import { checkAuth, checkForgot, checkLogin, checkRegistration } from 'helpers/check_auth.helper';
+import { checkAuth } from 'helpers/check_auth.helper';
 import cn from 'classnames';
 
 
