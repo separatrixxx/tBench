@@ -1,0 +1,7 @@
+.registrationForm {
+	display: grid;
+
+	width: 100%;
+	gap: 12px;
+	justify-items: center;
+}

@@ -1,12 +1,12 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
+import { AuthDataInterface } from 'interfaces/check_auth.interface';
+
 
 export interface ConfirmEmailProps extends DetailedHTMLProps<HTMLAttributes<HTMLInputElement>, HTMLInputElement> {
 	formType: 'login' | 'registration' | 'forgot',
-	confCode: string,
-	setConfCode: (e: any) => void,
-	authData: Array<string>,
-	router: any,
-	newEmail: string,
-	newPassword: string,
+	code: string,
 	setAuthState: (e: any) => void,
+	router: any,
+	data: AuthDataInterface,
+	newPassword: string,
 }

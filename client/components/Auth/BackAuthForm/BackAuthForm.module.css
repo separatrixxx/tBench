@@ -1,13 +1,13 @@
 .arrowBack {
 	width: 10px;
 	height: fit-content;
+	margin-bottom: 20px;
 
 	cursor: pointer;
-	justify-self: left;
 
 	transition-duration: 300ms;
+	justify-self: left;
 	fill: var(--primary);
-	margin-bottom: 20px;
 }
 
 .arrowBack:active {
