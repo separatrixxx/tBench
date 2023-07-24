@@ -3,6 +3,7 @@ import { AuthDataInterface, CheckAuthInterface, LoginResponseInterface } from "i
 import { setLocale } from "./locale.helper";
 import axios, { AxiosResponse } from 'axios';
 import { emailSend, timerStart } from "./confirm_email.helper";
+import { hashPassword } from "./hash.helper";
 
 
 const EMAIL_REGEXP = /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/iu;
@@ -40,7 +41,7 @@ export async function checkLogin(loginData: AuthDataInterface, locale: string | 
 
     if (EMAIL_REGEXP.test(loginData.email) && loginData.password.length >= 8) {
         const { data: response }: AxiosResponse<LoginResponseInterface> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            '/login?password=' + loginData.password + '&email=' + loginData.email);
+            '/login?password=' + hashPassword(loginData.password) + '&email=' + loginData.email);
 
         if (response.message === 'Choose correct username/password/password') {
             checkLogin.errPassword = true;

@@ -2,6 +2,7 @@ import { ToastSuccess } from "components/Common/Toast/Toast";
 import { setLocale } from "./locale.helper";
 import axios from "axios";
 import { AuthDataInterface } from "interfaces/check_auth.interface";
+import { hashPassword } from "./hash.helper";
 
 
 export function loginUser(data: AuthDataInterface, router: any) {
@@ -17,7 +18,7 @@ export async function registerUser(data: AuthDataInterface, router: any) {
         username: data.username,
         email: data.email,
         gender: data.gender,
-        password: data.password,
+        password: hashPassword(data.password),
     })
         .then(function () {
             ToastSuccess(setLocale(router.locale).cool + '!');
@@ -33,7 +34,7 @@ export async function forgotPassword(data: AuthDataInterface, newPassword: strin
     //нужно получение юзернейма
     await axios.put(process.env.NEXT_PUBLIC_DOMAIN + '/update_user_password_with_code', {
         username: '',
-        password: newPassword,
+        password: hashPassword(newPassword),
     })
         .then(function () {
             ToastSuccess(setLocale(router.locale).password_changed + '!');
