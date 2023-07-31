@@ -15,6 +15,7 @@ import { RegistrationForm } from '../RegistrationForm/RegistrationForm';
 import { ForgotForm } from '../ForgotForm/ForgotForm';
 import { checkAuth } from 'helpers/check_auth.helper';
 import cn from 'classnames';
+import { AuthBoringTitle } from '../AuthBoringTitle/AuthBoringTitle';
 
 
 export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormProps): JSX.Element => {
@@ -57,6 +58,7 @@ export const AuthForm = ({ type, setAuthState, className, ...props }: AuthFormPr
 
 		return (
 			<div className={cn(className, styles.authForm)} {...props}>
+				<AuthBoringTitle />
 				<LoginForm email={email} setEmail={setEmail} password={password} setPassword={setPassword} error={error} />
 				<Htag tag='s' className={styles.transitionText} onClick={() => {
 					setAuthState('forgot');
