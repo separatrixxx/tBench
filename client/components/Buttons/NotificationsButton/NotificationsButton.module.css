@@ -1,0 +1,143 @@
+.notificationsButton {
+	position: relative;
+
+	display: grid;
+	align-items: start;
+
+	padding: 4px;
+
+	transition-duration: 300ms;
+	transition-property: color, background-color, fill;
+
+	justify-items: right;
+}
+
+.notificationsButton > svg {
+	width: 20px;
+	height: 20px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	transition-property: color, background-color, fill;
+	fill: var(--dark);
+}
+
+.darkThemeNotificationsButton > svg {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	fill: var(--white);
+}
+
+.notify {
+	position: absolute;
+
+	display: none;
+
+	width: 10px;
+	height: 10px;
+
+	border: 2px solid var(--white);
+
+	border-radius: 9999px;
+	background: var(--like);
+}
+
+.darkThemeNotify {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	border-color: var(--dark);
+}
+
+.visible {
+	display: grid;
+}
+
+@keyframes bell {
+	20% {
+		-webkit-transform: rotate(15deg);
+        -ms-transform: rotate(15deg);
+		transform: rotate(15deg);
+	}
+
+	40% {
+		-webkit-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+		transform: rotate(-10deg);
+	}
+
+	60% {
+		-webkit-transform: rotate(5deg);
+        -ms-transform: rotate(5deg);
+		transform: rotate(5deg);
+	}
+
+	70% {
+		-webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+
+	80% {
+		-webkit-transform: rotate(-5deg);
+        -ms-transform: rotate(-5deg);
+		transform: rotate(-5deg);
+	}
+
+	90% {
+		-webkit-transform: rotate(-3deg);
+        -ms-transform: rotate(-3deg);
+		transform: rotate(-3deg);
+	}
+
+	100% {
+		-webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+		transform: rotate(0deg);
+	}
+}
+
+.bell > svg,
+.notificationsButton > svg:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	transform-origin: top center;
+	animation-name: bell;
+	animation-duration: 2s;
+	-moz-animation-iteration-count: infinite;
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+.notificationsButton > svg:active {
+	fill: var(--primary);
+}
+
+@media (min-width: 1024px) {
+	.notificationsButton > svg:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		fill: var(--primary);
+
+		transform-origin: top center;
+		animation-name: bell;
+		animation-duration: 2s;
+		-moz-animation-iteration-count: infinite;
+		-webkit-animation-iteration-count: infinite;
+		animation-iteration-count: infinite;
+	}
+}
+
+@media (max-width: 580px) {
+	.notificationsButton > svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	.notify {
+		width: 8px;
+		height: 8px;
+
+		margin: 1px 1px 0 0;
+	}
+}

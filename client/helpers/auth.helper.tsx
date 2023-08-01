@@ -1,35 +1,45 @@
-import { ToastSuccess } from "components/Toast/Toast";
-import { CheckAuthInterface } from "interfaces/check_auth.interface";
-import { checkAuth } from "./check_auth.helper";
+import { ToastSuccess } from "components/Common/Toast/Toast";
 import { setLocale } from "./locale.helper";
+import axios from "axios";
+import { AuthDataInterface } from "interfaces/check_auth.interface";
+import { hashPassword } from "./hash.helper";
 
-export async function checkUser(authData: Array<string>, errType: CheckAuthInterface, router: any,
-    setError: (e: any) => void, setLoading: (e: any) => void, isLogin: boolean) {
-    const checkResult = checkAuth(authData, isLogin, router.locale);
 
-    if (!checkResult.ok) {
-        setError(checkResult);
-    } else {
-        setError(errType);
-        setLoading(true);
-        ToastSuccess(setLocale(router.locale).cool + '!');
-        setTimeout(() => {
-            setLoading(false);
-
-            if (isLogin) {
-                loginUser(authData, router);
-            } else {
-                registerUser(authData, router);
-            }
-        }, 1000);
-    }
-}
-
-export async function loginUser(authData: Array<string>, router: any) {
+export function loginUser(data: AuthDataInterface, router: any) {
+    ToastSuccess(setLocale(router.locale).cool + '!');
     localStorage.setItem('logged_in', 'true');
     router.push('/content');
 }
 
-export async function registerUser(authData: Array<string>, router: any) {
-    alert('register');
+export async function registerUser(data: AuthDataInterface, router: any) {
+    await axios.post(process.env.NEXT_PUBLIC_DOMAIN + '/registration', {
+        name: data.firstName,
+        surname: data.lastName,
+        username: data.username,
+        email: data.email,
+        gender: data.gender,
+        password: hashPassword(data.password),
+    })
+        .then(function () {
+            ToastSuccess(setLocale(router.locale).cool + '!');
+            localStorage.setItem('logged_in', 'true');
+            router.push('/content');
+        })
+        .catch(function (error) {
+            console.log("Registration error: " + error);
+        });
+}
+
+export async function forgotPassword(data: AuthDataInterface, newPassword: string, router: any) {
+    //нужно получение юзернейма
+    await axios.put(process.env.NEXT_PUBLIC_DOMAIN + '/update_user_password_with_code', {
+        username: '',
+        password: hashPassword(newPassword),
+    })
+        .then(function () {
+            ToastSuccess(setLocale(router.locale).password_changed + '!');
+        })
+        .catch(function (error) {
+            console.log("Change password error: " + error);
+        });
 }

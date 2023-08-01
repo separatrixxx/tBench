@@ -1,10 +1,10 @@
 import { MessagePageProps } from './MessagePage.props';
 import styles from './MessagePage.module.css';
-import { BackButton } from 'components/BackButton/BackButton';
+import { BackButton } from 'components/Buttons/BackButton/BackButton';
 import { AppContextProvider } from 'context/app.context';
-import { HeaderContent } from 'components/HeaderContent/HeaderContent';
-import { HeaderUserIcon } from 'components/HeaderUserIcon/HeaderUserIcon';
-import { MessageUserInfo } from 'components/MessageUserInfo/MessageUserInfo';
+import { HeaderContent } from 'components/Headers/HeaderContent/HeaderContent';
+import { HeaderUserIcon } from 'components/Headers/HeaderUserIcon/HeaderUserIcon';
+import { MessageUserInfo } from 'components/Messages/MessageUserInfo/MessageUserInfo';
 import cn from 'classnames';
 
 

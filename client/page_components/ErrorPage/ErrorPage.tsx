@@ -2,7 +2,7 @@ import { ErrorPageProps } from "./ErrorPage.props";
 import styles from './ErrorPage.module.css';
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Htag } from "components/Htag/Htag";
+import { Htag } from "components/Common/Htag/Htag";
 import { setLocale } from "helpers/locale.helper";
 import cn from "classnames";
 

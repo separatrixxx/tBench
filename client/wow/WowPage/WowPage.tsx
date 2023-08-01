@@ -1,4 +1,4 @@
-import { Htag } from 'components/Htag/Htag';
+import { Htag } from 'components/Common/Htag/Htag';
 import styles from './WowPage.module.css';
 import { DynamicLine } from 'wow/DynamicLine/DynamicLine';
 import { WowCursor } from 'wow/WowCursor/WowCursor';
@@ -31,7 +31,11 @@ export const WowPage = (): JSX.Element => {
 			<Htag tag='l' className={styles.text}>Wow Cursor</Htag>
 			<WowCursor />
 			<Htag tag='l' className={styles.text}>Number Counter</Htag>
-			<NumberCounter number={1603} time={700} step={1} />
+			<Htag tag='l' className={styles.text}>Number Counter</Htag>
+			<Htag tag='l' className={styles.text}>Number Counter</Htag>
+			<Htag tag='l' className={styles.text}>Number Counter</Htag>
+			<Htag tag='l' className={styles.text}>Number Counter</Htag>
+			<NumberCounter id='c1' number={1603} time={7000} step={1} />
 			<Htag tag='l' className={styles.text}>Wow Button</Htag>
 			<WowButton />
 			{/* <Htag tag='l' className={styles.text}>Looking 3D</Htag>

@@ -46,4 +46,13 @@ export const en = {
     ecosystem: "Ecosystem",
     explore: "Explore",
     wallet: "Wallet",
+    enter_confirmation_code: "Enter the confirmation code sent to Email",
+    send_email_again: "Send email again",
+    seconds: "seconds",
+    in: "in",
+    forgot_password: "Forgot your password",
+    new_password: "New Password",
+    change_password: "Change Password",
+    incorrect_password: "Incorrect Password",
+    password_changed: "Password changed",
 };

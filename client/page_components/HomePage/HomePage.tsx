@@ -1,12 +1,13 @@
 import styles from './HomePage.module.css';
-import { Header } from "components/Header/Header";
-import { AuthForm } from 'components/AuthForm/AuthForm';
+import { Header } from "components/Headers/Header/Header";
+import { AuthForm } from 'components/Auth/AuthForm/AuthForm';
 import { useState } from 'react';
 import { Footer } from 'components/Footer/Footer';
-import { Block } from 'components/Block/Block';
-import { AuthBlock } from 'components/AuthBlock/AuthBlock';
+import { Block } from 'components/Common/Block/Block';
+import { AuthBlock } from 'components/Auth/AuthBlock/AuthBlock';
 import { Toaster } from 'react-hot-toast';
 import { Links } from 'interfaces/components.interface';
+
 
 export const HomePage = (): JSX.Element => {
     const [authState, setAuthState] = useState<'login' | 'registration'>('login');
