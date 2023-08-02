@@ -1,15 +1,14 @@
 from fastapi import APIRouter
 from .database import *
 from .models import *
-import json
-from fastapi.encoders import jsonable_encoder
 from .smtp import *
-
+from fastapi import  Depends, HTTPException
+from auth import *
 router = APIRouter()
 data  = Database()
 
 
-@router.post("/registration", response_description="Create new user")
+@router.post("/register", response_description="Create new user")
 async def create_new_user(user:Registration_User):
     user = dict(user)
     print(user)
@@ -18,6 +17,7 @@ async def create_new_user(user:Registration_User):
         return ResponseModel(new_user,'User added successfully')
     else:
         return ErrorResponseModel('Username already exists',200,'Choose another nickname')
+
 @router.get("/login", response_description= "login user" )
 async def login_user(username:str = None,password:str = None, email:str = None):
     res = False
@@ -99,6 +99,22 @@ async def update_password_user(user:Mail_User):
         return ResponseModel(res, 'Succes change password with username')
     else:
         return ErrorResponseModel('Error', 200, 'Choose correct username/password')
+
+
+
+@router.post('/token')
+async def authenticate_user(username:str,password:str):
+    user = {
+        'username': username,
+        'password': password,
+    }
+
+    res = await data.check_password_with_username(dict(user))
+    if not res:
+        raise HTTPException(status_code=400, detail="Incorrect username or password")
+    else:
+        jwt_token = create_jwt_token({"sub":username})
+        return {"access_token": jwt_token, "token_type": "bearer"}
 
 
 
