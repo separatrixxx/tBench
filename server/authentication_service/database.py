@@ -106,11 +106,11 @@ class Database():
                 return True
         return False
 
-    async def update_user_password_with_code(self,username,password):
-        user = await self.user_collection.find_one({"username": username})
+    async def update_user_password_with_code(self,email,password):
+        user = await self.user_collection.find_one({"email": email})
         if user:
             updated_user = await self.user_collection.update_one(
-                {"username": username}, {"$set": {'password':password}}
+                {"eamil": email}, {"$set": {'password':password}}
             )
             if updated_user:
                 return True
@@ -148,7 +148,3 @@ class Database():
         async for user in users:
             res.append(self.user_helper(user))
         return res
-
-
-
-

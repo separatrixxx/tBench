@@ -108,11 +108,8 @@ async def get_current_user(token:str = Depends(oauth2_scheme)):
 
 
 @router.put("/update_user_password_with_code", response_description="Update user password with mail",)
-async def update_password_user(user:Mail_User = Depends(get_current_user)):
-    print(111)
-    print(user)
-    res = await data.update_user_password_with_code(user.username,user.password)
-    print(res)
+async def update_password_user(user:Mail_User):
+    res = await data.update_user_password_with_code(user.email,user.password)
     if res:
         return ResponseModel(res, 'Succes change password with username')
     else:

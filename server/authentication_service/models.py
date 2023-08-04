@@ -27,7 +27,7 @@ class Update_User(BaseModel):
     gender: Optional[str] = None
 
 class Mail_User(BaseModel):
-    username: str = None
+    email: str = None
     password: str = None
 
 
