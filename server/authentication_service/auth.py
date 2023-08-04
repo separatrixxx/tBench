@@ -1,6 +1,6 @@
 import  jwt
 from datetime import datetime,timedelta
-
+from fastapi import Depends
 SECRET_KEY = "ONEME"
 ALGORITHM = "HS256"
 EXPIRATION_TIME = timedelta(minutes=30)
@@ -17,6 +17,4 @@ def verify_jwt_token(token:str):
         return decoded_data
     except jwt.PyJWTError:
         return None
-
-
 

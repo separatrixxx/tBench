@@ -1,12 +1,15 @@
 from fastapi import APIRouter
-from .database import *
-from .models import *
-from .smtp import *
+from database import *
+from models import *
+from smtp import *
 from fastapi import  Depends, HTTPException
+from fastapi.security import OAuth2PasswordBearer
+from passlib.context import CryptContext
 from auth import *
 router = APIRouter()
 data  = Database()
-
+oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 @router.post("/register", response_description="Create new user")
 async def create_new_user(user:Registration_User):
@@ -87,14 +90,28 @@ async def update_password_user(email:str,code:str):
             return ErrorResponseModel('Error', 200, 'Письмо не отправилось')
 
 
+async def get_current_user(token:str = Depends(oauth2_scheme)):
+    print(1)
+    decoded_data = verify_jwt_token(token)
+    if not decoded_data:
+        raise HTTPException(status_code=400,detail="Invalid token")
+
+    user = await data.get_user_by_username(decoded_data['sub'])
+    if not user:
+        raise HTTPException(status_code=400, detail="User not found")
+    print(user)
+    return user
 
 
 
 
 
-@router.put("/update_user_password_with_code", response_description="Update user password with mail")
-async def update_password_user(user:Mail_User):
+@router.put("/update_user_password_with_code", response_description="Update user password with mail",)
+async def update_password_user(user:Mail_User = Depends(get_current_user)):
+    print(111)
+    print(user)
     res = await data.update_user_password_with_code(user.username,user.password)
+    print(res)
     if res:
         return ResponseModel(res, 'Succes change password with username')
     else:
@@ -102,7 +119,7 @@ async def update_password_user(user:Mail_User):
 
 
 
-@router.post('/token')
+@router.post('/get_token')
 async def authenticate_user(username:str,password:str):
     user = {
         'username': username,
@@ -114,7 +131,17 @@ async def authenticate_user(username:str,password:str):
         raise HTTPException(status_code=400, detail="Incorrect username or password")
     else:
         jwt_token = create_jwt_token({"sub":username})
-        return {"access_token": jwt_token, "token_type": "bearer"}
+        return {"access_token": jwt_token}
 
 
 
+@router.post('/verify_token')
+async def verify_token(token:str):
+    try:
+        payload = jwt.decode(token,SECRET_KEY,ALGORITHM)
+        return payload
+    except jwt.PyJWTError:
+        raise HTTPException(
+            status_code=400,
+            detail="Could not validate credentials",
+        )

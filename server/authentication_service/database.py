@@ -1,12 +1,12 @@
 from motor import motor_asyncio
-from .models import *
+from models import *
 
 from bson.objectid import ObjectId
 import traceback
 class Database():
     def __init__(self):
 
-        self.client = motor_asyncio.AsyncIOMotorClient("mongodb://mongodb:27017/")
+        self.client = motor_asyncio.AsyncIOMotorClient("mongodb://localhost:27017")
         self.database = self.client.users
         self.user_collection = self.database.get_collection('users_collection')
 
@@ -115,4 +115,9 @@ class Database():
             if updated_user:
                 return True
         return False
+
+    async def get_user_by_username(self,username:str):
+        user = await self.user_collection.find_one({"username": username})
+        return self.user_login_helper_email(user)
+
 

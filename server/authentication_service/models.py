@@ -29,6 +29,18 @@ class Mail_User(BaseModel):
     username: str = None
     password: str = None
 
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+
+
+
+
+
+
 def ResponseModel(data, message):
     return {
         "data": [data],
