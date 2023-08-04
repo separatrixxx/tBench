@@ -154,3 +154,10 @@ async def get_all_users():
     res = await  data.get_all_users()
     return res
 
+
+@router.delete("/delete_user/{username}", response_description= "Удаление пользователя по username" )
+async def delete_user_by_username(username:str,password:str):
+    res = await  data.delete_user(username,password)
+    if res:
+        return ResponseModel(username, 'Succes delete user!')
+    return ErrorResponseModel('Error', 200, 'Choose correct username/password')

@@ -127,3 +127,10 @@ class Database():
         async for user in users:
             res.append(self.user_helper(user))
         return res
+
+
+    async def delete_user(self,username:str,password:str):
+     user = self.user_collection.delete_one({"username": username,"password": password})
+     if user:
+         return True
+     return False
