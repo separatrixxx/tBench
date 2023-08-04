@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field,EmailStr,constr
 from typing import  Optional
+from enum import Enum
 
 
 class Registration_User(BaseModel):
@@ -37,6 +38,12 @@ class Token(BaseModel):
 
 
 
+class Type(Enum):
+    username = 'username'
+    name = 'name'
+    surname = 'surname'
+    email = 'email'
+    id = 'id'
 
 
 

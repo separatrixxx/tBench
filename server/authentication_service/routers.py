@@ -6,6 +6,7 @@ from fastapi import  Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
 from auth import *
+from typing import Union
 router = APIRouter()
 data  = Database()
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/token")
@@ -161,3 +162,19 @@ async def delete_user_by_username(username:str,password:str):
     if res:
         return ResponseModel(username, 'Succes delete user!')
     return ErrorResponseModel('Error', 200, 'Choose correct username/password')
+
+
+@router.get('/get_user',response_description= "Получение пользователя")
+async def get_user(type:Type,information:str):
+    if type is Type.username:
+        type = 'username'
+    elif type is Type.email:
+        type = 'email'
+    elif type is Type.name:
+        type = 'name'
+    elif type is Type.surname:
+        type = 'email'
+    else:
+        type = '_id'
+    res = await data.get_user(type,information)
+    return res

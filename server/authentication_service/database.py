@@ -134,3 +134,21 @@ class Database():
      if user:
          return True
      return False
+
+
+    async def get_user(self,type:str,data:str):
+        res = []
+        if type == '_id':
+            users = self.user_collection.find({f'{type}': ObjectId(data)})
+            async for user in users:
+                res.append(self.user_helper(user))
+            return res
+
+        users = self.user_collection.find({f'{type}':data})
+        async for user in users:
+            res.append(self.user_helper(user))
+        return res
+
+
+
+
