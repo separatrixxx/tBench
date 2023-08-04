@@ -145,3 +145,12 @@ async def verify_token(token:str):
             status_code=400,
             detail="Could not validate credentials",
         )
+
+
+
+
+@router.get("/get_all_users", response_description= "Получение всех пользователей" )
+async def get_all_users():
+    res = await  data.get_all_users()
+    return res
+

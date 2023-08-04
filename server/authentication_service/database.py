@@ -121,3 +121,9 @@ class Database():
         return self.user_login_helper_email(user)
 
 
+    async def get_all_users(self):
+        res = []
+        users = self.user_collection.find({})
+        async for user in users:
+            res.append(self.user_helper(user))
+        return res
