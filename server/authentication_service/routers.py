@@ -1,11 +1,11 @@
 from fastapi import APIRouter
-from database import *
-from models import *
-from smtp import *
+from .database import *
+from .models import *
+from .smtp import *
 from fastapi import  Depends, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from passlib.context import CryptContext
-from auth import *
+from .auth import *
 from typing import Union
 router = APIRouter()
 data  = Database()
