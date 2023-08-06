@@ -1,5 +1,6 @@
 from pydantic import BaseModel, Field,EmailStr,constr
 from typing import  Optional
+from enum import Enum
 
 
 class Registration_User(BaseModel):
@@ -26,8 +27,26 @@ class Update_User(BaseModel):
     gender: Optional[str] = None
 
 class Mail_User(BaseModel):
-    username: str = None
+    email: str = None
     password: str = None
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
+
+
+class Type(Enum):
+    username = 'username'
+    name = 'name'
+    surname = 'surname'
+    email = 'email'
+    id = 'id'
+
+
+
 
 def ResponseModel(data, message):
     return {

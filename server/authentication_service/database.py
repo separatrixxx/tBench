@@ -6,7 +6,7 @@ import traceback
 class Database():
     def __init__(self):
 
-        self.client = motor_asyncio.AsyncIOMotorClient("mongodb://mongodb:27017/")
+        self.client = motor_asyncio.AsyncIOMotorClient("mongodb://mongodb:27017")
         self.database = self.client.users
         self.user_collection = self.database.get_collection('users_collection')
 
@@ -106,13 +106,45 @@ class Database():
                 return True
         return False
 
-    async def update_user_password_with_code(self,username,password):
-        user = await self.user_collection.find_one({"username": username})
+    async def update_user_password_with_code(self,email,password):
+        user = await self.user_collection.find_one({"email": email})
         if user:
             updated_user = await self.user_collection.update_one(
-                {"username": username}, {"$set": {'password':password}}
+                {"eamil": email}, {"$set": {'password':password}}
             )
             if updated_user:
                 return True
         return False
 
+    async def get_user_by_username(self,username:str):
+        user = await self.user_collection.find_one({"username": username})
+        return self.user_login_helper_email(user)
+
+
+    async def get_all_users(self):
+        res = []
+        users = self.user_collection.find({})
+        async for user in users:
+            res.append(self.user_helper(user))
+        return res
+
+
+    async def delete_user(self,username:str,password:str):
+     user = self.user_collection.delete_one({"username": username,"password": password})
+     if user:
+         return True
+     return False
+
+
+    async def get_user(self,type:str,data:str):
+        res = []
+        if type == '_id':
+            users = self.user_collection.find({f'{type}': ObjectId(data)})
+            async for user in users:
+                res.append(self.user_helper(user))
+            return res
+
+        users = self.user_collection.find({f'{type}':data})
+        async for user in users:
+            res.append(self.user_helper(user))
+        return res
