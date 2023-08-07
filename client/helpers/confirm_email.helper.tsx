@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { forgotPassword, loginUser, registerUser } from './auth.helper';
 
 
 export function confirmCode(): string {
@@ -28,7 +27,7 @@ export function timerStart(setSecondsCount: (e: any) => void) {
 	}, 10000);
 }
 
-export async function emailSend(setAuthState: (e: any) => void,
+export async function emailSend(setFormType: (e: any) => void,
 	setLoading: (e: any) => void, setConfCode: (e: any) => void, email: string) {
 
 	code = confirmCode();
@@ -37,7 +36,7 @@ export async function emailSend(setAuthState: (e: any) => void,
 
 	await axios.put(process.env.NEXT_PUBLIC_DOMAIN + '/send_code?email=' + email + '&code=' + code)
 		.then(function () {
-			setAuthState('confirm');
+			setFormType('confirm');
 			setLoading(false);
 		})
 		.catch(function (error) {
