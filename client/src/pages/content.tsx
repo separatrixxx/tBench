@@ -18,7 +18,7 @@ function Content(): JSX.Element {
     username: '',
     email: '',
     gender: 'male',
-  }
+  };
 
   const [user, setUser] = useState<User>(userData);
 

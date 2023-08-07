@@ -18,14 +18,14 @@ function Profile(): JSX.Element {
 		username: '',
 		email: '',
 		gender: 'male',
-	  }
+	};
 	
-	  const [user, setUser] = useState<User>(userData);
+	const [user, setUser] = useState<User>(userData);
 	
-	  useEffect(() => {
+	useEffect(() => {
 		pageHelper(router, setIsAuth, setTheme);
 		userHelper(setUser);
-	  }, [router]);
+	}, [router]);
 
 	if (isAuth) {
 		return (

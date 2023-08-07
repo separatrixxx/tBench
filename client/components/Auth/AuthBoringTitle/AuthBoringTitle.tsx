@@ -13,4 +13,4 @@ export const AuthBoringTitle = (): JSX.Element => {
             <Htag tag='l' className={styles.boringTitle}>{titles[pos]}</Htag>
         </div>
     );
-}
+};
