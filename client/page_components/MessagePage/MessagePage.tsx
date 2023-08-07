@@ -8,11 +8,11 @@ import { MessageUserInfo } from 'components/Messages/MessageUserInfo/MessageUser
 import cn from 'classnames';
 
 
-export const MessagePage = ({ theme }: MessagePageProps): JSX.Element => {
+export const MessagePage = ({ theme, user }: MessagePageProps): JSX.Element => {
 	const username = 'separatrix';
 
 	return (
-		<AppContextProvider theme={theme}>
+		<AppContextProvider theme={theme} user={user}>
 			<div className={cn(styles.messageWrapper, {
 				[styles.darkThemeWrapper]: theme === 'dark',
 			})}>

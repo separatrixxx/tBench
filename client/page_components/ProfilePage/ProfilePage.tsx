@@ -13,7 +13,7 @@ import { ContentModal } from 'components/Content/ContentModal/ContentModal';
 import cn from 'classnames';
 
 
-export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
+export const ProfilePage = ({ theme, user }: ProfilePageProps): JSX.Element => {
     const [themeState, setThemeState] = useState<string>(theme);
     const setTheme = (newTheme: string) => {
         setThemeState(newTheme);
@@ -29,7 +29,7 @@ export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
     const [typeContent, setTypeContent] = useState<'post' | 'comments'>('post');
 
     return (
-        <AppContextProvider theme={theme}>
+        <AppContextProvider theme={theme} user={user}>
             <div className={styles.profileWrapper}>
                 <ProfileOptions setTheme={setTheme} />
                 <ProfileCover active={active} setActive={setActive} setType={setType} />
@@ -38,7 +38,7 @@ export const ProfilePage = ({ theme }: ProfilePageProps): JSX.Element => {
                     [styles.darkThemeProfileInfoWrapper]: themeState === 'dark',
                 })}>
                     <BackButton link='/content' />
-                    <ProfileInfo active={active} setActive={setActive} setType={setType} username={username}
+                    <ProfileInfo active={active} setActive={setActive} setType={setType} username={user.username}
                         userInfo={userInfo} />
                     <UserContentList setType={setTypeContent} setActive={setActiveContent} setImage={setImage} setPostId={setPostId} />
                 </div>

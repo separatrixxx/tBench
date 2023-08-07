@@ -1,24 +1,27 @@
-import { ToastSuccess } from "components/Common/Toast/Toast";
+import { ToastError, ToastSuccess } from "components/Common/Toast/Toast";
 import { setLocale } from "./locale.helper";
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import { AuthDataInterface } from "interfaces/check_auth.interface";
 import { hashPassword } from "./hash.helper";
+import { User } from "interfaces/user.interface";
 
 
 export function loginUser(data: AuthDataInterface, router: any) {
     ToastSuccess(setLocale(router.locale).cool + '!');
     localStorage.setItem('logged_in', 'true');
+    localStorage.setItem('email', data.email);
     router.push('/content');
 }
 
 export async function registerUser(data: AuthDataInterface, router: any) {
-    await axios.post(process.env.NEXT_PUBLIC_DOMAIN + '/registration', {
+    await axios.post(process.env.NEXT_PUBLIC_DOMAIN + '/register', {
         name: data.firstName,
         surname: data.lastName,
         username: data.username,
         email: data.email,
         gender: data.gender,
-        password: hashPassword(data.password),
+        //password: hashPassword(data.password),
+        password: data.password,
     })
         .then(function () {
             ToastSuccess(setLocale(router.locale).cool + '!');
@@ -27,19 +30,23 @@ export async function registerUser(data: AuthDataInterface, router: any) {
         })
         .catch(function (error) {
             console.log("Registration error: " + error);
+            ToastError(String(error));
         });
 }
 
 export async function forgotPassword(data: AuthDataInterface, newPassword: string, router: any) {
-    //нужно получение юзернейма
+    const { data: response }: AxiosResponse<User[]> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
+        '/get_user?type=email&information=' + data.email);
+
     await axios.put(process.env.NEXT_PUBLIC_DOMAIN + '/update_user_password_with_code', {
-        username: '',
-        password: hashPassword(newPassword),
+        username: response[0].username,
+        password: newPassword,
     })
         .then(function () {
             ToastSuccess(setLocale(router.locale).password_changed + '!');
         })
         .catch(function (error) {
             console.log("Change password error: " + error);
+            ToastError(String(error));
         });
 }

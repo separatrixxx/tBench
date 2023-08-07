@@ -16,7 +16,7 @@ import { MessagesList } from 'components/Messages/MessagesList/MessagesList';
 import cn from 'classnames';
 
 
-export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
+export const ContentPage = ({ theme, user }: ContentPageProps): JSX.Element => {
     const router = useRouter();
 
     const [activeContent, setActiveContent] = useState<boolean>(false);
@@ -35,7 +35,7 @@ export const ContentPage = ({ theme }: ContentPageProps): JSX.Element => {
     };
 
     return (
-        <AppContextProvider theme={theme}>
+        <AppContextProvider theme={theme} user={user}>
             <div className={cn(styles.contentWrapper, {
                 [styles.darkThemeWrapper]: theme === 'dark',
             })}>

@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import { setLocale } from 'helpers/locale.helper';
-import { pageHelper } from 'helpers/pages.helper';
+import { pageHelper, userHelper } from 'helpers/pages.helper';
+import { User } from "interfaces/user.interface";
 
 function Profile(): JSX.Element {
 	const router = useRouter();
@@ -11,9 +12,20 @@ function Profile(): JSX.Element {
 	const [isAuth, setIsAuth] = useState<boolean>(false);
 	const [theme, setTheme] = useState<string>('light');
 
-	useEffect(() => {
+	const userData: User = {
+		firstName: '',
+		lastName: '',
+		username: '',
+		email: '',
+		gender: 'male',
+	  }
+	
+	  const [user, setUser] = useState<User>(userData);
+	
+	  useEffect(() => {
 		pageHelper(router, setIsAuth, setTheme);
-	}, [router]);
+		userHelper(setUser);
+	  }, [router]);
 
 	if (isAuth) {
 		return (
@@ -21,7 +33,7 @@ function Profile(): JSX.Element {
 				<Head>
 					<title>tBench - {setLocale(router.locale).message}</title>
 				</Head>
-				<MessagePage theme={theme} />
+				<MessagePage theme={theme} user={user} />
 			</>
 		);
 	} else {
