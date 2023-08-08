@@ -17,29 +17,39 @@ import Visa from './DLElements/visa.svg';
 import Yandex from './DLElements/yandex.svg';
 import Yula from './DLElements/yula.svg';
 import { NumberCounter } from 'wow/NumberCounter/NumberCounter';
+import { EnterCodeForm } from 'wow/EnterCodeForm/EnterCodeForm';
+import { Toaster } from 'react-hot-toast';
 
 
 export const WowPage = (): JSX.Element => {
 	const elements: any = [Cocacola, Facebook, Lenta, Megafon, Mts, Netflix, Perekrestok, Rosbank, Sber, Visa, Yandex, Yula];
 
 	return (
-		<div className={styles.wowWrapper}>
-			<Htag tag='l' className={styles.text}>Dynamic Line</Htag>
-			<DynamicLine type='1' direction='right' speed='medium' elements={elements} />
-			<DynamicLine type='2' direction='left' speed='fast' elements={elements} />
-			<DynamicLine type='3' direction='right' speed='slow' elements={elements} />
-			<Htag tag='l' className={styles.text}>Wow Cursor</Htag>
-			<WowCursor />
-			<Htag tag='l' className={styles.text}>Number Counter</Htag>
-			<Htag tag='l' className={styles.text}>Number Counter</Htag>
-			<Htag tag='l' className={styles.text}>Number Counter</Htag>
-			<Htag tag='l' className={styles.text}>Number Counter</Htag>
-			<Htag tag='l' className={styles.text}>Number Counter</Htag>
-			<NumberCounter id='c1' number={1603} time={7000} step={1} />
-			<Htag tag='l' className={styles.text}>Wow Button</Htag>
-			<WowButton />
-			{/* <Htag tag='l' className={styles.text}>Looking 3D</Htag>
-			<Looking3D /> */}
-		</div>
+		<>
+			<Toaster
+                position="top-center"
+                reverseOrder={true}
+                toastOptions={{
+                    duration: 2000,
+                }}
+            />
+			<div className={styles.wowWrapper}>
+				<Htag tag='l' className={styles.text}>Dynamic Line</Htag>
+				<DynamicLine type='1' direction='right' speed='medium' elements={elements} />
+				<DynamicLine type='2' direction='left' speed='fast' elements={elements} />
+				<DynamicLine type='3' direction='right' speed='slow' elements={elements} />
+				<Htag tag='l' className={styles.text}>Wow Cursor</Htag>
+				<WowCursor />
+				<Htag tag='l' className={styles.text}>Enter Code Form</Htag>
+				<Htag tag='m' className={styles.textM}>Code is 1234</Htag>
+				<EnterCodeForm />
+				<Htag tag='l' className={styles.text}>Number Counter //alpha</Htag>
+				<NumberCounter id='c1' number={1603} time={7000} step={1} />
+				<Htag tag='l' className={styles.text}>Wow Button //alpha</Htag>
+				<WowButton />
+				{/* <Htag tag='l' className={styles.text}>Looking 3D</Htag>
+				<Looking3D /> */}
+			</div>
+		</>
 	);
 };

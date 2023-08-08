@@ -30,11 +30,11 @@ export function pageHelper(router: any, setIsAuth: (e: any) => void, setTheme: (
 
 export async function userHelper(setUser: (e: any) => void) {
 	const loggedIn = localStorage.getItem('logged_in');
-	const email = localStorage.getItem('email');
+	const username = localStorage.getItem('username');
 
-	if (loggedIn && email) {
+	if (loggedIn && username) {
 		const { data: response }: AxiosResponse<User[]> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
-            '/get_user?type=email&information=' + email);
+            '/get_user?type=username&information=' + username);
 
 		setUser(response[0]);
 	}

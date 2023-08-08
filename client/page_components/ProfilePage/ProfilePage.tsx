@@ -38,7 +38,7 @@ export const ProfilePage = ({ theme, user }: ProfilePageProps): JSX.Element => {
                     [styles.darkThemeProfileInfoWrapper]: themeState === 'dark',
                 })}>
                     <BackButton link='/content' />
-                    <ProfileInfo active={active} setActive={setActive} setType={setType} username={user.username}
+                    <ProfileInfo active={active} setActive={setActive} setType={setType} username={user?.username}
                         userInfo={userInfo} />
                     <UserContentList setType={setTypeContent} setActive={setActiveContent} setImage={setImage} setPostId={setPostId} />
                 </div>

@@ -6,10 +6,13 @@ import { hashPassword } from "./hash.helper";
 import { User } from "interfaces/user.interface";
 
 
-export function loginUser(data: AuthDataInterface, router: any) {
+export async function loginUser(data: AuthDataInterface, router: any) {
+    const { data: response }: AxiosResponse<User[]> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
+        '/get_user?type=email&information=' + data.email);
+
     ToastSuccess(setLocale(router.locale).cool + '!');
     localStorage.setItem('logged_in', 'true');
-    localStorage.setItem('email', data.email);
+    localStorage.setItem('username', response[0].username);
     router.push('/content');
 }
 
