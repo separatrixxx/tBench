@@ -1,38 +1,43 @@
-.confirmEmail {
-	width: 90%;
-	height: 40px;
-	margin: 10px 0 20px 0;
+.enterCodeForm {
+    width: fit-content;
+    border-radius: 20px;
+    padding: 30px 20px;
+    margin-left: 20px;
+}
 
-	transition-duration: 300ms;
-	text-align: center;
-
-	color: var(--primary);
-
-	border: 1px solid var(--dark);
-
-	border-radius: 20px;
-	border-radius: 9999px;
-	background: var(--light);
-
-	font-size: 1rem;
+.enterChar {
+    width: 30px;
+    height: 40px;
+    background: var(--light);
+    border-radius: 10px;
+    border: 1px solid var(--dark);
+    text-align: center;
+    font-size: 1.5rem;
 	font-weight: 500;
 	line-height: 1.5rem;
+    border-width: 0;
+    margin: 0 3px 0 3px;
 }
 
-.confirmEmail:hover {
-	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-
-	border-color: var(--primary);
-}
-
-.confirmEmail:focus {
+.enterChar:focus {
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	outline-color: var(--primary);
 }
 
+.error {
+    outline: 2px solid var(--error);
+}
+
+.error:focus {
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	outline-color: var(--error);
+}
+
 @media (max-width: 400px) {
-	.confirmEmail {
-		margin-bottom: 10px;
-	}
+	.enterChar {
+        width: 22px;
+        height: 33px;
+    }
 }

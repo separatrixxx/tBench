@@ -7,8 +7,8 @@ export const AuthBlock = ({ children }: AuthBlockProps): JSX.Element => {
         <div className={styles.authBlock}>
             {children}
             <Image className={styles.authBlockImage} draggable='false'
-                loader={() => '/home_image.png'}
-                src='/home_image.png'
+                loader={() => '/home_image.webp'}
+                src='/home_image.webp'
                 alt='image'
                 width={1}
                 height={1}
