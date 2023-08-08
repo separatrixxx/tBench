@@ -1,8 +1,9 @@
 import { Htag } from 'components/Common/Htag/Htag';
 import styles from './AuthBoringTitle.module.css';
+import React from 'react';
 
 
-export const AuthBoringTitle = (): JSX.Element => {
+const AuthBoringTitle = (): JSX.Element => {
     const titles: string[] = ["Wow, it's real?!", 'separatrix', 'biggvladik', 'Web3.0?..', 'Boring Title',
         'Decentralized', 'Sorry for the bugs :(', 'Mother Russia', 'Follow the 🐇', 'Ладно ._.'];
 
@@ -14,3 +15,5 @@ export const AuthBoringTitle = (): JSX.Element => {
         </div>
     );
 };
+
+export default React.memo(AuthBoringTitle);

@@ -66,6 +66,27 @@
 	color: var(--white) !important;
 }
 
+.pulse {
+	width: 170px;
+	height: 35px;
+	border-radius: 9999px;
+	background: var(--light);
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.darkThemePulse {
+	background: var(--dark);
+}
+
+@keyframes pulse {
+	0%, 100% {
+	  opacity: 1;
+	}
+	50% {
+	  opacity: 0.5;
+	}
+  }
+
 @media (min-width: 1024px) {
 	.moreInfo:hover {
 		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -86,5 +107,10 @@
 
 	.verify {
 		width: 20px;
+	}
+
+	.pulse {
+		width: 120px;
+		height: 30px;
 	}
 }

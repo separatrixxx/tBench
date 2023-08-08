@@ -6,6 +6,9 @@ import { motion } from 'framer-motion';
 import { useResizeW } from 'hooks/useResize';
 import Search from './search.svg';
 import cn from 'classnames';
+import { searchUser } from 'helpers/search_user.helper';
+import { User } from 'interfaces/user.interface';
+import { SearchUserItem } from 'components/User/SearchUserItem/SearchUserItem';
 
 
 export const InputContent = (): JSX.Element => {
@@ -54,6 +57,8 @@ export const InputContent = (): JSX.Element => {
         }
     };
 
+    const [users, setUsers] = useState<User[]>();
+
     return (
         <label className={styles.labelContent}>
             <span className={cn(styles.iconContent, {
@@ -76,6 +81,7 @@ export const InputContent = (): JSX.Element => {
                 onChange={(e) => {
                     setSearch(e.target.value);
                     handleKeyDown(e.target.value);
+                    searchUser(e.target.value, setUsers);
                 }}
                 onClick={() => {
                     if (+search !== 0) {
@@ -87,6 +93,9 @@ export const InputContent = (): JSX.Element => {
                 initial={flag ? 'visible' : 'hidden'}
                 transition={{ duration: 0.3 }}
                 animate={flag ? 'visible' : 'hidden'}>
+                {users ? users.map(u => (
+                    <SearchUserItem key={u.username} firstName={u.firstName} lastName={u.lastName} username={u.username} />
+                )) : <></>}
             </motion.div>
         </label>
     );

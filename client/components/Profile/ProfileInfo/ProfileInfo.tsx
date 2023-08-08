@@ -18,6 +18,8 @@ export const ProfileInfo = ({ active, setActive, setType, username, userInfo }: 
             <div className={styles.usernameBlock}>
                 <Htag tag='xl' className={cn(styles.username, {
                     [styles.darkThemeText]: context.theme === 'dark',
+                    [styles.pulse]: !username,
+                    [styles.darkThemePulse]: !username && context.theme === 'dark',
                 })} onClick={() => {
                     setType('username');
                     setActive(!active);

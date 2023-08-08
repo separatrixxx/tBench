@@ -5,7 +5,6 @@ import { AuthDataInterface, CheckAuthInterface } from 'interfaces/check_auth.int
 import { useRouter } from 'next/router';
 import { AuthFormChange } from '../AuthFormChange/AuthFormChange';
 import { setLocale } from 'helpers/locale.helper';
-import { ConfirmEmail } from '../ConfirmEmail/ConfirmEmail';
 import { Htag } from 'components/Common/Htag/Htag';
 import { emailSend, timerStart } from 'helpers/confirm_email.helper';
 import { BackAuthForm } from '../BackAuthForm/BackAuthForm';
@@ -14,7 +13,8 @@ import { RegistrationForm } from '../RegistrationForm/RegistrationForm';
 import { ForgotForm } from '../ForgotForm/ForgotForm';
 import { checkAuth } from 'helpers/check_auth.helper';
 import cn from 'classnames';
-import { AuthBoringTitle } from '../AuthBoringTitle/AuthBoringTitle';
+import AuthBoringTitle from '../AuthBoringTitle/AuthBoringTitle';
+import { ConfirmEmail } from '../ConfirmEmail/ConfirmEmail';
 
 
 export const AuthForm = (): JSX.Element => {
@@ -132,7 +132,6 @@ export const AuthForm = (): JSX.Element => {
 
 		return (
 			<div className={cn(styles.authForm)}>
-				{/* <BackAuthForm formType={formType} setAuthState={setAuthState} /> */}
 				<Htag tag='s' className={styles.confirmText}>{setLocale(router.locale).enter_confirmation_code} <span className={styles.emailText}>
 					{email}
 				</span>.

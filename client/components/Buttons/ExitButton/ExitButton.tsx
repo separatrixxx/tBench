@@ -30,7 +30,8 @@ export const ExitButton = ({ hiddenOptions }: ExitButtonProps): JSX.Element => {
             [styles.darkThemeExitButton]: context.theme === 'dark',
         })} onClick={() => {
             router.push('/');
-            localStorage.clear();
+            localStorage.removeItem('logged_in');
+            localStorage.removeItem('username');
         }}
             variants={variants}
             initial={!hiddenOptions ? 'visible' : 'hidden'}
