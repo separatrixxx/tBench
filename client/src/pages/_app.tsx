@@ -6,7 +6,7 @@ import { wrapper } from '../../features/store/store';
 import { Provider } from 'react-redux';
 
 
-function App({ Component, pageProps }: AppProps) {
+export default function App({ Component, pageProps }: AppProps) {
   const { store } = wrapper.useWrappedStore(pageProps);
 
   return (
@@ -25,5 +25,3 @@ function App({ Component, pageProps }: AppProps) {
     </Provider>
   );
 }
-
-export default App;
