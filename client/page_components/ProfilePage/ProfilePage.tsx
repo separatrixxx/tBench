@@ -10,7 +10,7 @@ import { ProfileOptions } from 'components/Profile/ProfileOptions/ProfileOptions
 import { ContentModal } from 'components/Content/ContentModal/ContentModal';
 import cn from 'classnames';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 
 
 export const ProfilePage = (): JSX.Element => {
