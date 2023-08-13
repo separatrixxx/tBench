@@ -6,7 +6,7 @@ import { ProfileStatsBar } from '../ProfileStatsBar/ProfileStatsBar';
 import { UserSpecificies } from 'components/User/UserSpecificies/UserSpecificies';
 import Check from './check.svg';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { setStat } from 'helpers/stat.helper';
 import { ProfileStatItem } from '../ProfileStatItem/ProfileStatItem';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

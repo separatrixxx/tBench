@@ -3,7 +3,7 @@ import styles from './UserSpecificies.module.css';
 import { Htag } from 'components/Common/Htag/Htag';
 import Info from './info.svg';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

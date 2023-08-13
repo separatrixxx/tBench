@@ -2,7 +2,7 @@ import { SearchUserItemProps } from './SearchUserItem.props';
 import styles from './SearchUserItem.module.css';
 import { Htag } from 'components/Common/Htag/Htag';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 
