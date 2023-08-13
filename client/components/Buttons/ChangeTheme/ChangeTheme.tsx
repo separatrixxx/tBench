@@ -4,7 +4,7 @@ import Sun from './sun.svg';
 import Moon from './moon.svg';
 import { motion } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import { setTheme } from 'features/theme/themeSlice';
 import cn from 'classnames';
 

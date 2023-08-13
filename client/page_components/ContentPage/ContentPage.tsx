@@ -12,7 +12,7 @@ import { setLocale } from 'helpers/locale.helper';
 import { motion } from 'framer-motion';
 import { MessagesList } from 'components/Messages/MessagesList/MessagesList';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

@@ -3,7 +3,7 @@ import styles from './UserContentItem.module.css';
 import Image from 'next/image';
 import { ContentActionsBar } from 'components/Content/ContentActionsBar/ContentActionsBar';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

@@ -1,7 +1,7 @@
 import { ProfileStatItemProps } from './ProfileStatItem.props';
 import styles from './ProfileStatItem.module.css';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

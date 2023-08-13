@@ -2,7 +2,7 @@ import { ContentListProps } from './ContentList.props';
 import styles from './ContentList.module.css';
 import { UserContentItem } from 'components/User/UserContentItem/UserContentItem';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

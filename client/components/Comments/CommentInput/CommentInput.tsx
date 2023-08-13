@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Emoji from './emoji.svg';
 import Send from './send.svg';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

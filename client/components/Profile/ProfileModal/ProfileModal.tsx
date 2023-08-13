@@ -10,7 +10,7 @@ import { MoreInfoBlock } from '../MoreInfoBlock/MoreInfoBlock';
 import { Htag } from 'components/Common/Htag/Htag';
 import Check from './check.svg';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

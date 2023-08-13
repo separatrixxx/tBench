@@ -2,7 +2,7 @@ import { ProfileStatProps } from './ProfileStat.props';
 import styles from './ProfileStat.module.css';
 import { Htag } from 'components/Common/Htag/Htag';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

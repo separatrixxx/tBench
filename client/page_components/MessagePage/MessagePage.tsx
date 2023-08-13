@@ -4,7 +4,7 @@ import { HeaderContent } from 'components/Headers/HeaderContent/HeaderContent';
 import { HeaderUserIcon } from 'components/Headers/HeaderUserIcon/HeaderUserIcon';
 import { MessageUserInfo } from 'components/Messages/MessageUserInfo/MessageUserInfo';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

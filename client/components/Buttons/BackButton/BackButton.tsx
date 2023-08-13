@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { useResizeW } from 'hooks/useResize';
 import BackArrow from './back_arrow.svg';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

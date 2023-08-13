@@ -7,7 +7,7 @@ import { ChangeTheme } from 'components/Buttons/ChangeTheme/ChangeTheme';
 import Settings from './settings.svg';
 import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

@@ -8,7 +8,7 @@ import Heart from './heart.svg';
 import Comment from './comment.svg';
 import { formatTime } from 'helpers/format.helper';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

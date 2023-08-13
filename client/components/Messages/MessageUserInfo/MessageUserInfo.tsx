@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import { setLocale } from 'helpers/locale.helper';
 import Link from 'next/link';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 
