@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import { setLocale } from 'helpers/locale.helper';
 import { pageHelper, userHelper } from 'helpers/pages.helper';
-import { User } from "interfaces/user.interface";
 import { useDispatch } from "react-redux";
 
 
@@ -17,7 +16,7 @@ function Profile(): JSX.Element {
 	useEffect(() => {
 		pageHelper(router, dispatch, setIsAuth);
 		userHelper(dispatch);
-	}, [router]);
+	}, [router, dispatch]);
 
 	if (isAuth) {
 		return (
