@@ -1,7 +1,7 @@
 import { InputModalProps } from './InputModal.props';
 import styles from './InputModal.module.css';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

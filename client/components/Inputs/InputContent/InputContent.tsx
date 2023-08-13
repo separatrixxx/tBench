@@ -7,7 +7,7 @@ import { searchUser } from 'helpers/search_user.helper';
 import { User } from 'interfaces/user.interface';
 import { SearchUserItem } from 'components/User/SearchUserItem/SearchUserItem';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

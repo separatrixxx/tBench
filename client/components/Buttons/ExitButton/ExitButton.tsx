@@ -3,7 +3,7 @@ import styles from './ExitButton.module.css';
 import { useRouter } from 'next/router';
 import Exit from './exit.svg';
 import { motion } from 'framer-motion';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import { useSelector } from 'react-redux';
 import cn from 'classnames';
 

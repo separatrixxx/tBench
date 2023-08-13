@@ -3,7 +3,7 @@ import styles from './NotificationsButton.module.css';
 import { useState } from 'react';
 import Bell from './bell.svg';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 

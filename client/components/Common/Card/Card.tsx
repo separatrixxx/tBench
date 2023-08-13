@@ -1,7 +1,7 @@
 import { CardProps } from './Card.props';
 import styles from './Card.module.css';
 import { useSelector } from 'react-redux';
-import { AppState } from '@/pages/store';
+import { AppState } from 'features/store/store';
 import cn from 'classnames';
 
 
