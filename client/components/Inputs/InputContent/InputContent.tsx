@@ -1,18 +1,18 @@
 import styles from './InputContent.module.css';
 import { useEffect, useState } from 'react';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
 import { motion } from 'framer-motion';
 import { useResizeW } from 'hooks/useResize';
 import Search from './search.svg';
-import cn from 'classnames';
 import { searchUser } from 'helpers/search_user.helper';
 import { User } from 'interfaces/user.interface';
 import { SearchUserItem } from 'components/User/SearchUserItem/SearchUserItem';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
+import cn from 'classnames';
 
 
 export const InputContent = (): JSX.Element => {
-    const context = useContext(AppContext);
+    const theme = useSelector((state: AppState) => state.theme.theme);
 
     const width = useResizeW();
 
@@ -67,7 +67,7 @@ export const InputContent = (): JSX.Element => {
                 <Search />
             </span>
             <motion.input className={cn(styles.inputContent, {
-                [styles.darkThemeInputContent]: context.theme === 'dark',
+                [styles.darkThemeInputContent]: theme === 'dark',
             })} variants={variantsInput}
                 initial={flag ? 'visible' : 'hidden'}
                 transition={{ duration: 0.05 }}

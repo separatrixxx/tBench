@@ -1,15 +1,16 @@
 import { InputModalProps } from './InputModal.props';
 import styles from './InputModal.module.css';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
+
 export const InputModal = ({ type, text, value, onChange, onKeyDown }: InputModalProps): JSX.Element => {
-    const context = useContext(AppContext);
+    const theme = useSelector((state: AppState) => state.theme.theme);
 
     if (type === 'input') {
         return <input className={cn(styles.inputModal, {
-            [styles.darkThemeInputModal]: context.theme === 'dark',
+            [styles.darkThemeInputModal]: theme === 'dark',
         })}
             placeholder={text}
             value={value}
@@ -20,7 +21,7 @@ export const InputModal = ({ type, text, value, onChange, onKeyDown }: InputModa
             aria-label={text} />;
     } else {
         return <textarea className={cn(styles.areaModal, {
-            [styles.darkThemeAreaModal]: context.theme === 'dark',
+            [styles.darkThemeAreaModal]: theme === 'dark',
         })}
             placeholder={text}
             value={value}

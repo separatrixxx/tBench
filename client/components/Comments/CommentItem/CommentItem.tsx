@@ -2,18 +2,18 @@ import { CommentItemProps } from './CommentItem.props';
 import styles from './CommentItem.module.css';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
 import { Htag } from 'components/Common/Htag/Htag';
 import { formatTime } from 'helpers/format.helper';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
 
 export const CommentItem = ({ type, image, text, username, userImage, date }: CommentItemProps): JSX.Element => {
 	const router = useRouter();
 
-	const context = useContext(AppContext);
+	const theme = useSelector((state: AppState) => state.theme.theme);
 
 	switch (type) {
 		case 'image':
@@ -46,7 +46,7 @@ export const CommentItem = ({ type, image, text, username, userImage, date }: Co
 							priority={true}
 						/>
 						<Htag tag='xxs' className={cn(styles.dataText, {
-							[styles.darkThemeDataText]: context.theme === 'dark',
+							[styles.darkThemeDataText]: theme === 'dark',
 						})}>{formatTime(date, router.locale)}</Htag>
 					</div>
 				</div>
@@ -72,10 +72,10 @@ export const CommentItem = ({ type, image, text, username, userImage, date }: Co
 							</Htag>
 						</Link>
 						<p className={cn(styles.commentText, {
-							[styles.darkThemeCommentText]: context.theme === 'dark',
+							[styles.darkThemeCommentText]: theme === 'dark',
 						})}>{text}</p>
 						<Htag tag='xxs' className={cn(styles.dataText, {
-							[styles.darkThemeDataText]: context.theme === 'dark',
+							[styles.darkThemeDataText]: theme === 'dark',
 						})}>{formatTime(date, router.locale)}</Htag>
 					</div>
 				</div>
@@ -101,7 +101,7 @@ export const CommentItem = ({ type, image, text, username, userImage, date }: Co
 							</Htag>
 						</Link>
 						<p className={cn(styles.commentText, {
-							[styles.darkThemeCommentText]: context.theme === 'dark',
+							[styles.darkThemeCommentText]: theme === 'dark',
 						})}>{text}</p>
 						<Image className={styles.commentImage} draggable='false'
 							loader={() => image}
@@ -113,7 +113,7 @@ export const CommentItem = ({ type, image, text, username, userImage, date }: Co
 							priority={true}
 						/>
 						<Htag tag='xxs' className={cn(styles.dataText, {
-							[styles.darkThemeDataText]: context.theme === 'dark',
+							[styles.darkThemeDataText]: theme === 'dark',
 						})}>{formatTime(date, router.locale)}</Htag>
 					</div>
 				</div>

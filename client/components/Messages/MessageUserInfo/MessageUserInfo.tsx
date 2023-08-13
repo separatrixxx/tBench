@@ -1,28 +1,28 @@
 import { MessageUserInfoProps } from './MessageUserInfo.props';
 import styles from './MessageUserInfo.module.css';
 import { Htag } from 'components/Common/Htag/Htag';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
 import { useRouter } from 'next/router';
 import { setLocale } from 'helpers/locale.helper';
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
 
 export const MessageUserInfo = ({ user, username }: MessageUserInfoProps): JSX.Element => {
 	const router = useRouter();
 
-	const context = useContext(AppContext);
+	const theme = useSelector((state: AppState) => state.theme.theme);
 
 	return (
 		<Link href={'/' + user} className={cn(styles.messageUserInfoBlock, {
-			[styles.darkThemeMessageUserInfoBlock]: context.theme === 'dark',
+			[styles.darkThemeMessageUserInfoBlock]: theme === 'dark',
 		})}>
 			<Htag tag='s' className={styles.username}>
 				{username}
 			</Htag>
 			<Htag tag='xxs' className={cn(styles.lastSeen, {
-				[styles.darkThemeText]: context.theme === 'dark',
+				[styles.darkThemeText]: theme === 'dark',
 			})}>
 				{setLocale(router.locale).last_seen + " 18:33"}
 			</Htag>

@@ -1,14 +1,16 @@
 import { HeaderContentProps } from './HeaderContent.props';
 import styles from './HeaderContent.module.css';
-import { useContext, useState } from 'react';
-import { AppContext } from 'context/app.context';
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useScrollY } from 'hooks/useScrollY';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
 
+
 export const HeaderContent = ({ children, position, className }: HeaderContentProps): JSX.Element => {
-    const context = useContext(AppContext);
+    const theme = useSelector((state: AppState) => state.theme.theme);
 
     const [lastScroll, setLastScroll] = useState<number>(0);
     const [flag, setFlag] = useState<boolean>(false);
@@ -34,7 +36,7 @@ export const HeaderContent = ({ children, position, className }: HeaderContentPr
 
     return (
         <motion.header className={cn(className, styles.headerContent, {
-            [styles.darkThemeHeaderContent]: context.theme === 'dark',
+            [styles.darkThemeHeaderContent]: theme === 'dark',
             [styles.headerPositionRight]: position === 'right',
             [styles.headerPositionLeft]: position === 'left',
         })}

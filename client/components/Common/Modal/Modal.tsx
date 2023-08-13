@@ -1,12 +1,13 @@
 import { ModalProps } from './Modal.props';
 import styles from './Modal.module.css';
 import { motion } from 'framer-motion';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
+
 export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element => {
-    const context = useContext(AppContext);
+    const theme = useSelector((state: AppState) => state.theme.theme);
 
     const variants = {
         visible: {
@@ -35,7 +36,7 @@ export const Modal = ({ active, setActive, children }: ModalProps): JSX.Element 
             transition={{ duration: 0.15 }}
             animate={active ? 'visible' : 'hidden'}>
             <motion.div className={cn(styles.modalContent, {
-                [styles.darkThemeModalContent]: context.theme === 'dark',
+                [styles.darkThemeModalContent]: theme === 'dark',
             })} onClick={e => e.stopPropagation()}
                 variants={variantsModal}
                 initial={active ? 'visible' : 'hidden'}

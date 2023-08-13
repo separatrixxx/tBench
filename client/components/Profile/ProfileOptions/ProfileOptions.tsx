@@ -1,19 +1,19 @@
-import { ProfileOptionsProps } from './ProfileOptions.props';
 import styles from './ProfileOptions.module.css';
-import { useContext, useState } from 'react';
-import { AppContext } from 'context/app.context';
+import { useState } from 'react';
 import { useResizeW } from 'hooks/useResize';
 import { useScrollY } from 'hooks/useScrollY';
 import { ExitButton } from 'components/Buttons/ExitButton/ExitButton';
 import { ChangeTheme } from 'components/Buttons/ChangeTheme/ChangeTheme';
 import Settings from './settings.svg';
 import { motion } from 'framer-motion';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
 
-export const ProfileOptions = ({ setTheme }: ProfileOptionsProps): JSX.Element => {
-    const context = useContext(AppContext);
-
+export const ProfileOptions = (): JSX.Element => {
+    const theme = useSelector((state: AppState) => state.theme.theme);
+    
     const [hiddenOptions, setHiddenOptions] = useState<boolean>(true);
 
     const scrollPosition = useScrollY();
@@ -55,7 +55,7 @@ export const ProfileOptions = ({ setTheme }: ProfileOptionsProps): JSX.Element =
 
     return (
         <div className={cn(styles.profileOptions, {
-            [styles.darkThemeProfileOptions]: context.theme === 'dark',
+            [styles.darkThemeProfileOptions]: theme === 'dark',
             [styles.hidden]: opacity <= 0,
         })} style={{ opacity: opacity }} onMouseOver={() => {
             if (width >= 1024) {
@@ -67,7 +67,7 @@ export const ProfileOptions = ({ setTheme }: ProfileOptionsProps): JSX.Element =
             }
         }}>
             <motion.span className={cn(styles.optionsButton, {
-                [styles.darkThemeOptionsButton]: context.theme === 'dark',
+                [styles.darkThemeOptionsButton]: theme === 'dark',
             })} onClick={() => {
                 if (width < 1024) {
                     setHiddenOptions(!hiddenOptions);
@@ -84,7 +84,7 @@ export const ProfileOptions = ({ setTheme }: ProfileOptionsProps): JSX.Element =
                 initial={!hiddenOptions ? 'visible' : 'hidden'}
                 transition={{ duration: 0.3 }}
                 animate={!hiddenOptions ? 'visible' : 'hidden'}>
-                <ChangeTheme setTheme={setTheme} hiddenOptions={hiddenOptions} />
+                <ChangeTheme hiddenOptions={hiddenOptions} />
                 <ExitButton hiddenOptions={hiddenOptions} />
             </motion.div>
         </div>

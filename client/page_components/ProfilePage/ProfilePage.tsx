@@ -1,9 +1,7 @@
-import { ProfilePageProps } from './ProfilePage.props';
 import styles from './ProfilePage.module.css';
 import { BackButton } from 'components/Buttons/BackButton/BackButton';
 import { ProfileInfo } from 'components/Profile/ProfileInfo/ProfileInfo';
 import { UserContentList } from 'components/User/UserContentList/UserContentList';
-import { AppContextProvider } from 'context/app.context';
 import { useState } from 'react';
 import { ProfileCover } from 'components/Profile/ProfileCover/ProfileCover';
 import { ProfileImage } from 'components/Profile/ProfileImage/ProfileImage';
@@ -11,13 +9,13 @@ import { ProfileModal } from 'components/Profile/ProfileModal/ProfileModal';
 import { ProfileOptions } from 'components/Profile/ProfileOptions/ProfileOptions';
 import { ContentModal } from 'components/Content/ContentModal/ContentModal';
 import cn from 'classnames';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 
 
-export const ProfilePage = ({ theme, user }: ProfilePageProps): JSX.Element => {
-    const [themeState, setThemeState] = useState<string>(theme);
-    const setTheme = (newTheme: string) => {
-        setThemeState(newTheme);
-    };
+export const ProfilePage = (): JSX.Element => {
+    const theme = useSelector((state: AppState) => state.theme.theme);
+    const user = useSelector((state: AppState) => state.user.user);
 
     const [active, setActive] = useState<boolean>(false);
     const [activeContent, setActiveContent] = useState<boolean>(false);
@@ -29,13 +27,12 @@ export const ProfilePage = ({ theme, user }: ProfilePageProps): JSX.Element => {
     const [typeContent, setTypeContent] = useState<'post' | 'comments'>('post');
 
     return (
-        <AppContextProvider theme={theme} user={user}>
-            <div className={styles.profileWrapper}>
-                <ProfileOptions setTheme={setTheme} />
+        <div className={styles.profileWrapper}>
+                <ProfileOptions />
                 <ProfileCover active={active} setActive={setActive} setType={setType} />
                 <ProfileImage active={active} setActive={setActive} setType={setType} />
                 <div className={cn(styles.profileInfoWrapper, {
-                    [styles.darkThemeProfileInfoWrapper]: themeState === 'dark',
+                    [styles.darkThemeProfileInfoWrapper]: theme === 'dark',
                 })}>
                     <BackButton link='/content' />
                     <ProfileInfo active={active} setActive={setActive} setType={setType} username={user?.username}
@@ -46,6 +43,5 @@ export const ProfilePage = ({ theme, user }: ProfilePageProps): JSX.Element => {
                     userInfo={userInfo} setUserInfo={setUserInfo} />
                 <ContentModal type={typeContent} active={activeContent} setActive={setActiveContent} image={image} postId={postId} />
             </div>
-        </AppContextProvider>
     );
 };

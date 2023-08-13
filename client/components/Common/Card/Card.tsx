@@ -1,18 +1,18 @@
 import { CardProps } from './Card.props';
 import styles from './Card.module.css';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
 
 export const Card = ({ children, hover }: CardProps): JSX.Element => {
-	const context = useContext(AppContext);
+	const theme = useSelector((state: AppState) => state.theme.theme);
 
 	return (
 		<div className={cn(styles.card, {
-			[styles.darkThemeCard]: context.theme === 'dark',
+			[styles.darkThemeCard]: theme === 'dark',
 			[styles.cardHover]: hover,
-			[styles.darkThemeCardHover]: context.theme === 'dark' && hover,
+			[styles.darkThemeCardHover]:theme === 'dark' && hover,
 		})}>
 			{children}
 		</div>

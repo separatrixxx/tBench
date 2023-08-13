@@ -8,9 +8,9 @@ import { useState } from 'react';
 import Plus from './plus.svg';
 import { MoreInfoBlock } from '../MoreInfoBlock/MoreInfoBlock';
 import { Htag } from 'components/Common/Htag/Htag';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
 import Check from './check.svg';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
 
@@ -18,7 +18,7 @@ export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInf
     active, setActive }: ProfileModalProps): JSX.Element => {
     const router = useRouter();
 
-    const context = useContext(AppContext);
+    const theme = useSelector((state: AppState) => state.theme.theme);
 
     const [newUsername, setNewUsername] = useState<string>(username ? username : '');
     const [newUserInfo, setNewUserInfo] = useState<string>(userInfo ? userInfo : '');
@@ -55,7 +55,7 @@ export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInf
             return (
                 <Modal active={active} setActive={setActive}>
                     <div className={cn(styles.addImage, {
-                        [styles.darkThemeAddImage]: context.theme === 'dark',
+                        [styles.darkThemeAddImage]: theme === 'dark',
                     })}>
                         <Plus />
                     </div>
@@ -72,7 +72,7 @@ export const ProfileModal = ({ type, username, setUsername, userInfo, setUserInf
                 <Modal active={active} setActive={setActive}>
                     <span className={styles.verify}><Check /></span>
                     <Htag tag='m' className={cn(styles.verifyText, {
-                        [styles.darkThemeVerifyText]: context.theme === 'dark',
+                        [styles.darkThemeVerifyText]: theme === 'dark',
                     })}>{setLocale(router.locale).verify}</Htag>
                 </Modal>
             );

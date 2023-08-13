@@ -1,23 +1,24 @@
 import styles from './CommentInput.module.css';
-import { useContext, useState } from 'react';
-import { AppContext } from 'context/app.context';
+import { useState } from 'react';
 import Emoji from './emoji.svg';
 import Send from './send.svg';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
 
 export const CommentInput = (): JSX.Element => {
-	const context = useContext(AppContext);
+	const theme = useSelector((state: AppState) => state.theme.theme);
 
 	const [comment, setComment] = useState<string>('');
 
 	return (
 		<div className={cn(styles.wrapper, {
-			[styles.darkThemeWrapper]: context.theme === 'dark',
+			[styles.darkThemeWrapper]: theme === 'dark',
 		})}>
 			<label className={styles.labelComment}>
 				<input className={cn(styles.inputComment, {
-					[styles.darkThemeInputComment]: context.theme === 'dark',
+					[styles.darkThemeInputComment]: theme === 'dark',
 				})} type="text"
 					name="comment"
 					aria-label="comment"
