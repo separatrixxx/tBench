@@ -17,7 +17,7 @@ function Content(): JSX.Element {
   useEffect(() => {
 		pageHelper(router, dispatch, setIsAuth);
 		userHelper(dispatch);
-	}, [router]);
+	}, [router, dispatch]);
 
   if (isAuth) {
     return (
