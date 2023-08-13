@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { ErrorPage } from 'page_components/ErrorPage/ErrorPage';
 import { useEffect, useState } from 'react';
 
+
 function PageServerFailure(): JSX.Element {
 	const [theme, setTheme] = useState<string>('light');
 

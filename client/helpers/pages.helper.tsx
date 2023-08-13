@@ -1,5 +1,8 @@
 import axios, { AxiosResponse } from "axios";
 import { User } from "interfaces/user.interface";
+import { setTheme } from '../features/theme/themeSlice'
+import { setUser } from "features/user/userSlice";
+
 
 export function indexPageHelper(router: any, setIsAuth: (e: any) => void) {
 	const loggedIn = localStorage.getItem('logged_in');
@@ -12,7 +15,7 @@ export function indexPageHelper(router: any, setIsAuth: (e: any) => void) {
 	}
 }
 
-export function pageHelper(router: any, setIsAuth: (e: any) => void, setTheme: (e: any) => void) {
+export function pageHelper(router: any, dispatch: any, setIsAuth: (e: any) => void) {
 	const loggedIn = localStorage.getItem('logged_in');
 	const currentTheme = localStorage.getItem('theme');
 
@@ -24,11 +27,11 @@ export function pageHelper(router: any, setIsAuth: (e: any) => void, setTheme: (
 	}
 
 	if (currentTheme) {
-		setTheme(currentTheme);
+		dispatch(setTheme(currentTheme));
 	}
 }
 
-export async function userHelper(setUser: (e: any) => void) {
+export async function userHelper(dispatch: any) {
 	const loggedIn = localStorage.getItem('logged_in');
 	const username = localStorage.getItem('username');
 
@@ -36,6 +39,6 @@ export async function userHelper(setUser: (e: any) => void) {
 		const { data: response }: AxiosResponse<User[]> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN +
             '/get_user?type=username&information=' + username);
 
-		setUser(response[0]);
+		dispatch(setUser(response[0]));
 	}
 }

@@ -2,16 +2,16 @@ import { BackButtonProps } from './BackButton.props';
 import styles from './BackButton.module.css';
 import { useRouter } from 'next/router';
 import { useResizeW } from 'hooks/useResize';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
 import BackArrow from './back_arrow.svg';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
 
 export const BackButton = ({ link }: BackButtonProps): JSX.Element => {
     const router = useRouter();
 
-    const context = useContext(AppContext);
+    const theme = useSelector((state: AppState) => state.theme.theme);
 
     const width = useResizeW();
 
@@ -51,7 +51,7 @@ export const BackButton = ({ link }: BackButtonProps): JSX.Element => {
 
     return (
         <div className={cn(styles.backButton, {
-            [styles.darkThemeBackButton]: context.theme === 'dark',
+            [styles.darkThemeBackButton]: theme === 'dark',
         })} onClick={() => {
             if (width > 1024) {
                 router.push(link);
@@ -59,7 +59,7 @@ export const BackButton = ({ link }: BackButtonProps): JSX.Element => {
         }} onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}>
             <span className={cn(styles.arrowBack, {
-                [styles.darkThemeArrowBack]: context.theme === 'dark',
+                [styles.darkThemeArrowBack]: theme === 'dark',
             })}><BackArrow /></span>
             <div className={styles.blurBlock} />
         </div>

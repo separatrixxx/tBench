@@ -4,18 +4,19 @@ import { setLocale } from 'helpers/locale.helper';
 import { useRouter } from 'next/router';
 import { setStat } from 'helpers/stat.helper';
 import { ProfileStatItem } from '../ProfileStatItem/ProfileStatItem';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
+
 
 export const ProfileStatsBar = (): JSX.Element => {
     const router = useRouter();
 
-    const context = useContext(AppContext);
+    const theme = useSelector((state: AppState) => state.theme.theme);
 
     return (
         <div className={cn(styles.profileStatsBar, {
-            [styles.darkThemeProfileStatsBar]: context.theme === 'dark',
+            [styles.darkThemeProfileStatsBar]: theme === 'dark',
         })}>
             <ProfileStatItem>
                 <ProfileStat stat={setStat(344100000)} text={setLocale(router.locale).followers} />

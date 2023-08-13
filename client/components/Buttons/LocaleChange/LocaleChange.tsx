@@ -11,6 +11,7 @@ import { useState } from 'react';
 import { Modal } from 'components/Common/Modal/Modal';
 import { setLocale } from 'helpers/locale.helper';
 
+
 export const LocaleChange = (): JSX.Element => {
     const router = useRouter();
 

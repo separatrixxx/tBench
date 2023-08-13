@@ -1,15 +1,18 @@
 import { ChangeThemeProps } from './ChangeTheme.props';
 import styles from './ChangeTheme.module.css';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
 import Sun from './sun.svg';
 import Moon from './moon.svg';
 import { motion } from 'framer-motion';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
+import { setTheme } from 'features/theme/themeSlice';
 import cn from 'classnames';
 
 
-export const ChangeTheme = ({ setTheme, hiddenOptions }: ChangeThemeProps): JSX.Element => {
-    const context = useContext(AppContext);
+export const ChangeTheme = ({ hiddenOptions }: ChangeThemeProps): JSX.Element => {
+    const theme = useSelector((state: AppState) => state.theme.theme);
+    const dispatch = useDispatch();
+    
 
     const variants = {
         visible: {
@@ -27,7 +30,7 @@ export const ChangeTheme = ({ setTheme, hiddenOptions }: ChangeThemeProps): JSX.
     let Icon;
     let newTheme: string;
 
-    if (context.theme === 'light') {
+    if (theme === 'light') {
         Icon = Moon;
         newTheme = 'dark';
     } else {
@@ -37,10 +40,9 @@ export const ChangeTheme = ({ setTheme, hiddenOptions }: ChangeThemeProps): JSX.
 
     return (
         <motion.span className={cn(styles.changeTheme, {
-            [styles.darkChangeTheme]: context.theme === 'dark',
+            [styles.darkChangeTheme]: theme === 'dark',
         })} onClick={() => {
-            context.setTheme?.(newTheme);
-            setTheme?.(newTheme);
+            dispatch(setTheme(newTheme));
             localStorage.setItem('theme', newTheme);
         }}
             variants={variants}

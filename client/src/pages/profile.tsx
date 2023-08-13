@@ -5,27 +5,19 @@ import Head from "next/head";
 import { setLocale } from 'helpers/locale.helper';
 import { pageHelper, userHelper } from 'helpers/pages.helper';
 import { User } from "interfaces/user.interface";
+import { useDispatch } from 'react-redux'
+
 
 function Profile(): JSX.Element {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const [isAuth, setIsAuth] = useState<boolean>(false);
-  const [theme, setTheme] = useState<string>('light');
-
-  const userData: User = {
-    firstName: '',
-    lastName: '',
-    username: '',
-    email: '',
-    gender: 'male',
-  };
-
-  const [user, setUser] = useState<User>(userData);
 
   useEffect(() => {
-    pageHelper(router, setIsAuth, setTheme);
-    userHelper(setUser);
-  }, [router]);
+		pageHelper(router, dispatch, setIsAuth);
+		userHelper(dispatch);
+	}, [router]);
 
   if (isAuth) {
     return (
@@ -33,7 +25,7 @@ function Profile(): JSX.Element {
         <Head>
           <title>tBench - {setLocale(router.locale).profile}</title>
         </Head>
-        <ProfilePage theme={theme} user={user} />
+        <ProfilePage />
       </>
     );
   } else {

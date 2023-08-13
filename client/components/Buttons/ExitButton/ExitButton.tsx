@@ -1,16 +1,16 @@
 import { ExitButtonProps } from './ExitButton.props';
 import styles from './ExitButton.module.css';
 import { useRouter } from 'next/router';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
 import Exit from './exit.svg';
 import { motion } from 'framer-motion';
+import { AppState } from '@/pages/store';
+import { useSelector } from 'react-redux';
 import cn from 'classnames';
 
 
 export const ExitButton = ({ hiddenOptions }: ExitButtonProps): JSX.Element => {
     const router = useRouter();
-    const context = useContext(AppContext);
+    const theme = useSelector((state: AppState) => state.theme.theme);
 
     const variants = {
         visible: {
@@ -27,7 +27,7 @@ export const ExitButton = ({ hiddenOptions }: ExitButtonProps): JSX.Element => {
 
     return (
         <motion.span className={cn(styles.exitButton, {
-            [styles.darkThemeExitButton]: context.theme === 'dark',
+            [styles.darkThemeExitButton]: theme === 'dark',
         })} onClick={() => {
             router.push('/');
             localStorage.removeItem('logged_in');

@@ -2,8 +2,10 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import React from 'react';
+import { wrapper } from './store';
 
-export default function App({ Component, pageProps }: AppProps) {
+
+function App({ Component, pageProps }: AppProps) {
   return <>
     <Head>
       <title>tBench</title>
@@ -18,3 +20,5 @@ export default function App({ Component, pageProps }: AppProps) {
     <Component {...pageProps} />
   </>;
 }
+
+export default wrapper.withRedux(App);

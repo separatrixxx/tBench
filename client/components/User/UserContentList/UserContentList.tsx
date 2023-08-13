@@ -1,12 +1,13 @@
 import { UserContentListProps } from './UserContentList.props';
 import styles from './UserContentList.module.css';
 import { UserContentItem } from '../UserContentItem/UserContentItem';
-import { useContext } from 'react';
-import { AppContext } from 'context/app.context';
+import { useSelector } from 'react-redux';
+import { AppState } from '@/pages/store';
 import cn from 'classnames';
 
+
 export const UserContentList = ({ setType, setActive, setImage, setPostId }: UserContentListProps): JSX.Element => {
-    const context = useContext(AppContext);
+    const theme = useSelector((state: AppState) => state.theme.theme);
 
     const content1 = {
         id: 1,
@@ -38,7 +39,7 @@ export const UserContentList = ({ setType, setActive, setImage, setPostId }: Use
 
     return (
         <div className={cn(styles.userContentList, {
-            [styles.darkThemeUserContentList]: context.theme === 'dark',
+            [styles.darkThemeUserContentList]: theme === 'dark',
         })}>
             {content.map(c => (
                 <UserContentItem key={c.id} type={c.type} image={c.image} text={c.text} postId={c.id} date={c.date}
