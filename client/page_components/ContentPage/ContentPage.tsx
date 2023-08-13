@@ -13,6 +13,7 @@ import { motion } from 'framer-motion';
 import { MessagesList } from 'components/Messages/MessagesList/MessagesList';
 import { useSelector } from 'react-redux';
 import { AppState } from 'features/store/store';
+import { Toaster } from 'react-hot-toast';
 import cn from 'classnames';
 
 
@@ -36,43 +37,52 @@ export const ContentPage = (): JSX.Element => {
     };
 
     return (
-        <div className={cn(styles.contentWrapper, {
-            [styles.darkThemeWrapper]: theme === 'dark',
-        })}>
-            <HeaderContent className={styles.headerContent} position='right'>
-                <InputContent />
-                <NotificationsButton isNotification={true} />
-                <HeaderUserIcon className={styles.contentUserIcon} user='profile' userImage='/rainbow.jpg' />
-            </HeaderContent>
-            <div className={styles.pagesSwitch}>
-                <Htag tag='xl' className={cn(styles.switchText, {
-                    [styles.darkThemeSwitchText]: theme === 'dark',
-                    [styles.dontActiveText]: page !== 'content' && theme !== 'dark',
-                    [styles.darkThemeDontActiveText]: page !== 'content' && theme === 'dark',
-                })} onClick={() => setPage('content')}>{setLocale(router.locale).content}</Htag>
-                <Htag tag='xl' className={cn(styles.switchText, {
-                    [styles.darkThemeSwitchText]: theme === 'dark',
-                    [styles.dontActiveText]: page !== 'messages' && theme !== 'dark',
-                    [styles.darkThemeDontActiveText]: page !== 'messages' && theme === 'dark',
-                })} onClick={() => setPage('messages')}>{setLocale(router.locale).messages}</Htag>
+        <>
+            <Toaster
+                position="top-center"
+                reverseOrder={true}
+                toastOptions={{
+                    duration: 2000,
+                }}
+            />
+            <div className={cn(styles.contentWrapper, {
+                [styles.darkThemeWrapper]: theme === 'dark',
+            })}>
+                <HeaderContent className={styles.headerContent} position='right'>
+                    <InputContent />
+                    <NotificationsButton isNotification={true} />
+                    <HeaderUserIcon className={styles.contentUserIcon} user='profile' userImage='/rainbow.jpg' />
+                </HeaderContent>
+                <div className={styles.pagesSwitch}>
+                    <Htag tag='xl' className={cn(styles.switchText, {
+                        [styles.darkThemeSwitchText]: theme === 'dark',
+                        [styles.dontActiveText]: page !== 'content' && theme !== 'dark',
+                        [styles.darkThemeDontActiveText]: page !== 'content' && theme === 'dark',
+                    })} onClick={() => setPage('content')}>{setLocale(router.locale).content}</Htag>
+                    <Htag tag='xl' className={cn(styles.switchText, {
+                        [styles.darkThemeSwitchText]: theme === 'dark',
+                        [styles.dontActiveText]: page !== 'messages' && theme !== 'dark',
+                        [styles.darkThemeDontActiveText]: page !== 'messages' && theme === 'dark',
+                    })} onClick={() => setPage('messages')}>{setLocale(router.locale).messages}</Htag>
+                </div>
+                <div className={styles.pagesWrapper}>
+                    <motion.div className={styles.contentPage}
+                        variants={variants}
+                        initial={page === 'content' ? 'content' : 'messages'}
+                        transition={{ duration: 0.3 }}
+                        animate={page === 'content' ? 'content' : 'messages'}>
+                        <ContentList setType={setTypeContent} setActive={setActiveContent} setImage={setImage} setPostId={setPostId} />
+                    </motion.div>
+                    <motion.div className={styles.messagesPage}
+                        variants={variants}
+                        initial={page === 'content' ? 'content' : 'messages'}
+                        transition={{ duration: 0.3 }}
+                        animate={page === 'content' ? 'content' : 'messages'}>
+                        <MessagesList />
+                    </motion.div>
+                </div>
+                <ContentModal type={typeContent} active={activeContent} setActive={setActiveContent} image={image} postId={postId} />
             </div>
-            <div className={styles.pagesWrapper}>
-                <motion.div className={styles.contentPage}
-                    variants={variants}
-                    initial={page === 'content' ? 'content' : 'messages'}
-                    transition={{ duration: 0.3 }}
-                    animate={page === 'content' ? 'content' : 'messages'}>
-                    <ContentList setType={setTypeContent} setActive={setActiveContent} setImage={setImage} setPostId={setPostId} />
-                </motion.div>
-                <motion.div className={styles.messagesPage}
-                    variants={variants}
-                    initial={page === 'content' ? 'content' : 'messages'}
-                    transition={{ duration: 0.3 }}
-                    animate={page === 'content' ? 'content' : 'messages'}>
-                    <MessagesList />
-                </motion.div>
-            </div>
-            <ContentModal type={typeContent} active={activeContent} setActive={setActiveContent} image={image} postId={postId} />
-        </div>
+        </>
     );
 };

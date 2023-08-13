@@ -8,9 +8,10 @@ import { ProfileImage } from 'components/Profile/ProfileImage/ProfileImage';
 import { ProfileModal } from 'components/Profile/ProfileModal/ProfileModal';
 import { ProfileOptions } from 'components/Profile/ProfileOptions/ProfileOptions';
 import { ContentModal } from 'components/Content/ContentModal/ContentModal';
-import cn from 'classnames';
 import { useSelector } from 'react-redux';
 import { AppState } from 'features/store/store';
+import { Toaster } from 'react-hot-toast';
+import cn from 'classnames';
 
 
 export const ProfilePage = (): JSX.Element => {
@@ -27,7 +28,15 @@ export const ProfilePage = (): JSX.Element => {
     const [typeContent, setTypeContent] = useState<'post' | 'comments'>('post');
 
     return (
-        <div className={styles.profileWrapper}>
+        <>
+            <Toaster
+                position="top-center"
+                reverseOrder={true}
+                toastOptions={{
+                    duration: 2000,
+                }}
+            />
+            <div className={styles.profileWrapper}>
                 <ProfileOptions />
                 <ProfileCover active={active} setActive={setActive} setType={setType} />
                 <ProfileImage active={active} setActive={setActive} setType={setType} />
@@ -43,5 +52,6 @@ export const ProfilePage = (): JSX.Element => {
                     userInfo={userInfo} setUserInfo={setUserInfo} />
                 <ContentModal type={typeContent} active={activeContent} setActive={setActiveContent} image={image} postId={postId} />
             </div>
+        </>
     );
 };
