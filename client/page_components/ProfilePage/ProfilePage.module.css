@@ -33,6 +33,11 @@
 	background: var(--darkTheme);
 }
 
+.toaster {
+	position: absolute;
+	z-index: 10002;
+}
+
 @media (max-width: 580px) {
 	.profileInfoWrapper {
 		margin-top: 165px;

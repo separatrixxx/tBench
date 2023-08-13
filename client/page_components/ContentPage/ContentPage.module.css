@@ -78,6 +78,11 @@
 	justify-items: center;
 }
 
+.toaster {
+	position: absolute;
+	z-index: 10002;
+}
+
 @media (max-width: 580px) {
 	.headerContent {
 		gap: 15px;

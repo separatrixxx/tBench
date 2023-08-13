@@ -38,13 +38,15 @@ export const ContentPage = (): JSX.Element => {
 
     return (
         <>
-            <Toaster
-                position="top-center"
-                reverseOrder={true}
-                toastOptions={{
-                    duration: 2000,
-                }}
-            />
+            <div className={styles.toaster}>
+                <Toaster
+                    position="top-center"
+                    reverseOrder={true}
+                    toastOptions={{
+                        duration: 2000,
+                    }}
+                />
+            </div>
             <div className={cn(styles.contentWrapper, {
                 [styles.darkThemeWrapper]: theme === 'dark',
             })}>
