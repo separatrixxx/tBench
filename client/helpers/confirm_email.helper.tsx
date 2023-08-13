@@ -16,7 +16,7 @@ export function confirmCode(): string {
 let code: string;
 
 export function timerStart(setSecondsCount: (e: any) => void) {
-	let seconds = 10;
+	let seconds = 30;
 	setSecondsCount(seconds);
 	const timerId = setInterval(() => {
 		seconds -= 1;
@@ -24,7 +24,7 @@ export function timerStart(setSecondsCount: (e: any) => void) {
 	}, 1000);
 	setTimeout(() => {
 		clearInterval(timerId);
-	}, 10000);
+	}, 30000);
 }
 
 export async function emailSend(setFormType: (e: any) => void,

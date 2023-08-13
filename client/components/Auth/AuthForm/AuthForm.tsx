@@ -22,7 +22,7 @@ export const AuthForm = (): JSX.Element => {
 
 	const [type, setType] = useState<'login' | 'registration' | 'forgot'>('login');
 	const [formType, setFormType] = useState<'login' | 'registration' | 'forgot' | 'confirm'>('login');
-	const [secondsCount, setSecondsCount] = useState<number>(10);
+	const [secondsCount, setSecondsCount] = useState<number>(30);
 
 	const [username, setUsername] = useState<string>('');
 	const [firstName, setFirstName] = useState<string>('');
