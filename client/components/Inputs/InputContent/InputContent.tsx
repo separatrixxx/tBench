@@ -26,7 +26,7 @@ export const InputContent = (): JSX.Element => {
 
     const variants = {
         visible: {
-            height: '100px',
+            height: 'fit-content',
         },
         hidden: {
             height: '0px',
