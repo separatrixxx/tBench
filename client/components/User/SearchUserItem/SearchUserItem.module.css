@@ -1,0 +1,50 @@
+.searchUserItem {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+    margin: 5px 10px;
+    gap: 10px;
+    padding: 3px 5px;
+    border-radius: 10px;
+    transition-duration: 300ms;
+    cursor: pointer;
+}
+
+.searchUserImage {
+    width: 30px;
+	height: 30px;
+
+	border-radius: 9999px;
+	background: var(--primary);
+}
+
+.userInfo {
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.name {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.searchUserItem:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	background: var(--lighter);
+}
+
+@media (min-width: 1024px) {
+    .searchUserItem:hover {
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    
+        background: var(--lighter);
+    }
+}
+
+@media (max-width: 580px) {
+	.searchUserImage {
+		width: 25px;
+		height: 25px;
+	}
+}
