@@ -45,7 +45,7 @@ export const WowPage = (): JSX.Element => {
 				<EnterCodeForm />
 				<Htag tag='l' className={styles.text}>Number Counter //alpha</Htag>
 				<NumberCounter id='c1' number={1603} time={7000} step={1} />
-				<Htag tag='l' className={styles.text}>Wow Button //alpha</Htag>
+				<Htag tag='l' className={styles.text}>Wow Button</Htag>
 				<WowButton />
 				{/* <Htag tag='l' className={styles.text}>Looking 3D</Htag>
 				<Looking3D /> */}
