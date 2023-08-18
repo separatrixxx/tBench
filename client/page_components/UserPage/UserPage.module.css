@@ -1,0 +1,46 @@
+.userWrapper {
+	display: flex;
+	justify-content: center;
+
+	width: 100%;
+
+	transition-duration: 300ms;
+
+	background: var(--white);
+}
+
+.userInfoWrapper {
+	position: absolute;
+	z-index: 9999;
+
+	display: grid;
+
+	width: 100%;
+	margin-top: 195px;
+	padding-top: 80px;
+
+	transition-duration: 300ms;
+
+	border-radius: 20px 20px 0 0;
+
+	background: var(--white);
+	justify-items: center;
+}
+
+.darkThemeUserInfoWrapper {
+	transition-duration: 300ms;
+
+	background: var(--darkTheme);
+}
+
+.toaster {
+	position: absolute;
+	z-index: 10002;
+}
+
+@media (max-width: 580px) {
+	.userInfoWrapper {
+		margin-top: 165px;
+		padding-top: 50px;
+	}
+}

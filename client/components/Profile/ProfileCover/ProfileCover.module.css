@@ -1,16 +1,19 @@
-.profileCover {
+.userCover {
 	position: fixed;
 	z-index: 9998;
 
 	width: 100%;
 	height: 220px;
 
-	cursor: pointer;
 	user-select: none;
 }
 
+.profileCover {
+	cursor: pointer;
+}
+
 @media (max-width: 580px) {
-	.profileCover {
+	.userCover {
 		height: 180px;
 	}
 }

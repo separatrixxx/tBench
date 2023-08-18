@@ -1,0 +1,112 @@
+.profileInfo {
+	display: grid;
+
+	width: 100%;
+
+	justify-items: center;
+}
+
+.usernameBlock {
+	z-index: 10000;
+
+	display: grid;
+	align-items: center;
+
+	margin-top: 20px;
+	grid-template-columns: 1fr auto;
+}
+
+.username {
+	transition-duration: 300ms;
+}
+
+.verify {
+	display: grid;
+
+	width: 25px;
+	height: fit-content;
+	margin: 0;
+
+	fill: var(--primary);
+}
+
+.userInfo {
+	display: -webkit-box;
+	overflow: hidden;
+
+	max-width: 300px;
+
+	margin-top: 15px !important;
+	
+	transition-duration: 300ms;
+
+	text-align: center;
+	text-overflow: ellipsis;
+
+	font-weight: 500 !important;
+	-moz-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+}
+
+.userInfo:hover {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	-webkit-line-clamp: 10;
+	line-clamp: 10;
+}
+
+.darkThemeText {
+	transition-duration: 300ms;
+
+	color: var(--white) !important;
+}
+
+.pulse {
+	width: 170px;
+	height: 35px;
+	border-radius: 9999px;
+	background: var(--light);
+	animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.darkThemePulse {
+	background: var(--dark);
+}
+
+@keyframes pulse {
+	0%, 100% {
+	  opacity: 1;
+	}
+	50% {
+	  opacity: 0.5;
+	}
+  }
+
+@media (min-width: 1024px) {
+	.moreInfo:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		color: var(--primary);
+	}
+}
+
+@media (max-width: 580px) {
+	.userInfo {
+		max-width: 200px;
+	}
+
+	.username {
+		font-size: 1.5rem !important;
+		line-height: 2rem !important;
+	}
+
+	.verify {
+		width: 20px;
+	}
+
+	.pulse {
+		width: 120px;
+		height: 30px;
+	}
+}
