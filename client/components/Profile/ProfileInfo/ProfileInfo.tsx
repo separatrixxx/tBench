@@ -1,7 +1,6 @@
 import { ProfileInfoProps } from './ProfileInfo.props';
 import styles from './ProfileInfo.module.css';
 import { Htag } from 'components/Common/Htag/Htag';
-import { ProfileActionsBar } from '../ProfileActionsBar/ProfileActionsBar';
 import { ProfileStatsBar } from '../ProfileStatsBar/ProfileStatsBar';
 import { UserSpecificies } from 'components/User/UserSpecificies/UserSpecificies';
 import Check from './check.svg';
@@ -43,7 +42,6 @@ export const ProfileInfo = ({ active, setActive, setType, username, userInfo }: 
                 {userInfo}
             </Htag>
             <ProfileStatsBar />
-            <ProfileActionsBar />
         </div>
     );
 };

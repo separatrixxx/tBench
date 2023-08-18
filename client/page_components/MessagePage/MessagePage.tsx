@@ -19,7 +19,7 @@ export const MessagePage = (): JSX.Element => {
 		})}>
 			<BackButton link='/profile' />
 			<HeaderContent className={styles.messageHeader} position='left'>
-				<HeaderUserIcon className={styles.messageUserIcon} user='profile' userImage='/rainbow.jpg' />
+				<HeaderUserIcon className={styles.messageUserIcon} userImage='/rainbow.jpg' />
 				<MessageUserInfo user='profile' username={username} />
 			</HeaderContent>
 		</div>

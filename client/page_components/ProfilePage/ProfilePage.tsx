@@ -1,3 +1,4 @@
+import { ProfilePageProps } from "./ProfilePage.props";
 import styles from './ProfilePage.module.css';
 import { BackButton } from 'components/Buttons/BackButton/BackButton';
 import { ProfileInfo } from 'components/Profile/ProfileInfo/ProfileInfo';
@@ -14,9 +15,8 @@ import { Toaster } from 'react-hot-toast';
 import cn from 'classnames';
 
 
-export const ProfilePage = (): JSX.Element => {
+export const ProfilePage = ({ user }: ProfilePageProps): JSX.Element => {
     const theme = useSelector((state: AppState) => state.theme.theme);
-    const user = useSelector((state: AppState) => state.user.user);
 
     const [active, setActive] = useState<boolean>(false);
     const [activeContent, setActiveContent] = useState<boolean>(false);
@@ -40,7 +40,7 @@ export const ProfilePage = (): JSX.Element => {
             </div>
             <div className={styles.profileWrapper}>
                 <ProfileOptions />
-                <ProfileCover active={active} setActive={setActive} setType={setType} />
+                <ProfileCover active={active} setActive={setActive} setType={setType} isProfile={true}  />
                 <ProfileImage active={active} setActive={setActive} setType={setType} />
                 <div className={cn(styles.profileInfoWrapper, {
                     [styles.darkThemeProfileInfoWrapper]: theme === 'dark',

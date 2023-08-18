@@ -53,7 +53,7 @@ export const ContentPage = (): JSX.Element => {
                 <HeaderContent className={styles.headerContent} position='right'>
                     <InputContent />
                     <NotificationsButton isNotification={true} />
-                    <HeaderUserIcon className={styles.contentUserIcon} user='profile' userImage='/rainbow.jpg' />
+                    <HeaderUserIcon className={styles.contentUserIcon} userImage='/rainbow.jpg' />
                 </HeaderContent>
                 <div className={styles.pagesSwitch}>
                     <Htag tag='xl' className={cn(styles.switchText, {
