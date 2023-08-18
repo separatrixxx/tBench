@@ -48,25 +48,14 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const paths: any[] = [];
 
-
-  if (users) {
-    users.map(user => {
-      return locales.map((locale) => {
-        return paths.push({
-          params: { user: user.username },
-          locale,
-        });
-      });
-    });
-  } else {
-    // на время
-    locales.map((locale) => {
+  users.map(user => {
+    return locales.map((locale) => {
       return paths.push({
-        params: { user: 'separatrix' },
+        params: { user: user.username },
         locale,
       });
     });
-  }
+  });
 
 	return {
 		paths: paths,
