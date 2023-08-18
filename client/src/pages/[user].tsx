@@ -44,29 +44,29 @@ function User({ user }: UserProps): JSX.Element {
 export const getStaticPaths: GetStaticPaths = async () => {
 	const { data: users }: AxiosResponse<User[]> = await axios.get(process.env.NEXT_PUBLIC_DOMAIN + '/get_all_users');
 
-    const locales = ['de', 'en', 'fr', 'ru', 'zh'];
+  const locales = ['de', 'en', 'fr', 'ru', 'zh'];
 
-    const paths: any[] = [];
+  const paths: any[] = [];
 
 
-    if (users) {
-      users.map(user => {
-        return locales.map((locale) => {
-          return paths.push({
-            params: { user: user.username },
-            locale,
-          });
-        });
-      });
-    } else {
-      // на время
-      locales.map((locale) => {
+  if (users) {
+    users.map(user => {
+      return locales.map((locale) => {
         return paths.push({
-          params: { user: 'separatrix' },
+          params: { user: user.username },
           locale,
         });
-      });;
-    }
+      });
+    });
+  } else {
+    // на время
+    locales.map((locale) => {
+      return paths.push({
+        params: { user: 'separatrix' },
+        locale,
+      });
+    });
+  }
 
 	return {
 		paths: paths,
