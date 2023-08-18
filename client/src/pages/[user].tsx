@@ -47,14 +47,26 @@ export const getStaticPaths: GetStaticPaths = async () => {
     const locales = ['de', 'en', 'fr', 'ru', 'zh'];
 
     const paths: any[] = [];
-    users.map(user => {
-      return locales.map((locale) => {
-        return paths.push({
-          params: { user: user.username },
-          locale,
+
+
+    if (users) {
+      users.map(user => {
+        return locales.map((locale) => {
+          return paths.push({
+            params: { user: user.username },
+            locale,
+          });
         });
       });
-    });
+    } else {
+      // на время
+      locales.map((locale) => {
+        return paths.push({
+          params: { user: 'separatrix' },
+          locale,
+        });
+      });;
+    }
 
 	return {
 		paths: paths,
