@@ -1,43 +1,47 @@
 .wrapper {
-	margin: 0 20px 50px;
+	margin: 0 20px 10px;
 }
 
 .buttonForm {
 	position: relative;
+
 	display: grid;
-	grid-template-columns: auto;
+	overflow: hidden;
 	align-items: center;
 
 	width: 250px;
 	height: 100px;
-	overflow: hidden;
 
 	cursor: pointer;
 
 	border: 2px solid var(--white);
 	border-radius: 9999px;
 	box-shadow: inset 0 10px 20px rgb(0 0 0 / 0.3);
+	grid-template-columns: auto;
 	filter: drop-shadow(0 3px 10px rgb(0 0 0 / 0.1));
 }
 
 .circle {
+	position: absolute;
+	z-index: 3;
+
 	display: grid;
 	align-items: center;
-	justify-items: center;
-	z-index: 3;
-	position: absolute;
+
 	width: 80px;
 	height: 80px;
 	margin: 0 10px 0 10px;
 
 	border-radius: 9999px;
 	box-shadow: inset 0 -7px 5px rgb(0 0 0 / 0.3);
+	justify-items: center;
 	filter: drop-shadow(5px 7px 7px rgb(0 0 0 / 0.5));
 }
 
 .clouds1,
 .clouds2 {
 	position: absolute;
+
 	width: 250px;
 }
 
@@ -50,8 +54,9 @@
 }
 
 .stars {
-	z-index: 1;
 	position: absolute;
+	z-index: 1;
+
 	width: 250px;
 }
 
@@ -61,9 +66,9 @@
 	position: absolute;
 
 	border-radius: 9999px;
+	background: #979DAF;
 	box-shadow: inset 0 3px 5px rgb(0 0 0 / 0.3);
 	filter: drop-shadow(0 3px 10px rgb(0 0 0 / 0.1));
-	background: #979DAF;
 }
 
 .crater1 {

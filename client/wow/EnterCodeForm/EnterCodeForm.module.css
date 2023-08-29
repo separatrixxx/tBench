@@ -1,23 +1,27 @@
 .enterCodeForm {
-    width: fit-content;
-    border-radius: 20px;
-    padding: 30px 20px;
-    background: var(--light);
-    margin-left: 20px;
+	width: fit-content;
+	margin-left: 20px;
+	padding: 30px 20px;
+
+	border-radius: 20px;
+	background: var(--light);
 }
 
 .enterChar {
-    width: 35px;
-    height: 50px;
-    background: var(--lighter);
-    border-radius: 10px;
-    border: 1px solid var(--dark);
-    text-align: center;
-    font-size: 1.5rem;
+	width: 35px;
+	height: 50px;
+	margin: 0 3px 0 3px;
+
+	text-align: center;
+
+	border: 1px solid var(--dark);
+	border-width: 0;
+	border-radius: 10px;
+	background: var(--lighter);
+
+	font-size: 1.5rem;
 	font-weight: 500;
 	line-height: 1.5rem;
-    border-width: 0;
-    margin: 0 3px 0 3px;
 }
 
 .enterChar:focus {
@@ -27,11 +31,11 @@
 }
 
 .error {
-    outline: 2px solid var(--error);
+	outline: 2px solid var(--error);
 }
 
 .error:focus {
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 	outline-color: var(--error);
 }
