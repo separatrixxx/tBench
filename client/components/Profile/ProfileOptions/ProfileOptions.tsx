@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 import { useSelector } from 'react-redux';
 import { AppState } from 'features/store/store';
 import cn from 'classnames';
+import { MetaMaskButton } from 'components/Buttons/MetaMaskButton/MetaMaskButton';
 
 
 export const ProfileOptions = (): JSX.Element => {
@@ -42,7 +43,7 @@ export const ProfileOptions = (): JSX.Element => {
 
     const variantsBlock = {
         visible: {
-            height: '85px',
+            height: '125px',
             marginTop: '5px',
             gap: '5px',
         },
@@ -85,6 +86,7 @@ export const ProfileOptions = (): JSX.Element => {
                 transition={{ duration: 0.3 }}
                 animate={!hiddenOptions ? 'visible' : 'hidden'}>
                 <ChangeTheme hiddenOptions={hiddenOptions} />
+                <MetaMaskButton hiddenOptions={hiddenOptions} />
                 <ExitButton hiddenOptions={hiddenOptions} />
             </motion.div>
         </div>

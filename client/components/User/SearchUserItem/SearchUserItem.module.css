@@ -1,17 +1,20 @@
 .searchUserItem {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    align-items: center;
-    margin: 5px 10px;
-    gap: 10px;
-    padding: 3px 5px;
-    border-radius: 10px;
-    transition-duration: 300ms;
-    cursor: pointer;
+	display: grid;
+	align-items: center;
+
+	margin: 5px 10px;
+	padding: 3px 5px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	border-radius: 10px;
+	grid-template-columns: auto 1fr;
+	gap: 10px;
 }
 
 .searchUserImage {
-    width: 30px;
+	width: 30px;
 	height: 30px;
 
 	border-radius: 9999px;
@@ -19,13 +22,14 @@
 }
 
 .userInfo {
-    display: grid;
-    grid-template-columns: auto;
+	display: grid;
+	grid-template-columns: auto;
 }
 
 .name {
-    font-weight: 600;
-    color: var(--primary);
+	color: var(--primary);
+
+	font-weight: 600;
 }
 
 .searchUserItem:active {
@@ -35,11 +39,11 @@
 }
 
 @media (min-width: 1024px) {
-    .searchUserItem:hover {
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    
-        background: var(--lighter);
-    }
+	.searchUserItem:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		background: var(--lighter);
+	}
 }
 
 @media (max-width: 580px) {

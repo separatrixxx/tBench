@@ -1,43 +1,45 @@
 .boringWrapper {
-    z-index: 9999;
-    position: absolute;
-    top: 10px;
-    transform: rotate(-40deg);
+	position: absolute;
+	z-index: 9999;
+	top: 10px;
+
+	transform: rotate(-40deg);
 }
 
 .boringTitle {
-    user-select: none;
-    animation-timing-function: ease-out;
+	user-select: none;
 	animation-name: shake;
 	animation-duration: 0.5s;
-    -moz-animation-iteration-count: infinite;
+	animation-timing-function: ease-out;
+	-moz-animation-iteration-count: infinite;
 	-webkit-animation-iteration-count: infinite;
 	animation-iteration-count: infinite;
-    color: var(--primary);
+
+	color: var(--primary);
 }
 
 @keyframes shake {
 	0% {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-    }
+		-webkit-transform: scale(1);
+		-ms-transform: scale(1);
+		transform: scale(1);
+	}
 
-    50% {
-        -webkit-transform: scale(1.1);
-        -ms-transform: scale(1.1);
-        transform: scale(1.15);
-    }
+	50% {
+		-webkit-transform: scale(1.1);
+		-ms-transform: scale(1.1);
+		transform: scale(1.15);
+	}
 
-    100% {
-        -webkit-transform: scale(1);
-        -ms-transform: scale(1);
-        transform: scale(1);
-    }
+	100% {
+		-webkit-transform: scale(1);
+		-ms-transform: scale(1);
+		transform: scale(1);
+	}
 }
 
 @media (max-width: 430px) {
 	.boringWrapper {
-        display: none;
-    }
+		display: none;
+	}
 }

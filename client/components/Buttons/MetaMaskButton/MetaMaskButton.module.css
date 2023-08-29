@@ -1,0 +1,51 @@
+.exitButton {
+	display: grid;
+	align-items: center;
+
+	padding: 4px;
+
+	transition-duration: 300ms;
+	transition-property: color, background-color, fill;
+
+	border-radius: 9999px;
+	background: var(--white);
+
+	justify-items: center;
+}
+
+.exitButton > svg {
+	width: 30px;
+	height: 30px;
+
+	cursor: pointer;
+	transition-duration: 300ms;
+
+	transition-property: color, background-color, fill;
+	fill: var(--dark);
+}
+
+.darkThemeExitButton > svg {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	fill: var(--white);
+}
+
+.exitButton > svg:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	fill: var(--primary);
+}
+
+.darkThemeExitButton {
+	transition-duration: 300ms;
+
+	background: var(--darkTheme);
+}
+
+@media (min-width: 1024px) {
+	.exitButton > svg:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+		fill: var(--primary);
+	}
+}
