@@ -4,13 +4,15 @@ import Head from 'next/head';
 import React from 'react';
 import { wrapper } from '../../features/store/store';
 import { Provider } from 'react-redux';
+import { ThirdwebProvider } from '@thirdweb-dev/react';
 
 
 export default function App({ Component, pageProps }: AppProps) {
   const { store } = wrapper.useWrappedStore(pageProps);
 
   return (
-    <Provider store={store}>
+    <ThirdwebProvider activeChain="ethereum" clientId="your-client-id">
+      <Provider store={store}>
       <Head>
         <title>tBench</title>
         <meta name='description' content='Decentralized social network tBench. A unique place to start
@@ -23,5 +25,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </Head>
       <Component {...pageProps} />
     </Provider>
+  </ThirdwebProvider>
+    
   );
 }
