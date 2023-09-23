@@ -1,7 +1,6 @@
 .wrapper {
 	width: max-content;
-	margin-bottom: 50px;
-	margin-left: 20px;
+	margin: 0 20px 50px;
 }
 
 .mdForm {

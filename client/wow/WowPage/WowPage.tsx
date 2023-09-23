@@ -19,6 +19,7 @@ import Yula from './DLElements/yula.svg';
 import { NumberCounter } from 'wow/NumberCounter/NumberCounter';
 import { EnterCodeForm } from 'wow/EnterCodeForm/EnterCodeForm';
 import { Toaster } from 'react-hot-toast';
+import { WowCaptcha } from 'wow/WowCaptcha/WowCaptcha';
 import { SimpleMarkdown } from 'wow/SimpleMarkdown/SimpleMarkdown';
 
 
@@ -48,6 +49,8 @@ export const WowPage = (): JSX.Element => {
 				<NumberCounter id='c1' number={1603} time={7000} step={1} />
 				<Htag tag='l' className={styles.text}>Wow Button</Htag>
 				<WowButton />
+				<Htag tag='l' className={styles.text}>WowCaptcha //alpha</Htag>
+				<WowCaptcha />
 				<Htag tag='l' className={styles.text}>Simple Markdown //alpha</Htag>
 				<SimpleMarkdown />
 				{/* <Htag tag='l' className={styles.text}>Looking 3D</Htag>

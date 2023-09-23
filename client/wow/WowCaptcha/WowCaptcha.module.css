@@ -1,0 +1,43 @@
+.wrapper {
+	margin: 0 20px 10px;
+}
+
+.elemsForm {
+	display: grid;
+	grid-template-columns: repeat(3, 30px);
+	gap: 50px;
+	margin-top: 20px;
+}
+
+.elem {
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	transition-duration: 300ms;
+}
+
+.elem:active {
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+	transform: scale(1.1);
+}
+
+.circle {
+	border-radius: 9999px;
+}
+
+.triangle {
+	width: 0;
+    height: 0;
+    border-left: 25px solid rgba(255, 255, 255, 1);
+    border-right: 25px solid rgba(255, 255, 255, 1);
+    border-bottom: 50px solid red;
+}
+
+@media (min-width: 1024px) {
+	.elem:hover {
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	
+		transform: scale(1.1);
+	}
+}
