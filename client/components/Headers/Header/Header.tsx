@@ -41,7 +41,6 @@ export const Header = ({ links }: HeaderProps): JSX.Element => {
         visible: {
             height: 'fit-content',
             opacity: 1,
-            pointerEvents: 'auto',
             transition: {
                 duration: 0.3,
             }
@@ -49,7 +48,6 @@ export const Header = ({ links }: HeaderProps): JSX.Element => {
         hidden: {
             height: 0,
             opacity: 0,
-            pointerEvents: 'none',
             transition: {
                 duration: 0.3,
             }
