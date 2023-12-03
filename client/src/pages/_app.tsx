@@ -13,19 +13,19 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <ThirdwebProvider activeChain="ethereum" clientId="your-client-id">
       <Provider store={store}>
-      <Head>
-        <title>tBench</title>
-        <meta name='description' content='Decentralized social network tBench. A unique place to start
-          and develop your brands, ideas and creativity.' />
-        <meta property='og:title' content='tBench' />
-        <meta property='og:description' content='Decentralized social network tBench. A unique place to start
-          and develop your brands, ideas and creativity.' />
-        <meta charSet="utf-8" />
-        <link rel="icon" href="/logo_icon_circle.svg" type='image/svg+xml' />
-      </Head>
-      <Component {...pageProps} />
-    </Provider>
-  </ThirdwebProvider>
+        <Head>
+          <title>tBench</title>
+          <meta name='description' content='Decentralized social network tBench. A unique place to start
+            and develop your brands, ideas and creativity.' />
+          <meta property='og:title' content='tBench' />
+          <meta property='og:description' content='Decentralized social network tBench. A unique place to start
+            and develop your brands, ideas and creativity.' />
+          <meta charSet="utf-8" />
+          <link rel="icon" href="/logo_icon_circle.svg" type='image/svg+xml' />
+        </Head>
+        <Component {...pageProps} />
+      </Provider>
+    </ThirdwebProvider>
     
   );
 }
